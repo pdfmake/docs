@@ -2,3 +2,6 @@ baseURL = "https://pdfmake.github.io/docs/"
 languageCode = "en-us"
 title = "pdfmake"
 theme = "docdock"
+
+[params]
+disableSearch = true
