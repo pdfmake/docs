@@ -11,21 +11,21 @@ disableSearch = true
 
 [[menu.shortcuts]]
 pre = "<h3>More</h3>"
-name = "<i class='fa fa-play'></i> Playground"
+name = "<i class='fa fa-play'></i> <label>Playground</label>"
 identifier = "playground"
 url = "http://pdfmake.org/playground.html"
 weight = 1
 
 [[menu.shortcuts]]
 pre = "<h3>More</h3>"
-name = "<i class='fa fa-home'></i> pdfmake.org"
+name = "<i class='fa fa-home'></i> <label>pdfmake.org</label>"
 identifier = "pdfmakeorg"
 url = "http://pdfmake.org"
 weight = 2
 
 [[menu.shortcuts]]
 pre = "<h3>More</h3>"
-name = "<i class='fa fa-github'></i> Github repo"
+name = "<i class='fa fa-github'></i> <label>Github repo</label>"
 identifier = "github"
 url = "https://github.com/bpampuch/pdfmake"
 weight = 3
