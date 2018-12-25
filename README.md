@@ -1,11 +1,14 @@
 # pdfmake docs
 
-### Requirements
+Sources for website https://pdfmake.github.io/docs/
+
+### Run from sources
+
+#### Requirements
 
 * Hugo (https://gohugo.io/)
 
-
-### Clone and start website
+#### Clone and start website
 
 ```
 git clone https://github.com/pdfmake/docs.git
