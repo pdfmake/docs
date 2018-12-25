@@ -14,3 +14,7 @@ var docDefinition = { content: 'This is an sample PDF printed with pdfMake' };
 ```
 
 or become pretty complex (having multi-level tables, images, lists, paragraphs, margins, styles etc...).
+
+#### Units
+
+All numbers are in points (pt) unit (sometimes labeled as PDF/PostScript points).
