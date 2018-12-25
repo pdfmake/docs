@@ -10,12 +10,6 @@ On server-side you can simply install via npm:
 npm install pdfmake
 ```
 
-#### Supported Node.js versions
-
-* 6 LTS (End-of-life: April 2019)
-* 8 LTS
-* 10 LTS
-
 #### Example:
 ```js
 // Define font files

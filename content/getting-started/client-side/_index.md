@@ -38,7 +38,3 @@ You can get both files:
    `require('pdfmake/build/pdfmake.js');` and `require('pdfmake/build/vfs_fonts.js');`
 
 or copy them directly from the build directory from the repository. Otherwise you can always [build it from sources](https://github.com/bpampuch/pdfmake#building-from-sources).
-
-#### Supported browsers
-
-See [issue](https://github.com/bpampuch/pdfmake/issues/800).
