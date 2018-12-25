@@ -184,10 +184,10 @@ var docDefinition = { content: [ { // you&#39;ll most often use dataURI images o
     
     <item>
       <title>Document Metadata</title>
-      <link>http://localhost:1313/docs/document-definition-object/document-medatada/</link>
+      <link>http://localhost:1313/docs/document-definition-object/document-medatadata/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/docs/document-definition-object/document-medatada/</guid>
+      <guid>http://localhost:1313/docs/document-definition-object/document-medatadata/</guid>
       <description>PDF documents can have various metadata associated with them, such as the title, or author of the document. You can add that information by adding it to the document definition
 var docDefinition = { info: { title: &#39;awesome Document&#39;, author: &#39;john doe&#39;, subject: &#39;subject of document&#39;, keywords: &#39;keywords for document&#39;, }, content: &#39;This is an sample PDF printed with pdfMake&#39; }  Standard properties:
  title - the title of the document author - the name of the author subject - the subject of the document keywords - keywords associated with the document creator - the creator of the document (default is &amp;lsquo;pdfmake&amp;rsquo;) producer - the producer of the document (default is &amp;lsquo;pdfmake&amp;rsquo;) creationDate - the date the document was created (added automatically by pdfmake) modDate - the date the document was last modified trapped - the trapped flag in a PDF document indicates whether the document has been &amp;ldquo;trapped&amp;rdquo;  Custom properties:</description>
