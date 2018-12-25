@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>pdfmake</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="generator" content="Hugo 0.52" />
+<title>Tables :: pdfmake</title>
+<link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
+<link href="/docs/css/font-awesome.min.css" rel="stylesheet">
+<link href="/docs/css/nucleus.css" rel="stylesheet">
+<link href="/docs/theme-flex/style.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/docs/css/bootstrap.min.css">
+<script src="/docs/js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "http:\/\/localhost:1313\/docs\/";
+</script>
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/docs/document-definition-object/tables/">
+    
+      <header>
+  <div class="logo">
+    
+	
+  
+    <a class="baselink" href="http://localhost:1313/docs/">pdfmake</a>
+  
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="http://pdfmake.org/playground.html"  rel="noopener">
+                  <i class='fa fa-play'></i> Playground
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="http://pdfmake.org"  rel="noopener">
+                  <i class='fa fa-home'></i> pdfmake.org
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/bpampuch/pdfmake"  rel="noopener">
+                  <i class='fa fa-github'></i> Github repo
+                </a>
+            </li>
+    </nav>
+</header>
+<article>
+  <aside>
+    <ul class="menu">
+          <li data-nav-id="/docs/" class="dd-item">
+          <a href="/docs/">
+            <i class="fa fa-fw fa-home"></i>
+          </a>
+          </li>
+    <li data-nav-id="/docs/getting-started/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/getting-started/">Getting started</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="/docs/getting-started/client-side/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/getting-started/client-side/">Client-side</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="/docs/getting-started/client-side/methods/" class="dd-item">
+        <div>
+          <a href="/docs/getting-started/client-side/methods/">
+            Methods
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/docs/getting-started/client-side/supported-browsers/" class="dd-item">
+        <div>
+          <a href="/docs/getting-started/client-side/supported-browsers/">
+            Supported browsers
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/docs/getting-started/client-side/examples/" class="dd-item">
+        <div>
+          <a href="/docs/getting-started/client-side/examples/">
+            Examples
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/docs/getting-started/server-side/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/getting-started/server-side/">Server-side</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="/docs/getting-started/server-side/supported-nodejs-versions/" class="dd-item">
+        <div>
+          <a href="/docs/getting-started/server-side/supported-nodejs-versions/">
+            Supported Node.js versions
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/docs/getting-started/server-side/examples/" class="dd-item">
+        <div>
+          <a href="/docs/getting-started/server-side/examples/">
+            Examples
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/docs/document-definition-object/" class="dd-item parent alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/document-definition-object/">Document-definition-object</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="/docs/document-definition-object/styling/" class="dd-item">
+        <div>
+          <a href="/docs/document-definition-object/styling/">
+            Styling
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/docs/document-definition-object/columns/" class="dd-item">
+        <div>
+          <a href="/docs/document-definition-object/columns/">
+            Columns
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/docs/document-definition-object/tables/" class="dd-item active">
+        <div>
+          <a href="/docs/document-definition-object/tables/">
+            Tables
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/docs/document-definition-object/lists/" class="dd-item">
+        <div>
+          <a href="/docs/document-definition-object/lists/">
+            Lists
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/docs/document-definition-object/headers-footers/" class="dd-item">
+        <div>
+          <a href="/docs/document-definition-object/headers-footers/">
+            Headers and footers
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/docs/document-definition-object/background-layer/" class="dd-item">
+        <div>
+          <a href="/docs/document-definition-object/background-layer/">
+            Background-layer
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/docs/document-definition-object/margins/" class="dd-item">
+        <div>
+          <a href="/docs/document-definition-object/margins/">
+            Margins
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/docs/document-definition-object/stack/" class="dd-item">
+        <div>
+          <a href="/docs/document-definition-object/stack/">
+            Stack of paragraphs
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/docs/document-definition-object/images/" class="dd-item">
+        <div>
+          <a href="/docs/document-definition-object/images/">
+            Images
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/docs/document-definition-object/links/" class="dd-item">
+        <div>
+          <a href="/docs/document-definition-object/links/">
+            Links
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/docs/document-definition-object/toc/" class="dd-item">
+        <div>
+          <a href="/docs/document-definition-object/toc/">
+            Table of contents
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/docs/document-definition-object/page/" class="dd-item">
+        <div>
+          <a href="/docs/document-definition-object/page/">
+            Page dimensions, orientation and margins
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/docs/document-definition-object/document-medatada/" class="dd-item">
+        <div>
+          <a href="/docs/document-definition-object/document-medatada/">
+            Document Metadata
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/docs/document-definition-object/compression/" class="dd-item">
+        <div>
+          <a href="/docs/document-definition-object/compression/">
+            Compression
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/docs/getting-started/" >
+   Getting started</option> 
+    <option value="/docs/getting-started/client-side/" >
+  - 
+   Client-side</option> 
+      <option value="/docs/getting-started/client-side/methods/" >-- Methods</option>
+      <option value="/docs/getting-started/client-side/supported-browsers/" >-- Supported browsers</option>
+      <option value="/docs/getting-started/client-side/examples/" >-- Examples</option>
+  
+    <option value="/docs/getting-started/server-side/" >
+  - 
+   Server-side</option> 
+      <option value="/docs/getting-started/server-side/supported-nodejs-versions/" >-- Supported Node.js versions</option>
+      <option value="/docs/getting-started/server-side/examples/" >-- Examples</option>
+  
+  
+    <option value="/docs/document-definition-object/" >
+   Document-definition-object</option> 
+      <option value="/docs/document-definition-object/styling/" >- Styling</option>
+      <option value="/docs/document-definition-object/columns/" >- Columns</option>
+      <option value="/docs/document-definition-object/tables/"  selected>- Tables</option>
+      <option value="/docs/document-definition-object/lists/" >- Lists</option>
+      <option value="/docs/document-definition-object/headers-footers/" >- Headers and footers</option>
+      <option value="/docs/document-definition-object/background-layer/" >- Background-layer</option>
+      <option value="/docs/document-definition-object/margins/" >- Margins</option>
+      <option value="/docs/document-definition-object/stack/" >- Stack of paragraphs</option>
+      <option value="/docs/document-definition-object/images/" >- Images</option>
+      <option value="/docs/document-definition-object/links/" >- Links</option>
+      <option value="/docs/document-definition-object/toc/" >- Table of contents</option>
+      <option value="/docs/document-definition-object/page/" >- Page dimensions, orientation and margins</option>
+      <option value="/docs/document-definition-object/document-medatada/" >- Document Metadata</option>
+      <option value="/docs/document-definition-object/compression/" >- Compression</option>
+  
+
+
+
+        </select>
+      </center>
+    </div>
+    
+
+    <h1>Tables</h1>
+    
+    
+    
+    
+
+<p>Conceptually tables are similar to columns. They can however have headers, borders and cells spanning over multiple columns/rows.</p>
+
+<pre><code class="language-js">var docDefinition = {
+  content: [
+    {
+      layout: 'lightHorizontalLines', // optional
+      table: {
+        // headers are automatically repeated if the table spans over multiple pages
+        // you can declare how many rows should be treated as headers
+        headerRows: 1,
+        widths: [ '*', 'auto', 100, '*' ],
+
+        body: [
+          [ 'First', 'Second', 'Third', 'The last one' ],
+          [ 'Value 1', 'Value 2', 'Value 3', 'Value 4' ],
+          [ { text: 'Bold value', bold: true }, 'Val 2', 'Val 3', 'Val 4' ]
+        ]
+      }
+    }
+  ]
+};
+</code></pre>
+
+<h5 id="own-table-layouts">Own table layouts</h5>
+
+<p>Own table layouts must be defined before calling <code>pdfMake.createPdf(docDefinition)</code>.</p>
+
+<pre><code class="language-js">pdfMake.tableLayouts = {
+  exampleLayout: {
+    hLineWidth: function (i, node) {
+      if (i === 0 || i === node.table.body.length) {
+        return 0;
+      }
+      return (i === node.table.headerRows) ? 2 : 1;
+    },
+    vLineWidth: function (i) {
+      return 0;
+    },
+    hLineColor: function (i) {
+      return i === 1 ? 'black' : '#aaa';
+    },
+    paddingLeft: function (i) {
+      return i === 0 ? 0 : 8;
+    },
+    paddingRight: function (i, node) {
+      return (i === node.table.widths.length - 1) ? 0 : 8;
+    }
+  }
+};
+
+// download the PDF
+pdfMake.createPdf(docDefinition).download();
+</code></pre>
+
+<p>Alternatively, you can pass the tableLayouts directly to <code>createPdf</code> without changing the global value:</p>
+
+<pre><code class="language-js">pdfMake.createPdf(docDefinition, tableLayouts).download();
+
+// The full signature of createPdf looks like this.
+// tableLayouts, fonts and vfs are all optional - falsy values will cause
+// pdfMake.tableLayouts, pdfMake.fonts or pdfMake.vfs to be used.
+pdfMake.createPdf(docDefinition, tableLayouts, fonts, vfs)
+</code></pre>
+
+<p>All concepts related to tables are covered by TABLES example in <a href="http://pdfmake.org/playground.html">playground</a>.</p>
+
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="/docs/document-definition-object/columns/" title="Columns"> <i class="fa fa-chevron-left"></i><label>Columns</label></a>
+    <a class="nav nav-next" href="/docs/document-definition-object/lists/" title="Lists" style="margin-right: 0px;"><label>Lists</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+    <div class="github-link">
+      <a href="https://github.com/pdfmake/docs/edit/master/content/document-definition-object/tables.md" target="blank"><i class="fa fa-code-fork"></i>
+        Improve this page</a>
+    </div>
+    
+  </div>
+
+
+	<div>
+
+
+  
+    
+  
+
+
+
+	</div>
+</footer>
+
+<script src="/docs/js/clipboard.min.js"></script>
+
+<link href="/docs/css/featherlight.min.css" rel="stylesheet">
+<script src="/docs/js/featherlight.min.js"></script>
+
+
+
+<script src="/docs/theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    
+  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+</html>

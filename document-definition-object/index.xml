@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Document-definition-object on pdfmake</title>
+    <link>http://localhost:1313/docs/document-definition-object/</link>
+    <description>Recent content in Document-definition-object on pdfmake</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://localhost:1313/docs/document-definition-object/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Styling</title>
+      <link>http://localhost:1313/docs/document-definition-object/styling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/docs/document-definition-object/styling/</guid>
+      <description>pdfmake makes it possible to style any paragraph or its part:
+var docDefinition = { content: [ // if you don&#39;t need styles, you can use a simple string to define a paragraph &#39;This is a standard paragraph, using default style&#39;, // using a { text: &#39;...&#39; } object lets you set styling properties { text: &#39;This paragraph will have a bigger font&#39;, fontSize: 15 }, // if you set the value of text to an array instead of a string, you&#39;ll be able // to style any part individually { text: [ &#39;This paragraph is defined as an array of elements to make it possible to &#39;, { text: &#39;restyle part of it and make it bigger &#39;, fontSize: 15 }, &#39;than the rest.</description>
+    </item>
+    
+    <item>
+      <title>Columns</title>
+      <link>http://localhost:1313/docs/document-definition-object/columns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/docs/document-definition-object/columns/</guid>
+      <description>By default paragraphs are rendered as a vertical stack of elements (one below another). It is possible however to divide available space into columns.
+var docDefinition = { content: [ &#39;This paragraph fills full width, as there are no columns. Next paragraph however consists of three columns&#39;, { columns: [ { // auto-sized columns have their widths based on their content width: &#39;auto&#39;, text: &#39;First column&#39; }, { // star-sized columns fill the remaining space // if there&#39;s more than one star-column, available width is divided equally width: &#39;*&#39;, text: &#39;Second column&#39; }, { // fixed width width: 100, text: &#39;Third column&#39; }, { // % width width: &#39;20%&#39;, text: &#39;Fourth column&#39; } ], // optional space between columns columnGap: 10 }, &#39;This paragraph goes below all columns and has full width&#39; ] };  Column content is not limited to a simple text.</description>
+    </item>
+    
+    <item>
+      <title>Tables</title>
+      <link>http://localhost:1313/docs/document-definition-object/tables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/docs/document-definition-object/tables/</guid>
+      <description>Conceptually tables are similar to columns. They can however have headers, borders and cells spanning over multiple columns/rows.
+var docDefinition = { content: [ { layout: &#39;lightHorizontalLines&#39;, // optional table: { // headers are automatically repeated if the table spans over multiple pages // you can declare how many rows should be treated as headers headerRows: 1, widths: [ &#39;*&#39;, &#39;auto&#39;, 100, &#39;*&#39; ], body: [ [ &#39;First&#39;, &#39;Second&#39;, &#39;Third&#39;, &#39;The last one&#39; ], [ &#39;Value 1&#39;, &#39;Value 2&#39;, &#39;Value 3&#39;, &#39;Value 4&#39; ], [ { text: &#39;Bold value&#39;, bold: true }, &#39;Val 2&#39;, &#39;Val 3&#39;, &#39;Val 4&#39; ] ] } } ] };  Own table layouts Own table layouts must be defined before calling pdfMake.</description>
+    </item>
+    
+    <item>
+      <title>Lists</title>
+      <link>http://localhost:1313/docs/document-definition-object/lists/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/docs/document-definition-object/lists/</guid>
+      <description>pdfmake supports both numbered and bulleted lists:
+var docDefinition = { content: [ &#39;Bulleted list example:&#39;, { // to treat a paragraph as a bulleted list, set an array of items under the ul key ul: [ &#39;Item 1&#39;, &#39;Item 2&#39;, &#39;Item 3&#39;, { text: &#39;Item 4&#39;, bold: true }, ] }, &#39;Numbered list example:&#39;, { // for numbered lists set the ol key ol: [ &#39;Item 1&#39;, &#39;Item 2&#39;, &#39;Item 3&#39; ] } ] };  </description>
+    </item>
+    
+    <item>
+      <title>Headers and footers</title>
+      <link>http://localhost:1313/docs/document-definition-object/headers-footers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/docs/document-definition-object/headers-footers/</guid>
+      <description>Page headers and footers in pdfmake can be: static or dynamic.
+They use the same syntax:
+var docDefinition = { header: &#39;simple text&#39;, footer: { columns: [ &#39;Left part&#39;, { text: &#39;Right part&#39;, alignment: &#39;right&#39; } ] }, content: (...) };  For dynamically generated content (including page numbers, page count and page size) you can pass a function to the header or footer:
+var docDefinition = { footer: function(currentPage, pageCount) { return currentPage.</description>
+    </item>
+    
+    <item>
+      <title>Background-layer</title>
+      <link>http://localhost:1313/docs/document-definition-object/background-layer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/docs/document-definition-object/background-layer/</guid>
+      <description>The background-layer will be added on every page.
+var docDefinition = { background: &#39;simple text&#39;, content: (...) };  It may contain any other object as well (images, tables, &amp;hellip;) or be dynamically generated:
+var docDefinition = { background: function(currentPage, pageSize) { return `page ${currentPage} with size ${pageSize.width} x ${pageSize.height}` }, content: (...) };  </description>
+    </item>
+    
+    <item>
+      <title>Margins</title>
+      <link>http://localhost:1313/docs/document-definition-object/margins/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/docs/document-definition-object/margins/</guid>
+      <description>Any element in pdfMake can have a margin:
+(...) // margin: [left, top, right, bottom] { text: &#39;sample&#39;, margin: [ 5, 2, 10, 20 ] }, // margin: [horizontal, vertical] { text: &#39;another text&#39;, margin: [5, 2] }, // margin: equalLeftTopRightBottom { text: &#39;last one&#39;, margin: 5 } (...)  </description>
+    </item>
+    
+    <item>
+      <title>Stack of paragraphs</title>
+      <link>http://localhost:1313/docs/document-definition-object/stack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/docs/document-definition-object/stack/</guid>
+      <description>You could have figured out by now (from the examples), that if you set the content key to an array, the document becomes a stack of paragraphs.
+You&amp;rsquo;ll quite often reuse this structure in a nested element, like in the following example:
+var docDefinition = { content: [ &#39;paragraph 1&#39;, &#39;paragraph 2&#39;, { columns: [ &#39;first column is a simple text&#39;, [ // second column consists of paragraphs &#39;paragraph A&#39;, &#39;paragraph B&#39;, &#39;these paragraphs will be rendered one below another inside the column&#39; ] ] } ] };  The problem with an array is that you cannot add styling properties to it (to change fontSize for example).</description>
+    </item>
+    
+    <item>
+      <title>Images</title>
+      <link>http://localhost:1313/docs/document-definition-object/images/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/docs/document-definition-object/images/</guid>
+      <description>This is simple. Just use the { image: &#39;...&#39; } node type.
+JPEG and PNG formats are supported.
+var docDefinition = { content: [ { // you&#39;ll most often use dataURI images on the browser side // if no width/height/fit is provided, the original size will be used image: &#39;data:image/jpeg;base64,...encodedContent...&#39; }, { // if you specify width, image will scale proportionally image: &#39;data:image/jpeg;base64,...encodedContent...&#39;, width: 150 }, { // if you specify both width and height - image will be stretched image: &#39;data:image/jpeg;base64,.</description>
+    </item>
+    
+    <item>
+      <title>Links</title>
+      <link>http://localhost:1313/docs/document-definition-object/links/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/docs/document-definition-object/links/</guid>
+      <description>To add external or internal links, use the following syntax:
+{text: &#39;google&#39;, link: &#39;http://google.com&#39;} {text:&#39;Go to page 2&#39;, linkToPage: 2}  </description>
+    </item>
+    
+    <item>
+      <title>Table of contents</title>
+      <link>http://localhost:1313/docs/document-definition-object/toc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/docs/document-definition-object/toc/</guid>
+      <description>var docDefinition = { content: [ { toc: { // id: &#39;mainToc&#39; // optional title: {text: &#39;INDEX&#39;, style: &#39;header&#39;} } }, { text: &#39;This is a header&#39;, style: &#39;header&#39;, tocItem: true, // or tocItem: &#39;mainToc&#39; if is used id in toc // or tocItem: [&#39;mainToc&#39;, &#39;subToc&#39;] for multiple tocs } ] }  </description>
+    </item>
+    
+    <item>
+      <title>Page dimensions, orientation and margins</title>
+      <link>http://localhost:1313/docs/document-definition-object/page/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/docs/document-definition-object/page/</guid>
+      <description>var docDefinition = { // a string or { width: number, height: number } pageSize: &#39;A5&#39;, // by default we use portrait, you can change it to landscape if you wish pageOrientation: &#39;landscape&#39;, // [left, top, right, bottom] or [horizontal, vertical] or just a number for equal margins pageMargins: [ 40, 60, 40, 60 ], };  If you set pageSize to a string, you can use one of the following values:</description>
+    </item>
+    
+    <item>
+      <title>Document Metadata</title>
+      <link>http://localhost:1313/docs/document-definition-object/document-medatada/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/docs/document-definition-object/document-medatada/</guid>
+      <description>PDF documents can have various metadata associated with them, such as the title, or author of the document. You can add that information by adding it to the document definition
+var docDefinition = { info: { title: &#39;awesome Document&#39;, author: &#39;john doe&#39;, subject: &#39;subject of document&#39;, keywords: &#39;keywords for document&#39;, }, content: &#39;This is an sample PDF printed with pdfMake&#39; }  Standard properties:
+ title - the title of the document author - the name of the author subject - the subject of the document keywords - keywords associated with the document creator - the creator of the document (default is &amp;lsquo;pdfmake&amp;rsquo;) producer - the producer of the document (default is &amp;lsquo;pdfmake&amp;rsquo;) creationDate - the date the document was created (added automatically by pdfmake) modDate - the date the document was last modified trapped - the trapped flag in a PDF document indicates whether the document has been &amp;ldquo;trapped&amp;rdquo;  Custom properties:</description>
+    </item>
+    
+    <item>
+      <title>Compression</title>
+      <link>http://localhost:1313/docs/document-definition-object/compression/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/docs/document-definition-object/compression/</guid>
+      <description>Compression of PDF is enabled by default, use compress: false for disable:
+var docDefinition = { compress: false, content: (...) };  </description>
+    </item>
+    
+  </channel>
+</rss>
