@@ -23,18 +23,53 @@ To begin in browser with the default configuration, you should include two files
 ...
 ```
 
-You can get both files:
+### Library sources
 
-* using cdnjs:
- * https://cdnjs.com/libraries/pdfmake
-* using bower:
- * ```
-   bower install pdfmake
-   ```
-* using npm (primarily server-side):
- * ```
-   npm install pdfmake
-   ```
-   `require('pdfmake/build/pdfmake.js');` and `require('pdfmake/build/vfs_fonts.js');`
+#### cdnjs
 
-or copy them directly from the build directory from the repository. Otherwise you can always [build it from sources](https://github.com/bpampuch/pdfmake#building-from-sources).
+https://cdnjs.com/libraries/pdfmake
+
+#### bower
+
+```
+bower install pdfmake
+```
+
+#### npm (primarily server-side)
+
+```
+npm install pdfmake
+```
+Files for client-side is available here:
+
+* `require('pdfmake/build/pdfmake.js');` 
+* `require('pdfmake/build/vfs_fonts.js');`
+
+Using javascript frameworks:
+
+```js
+var pdfMake = require('pdfmake/build/pdfmake.js');
+var pdfFonts = require('pdfmake/build/vfs_fonts.js');
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+```
+
+or
+
+```js
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+```
+
+For Ionic and Angular see [issue](https://github.com/bpampuch/pdfmake/issues/1030).
+
+If a **Cannot read property 'TYPED_ARRAY_SUPPORT' of undefined** error is thrown, add this to webpack config:
+```
+exclude: [ /node_modules/, /pdfmake.js$/ ]
+```
+(see [issue](https://github.com/bpampuch/pdfmake/issues/1100#issuecomment-336728521))
+
+
+#### Repository
+
+Copy them directly from the build directory from the repository. Otherwise you can always [build it from sources](https://github.com/bpampuch/pdfmake#building-from-sources).
