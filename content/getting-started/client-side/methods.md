@@ -24,7 +24,7 @@ Parameters:
 * `options` _(optional)_
 * `win` _(optional)_ - window (when an asynchronous operation)
 
-Name can be defined only by using metadata `title` property (see [Document metadata](#document-metadata)).
+Name can be defined only by using metadata `title` property (see [Document metadata](/docs/document-definition-object/document-medatadata/)).
 
 Asynchronous example:
 ```js
