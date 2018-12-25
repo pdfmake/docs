@@ -8,7 +8,7 @@ description = ""
 Client/server side PDF printing in pure JavaScript.
 
 {{% notice warning %}}
-# <i class='fa fa-hourglass'></i> Under Construction <i class='fa fa-hourglass'></i>
+<center><big><i class='fa fa-hourglass'></i> Documentation Under Construction <i class='fa fa-hourglass'></i></big></center>
 {{% /notice %}}
 
 ## Features
