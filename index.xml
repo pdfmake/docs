@@ -20,7 +20,7 @@
  defaultFileName (optional) - file name cb (optional) - callback function options (optional)  Open the PDF in a new window pdfMake.createPdf(docDefinition).open();  Parameters:
  options (optional) win (optional) - window (when an asynchronous operation)  Name can be defined only by using metadata title property (see Document metadata).
 Asynchronous example:
-$scope.generatePdf = function() { // create the window before the callback var win = window.</description>
+$scope.generatePdf = function() { // create the window before the callback  var win = window.</description>
     </item>
     
     <item>
@@ -67,7 +67,7 @@ $scope.generatePdf = function() { // create the window before the callback var w
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/styling/</guid>
       <description>pdfmake makes it possible to style any paragraph or its part:
-var docDefinition = { content: [ // if you don&#39;t need styles, you can use a simple string to define a paragraph &#39;This is a standard paragraph, using default style&#39;, // using a { text: &#39;...&#39; } object lets you set styling properties { text: &#39;This paragraph will have a bigger font&#39;, fontSize: 15 }, // if you set the value of text to an array instead of a string, you&#39;ll be able // to style any part individually { text: [ &#39;This paragraph is defined as an array of elements to make it possible to &#39;, { text: &#39;restyle part of it and make it bigger &#39;, fontSize: 15 }, &#39;than the rest.</description>
+var docDefinition = { content: [ // if you don&amp;#39;t need styles, you can use a simple string to define a paragraph  &amp;#39;This is a standard paragraph, using default style&amp;#39;, // using a { text: &amp;#39;...&amp;#39; } object lets you set styling properties  { text: &amp;#39;This paragraph will have a bigger font&amp;#39;, fontSize: 15 }, // if you set the value of text to an array instead of a string, you&amp;#39;ll be able  // to style any part individually  { text: [ &amp;#39;This paragraph is defined as an array of elements to make it possible to &amp;#39;, { text: &amp;#39;restyle part of it and make it bigger &amp;#39;, fontSize: 15 }, &amp;#39;than the rest.</description>
     </item>
     
     <item>
@@ -77,7 +77,7 @@ var docDefinition = { content: [ // if you don&#39;t need styles, you can use a 
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/columns/</guid>
       <description>By default paragraphs are rendered as a vertical stack of elements (one below another). It is possible however to divide available space into columns.
-var docDefinition = { content: [ &#39;This paragraph fills full width, as there are no columns. Next paragraph however consists of three columns&#39;, { columns: [ { // auto-sized columns have their widths based on their content width: &#39;auto&#39;, text: &#39;First column&#39; }, { // star-sized columns fill the remaining space // if there&#39;s more than one star-column, available width is divided equally width: &#39;*&#39;, text: &#39;Second column&#39; }, { // fixed width width: 100, text: &#39;Third column&#39; }, { // % width width: &#39;20%&#39;, text: &#39;Fourth column&#39; } ], // optional space between columns columnGap: 10 }, &#39;This paragraph goes below all columns and has full width&#39; ] };  Column content is not limited to a simple text.</description>
+var docDefinition = { content: [ &amp;#39;This paragraph fills full width, as there are no columns. Next paragraph however consists of three columns&amp;#39;, { columns: [ { // auto-sized columns have their widths based on their content  width: &amp;#39;auto&amp;#39;, text: &amp;#39;First column&amp;#39; }, { // star-sized columns fill the remaining space  // if there&amp;#39;s more than one star-column, available width is divided equally  width: &amp;#39;*&amp;#39;, text: &amp;#39;Second column&amp;#39; }, { // fixed width  width: 100, text: &amp;#39;Third column&amp;#39; }, { // % width  width: &amp;#39;20%&amp;#39;, text: &amp;#39;Fourth column&amp;#39; } ], // optional space between columns  columnGap: 10 }, &amp;#39;This paragraph goes below all columns and has full width&amp;#39; ] };  Column content is not limited to a simple text.</description>
     </item>
     
     <item>
@@ -87,7 +87,7 @@ var docDefinition = { content: [ &#39;This paragraph fills full width, as there 
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/tables/</guid>
       <description>Conceptually tables are similar to columns. They can however have headers, borders and cells spanning over multiple columns/rows.
-var docDefinition = { content: [ { layout: &#39;lightHorizontalLines&#39;, // optional table: { // headers are automatically repeated if the table spans over multiple pages // you can declare how many rows should be treated as headers headerRows: 1, widths: [ &#39;*&#39;, &#39;auto&#39;, 100, &#39;*&#39; ], body: [ [ &#39;First&#39;, &#39;Second&#39;, &#39;Third&#39;, &#39;The last one&#39; ], [ &#39;Value 1&#39;, &#39;Value 2&#39;, &#39;Value 3&#39;, &#39;Value 4&#39; ], [ { text: &#39;Bold value&#39;, bold: true }, &#39;Val 2&#39;, &#39;Val 3&#39;, &#39;Val 4&#39; ] ] } } ] };  Own table layouts Own table layouts must be defined before calling pdfMake.</description>
+var docDefinition = { content: [ { layout: &amp;#39;lightHorizontalLines&amp;#39;, // optional  table: { // headers are automatically repeated if the table spans over multiple pages  // you can declare how many rows should be treated as headers  headerRows: 1, widths: [ &amp;#39;*&amp;#39;, &amp;#39;auto&amp;#39;, 100, &amp;#39;*&amp;#39; ], body: [ [ &amp;#39;First&amp;#39;, &amp;#39;Second&amp;#39;, &amp;#39;Third&amp;#39;, &amp;#39;The last one&amp;#39; ], [ &amp;#39;Value 1&amp;#39;, &amp;#39;Value 2&amp;#39;, &amp;#39;Value 3&amp;#39;, &amp;#39;Value 4&amp;#39; ], [ { text: &amp;#39;Bold value&amp;#39;, bold: true }, &amp;#39;Val 2&amp;#39;, &amp;#39;Val 3&amp;#39;, &amp;#39;Val 4&amp;#39; ] ] } } ] };  Own table layouts Own table layouts must be defined before calling pdfMake.</description>
     </item>
     
     <item>
@@ -97,7 +97,7 @@ var docDefinition = { content: [ { layout: &#39;lightHorizontalLines&#39;, // op
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/lists/</guid>
       <description>pdfmake supports both numbered and bulleted lists:
-var docDefinition = { content: [ &#39;Bulleted list example:&#39;, { // to treat a paragraph as a bulleted list, set an array of items under the ul key ul: [ &#39;Item 1&#39;, &#39;Item 2&#39;, &#39;Item 3&#39;, { text: &#39;Item 4&#39;, bold: true }, ] }, &#39;Numbered list example:&#39;, { // for numbered lists set the ol key ol: [ &#39;Item 1&#39;, &#39;Item 2&#39;, &#39;Item 3&#39; ] } ] };  </description>
+var docDefinition = { content: [ &amp;#39;Bulleted list example:&amp;#39;, { // to treat a paragraph as a bulleted list, set an array of items under the ul key  ul: [ &amp;#39;Item 1&amp;#39;, &amp;#39;Item 2&amp;#39;, &amp;#39;Item 3&amp;#39;, { text: &amp;#39;Item 4&amp;#39;, bold: true }, ] }, &amp;#39;Numbered list example:&amp;#39;, { // for numbered lists set the ol key  ol: [ &amp;#39;Item 1&amp;#39;, &amp;#39;Item 2&amp;#39;, &amp;#39;Item 3&amp;#39; ] } ] }; </description>
     </item>
     
     <item>
@@ -108,7 +108,7 @@ var docDefinition = { content: [ &#39;Bulleted list example:&#39;, { // to treat
       <guid>https://pdfmake.github.io/docs/document-definition-object/headers-footers/</guid>
       <description>Page headers and footers in pdfmake can be: static or dynamic.
 They use the same syntax:
-var docDefinition = { header: &#39;simple text&#39;, footer: { columns: [ &#39;Left part&#39;, { text: &#39;Right part&#39;, alignment: &#39;right&#39; } ] }, content: (...) };  For dynamically generated content (including page numbers, page count and page size) you can pass a function to the header or footer:
+var docDefinition = { header: &amp;#39;simple text&amp;#39;, footer: { columns: [ &amp;#39;Left part&amp;#39;, { text: &amp;#39;Right part&amp;#39;, alignment: &amp;#39;right&amp;#39; } ] }, content: (...) };  For dynamically generated content (including page numbers, page count and page size) you can pass a function to the header or footer:
 var docDefinition = { footer: function(currentPage, pageCount) { return currentPage.</description>
     </item>
     
@@ -119,8 +119,8 @@ var docDefinition = { footer: function(currentPage, pageCount) { return currentP
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/background-layer/</guid>
       <description>The background-layer will be added on every page.
-var docDefinition = { background: &#39;simple text&#39;, content: (...) };  It may contain any other object as well (images, tables, &amp;hellip;) or be dynamically generated:
-var docDefinition = { background: function(currentPage, pageSize) { return `page ${currentPage} with size ${pageSize.width} x ${pageSize.height}` }, content: (...) };  </description>
+var docDefinition = { background: &amp;#39;simple text&amp;#39;, content: (...) };  It may contain any other object as well (images, tables, &amp;hellip;) or be dynamically generated:
+var docDefinition = { background: function(currentPage, pageSize) { return `page ${currentPage}with size ${pageSize.width}x ${pageSize.height}` }, content: (...) }; </description>
     </item>
     
     <item>
@@ -130,7 +130,7 @@ var docDefinition = { background: function(currentPage, pageSize) { return `page
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/margins/</guid>
       <description>Any element in pdfMake can have a margin:
-(...) // margin: [left, top, right, bottom] { text: &#39;sample&#39;, margin: [ 5, 2, 10, 20 ] }, // margin: [horizontal, vertical] { text: &#39;another text&#39;, margin: [5, 2] }, // margin: equalLeftTopRightBottom { text: &#39;last one&#39;, margin: 5 } (...)  </description>
+(...) // margin: [left, top, right, bottom] { text: &amp;#39;sample&amp;#39;, margin: [ 5, 2, 10, 20 ] }, // margin: [horizontal, vertical] { text: &amp;#39;another text&amp;#39;, margin: [5, 2] }, // margin: equalLeftTopRightBottom { text: &amp;#39;last one&amp;#39;, margin: 5 } (...) </description>
     </item>
     
     <item>
@@ -141,7 +141,7 @@ var docDefinition = { background: function(currentPage, pageSize) { return `page
       <guid>https://pdfmake.github.io/docs/document-definition-object/stack/</guid>
       <description>You could have figured out by now (from the examples), that if you set the content key to an array, the document becomes a stack of paragraphs.
 You&amp;rsquo;ll quite often reuse this structure in a nested element, like in the following example:
-var docDefinition = { content: [ &#39;paragraph 1&#39;, &#39;paragraph 2&#39;, { columns: [ &#39;first column is a simple text&#39;, [ // second column consists of paragraphs &#39;paragraph A&#39;, &#39;paragraph B&#39;, &#39;these paragraphs will be rendered one below another inside the column&#39; ] ] } ] };  The problem with an array is that you cannot add styling properties to it (to change fontSize for example).</description>
+var docDefinition = { content: [ &amp;#39;paragraph 1&amp;#39;, &amp;#39;paragraph 2&amp;#39;, { columns: [ &amp;#39;first column is a simple text&amp;#39;, [ // second column consists of paragraphs  &amp;#39;paragraph A&amp;#39;, &amp;#39;paragraph B&amp;#39;, &amp;#39;these paragraphs will be rendered one below another inside the column&amp;#39; ] ] } ] };  The problem with an array is that you cannot add styling properties to it (to change fontSize for example).</description>
     </item>
     
     <item>
@@ -152,7 +152,7 @@ var docDefinition = { content: [ &#39;paragraph 1&#39;, &#39;paragraph 2&#39;, {
       <guid>https://pdfmake.github.io/docs/document-definition-object/images/</guid>
       <description>This is simple. Just use the { image: &#39;...&#39; } node type.
 JPEG and PNG formats are supported.
-var docDefinition = { content: [ { // you&#39;ll most often use dataURI images on the browser side // if no width/height/fit is provided, the original size will be used image: &#39;data:image/jpeg;base64,...encodedContent...&#39; }, { // if you specify width, image will scale proportionally image: &#39;data:image/jpeg;base64,...encodedContent...&#39;, width: 150 }, { // if you specify both width and height - image will be stretched image: &#39;data:image/jpeg;base64,.</description>
+var docDefinition = { content: [ { // you&amp;#39;ll most often use dataURI images on the browser side  // if no width/height/fit is provided, the original size will be used  image: &amp;#39;data:image/jpeg;base64,...encodedContent...&amp;#39; }, { // if you specify width, image will scale proportionally  image: &amp;#39;data:image/jpeg;base64,...encodedContent...&amp;#39;, width: 150 }, { // if you specify both width and height - image will be stretched  image: &amp;#39;data:image/jpeg;base64,.</description>
     </item>
     
     <item>
@@ -162,7 +162,7 @@ var docDefinition = { content: [ { // you&#39;ll most often use dataURI images o
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/links/</guid>
       <description>To add external or internal links, use the following syntax:
-{text: &#39;google&#39;, link: &#39;http://google.com&#39;} {text: &#39;Go to page 2&#39;, linkToPage: 2}  </description>
+{text: &amp;#39;google&amp;#39;, link: &amp;#39;http://google.com&amp;#39;} {text: &amp;#39;Go to page 2&amp;#39;, linkToPage: 2} </description>
     </item>
     
     <item>
@@ -171,7 +171,7 @@ var docDefinition = { content: [ { // you&#39;ll most often use dataURI images o
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/toc/</guid>
-      <description>var docDefinition = { content: [ { toc: { // id: &#39;mainToc&#39; // optional title: {text: &#39;INDEX&#39;, style: &#39;header&#39;} } }, { text: &#39;This is a header&#39;, style: &#39;header&#39;, tocItem: true, // or tocItem: &#39;mainToc&#39; if is used id in toc // or tocItem: [&#39;mainToc&#39;, &#39;subToc&#39;] for multiple tocs } ] }  </description>
+      <description>var docDefinition = { content: [ { toc: { // id: &amp;#39;mainToc&amp;#39; // optional  title: {text: &amp;#39;INDEX&amp;#39;, style: &amp;#39;header&amp;#39;} } }, { text: &amp;#39;This is a header&amp;#39;, style: &amp;#39;header&amp;#39;, tocItem: true, // or tocItem: &amp;#39;mainToc&amp;#39; if is used id in toc  // or tocItem: [&amp;#39;mainToc&amp;#39;, &amp;#39;subToc&amp;#39;] for multiple tocs  } ] } </description>
     </item>
     
     <item>
@@ -180,7 +180,7 @@ var docDefinition = { content: [ { // you&#39;ll most often use dataURI images o
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/page/</guid>
-      <description>var docDefinition = { // a string or { width: number, height: number } pageSize: &#39;A5&#39;, // by default we use portrait, you can change it to landscape if you wish pageOrientation: &#39;landscape&#39;, // [left, top, right, bottom] or [horizontal, vertical] or just a number for equal margins pageMargins: [ 40, 60, 40, 60 ], };  If you set pageSize to a string, you can use one of the following values:</description>
+      <description>var docDefinition = { // a string or { width: number, height: number }  pageSize: &amp;#39;A5&amp;#39;, // by default we use portrait, you can change it to landscape if you wish  pageOrientation: &amp;#39;landscape&amp;#39;, // [left, top, right, bottom] or [horizontal, vertical] or just a number for equal margins  pageMargins: [ 40, 60, 40, 60 ], };  If you set pageSize to a string, you can use one of the following values:</description>
     </item>
     
     <item>
@@ -190,7 +190,7 @@ var docDefinition = { content: [ { // you&#39;ll most often use dataURI images o
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/document-medatadata/</guid>
       <description>PDF documents can have various metadata associated with them, such as the title, or author of the document. You can add that information by adding it to the document definition
-var docDefinition = { info: { title: &#39;awesome Document&#39;, author: &#39;john doe&#39;, subject: &#39;subject of document&#39;, keywords: &#39;keywords for document&#39;, }, content: &#39;This is an sample PDF printed with pdfMake&#39; }  Standard properties:
+var docDefinition = { info: { title: &amp;#39;awesome Document&amp;#39;, author: &amp;#39;john doe&amp;#39;, subject: &amp;#39;subject of document&amp;#39;, keywords: &amp;#39;keywords for document&amp;#39;, }, content: &amp;#39;This is an sample PDF printed with pdfMake&amp;#39; }  Standard properties:
  title - the title of the document author - the name of the author subject - the subject of the document keywords - keywords associated with the document creator - the creator of the document (default is &amp;lsquo;pdfmake&amp;rsquo;) producer - the producer of the document (default is &amp;lsquo;pdfmake&amp;rsquo;) creationDate - the date the document was created (added automatically by pdfmake) modDate - the date the document was last modified trapped - the trapped flag in a PDF document indicates whether the document has been &amp;ldquo;trapped&amp;rdquo;  Custom properties:</description>
     </item>
     
@@ -201,7 +201,7 @@ var docDefinition = { info: { title: &#39;awesome Document&#39;, author: &#39;jo
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/compression/</guid>
       <description>Compression of PDF is enabled by default, use compress: false for disable:
-var docDefinition = { compress: false, content: (...) };  </description>
+var docDefinition = { compress: false, content: (...) }; </description>
     </item>
     
     <item>

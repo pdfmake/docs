@@ -20,7 +20,7 @@
  defaultFileName (optional) - file name cb (optional) - callback function options (optional)  Open the PDF in a new window pdfMake.createPdf(docDefinition).open();  Parameters:
  options (optional) win (optional) - window (when an asynchronous operation)  Name can be defined only by using metadata title property (see Document metadata).
 Asynchronous example:
-$scope.generatePdf = function() { // create the window before the callback var win = window.</description>
+$scope.generatePdf = function() { // create the window before the callback  var win = window.</description>
     </item>
     
     <item>
