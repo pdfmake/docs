@@ -1,7 +1,7 @@
 +++
 title = "Getting started"
 description = ""
-weight = 1
+weight = 10
 alwaysopen = true
 +++
 
