@@ -3,113 +3,113 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://localhost:1313/docs/getting-started/</loc>
+    <loc>https://pdfmake.github.io/docs/getting-started/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/getting-started/client-side/</loc>
+    <loc>https://pdfmake.github.io/docs/getting-started/client-side/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/getting-started/client-side/methods/</loc>
+    <loc>https://pdfmake.github.io/docs/getting-started/client-side/methods/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/getting-started/server-side/supported-nodejs-versions/</loc>
+    <loc>https://pdfmake.github.io/docs/getting-started/server-side/supported-nodejs-versions/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/getting-started/client-side/supported-browsers/</loc>
+    <loc>https://pdfmake.github.io/docs/getting-started/client-side/supported-browsers/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/getting-started/client-side/examples/</loc>
+    <loc>https://pdfmake.github.io/docs/getting-started/client-side/examples/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/getting-started/server-side/examples/</loc>
+    <loc>https://pdfmake.github.io/docs/getting-started/server-side/examples/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/getting-started/server-side/</loc>
+    <loc>https://pdfmake.github.io/docs/getting-started/server-side/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/document-definition-object/</loc>
+    <loc>https://pdfmake.github.io/docs/document-definition-object/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/document-definition-object/styling/</loc>
+    <loc>https://pdfmake.github.io/docs/document-definition-object/styling/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/document-definition-object/columns/</loc>
+    <loc>https://pdfmake.github.io/docs/document-definition-object/columns/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/document-definition-object/tables/</loc>
+    <loc>https://pdfmake.github.io/docs/document-definition-object/tables/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/document-definition-object/lists/</loc>
+    <loc>https://pdfmake.github.io/docs/document-definition-object/lists/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/document-definition-object/headers-footers/</loc>
+    <loc>https://pdfmake.github.io/docs/document-definition-object/headers-footers/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/document-definition-object/background-layer/</loc>
+    <loc>https://pdfmake.github.io/docs/document-definition-object/background-layer/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/document-definition-object/margins/</loc>
+    <loc>https://pdfmake.github.io/docs/document-definition-object/margins/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/document-definition-object/stack/</loc>
+    <loc>https://pdfmake.github.io/docs/document-definition-object/stack/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/document-definition-object/images/</loc>
+    <loc>https://pdfmake.github.io/docs/document-definition-object/images/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/document-definition-object/links/</loc>
+    <loc>https://pdfmake.github.io/docs/document-definition-object/links/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/document-definition-object/toc/</loc>
+    <loc>https://pdfmake.github.io/docs/document-definition-object/toc/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/document-definition-object/page/</loc>
+    <loc>https://pdfmake.github.io/docs/document-definition-object/page/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/document-definition-object/document-medatadata/</loc>
+    <loc>https://pdfmake.github.io/docs/document-definition-object/document-medatadata/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/document-definition-object/compression/</loc>
+    <loc>https://pdfmake.github.io/docs/document-definition-object/compression/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/_footer/</loc>
+    <loc>https://pdfmake.github.io/docs/_footer/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/categories/</loc>
+    <loc>https://pdfmake.github.io/docs/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/tags/</loc>
+    <loc>https://pdfmake.github.io/docs/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/docs/</loc>
+    <loc>https://pdfmake.github.io/docs/</loc>
   </url>
   
 </urlset>
