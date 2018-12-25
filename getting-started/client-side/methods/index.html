@@ -293,10 +293,8 @@
     
 
 <h4 id="download-the-pdf">Download the PDF</h4>
-
-<pre><code class="language-js">pdfMake.createPdf(docDefinition).download();
-</code></pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">download</span><span style="color:#111">();</span>
+</code></pre></div>
 <p>Parameters:</p>
 
 <ul>
@@ -306,10 +304,8 @@
 </ul>
 
 <h4 id="open-the-pdf-in-a-new-window">Open the PDF in a new window</h4>
-
-<pre><code class="language-js">pdfMake.createPdf(docDefinition).open();
-</code></pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">open</span><span style="color:#111">();</span>
+</code></pre></div>
 <p>Parameters:</p>
 
 <ul>
@@ -320,27 +316,21 @@
 <p>Name can be defined only by using metadata <code>title</code> property (see <a href="/docs/document-definition-object/document-medatadata/">Document metadata</a>).</p>
 
 <p>Asynchronous example:</p>
-
-<pre><code class="language-js">$scope.generatePdf = function() {
-  // create the window before the callback
-  var win = window.open('', '_blank');
-  $http.post('/someUrl', data).then(function(response) {
-    // pass the &quot;win&quot; argument
-    pdfMake.createPdf(docDefinition).open({}, win);
-  });
-};
-</code></pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">$scope</span><span style="color:#111">.</span><span style="color:#75af00">generatePdf</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+  <span style="color:#75715e">// create the window before the callback
+</span><span style="color:#75715e"></span>  <span style="color:#00a8c8">var</span> <span style="color:#75af00">win</span> <span style="color:#f92672">=</span> <span style="color:#111">window</span><span style="color:#111">.</span><span style="color:#75af00">open</span><span style="color:#111">(</span><span style="color:#d88200">&#39;&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;_blank&#39;</span><span style="color:#111">);</span>
+  <span style="color:#75af00">$http</span><span style="color:#111">.</span><span style="color:#75af00">post</span><span style="color:#111">(</span><span style="color:#d88200">&#39;/someUrl&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">data</span><span style="color:#111">).</span><span style="color:#75af00">then</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">response</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#75715e">// pass the &#34;win&#34; argument
+</span><span style="color:#75715e"></span>    <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">open</span><span style="color:#111">({},</span> <span style="color:#75af00">win</span><span style="color:#111">);</span>
+  <span style="color:#111">});</span>
+<span style="color:#111">};</span>
+</code></pre></div>
 <p>Open in same window:</p>
-
-<pre><code class="language-js">pdfMake.createPdf(docDefinition).open({}, window);
-</code></pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">open</span><span style="color:#111">({},</span> <span style="color:#111">window</span><span style="color:#111">);</span>
+</code></pre></div>
 <h4 id="print-the-pdf">Print the PDF</h4>
-
-<pre><code class="language-js">pdfMake.createPdf(docDefinition).print();
-</code></pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">print</span><span style="color:#111">();</span>
+</code></pre></div>
 <p>Parameters:</p>
 
 <ul>
@@ -349,33 +339,27 @@
 </ul>
 
 <p>Asynchronous example:</p>
-
-<pre><code class="language-js">$scope.generatePdf = function() {
-  // create the window before the callback
-  var win = window.open('', '_blank');
-  $http.post('/someUrl', data).then(function(response) {
-    // pass the &quot;win&quot; argument
-    pdfMake.createPdf(docDefinition).print({}, win);
-  });
-};
-</code></pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">$scope</span><span style="color:#111">.</span><span style="color:#75af00">generatePdf</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+  <span style="color:#75715e">// create the window before the callback
+</span><span style="color:#75715e"></span>  <span style="color:#00a8c8">var</span> <span style="color:#75af00">win</span> <span style="color:#f92672">=</span> <span style="color:#111">window</span><span style="color:#111">.</span><span style="color:#75af00">open</span><span style="color:#111">(</span><span style="color:#d88200">&#39;&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;_blank&#39;</span><span style="color:#111">);</span>
+  <span style="color:#75af00">$http</span><span style="color:#111">.</span><span style="color:#75af00">post</span><span style="color:#111">(</span><span style="color:#d88200">&#39;/someUrl&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">data</span><span style="color:#111">).</span><span style="color:#75af00">then</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">response</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#75715e">// pass the &#34;win&#34; argument
+</span><span style="color:#75715e"></span>    <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">print</span><span style="color:#111">({},</span> <span style="color:#75af00">win</span><span style="color:#111">);</span>
+  <span style="color:#111">});</span>
+<span style="color:#111">};</span>
+</code></pre></div>
 <p>Print in same window:</p>
-
-<pre><code class="language-js">pdfMake.createPdf(docDefinition).print({}, window);
-</code></pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">print</span><span style="color:#111">({},</span> <span style="color:#111">window</span><span style="color:#111">);</span>
+</code></pre></div>
 <h4 id="put-the-pdf-into-your-own-page-as-url-data">Put the PDF into your own page as URL data</h4>
-
-<pre><code class="language-js">const pdfDocGenerator = pdfMake.createPdf(docDefinition);
-pdfDocGenerator.getDataUrl((dataUrl) =&gt; {
-    const targetElement = document.querySelector('#iframeContainer');
-    const iframe = document.createElement('iframe');
-    iframe.src = dataUrl;
-    targetElement.appendChild(iframe);
-});
-</code></pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">const</span> <span style="color:#75af00">pdfDocGenerator</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
+<span style="color:#75af00">pdfDocGenerator</span><span style="color:#111">.</span><span style="color:#75af00">getDataUrl</span><span style="color:#111">((</span><span style="color:#75af00">dataUrl</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">const</span> <span style="color:#75af00">targetElement</span> <span style="color:#f92672">=</span> <span style="color:#111">document</span><span style="color:#111">.</span><span style="color:#75af00">querySelector</span><span style="color:#111">(</span><span style="color:#d88200">&#39;#iframeContainer&#39;</span><span style="color:#111">);</span>
+    <span style="color:#00a8c8">const</span> <span style="color:#75af00">iframe</span> <span style="color:#f92672">=</span> <span style="color:#111">document</span><span style="color:#111">.</span><span style="color:#75af00">createElement</span><span style="color:#111">(</span><span style="color:#d88200">&#39;iframe&#39;</span><span style="color:#111">);</span>
+    <span style="color:#75af00">iframe</span><span style="color:#111">.</span><span style="color:#75af00">src</span> <span style="color:#f92672">=</span> <span style="color:#75af00">dataUrl</span><span style="color:#111">;</span>
+    <span style="color:#75af00">targetElement</span><span style="color:#111">.</span><span style="color:#75af00">appendChild</span><span style="color:#111">(</span><span style="color:#75af00">iframe</span><span style="color:#111">);</span>
+<span style="color:#111">});</span>
+</code></pre></div>
 <p>Parameters:</p>
 
 <ul>
@@ -384,13 +368,11 @@ pdfDocGenerator.getDataUrl((dataUrl) =&gt; {
 </ul>
 
 <h4 id="get-the-pdf-as-base64-data">Get the PDF as base64 data</h4>
-
-<pre><code class="language-js">const pdfDocGenerator = pdfMake.createPdf(docDefinition);
-pdfDocGenerator.getBase64((data) =&gt; {
-    alert(data);
-});
-</code></pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">const</span> <span style="color:#75af00">pdfDocGenerator</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
+<span style="color:#75af00">pdfDocGenerator</span><span style="color:#111">.</span><span style="color:#75af00">getBase64</span><span style="color:#111">((</span><span style="color:#75af00">data</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">alert</span><span style="color:#111">(</span><span style="color:#75af00">data</span><span style="color:#111">);</span>
+<span style="color:#111">});</span>
+</code></pre></div>
 <p>Parameters:</p>
 
 <ul>
@@ -399,13 +381,11 @@ pdfDocGenerator.getBase64((data) =&gt; {
 </ul>
 
 <h4 id="get-the-pdf-as-buffer">Get the PDF as buffer</h4>
-
-<pre><code class="language-js">const pdfDocGenerator = pdfMake.createPdf(docDefinition);
-pdfDocGenerator.getBuffer((buffer) =&gt; {
-    // ...
-});
-</code></pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">const</span> <span style="color:#75af00">pdfDocGenerator</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
+<span style="color:#75af00">pdfDocGenerator</span><span style="color:#111">.</span><span style="color:#75af00">getBuffer</span><span style="color:#111">((</span><span style="color:#75af00">buffer</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span><span style="color:#111">});</span>
+</code></pre></div>
 <p>Parameters:</p>
 
 <ul>
@@ -414,13 +394,11 @@ pdfDocGenerator.getBuffer((buffer) =&gt; {
 </ul>
 
 <h4 id="get-the-pdf-as-blob">Get the PDF as Blob</h4>
-
-<pre><code class="language-js">const pdfDocGenerator = pdfMake.createPdf(docDefinition);
-pdfDocGenerator.getBlob((blob) =&gt; {
-    // ...
-});
-</code></pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">const</span> <span style="color:#75af00">pdfDocGenerator</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
+<span style="color:#75af00">pdfDocGenerator</span><span style="color:#111">.</span><span style="color:#75af00">getBlob</span><span style="color:#111">((</span><span style="color:#75af00">blob</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span><span style="color:#111">});</span>
+</code></pre></div>
 <p>Parameters:</p>
 
 <ul>

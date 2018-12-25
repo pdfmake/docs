@@ -293,69 +293,63 @@
     
 
 <p>Conceptually tables are similar to columns. They can however have headers, borders and cells spanning over multiple columns/rows.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+    <span style="color:#111">{</span>
+      <span style="color:#75af00">layout</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;lightHorizontalLines&#39;</span><span style="color:#111">,</span> <span style="color:#75715e">// optional
+</span><span style="color:#75715e"></span>      <span style="color:#75af00">table</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+        <span style="color:#75715e">// headers are automatically repeated if the table spans over multiple pages
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// you can declare how many rows should be treated as headers
+</span><span style="color:#75715e"></span>        <span style="color:#75af00">headerRows</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span>
+        <span style="color:#75af00">widths</span><span style="color:#f92672">:</span> <span style="color:#111">[</span> <span style="color:#d88200">&#39;*&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;auto&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">100</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;*&#39;</span> <span style="color:#111">],</span>
 
-<pre><code class="language-js">var docDefinition = {
-  content: [
-    {
-      layout: 'lightHorizontalLines', // optional
-      table: {
-        // headers are automatically repeated if the table spans over multiple pages
-        // you can declare how many rows should be treated as headers
-        headerRows: 1,
-        widths: [ '*', 'auto', 100, '*' ],
-
-        body: [
-          [ 'First', 'Second', 'Third', 'The last one' ],
-          [ 'Value 1', 'Value 2', 'Value 3', 'Value 4' ],
-          [ { text: 'Bold value', bold: true }, 'Val 2', 'Val 3', 'Val 4' ]
-        ]
-      }
-    }
-  ]
-};
-</code></pre>
-
+        <span style="color:#75af00">body</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+          <span style="color:#111">[</span> <span style="color:#d88200">&#39;First&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Second&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Third&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;The last one&#39;</span> <span style="color:#111">],</span>
+          <span style="color:#111">[</span> <span style="color:#d88200">&#39;Value 1&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Value 2&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Value 3&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Value 4&#39;</span> <span style="color:#111">],</span>
+          <span style="color:#111">[</span> <span style="color:#111">{</span> <span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Bold value&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span> <span style="color:#111">},</span> <span style="color:#d88200">&#39;Val 2&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Val 3&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Val 4&#39;</span> <span style="color:#111">]</span>
+        <span style="color:#111">]</span>
+      <span style="color:#111">}</span>
+    <span style="color:#111">}</span>
+  <span style="color:#111">]</span>
+<span style="color:#111">};</span>
+</code></pre></div>
 <h5 id="own-table-layouts">Own table layouts</h5>
 
 <p>Own table layouts must be defined before calling <code>pdfMake.createPdf(docDefinition)</code>.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">tableLayouts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">exampleLayout</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">hLineWidth</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">function</span> <span style="color:#111">(</span><span style="color:#75af00">i</span><span style="color:#111">,</span> <span style="color:#75af00">node</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+      <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#75af00">i</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">||</span> <span style="color:#75af00">i</span> <span style="color:#f92672">===</span> <span style="color:#75af00">node</span><span style="color:#111">.</span><span style="color:#75af00">table</span><span style="color:#111">.</span><span style="color:#75af00">body</span><span style="color:#111">.</span><span style="color:#75af00">length</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+        <span style="color:#00a8c8">return</span> <span style="color:#ae81ff">0</span><span style="color:#111">;</span>
+      <span style="color:#111">}</span>
+      <span style="color:#00a8c8">return</span> <span style="color:#111">(</span><span style="color:#75af00">i</span> <span style="color:#f92672">===</span> <span style="color:#75af00">node</span><span style="color:#111">.</span><span style="color:#75af00">table</span><span style="color:#111">.</span><span style="color:#75af00">headerRows</span><span style="color:#111">)</span> <span style="color:#f92672">?</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">;</span>
+    <span style="color:#111">},</span>
+    <span style="color:#75af00">vLineWidth</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">function</span> <span style="color:#111">(</span><span style="color:#75af00">i</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+      <span style="color:#00a8c8">return</span> <span style="color:#ae81ff">0</span><span style="color:#111">;</span>
+    <span style="color:#111">},</span>
+    <span style="color:#75af00">hLineColor</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">function</span> <span style="color:#111">(</span><span style="color:#75af00">i</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+      <span style="color:#00a8c8">return</span> <span style="color:#75af00">i</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">?</span> <span style="color:#d88200">&#39;black&#39;</span> <span style="color:#f92672">:</span> <span style="color:#d88200">&#39;#aaa&#39;</span><span style="color:#111">;</span>
+    <span style="color:#111">},</span>
+    <span style="color:#75af00">paddingLeft</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">function</span> <span style="color:#111">(</span><span style="color:#75af00">i</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+      <span style="color:#00a8c8">return</span> <span style="color:#75af00">i</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">?</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">8</span><span style="color:#111">;</span>
+    <span style="color:#111">},</span>
+    <span style="color:#75af00">paddingRight</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">function</span> <span style="color:#111">(</span><span style="color:#75af00">i</span><span style="color:#111">,</span> <span style="color:#75af00">node</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+      <span style="color:#00a8c8">return</span> <span style="color:#111">(</span><span style="color:#75af00">i</span> <span style="color:#f92672">===</span> <span style="color:#75af00">node</span><span style="color:#111">.</span><span style="color:#75af00">table</span><span style="color:#111">.</span><span style="color:#75af00">widths</span><span style="color:#111">.</span><span style="color:#75af00">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#111">)</span> <span style="color:#f92672">?</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">8</span><span style="color:#111">;</span>
+    <span style="color:#111">}</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">};</span>
 
-<pre><code class="language-js">pdfMake.tableLayouts = {
-  exampleLayout: {
-    hLineWidth: function (i, node) {
-      if (i === 0 || i === node.table.body.length) {
-        return 0;
-      }
-      return (i === node.table.headerRows) ? 2 : 1;
-    },
-    vLineWidth: function (i) {
-      return 0;
-    },
-    hLineColor: function (i) {
-      return i === 1 ? 'black' : '#aaa';
-    },
-    paddingLeft: function (i) {
-      return i === 0 ? 0 : 8;
-    },
-    paddingRight: function (i, node) {
-      return (i === node.table.widths.length - 1) ? 0 : 8;
-    }
-  }
-};
-
-// download the PDF
-pdfMake.createPdf(docDefinition).download();
-</code></pre>
-
+<span style="color:#75715e">// download the PDF
+</span><span style="color:#75715e"></span><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">download</span><span style="color:#111">();</span>
+</code></pre></div>
 <p>Alternatively, you can pass the tableLayouts directly to <code>createPdf</code> without changing the global value:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">,</span> <span style="color:#75af00">tableLayouts</span><span style="color:#111">).</span><span style="color:#75af00">download</span><span style="color:#111">();</span>
 
-<pre><code class="language-js">pdfMake.createPdf(docDefinition, tableLayouts).download();
-
-// The full signature of createPdf looks like this.
-// tableLayouts, fonts and vfs are all optional - falsy values will cause
-// pdfMake.tableLayouts, pdfMake.fonts or pdfMake.vfs to be used.
-pdfMake.createPdf(docDefinition, tableLayouts, fonts, vfs)
-</code></pre>
-
+<span style="color:#75715e">// The full signature of createPdf looks like this.
+</span><span style="color:#75715e">// tableLayouts, fonts and vfs are all optional - falsy values will cause
+</span><span style="color:#75715e">// pdfMake.tableLayouts, pdfMake.fonts or pdfMake.vfs to be used.
+</span><span style="color:#75715e"></span><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">,</span> <span style="color:#75af00">tableLayouts</span><span style="color:#111">,</span> <span style="color:#75af00">fonts</span><span style="color:#111">,</span> <span style="color:#75af00">vfs</span><span style="color:#111">)</span>
+</code></pre></div>
 <p>All concepts related to tables are covered by TABLES example in <a href="http://pdfmake.org/playground.html">playground</a>.</p>
 
 

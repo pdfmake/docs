@@ -20,7 +20,7 @@
  defaultFileName (optional) - file name cb (optional) - callback function options (optional)  Open the PDF in a new window pdfMake.createPdf(docDefinition).open();  Parameters:
  options (optional) win (optional) - window (when an asynchronous operation)  Name can be defined only by using metadata title property (see Document metadata).
 Asynchronous example:
-$scope.generatePdf = function() { // create the window before the callback var win = window.</description>
+$scope.generatePdf = function() { // create the window before the callback  var win = window.</description>
     </item>
     
     <item>
@@ -29,7 +29,8 @@ $scope.generatePdf = function() { // create the window before the callback var w
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/docs/getting-started/client-side/supported-browsers/</guid>
-      <description>See issue.</description>
+      <description>Internet Explorer 10+ Edge 12+ Firefox Chrome Chrome (Android) Opera Safari (iOS) Safari (iOS) iPhone  LimitationsMethods open() and print() are supported only in:
+ Firefox Chrome Opera  Add-ons used in browsers can affect the functionality of pdfmake (especially for open() and print()). If pdfmake is not working try disable add-ons in browser.Problematic add-onsAdBlockFully description is available in issue.</description>
     </item>
     
     <item>
