@@ -291,31 +291,33 @@
     
     
     <p>pdfmake supports both numbered and bulleted lists:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
-    <span style="color:#d88200">&#39;Bulleted list example:&#39;</span><span style="color:#111">,</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// to treat a paragraph as a bulleted list, set an array of items under the ul key
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">ul</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
-        <span style="color:#d88200">&#39;Item 1&#39;</span><span style="color:#111">,</span>
-        <span style="color:#d88200">&#39;Item 2&#39;</span><span style="color:#111">,</span>
-        <span style="color:#d88200">&#39;Item 3&#39;</span><span style="color:#111">,</span>
-        <span style="color:#111">{</span> <span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Item 4&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span> <span style="color:#111">},</span>
-      <span style="color:#111">]</span>
-    <span style="color:#111">},</span>
 
-    <span style="color:#d88200">&#39;Numbered list example:&#39;</span><span style="color:#111">,</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// for numbered lists set the ol key
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">ol</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
-        <span style="color:#d88200">&#39;Item 1&#39;</span><span style="color:#111">,</span>
-        <span style="color:#d88200">&#39;Item 2&#39;</span><span style="color:#111">,</span>
-        <span style="color:#d88200">&#39;Item 3&#39;</span>
-      <span style="color:#111">]</span>
-    <span style="color:#111">}</span>
-  <span style="color:#111">]</span>
-<span style="color:#111">};</span>
-</code></pre></div>
+<pre><code class="language-js">var docDefinition = {
+  content: [
+    'Bulleted list example:',
+    {
+      // to treat a paragraph as a bulleted list, set an array of items under the ul key
+      ul: [
+        'Item 1',
+        'Item 2',
+        'Item 3',
+        { text: 'Item 4', bold: true },
+      ]
+    },
+
+    'Numbered list example:',
+    {
+      // for numbered lists set the ol key
+      ol: [
+        'Item 1',
+        'Item 2',
+        'Item 3'
+      ]
+    }
+  ]
+};
+</code></pre>
+
 
     
     

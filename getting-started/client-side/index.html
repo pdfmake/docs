@@ -299,16 +299,19 @@
 <li><strong>pdfmake.min.js</strong>,</li>
 <li><strong>vfs_fonts.js</strong> - default font definition (it contains Roboto, you can however <a href="https://github.com/bpampuch/pdfmake/wiki/Custom-Fonts---client-side">use custom fonts instead</a>)</li>
 </ul>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!doctype html&gt;</span>
-<span style="color:#111">&lt;</span><span style="color:#f92672">html</span> <span style="color:#75af00">lang</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;en&#39;</span><span style="color:#111">&gt;</span>
-<span style="color:#111">&lt;</span><span style="color:#f92672">head</span><span style="color:#111">&gt;</span>
-  <span style="color:#111">&lt;</span><span style="color:#f92672">meta</span> <span style="color:#75af00">charset</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;utf-8&#39;</span><span style="color:#111">&gt;</span>
-  <span style="color:#111">&lt;</span><span style="color:#f92672">title</span><span style="color:#111">&gt;</span>my first pdfmake example<span style="color:#111">&lt;/</span><span style="color:#f92672">title</span><span style="color:#111">&gt;</span>
-  <span style="color:#111">&lt;</span><span style="color:#f92672">script</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;build/pdfmake.min.js&#39;</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
-  <span style="color:#111">&lt;</span><span style="color:#f92672">script</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;build/vfs_fonts.js&#39;</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
-<span style="color:#111">&lt;/</span><span style="color:#f92672">head</span><span style="color:#111">&gt;</span>
-<span style="color:#111">&lt;</span><span style="color:#f92672">body</span><span style="color:#111">&gt;</span>
-...</code></pre></div>
+
+<pre><code class="language-html">&lt;!doctype html&gt;
+&lt;html lang='en'&gt;
+&lt;head&gt;
+  &lt;meta charset='utf-8'&gt;
+  &lt;title&gt;my first pdfmake example&lt;/title&gt;
+  &lt;script src='build/pdfmake.min.js'&gt;&lt;/script&gt;
+  &lt;script src='build/vfs_fonts.js'&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+...
+</code></pre>
+
 <h3 id="library-sources">Library sources</h3>
 
 <h4 id="cdnjs">cdnjs</h4>
@@ -333,15 +336,19 @@
 </ul>
 
 <p>Using javascript frameworks:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">pdfMake</span> <span style="color:#f92672">=</span> <span style="color:#75af00">require</span><span style="color:#111">(</span><span style="color:#d88200">&#39;pdfmake/build/pdfmake.js&#39;</span><span style="color:#111">);</span>
-<span style="color:#00a8c8">var</span> <span style="color:#75af00">pdfFonts</span> <span style="color:#f92672">=</span> <span style="color:#75af00">require</span><span style="color:#111">(</span><span style="color:#d88200">&#39;pdfmake/build/vfs_fonts.js&#39;</span><span style="color:#111">);</span>
-<span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">vfs</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfFonts</span><span style="color:#111">.</span><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">vfs</span><span style="color:#111">;</span>
-</code></pre></div>
+
+<pre><code class="language-js">var pdfMake = require('pdfmake/build/pdfmake.js');
+var pdfFonts = require('pdfmake/build/vfs_fonts.js');
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+</code></pre>
+
 <p>or</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">import</span> <span style="color:#75af00">pdfMake</span> <span style="color:#75af00">from</span> <span style="color:#d88200">&#34;pdfmake/build/pdfmake&#34;</span><span style="color:#111">;</span>
-<span style="color:#00a8c8">import</span> <span style="color:#75af00">pdfFonts</span> <span style="color:#75af00">from</span> <span style="color:#d88200">&#34;pdfmake/build/vfs_fonts&#34;</span><span style="color:#111">;</span>
-<span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">vfs</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfFonts</span><span style="color:#111">.</span><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">vfs</span><span style="color:#111">;</span>
-</code></pre></div>
+
+<pre><code class="language-js">import pdfMake from &quot;pdfmake/build/pdfmake&quot;;
+import pdfFonts from &quot;pdfmake/build/vfs_fonts&quot;;
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+</code></pre>
+
 <p>For Ionic and Angular see <a href="https://github.com/bpampuch/pdfmake/issues/1030">issue</a>.</p>
 
 <p>If a <strong>Cannot read property &lsquo;TYPED_ARRAY_SUPPORT&rsquo; of undefined</strong> error is thrown, add this to webpack config:</p>

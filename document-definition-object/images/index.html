@@ -293,46 +293,48 @@
     <p>This is simple. Just use the <code>{ image: '...' }</code> node type.</p>
 
 <p>JPEG and PNG formats are supported.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// you&#39;ll most often use dataURI images on the browser side
-</span><span style="color:#75715e"></span>      <span style="color:#75715e">// if no width/height/fit is provided, the original size will be used
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;data:image/jpeg;base64,...encodedContent...&#39;</span>
-    <span style="color:#111">},</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// if you specify width, image will scale proportionally
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;data:image/jpeg;base64,...encodedContent...&#39;</span><span style="color:#111">,</span>
-      <span style="color:#75af00">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">150</span>
-    <span style="color:#111">},</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// if you specify both width and height - image will be stretched
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;data:image/jpeg;base64,...encodedContent...&#39;</span><span style="color:#111">,</span>
-      <span style="color:#75af00">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">150</span><span style="color:#111">,</span>
-      <span style="color:#75af00">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">150</span>
-    <span style="color:#111">},</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// you can also fit the image inside a rectangle
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;data:image/jpeg;base64,...encodedContent...&#39;</span><span style="color:#111">,</span>
-      <span style="color:#75af00">fit</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#ae81ff">100</span><span style="color:#111">,</span> <span style="color:#ae81ff">100</span><span style="color:#111">]</span>
-    <span style="color:#111">},</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// if you reuse the same image in multiple nodes,
-</span><span style="color:#75715e"></span>      <span style="color:#75715e">// you should put it to to images dictionary and reference it by name
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;mySuperImage&#39;</span>
-    <span style="color:#111">},</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// under NodeJS (or in case you use virtual file system provided by pdfmake)
-</span><span style="color:#75715e"></span>      <span style="color:#75715e">// you can also pass file names here
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;myImageDictionary/image1.jpg&#39;</span>
-    <span style="color:#111">}</span>
-  <span style="color:#111">],</span>
 
-  <span style="color:#75af00">images</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-    <span style="color:#75af00">mySuperImage</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;data:image/jpeg;base64,...content...&#39;</span>
-  <span style="color:#111">}</span>
-<span style="color:#111">};</span>
-</code></pre></div>
+<pre><code class="language-js">var docDefinition = {
+  content: [
+    {
+      // you'll most often use dataURI images on the browser side
+      // if no width/height/fit is provided, the original size will be used
+      image: 'data:image/jpeg;base64,...encodedContent...'
+    },
+    {
+      // if you specify width, image will scale proportionally
+      image: 'data:image/jpeg;base64,...encodedContent...',
+      width: 150
+    },
+    {
+      // if you specify both width and height - image will be stretched
+      image: 'data:image/jpeg;base64,...encodedContent...',
+      width: 150,
+      height: 150
+    },
+    {
+      // you can also fit the image inside a rectangle
+      image: 'data:image/jpeg;base64,...encodedContent...',
+      fit: [100, 100]
+    },
+    {
+      // if you reuse the same image in multiple nodes,
+      // you should put it to to images dictionary and reference it by name
+      image: 'mySuperImage'
+    },
+    {
+      // under NodeJS (or in case you use virtual file system provided by pdfmake)
+      // you can also pass file names here
+      image: 'myImageDictionary/image1.jpg'
+    }
+  ],
+
+  images: {
+    mySuperImage: 'data:image/jpeg;base64,...content...'
+  }
+};
+</code></pre>
+
 
     
     

@@ -296,8 +296,10 @@
 <p>pdfmake follows a declarative approach. It basically means, you&rsquo;ll never have to calculate positions manually or use commands like: <code>writeText(text, x, y)</code>, <code>moveDown</code> etc&hellip;, as you would with a lot of other libraries.</p>
 
 <p>The most fundamental concept to be mastered is the document-definition-object which can be as simple as:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span> <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;This is an sample PDF printed with pdfMake&#39;</span> <span style="color:#111">};</span>
-</code></pre></div>
+
+<pre><code class="language-js">var docDefinition = { content: 'This is an sample PDF printed with pdfMake' };
+</code></pre>
+
 <p>or become pretty complex (having multi-level tables, images, lists, paragraphs, margins, styles etc&hellip;).</p>
 
 <h4 id="units">Units</h4>

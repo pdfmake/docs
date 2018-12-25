@@ -292,17 +292,18 @@
     
     
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-  <span style="color:#75715e">// a string or { width: number, height: number }
-</span><span style="color:#75715e"></span>  <span style="color:#75af00">pageSize</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;A5&#39;</span><span style="color:#111">,</span>
+<pre><code class="language-js">var docDefinition = {
+  // a string or { width: number, height: number }
+  pageSize: 'A5',
 
-  <span style="color:#75715e">// by default we use portrait, you can change it to landscape if you wish
-</span><span style="color:#75715e"></span>  <span style="color:#75af00">pageOrientation</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;landscape&#39;</span><span style="color:#111">,</span>
+  // by default we use portrait, you can change it to landscape if you wish
+  pageOrientation: 'landscape',
 
-  <span style="color:#75715e">// [left, top, right, bottom] or [horizontal, vertical] or just a number for equal margins
-</span><span style="color:#75715e"></span>  <span style="color:#75af00">pageMargins</span><span style="color:#f92672">:</span> <span style="color:#111">[</span> <span style="color:#ae81ff">40</span><span style="color:#111">,</span> <span style="color:#ae81ff">60</span><span style="color:#111">,</span> <span style="color:#ae81ff">40</span><span style="color:#111">,</span> <span style="color:#ae81ff">60</span> <span style="color:#111">],</span>
-<span style="color:#111">};</span>
-</code></pre></div>
+  // [left, top, right, bottom] or [horizontal, vertical] or just a number for equal margins
+  pageMargins: [ 40, 60, 40, 60 ],
+};
+</code></pre>
+
 <p>If you set <code>pageSize</code> to a string, you can use one of the following values:</p>
 
 <ul>
@@ -315,60 +316,66 @@
 </ul>
 
 <p>To change page orientation within a document, add a page break with the new page orientation.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#111">{</span>
-  <span style="color:#75af00">pageOrientation</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;portrait&#39;</span><span style="color:#111">,</span>
-  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
-    <span style="color:#111">{</span><span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Text on Portrait&#39;</span><span style="color:#111">},</span>
-    <span style="color:#111">{</span><span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Text on Landscape&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">pageOrientation</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;landscape&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">pageBreak</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;before&#39;</span><span style="color:#111">},</span>
-    <span style="color:#111">{</span><span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Text on Landscape 2&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">pageOrientation</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;portrait&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">pageBreak</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;after&#39;</span><span style="color:#111">},</span>
-    <span style="color:#111">{</span><span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Text on Portrait 2&#39;</span><span style="color:#111">},</span>
-  <span style="color:#111">]</span>
-<span style="color:#111">}</span>
-</code></pre></div>
+
+<pre><code class="language-js">{
+  pageOrientation: 'portrait',
+  content: [
+    {text: 'Text on Portrait'},
+    {text: 'Text on Landscape', pageOrientation: 'landscape', pageBreak: 'before'},
+    {text: 'Text on Landscape 2', pageOrientation: 'portrait', pageBreak: 'after'},
+    {text: 'Text on Portrait 2'},
+  ]
+}
+</code></pre>
+
 <h4 id="dynamically-control-page-breaks-for-instance-to-avoid-orphan-children">Dynamically control page breaks, for instance to avoid orphan children</h4>
 
 <p>A <code>pageBreakBefore</code> function can be specified, which can determine if a page break should be inserted before a node. To implement a &lsquo;no orphan child&rsquo; rule, use a definition like this:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#00a8c8">var</span> <span style="color:#75af00">dd</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-    <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
-       <span style="color:#111">{</span><span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;1 Headline&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">headlineLevel</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">},</span>
-       <span style="color:#d88200">&#39;Some long text of variable length ...&#39;</span><span style="color:#111">,</span>
-       <span style="color:#111">{</span><span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;2 Headline&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">headlineLevel</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">},</span>
-       <span style="color:#d88200">&#39;Some long text of variable length ...&#39;</span><span style="color:#111">,</span>
-       <span style="color:#111">{</span><span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;3 Headline&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">headlineLevel</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">},</span>
-       <span style="color:#d88200">&#39;Some long text of variable length ...&#39;</span><span style="color:#111">,</span>
-    <span style="color:#111">],</span>
-  <span style="color:#75af00">pageBreakBefore</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">currentNode</span><span style="color:#111">,</span> <span style="color:#75af00">followingNodesOnPage</span><span style="color:#111">,</span> <span style="color:#75af00">nodesOnNextPage</span><span style="color:#111">,</span> <span style="color:#75af00">previousNodesOnPage</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-     <span style="color:#00a8c8">return</span> <span style="color:#75af00">currentNode</span><span style="color:#111">.</span><span style="color:#75af00">headlineLevel</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#75af00">followingNodesOnPage</span><span style="color:#111">.</span><span style="color:#75af00">length</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span><span style="color:#111">;</span>
-  <span style="color:#111">}</span>
-<span style="color:#111">}</span>
-</code></pre></div>
+
+<pre><code class="language-javascript">var dd = {
+    content: [
+       {text: '1 Headline', headlineLevel: 1},
+       'Some long text of variable length ...',
+       {text: '2 Headline', headlineLevel: 1},
+       'Some long text of variable length ...',
+       {text: '3 Headline', headlineLevel: 1},
+       'Some long text of variable length ...',
+    ],
+  pageBreakBefore: function(currentNode, followingNodesOnPage, nodesOnNextPage, previousNodesOnPage) {
+     return currentNode.headlineLevel === 1 &amp;&amp; followingNodesOnPage.length === 0;
+  }
+}
+</code></pre>
+
 <p>If <code>pageBreakBefore</code> returns true, a page break will be added before the <code>currentNode</code>. Current node has the following information attached:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#111">{</span>
-   <span style="color:#75af00">id</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&lt;as specified in doc definition&gt;&#39;</span><span style="color:#111">,</span>
-   <span style="color:#75af00">headlineLevel</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&lt;as specified in doc definition&gt;&#39;</span><span style="color:#111">,</span>
-   <span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&lt;as specified in doc definition&gt;&#39;</span><span style="color:#111">,</span>
-   <span style="color:#75af00">ul</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&lt;as specified in doc definition&gt;&#39;</span><span style="color:#111">,</span>
-   <span style="color:#75af00">ol</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&lt;as specified in doc definition&gt;&#39;</span><span style="color:#111">,</span>
-   <span style="color:#75af00">table</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&lt;as specified in doc definition&gt;&#39;</span><span style="color:#111">,</span>
-   <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&lt;as specified in doc definition&gt;&#39;</span><span style="color:#111">,</span>
-   <span style="color:#75af00">qr</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&lt;as specified in doc definition&gt;&#39;</span><span style="color:#111">,</span>
-   <span style="color:#75af00">canvas</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&lt;as specified in doc definition&gt;&#39;</span><span style="color:#111">,</span>
-   <span style="color:#75af00">columns</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&lt;as specified in doc definition&gt;&#39;</span><span style="color:#111">,</span>
-   <span style="color:#75af00">style</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&lt;as specified in doc definition&gt;&#39;</span><span style="color:#111">,</span>
-   <span style="color:#75af00">pageOrientation</span> <span style="color:#d88200">&#39;&lt;as specified in doc definition&gt;&#39;</span><span style="color:#111">,</span>
-   <span style="color:#75af00">pageNumbers</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">],</span> <span style="color:#75715e">// The pages this element is visible on (e.g. multi-line text could be on more than one page)
-</span><span style="color:#75715e"></span>   <span style="color:#75af00">pages</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">6</span><span style="color:#111">,</span> <span style="color:#75715e">// the total number of pages of this document
-</span><span style="color:#75715e"></span>   <span style="color:#75af00">stack</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">false</span><span style="color:#111">,</span> <span style="color:#75715e">// if this is an element which encapsulates multiple sub-objects
-</span><span style="color:#75715e"></span>   <span style="color:#75af00">startPosition</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-     <span style="color:#75af00">pageNumber</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#75715e">// the page this node starts on
-</span><span style="color:#75715e"></span>     <span style="color:#75af00">pageOrientation</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;landscape&#39;</span><span style="color:#111">,</span> <span style="color:#75715e">// the orientation of this page
-</span><span style="color:#75715e"></span>     <span style="color:#75af00">left</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">60</span><span style="color:#111">,</span> <span style="color:#75715e">// the left position
-</span><span style="color:#75715e"></span>     <span style="color:#75af00">right</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">60</span><span style="color:#111">,</span> <span style="color:#75715e">// the right position
-</span><span style="color:#75715e"></span>     <span style="color:#75af00">verticalRatio</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.2</span><span style="color:#111">,</span> <span style="color:#75715e">// the ratio of space used vertically in this document (excluding margins)
-</span><span style="color:#75715e"></span>     <span style="color:#75af00">horizontalRatio</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.0</span>  <span style="color:#75715e">// the ratio of space used horizontally in this document (excluding margins)
-</span><span style="color:#75715e"></span>   <span style="color:#111">}</span>
-<span style="color:#111">}</span>
-</code></pre></div>
+
+<pre><code class="language-javascript">{
+   id: '&lt;as specified in doc definition&gt;',
+   headlineLevel: '&lt;as specified in doc definition&gt;',
+   text: '&lt;as specified in doc definition&gt;',
+   ul: '&lt;as specified in doc definition&gt;',
+   ol: '&lt;as specified in doc definition&gt;',
+   table: '&lt;as specified in doc definition&gt;',
+   image: '&lt;as specified in doc definition&gt;',
+   qr: '&lt;as specified in doc definition&gt;',
+   canvas: '&lt;as specified in doc definition&gt;',
+   columns: '&lt;as specified in doc definition&gt;',
+   style: '&lt;as specified in doc definition&gt;',
+   pageOrientation '&lt;as specified in doc definition&gt;',
+   pageNumbers: [2, 3], // The pages this element is visible on (e.g. multi-line text could be on more than one page)
+   pages: 6, // the total number of pages of this document
+   stack: false, // if this is an element which encapsulates multiple sub-objects
+   startPosition: {
+     pageNumber: 2, // the page this node starts on
+     pageOrientation: 'landscape', // the orientation of this page
+     left: 60, // the left position
+     right: 60, // the right position
+     verticalRatio: 0.2, // the ratio of space used vertically in this document (excluding margins)
+     horizontalRatio: 0.0  // the ratio of space used horizontally in this document (excluding margins)
+   }
+}
+</code></pre>
+
 
     
     
