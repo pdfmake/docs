@@ -4,6 +4,7 @@ title = "pdfmake"
 theme = "docdock"
 
 [params]
+editURL = "https://github.com/pdfmake/docs/edit/master/content/"
 disableSearch = true
 
 [[menu.shortcuts]]
