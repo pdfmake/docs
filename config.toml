@@ -2,6 +2,8 @@ baseURL = "https://pdfmake.github.io/docs/"
 languageCode = "en-us"
 title = "pdfmake"
 theme = "docdock"
+pygmentsCodeFences = true
+pygmentsStyle = "monokailight"
 
 [params]
 editURL = "https://github.com/pdfmake/docs/edit/master/content/"
