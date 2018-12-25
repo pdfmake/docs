@@ -10,7 +10,7 @@ On server-side you can simply install via npm:
 npm install pdfmake
 ```
 
-#### Example:
+#### Example of usage:
 ```js
 // Define font files
 var fonts = {
