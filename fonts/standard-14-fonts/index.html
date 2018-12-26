@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="generator" content="Hugo 0.52" />
-<title>Server-side :: pdfmake</title>
+<title>Standard 14 fonts :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
 <link href="/docs/css/nucleus.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/docs/getting-started/server-side/">
+  <body data-url="/docs/fonts/standard-14-fonts/">
     
       <header>
   <div class="logo">
@@ -62,7 +62,7 @@
             <i class="fa fa-fw fa-home"></i>
           </a>
           </li>
-    <li data-nav-id="/docs/getting-started/" class="dd-item parent alwaysopen haschildren
+    <li data-nav-id="/docs/getting-started/" class="dd-item alwaysopen haschildren
         ">
       <div>
       <a href="/docs/getting-started/">Getting started</a>
@@ -99,7 +99,7 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/docs/getting-started/server-side/" class="dd-item parent active alwaysopen haschildren
+    <li data-nav-id="/docs/getting-started/server-side/" class="dd-item alwaysopen haschildren
         ">
       <div>
       <a href="/docs/getting-started/server-side/">Server-side</a>
@@ -124,7 +124,7 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/docs/fonts/" class="dd-item alwaysopen haschildren
+    <li data-nav-id="/docs/fonts/" class="dd-item parent alwaysopen haschildren
         ">
       <div>
       <a href="/docs/fonts/">Fonts</a>
@@ -161,7 +161,7 @@
           </a>
         </div>
     </li>
-      <li data-nav-id="/docs/fonts/standard-14-fonts/" class="dd-item">
+      <li data-nav-id="/docs/fonts/standard-14-fonts/" class="dd-item active">
         <div>
           <a href="/docs/fonts/standard-14-fonts/">
             Standard 14 fonts
@@ -300,7 +300,7 @@
       <option value="/docs/getting-started/client-side/supported-browsers/" >-- Supported browsers</option>
       <option value="/docs/getting-started/client-side/examples/" >-- Examples</option>
   
-    <option value="/docs/getting-started/server-side/"  selected>
+    <option value="/docs/getting-started/server-side/" >
   - 
    Server-side</option> 
       <option value="/docs/getting-started/server-side/supported-nodejs-versions/" >-- Supported Node.js versions</option>
@@ -316,7 +316,7 @@
       <option value="/docs/fonts/custom-fonts-client-side/shell/" >-- Building font file via shell script</option>
   
       <option value="/docs/fonts/icons/" >- Icons</option>
-      <option value="/docs/fonts/standard-14-fonts/" >- Standard 14 fonts</option>
+      <option value="/docs/fonts/standard-14-fonts/"  selected>- Standard 14 fonts</option>
   
     <option value="/docs/document-definition-object/" >
    Document-definition-object</option> 
@@ -343,49 +343,125 @@
     </div>
     
 
-    <h1>Server-side</h1>
+    <h1>Standard 14 fonts</h1>
     
     
     
+    
 
+<p>PDF contains <a href="http://www.enfocus.com/manuals/ReferenceGuide/PS/18/enUS/en-us/common/pse/concept/c_aa1044513.html">standard 14 fonts</a>.</p>
 
+<p><strong>Attention!</strong> This fonts supports only <strong>ANSI</strong> code page (only english characters)!</p>
 
-<p>On server-side you can simply install via npm:</p>
+<h2 id="use-in-pdfmake-on-server-side">Use in pdfmake on server-side</h2>
 
-<pre><code>npm install pdfmake
-</code></pre>
-
-<h4 id="example-of-usage">Example of usage:</h4>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Define font files
-</span><span style="color:#75715e"></span><span style="color:#00a8c8">var</span> <span style="color:#75af00">fonts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-  <span style="color:#75af00">Roboto</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fonts/Roboto-Regular.ttf&#39;</span><span style="color:#111">,</span>
-    <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fonts/Roboto-Medium.ttf&#39;</span><span style="color:#111">,</span>
-    <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fonts/Roboto-Italic.ttf&#39;</span><span style="color:#111">,</span>
-    <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fonts/Roboto-MediumItalic.ttf&#39;</span>
+<p><strong>Example of usage:</strong></p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">fonts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">Courier</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier-Bold&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier-Oblique&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier-BoldOblique&#39;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">Helvetica</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica-Bold&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica-Oblique&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica-BoldOblique&#39;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">Times</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-Roman&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-Bold&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-Italic&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-BoldItalic&#39;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">Symbol</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Symbol&#39;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">ZapfDingbats</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;ZapfDingbats&#39;</span>
   <span style="color:#111">}</span>
 <span style="color:#111">};</span>
 
 <span style="color:#00a8c8">var</span> <span style="color:#75af00">PdfPrinter</span> <span style="color:#f92672">=</span> <span style="color:#75af00">require</span><span style="color:#111">(</span><span style="color:#d88200">&#39;pdfmake&#39;</span><span style="color:#111">);</span>
 <span style="color:#00a8c8">var</span> <span style="color:#75af00">printer</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#75af00">PdfPrinter</span><span style="color:#111">(</span><span style="color:#75af00">fonts</span><span style="color:#111">);</span>
 <span style="color:#00a8c8">var</span> <span style="color:#75af00">fs</span> <span style="color:#f92672">=</span> <span style="color:#75af00">require</span><span style="color:#111">(</span><span style="color:#d88200">&#39;fs&#39;</span><span style="color:#111">);</span>
- 
+
 <span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-  <span style="color:#75715e">// ...
-</span><span style="color:#75715e"></span><span style="color:#111">};</span>
- 
+  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+    <span style="color:#d88200">&#39;First paragraph&#39;</span><span style="color:#111">,</span>
+    <span style="color:#d88200">&#39;Another paragraph, this time a little bit longer to make sure, this line will be divided into at least two lines&#39;</span><span style="color:#111">,</span>
+  <span style="color:#111">],</span>
+  <span style="color:#75af00">defaultStyle</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">font</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica&#39;</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">};</span>
+
 <span style="color:#00a8c8">var</span> <span style="color:#75af00">pdfDoc</span> <span style="color:#f92672">=</span> <span style="color:#75af00">printer</span><span style="color:#111">.</span><span style="color:#75af00">createPdfKitDocument</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
 <span style="color:#75af00">pdfDoc</span><span style="color:#111">.</span><span style="color:#75af00">pipe</span><span style="color:#111">(</span><span style="color:#75af00">fs</span><span style="color:#111">.</span><span style="color:#75af00">createWriteStream</span><span style="color:#111">(</span><span style="color:#d88200">&#39;document.pdf&#39;</span><span style="color:#111">));</span>
 <span style="color:#75af00">pdfDoc</span><span style="color:#111">.</span><span style="color:#75af00">end</span><span style="color:#111">();</span>
 </code></pre></div>
+<h2 id="use-in-pdfmake-on-client-side">Use in pdfmake on client-side</h2>
 
+<p>Is not supported by default, because this increase size of pdfmake library file about <strong>700 kB</strong>.</p>
+
+<p>If you really need it, you can build with standard fonts by <code>gulp buildWithStandardFonts</code> command.</p>
+
+<p><strong>Building with standard fonts from sources:</strong></p>
+
+<pre><code>git clone https://github.com/bpampuch/pdfmake.git
+cd pdfmake
+npm install
+gulp buildWithStandardFonts
+</code></pre>
+
+<p><strong>Example of usage:</strong></p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">fonts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">Courier</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier-Bold&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier-Oblique&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier-BoldOblique&#39;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">Helvetica</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica-Bold&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica-Oblique&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica-BoldOblique&#39;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">Times</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-Roman&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-Bold&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-Italic&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-BoldItalic&#39;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">Symbol</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Symbol&#39;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">ZapfDingbats</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;ZapfDingbats&#39;</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">};</span>
+
+<span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+    <span style="color:#d88200">&#39;First paragraph&#39;</span><span style="color:#111">,</span>
+    <span style="color:#d88200">&#39;Another paragraph, this time a little bit longer to make sure, this line will be divided into at least two lines&#39;</span><span style="color:#111">,</span>
+  <span style="color:#111">],</span>
+  <span style="color:#75af00">defaultStyle</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">font</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica&#39;</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">};</span>
+
+<span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">download</span><span style="color:#111">(</span><span style="color:#d88200">&#39;document.pdf&#39;</span><span style="color:#111">);</span>
+</code></pre></div>
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/docs/getting-started/client-side/examples/" title="Examples"> <i class="fa fa-chevron-left"></i><label>Examples</label></a>
-    <a class="nav nav-next" href="/docs/getting-started/server-side/supported-nodejs-versions/" title="Supported Node.js versions" style="margin-right: 0px;"><label>Supported Node.js versions</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/docs/fonts/icons/" title="Icons"> <i class="fa fa-chevron-left"></i><label>Icons</label></a>
+    <a class="nav nav-next" href="/docs/document-definition-object/" title="Document-definition-object" style="margin-right: 0px;"><label>Document-definition-object</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -402,7 +478,7 @@
 
     
     <div class="github-link">
-      <a href="https://github.com/pdfmake/docs/edit/master/content/getting-started/server-side/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/pdfmake/docs/edit/master/content/fonts/standard-14-fonts.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="generator" content="Hugo 0.52" />
-<title>Images :: pdfmake</title>
+<title>Icons :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
 <link href="/docs/css/nucleus.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/docs/document-definition-object/images/">
+  <body data-url="/docs/fonts/icons/">
     
       <header>
   <div class="logo">
@@ -124,7 +124,7 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/docs/fonts/" class="dd-item alwaysopen haschildren
+    <li data-nav-id="/docs/fonts/" class="dd-item parent alwaysopen haschildren
         ">
       <div>
       <a href="/docs/fonts/">Fonts</a>
@@ -154,7 +154,7 @@
     </li>
         </ul>
     </li>
-      <li data-nav-id="/docs/fonts/icons/" class="dd-item">
+      <li data-nav-id="/docs/fonts/icons/" class="dd-item active">
         <div>
           <a href="/docs/fonts/icons/">
             Icons
@@ -170,7 +170,7 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/docs/document-definition-object/" class="dd-item parent alwaysopen haschildren
+    <li data-nav-id="/docs/document-definition-object/" class="dd-item alwaysopen haschildren
         ">
       <div>
       <a href="/docs/document-definition-object/">Document-definition-object</a>
@@ -233,7 +233,7 @@
           </a>
         </div>
     </li>
-      <li data-nav-id="/docs/document-definition-object/images/" class="dd-item active">
+      <li data-nav-id="/docs/document-definition-object/images/" class="dd-item">
         <div>
           <a href="/docs/document-definition-object/images/">
             Images
@@ -315,7 +315,7 @@
       <option value="/docs/fonts/custom-fonts-client-side/php/" >-- Building font file via PHP script</option>
       <option value="/docs/fonts/custom-fonts-client-side/shell/" >-- Building font file via shell script</option>
   
-      <option value="/docs/fonts/icons/" >- Icons</option>
+      <option value="/docs/fonts/icons/"  selected>- Icons</option>
       <option value="/docs/fonts/standard-14-fonts/" >- Standard 14 fonts</option>
   
     <option value="/docs/document-definition-object/" >
@@ -328,7 +328,7 @@
       <option value="/docs/document-definition-object/background-layer/" >- Background-layer</option>
       <option value="/docs/document-definition-object/margins/" >- Margins</option>
       <option value="/docs/document-definition-object/stack/" >- Stack of paragraphs</option>
-      <option value="/docs/document-definition-object/images/"  selected>- Images</option>
+      <option value="/docs/document-definition-object/images/" >- Images</option>
       <option value="/docs/document-definition-object/links/" >- Links</option>
       <option value="/docs/document-definition-object/toc/" >- Table of contents</option>
       <option value="/docs/document-definition-object/page/" >- Page dimensions, orientation and margins</option>
@@ -343,60 +343,57 @@
     </div>
     
 
-    <h1>Images</h1>
+    <h1>Icons</h1>
     
     
     
-    <p>This is simple. Just use the <code>{ image: '...' }</code> node type.</p>
+    <ul>
+<li><p>make a font at <a href="http://fontello.com/">http://fontello.com/</a> or something and download it</p></li>
 
-<p>JPEG and PNG formats are supported.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// you&#39;ll most often use dataURI images on the browser side
-</span><span style="color:#75715e"></span>      <span style="color:#75715e">// if no width/height/fit is provided, the original size will be used
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;data:image/jpeg;base64,...encodedContent...&#39;</span>
-    <span style="color:#111">},</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// if you specify width, image will scale proportionally
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;data:image/jpeg;base64,...encodedContent...&#39;</span><span style="color:#111">,</span>
-      <span style="color:#75af00">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">150</span>
-    <span style="color:#111">},</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// if you specify both width and height - image will be stretched
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;data:image/jpeg;base64,...encodedContent...&#39;</span><span style="color:#111">,</span>
-      <span style="color:#75af00">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">150</span><span style="color:#111">,</span>
-      <span style="color:#75af00">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">150</span>
-    <span style="color:#111">},</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// you can also fit the image inside a rectangle
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;data:image/jpeg;base64,...encodedContent...&#39;</span><span style="color:#111">,</span>
-      <span style="color:#75af00">fit</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#ae81ff">100</span><span style="color:#111">,</span> <span style="color:#ae81ff">100</span><span style="color:#111">]</span>
-    <span style="color:#111">},</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// if you reuse the same image in multiple nodes,
-</span><span style="color:#75715e"></span>      <span style="color:#75715e">// you should put it to to images dictionary and reference it by name
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;mySuperImage&#39;</span>
-    <span style="color:#111">},</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// under NodeJS (or in case you use virtual file system provided by pdfmake)
-</span><span style="color:#75715e"></span>      <span style="color:#75715e">// you can also pass file names here
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;myImageDictionary/image1.jpg&#39;</span>
+<li><p>from font file (for example .ttf) create vfs_fonts.js file, <a href="/docs/fonts/custom-fonts-client-side/#1-create-a-new-vfs-fonts-js-containing-your-font-files">use custom fonts</a>)</p></li>
+
+<li><p>define font in js (just defining normal might be enough):</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">fonts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">Fontello</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+        <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fontello.ttf&#39;</span><span style="color:#111">,</span>
+        <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fontello.ttf&#39;</span><span style="color:#111">,</span>
+        <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fontello.ttf&#39;</span><span style="color:#111">,</span>
+        <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fontello.ttf&#39;</span>
     <span style="color:#111">}</span>
-  <span style="color:#111">],</span>
+<span style="color:#111">}</span>
+</code></pre></div></li>
 
-  <span style="color:#75af00">images</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-    <span style="color:#75af00">mySuperImage</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;data:image/jpeg;base64,...content...&#39;</span>
-  <span style="color:#111">}</span>
-<span style="color:#111">};</span>
-</code></pre></div>
+<li><p>add a style for icons:
+<code>icon: {
+            font: 'Fontello'
+        }</code></p></li>
+
+<li><p>make a text paragraph:
+<code>
+        { text: '', style: 'icon' }, //icon wifi</code></p></li>
+
+<li><p>as the text you copy from the fontello-codes.css from the comments (not the escaped value)</p></li>
+</ul>
+
+<hr />
+
+<p>If you need an icon within text, you need to nest text objects:</p>
+
+<pre><code>    text: [
+        { text: '', style: 'icon' }, //icon gift
+        &quot; my present&quot;
+    ]
+</code></pre>
+
+<p>this puts out: &ldquo;[gift icon] my present&rdquo;</p>
+
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/docs/document-definition-object/stack/" title="Stack of paragraphs"> <i class="fa fa-chevron-left"></i><label>Stack of paragraphs</label></a>
-    <a class="nav nav-next" href="/docs/document-definition-object/links/" title="Links" style="margin-right: 0px;"><label>Links</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/docs/fonts/custom-fonts-client-side/shell/" title="Building font file via shell script"> <i class="fa fa-chevron-left"></i><label>Building font file via shell script</label></a>
+    <a class="nav nav-next" href="/docs/fonts/standard-14-fonts/" title="Standard 14 fonts" style="margin-right: 0px;"><label>Standard 14 fonts</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -413,7 +410,7 @@
 
     
     <div class="github-link">
-      <a href="https://github.com/pdfmake/docs/edit/master/content/document-definition-object/images.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/pdfmake/docs/edit/master/content/fonts/icons.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

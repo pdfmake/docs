@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="generator" content="Hugo 0.52" />
-<title>Images :: pdfmake</title>
+<title>Building font file via shell script :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
 <link href="/docs/css/nucleus.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/docs/document-definition-object/images/">
+  <body data-url="/docs/fonts/custom-fonts-client-side/shell/">
     
       <header>
   <div class="logo">
@@ -124,14 +124,14 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/docs/fonts/" class="dd-item alwaysopen haschildren
+    <li data-nav-id="/docs/fonts/" class="dd-item parent alwaysopen haschildren
         ">
       <div>
       <a href="/docs/fonts/">Fonts</a>
             <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
-    <li data-nav-id="/docs/fonts/custom-fonts-client-side/" class="dd-item alwaysopen haschildren
+    <li data-nav-id="/docs/fonts/custom-fonts-client-side/" class="dd-item parent alwaysopen haschildren
         ">
       <div>
       <a href="/docs/fonts/custom-fonts-client-side/">Custom fonts (client-side)</a>
@@ -145,7 +145,7 @@
           </a>
         </div>
     </li>
-      <li data-nav-id="/docs/fonts/custom-fonts-client-side/shell/" class="dd-item">
+      <li data-nav-id="/docs/fonts/custom-fonts-client-side/shell/" class="dd-item active">
         <div>
           <a href="/docs/fonts/custom-fonts-client-side/shell/">
             Building font file via shell script
@@ -170,7 +170,7 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/docs/document-definition-object/" class="dd-item parent alwaysopen haschildren
+    <li data-nav-id="/docs/document-definition-object/" class="dd-item alwaysopen haschildren
         ">
       <div>
       <a href="/docs/document-definition-object/">Document-definition-object</a>
@@ -233,7 +233,7 @@
           </a>
         </div>
     </li>
-      <li data-nav-id="/docs/document-definition-object/images/" class="dd-item active">
+      <li data-nav-id="/docs/document-definition-object/images/" class="dd-item">
         <div>
           <a href="/docs/document-definition-object/images/">
             Images
@@ -313,7 +313,7 @@
   - 
    Custom fonts (client-side)</option> 
       <option value="/docs/fonts/custom-fonts-client-side/php/" >-- Building font file via PHP script</option>
-      <option value="/docs/fonts/custom-fonts-client-side/shell/" >-- Building font file via shell script</option>
+      <option value="/docs/fonts/custom-fonts-client-side/shell/"  selected>-- Building font file via shell script</option>
   
       <option value="/docs/fonts/icons/" >- Icons</option>
       <option value="/docs/fonts/standard-14-fonts/" >- Standard 14 fonts</option>
@@ -328,7 +328,7 @@
       <option value="/docs/document-definition-object/background-layer/" >- Background-layer</option>
       <option value="/docs/document-definition-object/margins/" >- Margins</option>
       <option value="/docs/document-definition-object/stack/" >- Stack of paragraphs</option>
-      <option value="/docs/document-definition-object/images/"  selected>- Images</option>
+      <option value="/docs/document-definition-object/images/" >- Images</option>
       <option value="/docs/document-definition-object/links/" >- Links</option>
       <option value="/docs/document-definition-object/toc/" >- Table of contents</option>
       <option value="/docs/document-definition-object/page/" >- Page dimensions, orientation and margins</option>
@@ -343,60 +343,58 @@
     </div>
     
 
-    <h1>Images</h1>
+    <h1>Building font file via shell script</h1>
     
     
     
-    <p>This is simple. Just use the <code>{ image: '...' }</code> node type.</p>
+    <p>For a complete description of use custom fonts in client-side, read the article: <a href="/docs/fonts/custom-fonts-client-side/">Custom fonts (client-side)</a></p>
 
-<p>JPEG and PNG formats are supported.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// you&#39;ll most often use dataURI images on the browser side
-</span><span style="color:#75715e"></span>      <span style="color:#75715e">// if no width/height/fit is provided, the original size will be used
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;data:image/jpeg;base64,...encodedContent...&#39;</span>
-    <span style="color:#111">},</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// if you specify width, image will scale proportionally
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;data:image/jpeg;base64,...encodedContent...&#39;</span><span style="color:#111">,</span>
-      <span style="color:#75af00">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">150</span>
-    <span style="color:#111">},</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// if you specify both width and height - image will be stretched
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;data:image/jpeg;base64,...encodedContent...&#39;</span><span style="color:#111">,</span>
-      <span style="color:#75af00">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">150</span><span style="color:#111">,</span>
-      <span style="color:#75af00">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">150</span>
-    <span style="color:#111">},</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// you can also fit the image inside a rectangle
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;data:image/jpeg;base64,...encodedContent...&#39;</span><span style="color:#111">,</span>
-      <span style="color:#75af00">fit</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#ae81ff">100</span><span style="color:#111">,</span> <span style="color:#ae81ff">100</span><span style="color:#111">]</span>
-    <span style="color:#111">},</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// if you reuse the same image in multiple nodes,
-</span><span style="color:#75715e"></span>      <span style="color:#75715e">// you should put it to to images dictionary and reference it by name
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;mySuperImage&#39;</span>
-    <span style="color:#111">},</span>
-    <span style="color:#111">{</span>
-      <span style="color:#75715e">// under NodeJS (or in case you use virtual file system provided by pdfmake)
-</span><span style="color:#75715e"></span>      <span style="color:#75715e">// you can also pass file names here
-</span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;myImageDictionary/image1.jpg&#39;</span>
-    <span style="color:#111">}</span>
-  <span style="color:#111">],</span>
+<p>If you don&rsquo;t want to install gulp and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the <code>vfs_fonts.js</code> with an bash-script as well:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+<span style="color:#00a8c8">if</span> <span style="color:#f92672">[</span> -t <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span><span style="color:#111">;</span> <span style="color:#00a8c8">then</span>
+    <span style="color:#111">target</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;vfs_fonts.js&#34;</span>
+<span style="color:#00a8c8">else</span>
+    <span style="color:#111">target</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;/dev/stdout&#34;</span>
+<span style="color:#00a8c8">fi</span>
 
-  <span style="color:#75af00">images</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-    <span style="color:#75af00">mySuperImage</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;data:image/jpeg;base64,...content...&#39;</span>
-  <span style="color:#111">}</span>
-<span style="color:#111">};</span>
-</code></pre></div>
+<span style="color:#f92672">(</span>
+    <span style="color:#111">echo</span> -n <span style="color:#d88200">&#34;this.pdfMake = this.pdfMake || {}; this.pdfMake.vfs = {&#34;</span>
+    <span style="color:#00a8c8">for</span> file in <span style="color:#d88200">&#34;</span><span style="color:#111">$@</span><span style="color:#d88200">&#34;</span><span style="color:#111">;</span> <span style="color:#00a8c8">do</span>
+        <span style="color:#111">file</span><span style="color:#f92672">=</span><span style="color:#111">$1</span>
+        <span style="color:#111">shift</span>
+        <span style="color:#111">echo</span> -n <span style="color:#d88200">&#39;&#34;&#39;</span>
+        <span style="color:#111">echo</span> -n <span style="color:#d88200">&#34;</span><span style="color:#00a8c8">$(</span>basename <span style="color:#111">$file</span><span style="color:#00a8c8">)</span><span style="color:#d88200">&#34;</span>
+        <span style="color:#111">echo</span> -n <span style="color:#d88200">&#39;&#34;:&#34;&#39;</span>
+        <span style="color:#111">echo</span> -n <span style="color:#d88200">&#34;</span><span style="color:#00a8c8">$(</span>base64 -w <span style="color:#ae81ff">0</span> <span style="color:#111">$file</span><span style="color:#00a8c8">)</span><span style="color:#d88200">&#34;</span>
+        <span style="color:#111">echo</span> -n <span style="color:#d88200">&#39;&#34;&#39;</span>
+        <span style="color:#00a8c8">if</span> <span style="color:#f92672">[</span> <span style="color:#d88200">&#34;</span><span style="color:#111">$#</span><span style="color:#d88200">&#34;</span> -gt <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span><span style="color:#111">;</span> <span style="color:#00a8c8">then</span>
+            <span style="color:#111">echo</span> -n <span style="color:#d88200">&#34;,&#34;</span>
+        <span style="color:#00a8c8">fi</span>
+    <span style="color:#00a8c8">done</span>
+    <span style="color:#111">echo</span> -n <span style="color:#d88200">&#34;};&#34;</span>
+<span style="color:#f92672">)</span> &gt; <span style="color:#d88200">&#34;</span><span style="color:#111">$target</span><span style="color:#d88200">&#34;</span></code></pre></div>
+<p>How to use script:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">script.sh font1.ttf font2.ttf font3.ttf</code></pre></div>
+<p>If you are using a mac you need to change this line</p>
+
+<pre><code>        echo -n &quot;$(base64 -w 0 $file)&quot;
+</code></pre>
+
+<p>to (change the flag from <code>-w</code> to <code>-b</code>)</p>
+
+<pre><code>        echo -n &quot;$(base64 -b 0 $file)&quot;
+</code></pre>
+
+<p>GNU coreutils&rsquo; <code>base64</code> seems to differ to Apple&rsquo;s <code>base64</code> in this flag (which prevents line wrapping).</p>
+
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/docs/document-definition-object/stack/" title="Stack of paragraphs"> <i class="fa fa-chevron-left"></i><label>Stack of paragraphs</label></a>
-    <a class="nav nav-next" href="/docs/document-definition-object/links/" title="Links" style="margin-right: 0px;"><label>Links</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/docs/fonts/custom-fonts-client-side/php/" title="Building font file via PHP script"> <i class="fa fa-chevron-left"></i><label>Building font file via PHP script</label></a>
+    <a class="nav nav-next" href="/docs/fonts/icons/" title="Icons" style="margin-right: 0px;"><label>Icons</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -413,7 +411,7 @@
 
     
     <div class="github-link">
-      <a href="https://github.com/pdfmake/docs/edit/master/content/document-definition-object/images.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/pdfmake/docs/edit/master/content/fonts/custom-fonts-client-side/shell.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

@@ -3,7 +3,15 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/php/</loc>
+  </url>
+  
+  <url>
     <loc>https://pdfmake.github.io/docs/getting-started/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/shell/</loc>
   </url>
   
   <url>
@@ -32,6 +40,22 @@
   
   <url>
     <loc>https://pdfmake.github.io/docs/getting-started/server-side/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pdfmake.github.io/docs/fonts/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pdfmake.github.io/docs/fonts/icons/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pdfmake.github.io/docs/fonts/standard-14-fonts/</loc>
   </url>
   
   <url>

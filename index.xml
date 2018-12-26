@@ -11,6 +11,27 @@
     
     
     <item>
+      <title>Building font file via PHP script</title>
+      <link>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/php/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/php/</guid>
+      <description>For a complete description of use custom fonts in client-side, read the article: Custom fonts (client-side)
+If you don&amp;rsquo;t want to install gulp and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the vfs_fonts.js with an PHP script as well. Put the code below in a file on a server with the font files you want to include in the same directory and view it in a browser.</description>
+    </item>
+    
+    <item>
+      <title>Building font file via shell script</title>
+      <link>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/shell/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/shell/</guid>
+      <description>For a complete description of use custom fonts in client-side, read the article: Custom fonts (client-side)
+If you don&amp;rsquo;t want to install gulp and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the vfs_fonts.js with an bash-script as well:
+#!/bin/sh  if [ -t 1 ]; then target=&amp;#34;vfs_fonts.js&amp;#34; else target=&amp;#34;/dev/stdout&amp;#34; fi ( echo -n &amp;#34;this.pdfMake = this.pdfMake || {}; this.pdfMake.vfs = {&amp;#34; for file in &amp;#34;$@&amp;#34;; do file=$1 shift echo -n &amp;#39;&amp;#34;&amp;#39; echo -n &amp;#34;$(basename $file)&amp;#34; echo -n &amp;#39;&amp;#34;:&amp;#34;&amp;#39; echo -n &amp;#34;$(base64 -w 0 $file)&amp;#34; echo -n &amp;#39;&amp;#34;&amp;#39; if [ &amp;#34;$#&amp;#34; -gt 0 ]; then echo -n &amp;#34;,&amp;#34; fi done echo -n &amp;#34;};&amp;#34; ) &amp;gt; &amp;#34;$target&amp;#34; How to use script:</description>
+    </item>
+    
+    <item>
       <title>Methods</title>
       <link>https://pdfmake.github.io/docs/getting-started/client-side/methods/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -58,6 +79,31 @@ $scope.generatePdf = function() { // create the window before the callback  var 
       
       <guid>https://pdfmake.github.io/docs/getting-started/server-side/examples/</guid>
       <description>see examples and dev-playground server script</description>
+    </item>
+    
+    <item>
+      <title>Icons</title>
+      <link>https://pdfmake.github.io/docs/fonts/icons/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pdfmake.github.io/docs/fonts/icons/</guid>
+      <description>make a font at http://fontello.com/ or something and download it
+ from font file (for example .ttf) create vfs_fonts.js file, use custom fonts)
+ define font in js (just defining normal might be enough):
+pdfMake.fonts = { Fontello: { normal: &amp;#39;fontello.ttf&amp;#39;, bold: &amp;#39;fontello.ttf&amp;#39;, italics: &amp;#39;fontello.ttf&amp;#39;, bolditalics: &amp;#39;fontello.ttf&amp;#39; } }  add a style for icons: icon: { font: &#39;Fontello&#39; }
+ make a text paragraph:  { text: &#39;&#39;, style: &#39;icon&#39; }, //icon wifi</description>
+    </item>
+    
+    <item>
+      <title>Standard 14 fonts</title>
+      <link>https://pdfmake.github.io/docs/fonts/standard-14-fonts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pdfmake.github.io/docs/fonts/standard-14-fonts/</guid>
+      <description>PDF contains standard 14 fonts.
+Attention! This fonts supports only ANSI code page (only english characters)!
+Use in pdfmake on server-side Example of usage:
+var fonts = { Courier: { normal: &amp;#39;Courier&amp;#39;, bold: &amp;#39;Courier-Bold&amp;#39;, italics: &amp;#39;Courier-Oblique&amp;#39;, bolditalics: &amp;#39;Courier-BoldOblique&amp;#39; }, Helvetica: { normal: &amp;#39;Helvetica&amp;#39;, bold: &amp;#39;Helvetica-Bold&amp;#39;, italics: &amp;#39;Helvetica-Oblique&amp;#39;, bolditalics: &amp;#39;Helvetica-BoldOblique&amp;#39; }, Times: { normal: &amp;#39;Times-Roman&amp;#39;, bold: &amp;#39;Times-Bold&amp;#39;, italics: &amp;#39;Times-Italic&amp;#39;, bolditalics: &amp;#39;Times-BoldItalic&amp;#39; }, Symbol: { normal: &amp;#39;Symbol&amp;#39; }, ZapfDingbats: { normal: &amp;#39;ZapfDingbats&amp;#39; } }; var PdfPrinter = require(&amp;#39;pdfmake&amp;#39;); var printer = new PdfPrinter(fonts); var fs = require(&amp;#39;fs&amp;#39;); var docDefinition = { content: [ &amp;#39;First paragraph&amp;#39;, &amp;#39;Another paragraph, this time a little bit longer to make sure, this line will be divided into at least two lines&amp;#39;, ], defaultStyle: { font: &amp;#39;Helvetica&amp;#39; } }; var pdfDoc = printer.</description>
     </item>
     
     <item>
