@@ -5,6 +5,8 @@ weight = 15
 alwaysopen = true
 +++
 
+{{% alert theme="info" %}}This article is only for client-side usage (in browser)! For server-side use real font files.{{% /alert %}}
+
 pdfMake uses the Roboto font by default. This guide explains how to use your own fonts with pdfMake (in client-side code).
 
 ## TL;DR ##
