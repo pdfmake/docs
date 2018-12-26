@@ -303,6 +303,8 @@
     <option value="/docs/getting-started/server-side/" >
   - 
    Server-side</option> 
+      <option value="/docs/getting-started/server-side/supported-nodejs-versions/" >-- Supported Node.js versions</option>
+      <option value="/docs/getting-started/server-side/examples/" >-- Examples</option>
   
   
     <option value="/docs/fonts/"  selected>
@@ -346,68 +348,7 @@
     
     
 
-
-
-<div class="extra-pagination inner">
-<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 of 1</span>
-	
-</nav>
-
-</div>
-
-
-   <article class="post fonts">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/docs/fonts/icons/">Icons</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>make a font at http://fontello.com/ or something and download it
- from font file (for example .ttf) create vfs_fonts.js file, use custom fonts)
- define font in js (just defining normal might be enough):
-pdfMake.fonts = { Fontello: { normal: &#39;fontello.ttf&#39;, bold: &#39;fontello.ttf&#39;, italics: &#39;fontello.ttf&#39;, bolditalics: &#39;fontello.ttf&#39; } }  add a style for icons: icon: { font: 'Fontello' }
- make a text paragraph:  { text: '', style: 'icon' }, //icon wifi <a class="read-more" href="/docs/fonts/icons/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-   <article class="post fonts">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/docs/fonts/standard-14-fonts/">Standard 14 fonts</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>PDF contains standard 14 fonts.
-Attention! This fonts supports only ANSI code page (only english characters)!
-Use in pdfmake on server-side Example of usage:
-var fonts = { Courier: { normal: &#39;Courier&#39;, bold: &#39;Courier-Bold&#39;, italics: &#39;Courier-Oblique&#39;, bolditalics: &#39;Courier-BoldOblique&#39; }, Helvetica: { normal: &#39;Helvetica&#39;, bold: &#39;Helvetica-Bold&#39;, italics: &#39;Helvetica-Oblique&#39;, bolditalics: &#39;Helvetica-BoldOblique&#39; }, Times: { normal: &#39;Times-Roman&#39;, bold: &#39;Times-Bold&#39;, italics: &#39;Times-Italic&#39;, bolditalics: &#39;Times-BoldItalic&#39; }, Symbol: { normal: &#39;Symbol&#39; }, ZapfDingbats: { normal: &#39;ZapfDingbats&#39; } }; var PdfPrinter = require(&#39;pdfmake&#39;); var printer = new PdfPrinter(fonts); var fs = require(&#39;fs&#39;); var docDefinition = { content: [ &#39;First paragraph&#39;, &#39;Another paragraph, this time a little bit longer to make sure, this line will be divided into at least two lines&#39;, ], defaultStyle: { font: &#39;Helvetica&#39; } }; var pdfDoc = printer. <a class="read-more" href="/docs/fonts/standard-14-fonts/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-<div style="margin-bottom:2rem"></div>
-
-<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 of 1</span>
-	
-</nav>
-
+<p>Usage of fonts in next chapters.</p>
 
 
 
