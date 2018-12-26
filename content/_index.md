@@ -13,27 +13,50 @@ Client/server side PDF printing in pure JavaScript.
 
 ## Features
 
-* line-wrapping,
-* text-alignments (left, right, centered, justified),
-* numbered and bulleted lists,
-* tables and columns
-  * auto/fixed/star-sized widths,
-  * col-spans and row-spans,
-  * headers automatically repeated in case of a page-break,
-* images and vector graphics,
-* convenient styling and style inheritance,
-* page headers and footers:
-  * static or dynamic content,
-  * access to current page number and page count,
-* background-layer,
-* page dimensions and orientations,
-* margins,
-* custom page breaks,
-* font embedding,
-* support for complex, multi-level (nested) structures,
-* table of contents,
-* helper methods for opening/printing/downloading the generated PDF,
-* setting of PDF metadata (e.g. author, subject).
+##### basics
+
+* line-wrapping
+* text-alignments _(left, right, centered, justified)_
+* numbered and bulleted lists
+* margins
+* images and vector graphics
+
+##### styling
+
+* convenient styling
+* style inheritance
+* custom style dictionaries
+
+##### tables and columns
+
+* auto/fixed/star-sized/percentage columns widths
+* col-spans and row-spans
+* headers _automatically repeated in case of a page-break_
+* non-breaking rows
+* non-breaking sections _keeping headers and rows together_
+
+##### page headers and footers
+
+* static or dynamic content
+* page numbers
+* page count
+
+##### other
+
+* page dimensions and orientations
+* background-layer
+* custom page breaks
+* font embedding
+* support for complex, multi-level (nested) structures
+* table of contents
+* setting of PDF metadata _(e.g. author, subject)_
+
+##### client-side helper methods
+
+* download _with the specified filename_
+* open _in another tab_
+* print _auto-triggering print_
+
 
 ## Examples
 
