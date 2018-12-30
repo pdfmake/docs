@@ -31,7 +31,7 @@ Standard properties:
 * **producer** - the producer of the document (default is 'pdfmake')
 * **creationDate** - the date the document was created (added automatically by pdfmake)
 * **modDate** - the date the document was last modified
-* **trapped** - the trapped flag in a PDF document indicates whether the document has been "trapped"
+* **trapped** - the trapped flag in a PDF document indicates whether the document has been "trapped", i.e. corrected for slight color misregistrations
 
 Custom properties:
 
