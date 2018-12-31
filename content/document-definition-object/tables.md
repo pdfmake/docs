@@ -30,6 +30,16 @@ var docDefinition = {
 };
 ```
 
+##### Table layouts
+
+Can be used `layout` property for set table layout.
+
+Available table layouts:
+
+* noBorders
+* headerLineOnly
+* lightHorizontalLines
+
 ##### Own table layouts
 
 Own table layouts must be defined before calling `pdfMake.createPdf(docDefinition)`.
