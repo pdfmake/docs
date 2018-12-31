@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="generator" content="Hugo 0.52" />
-<title> :: pdfmake</title>
+<title>QR code :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
 <link href="/docs/css/nucleus.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/docs/_footer/">
+  <body data-url="/docs/document-definition-object/qr/">
     
       <header>
   <div class="logo">
@@ -170,7 +170,7 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/docs/document-definition-object/" class="dd-item alwaysopen haschildren
+    <li data-nav-id="/docs/document-definition-object/" class="dd-item parent alwaysopen haschildren
         ">
       <div>
       <a href="/docs/document-definition-object/">Document-definition-object</a>
@@ -247,7 +247,7 @@
           </a>
         </div>
     </li>
-      <li data-nav-id="/docs/document-definition-object/qr/" class="dd-item">
+      <li data-nav-id="/docs/document-definition-object/qr/" class="dd-item active">
         <div>
           <a href="/docs/document-definition-object/qr/">
             QR code
@@ -337,7 +337,7 @@
       <option value="/docs/document-definition-object/stack/" >- Stack of paragraphs</option>
       <option value="/docs/document-definition-object/images/" >- Images</option>
       <option value="/docs/document-definition-object/links/" >- Links</option>
-      <option value="/docs/document-definition-object/qr/" >- QR code</option>
+      <option value="/docs/document-definition-object/qr/"  selected>- QR code</option>
       <option value="/docs/document-definition-object/toc/" >- Table of contents</option>
       <option value="/docs/document-definition-object/page/" >- Page dimensions, orientation and margins</option>
       <option value="/docs/document-definition-object/document-medatadata/" >- Document Metadata</option>
@@ -351,17 +351,40 @@
     </div>
     
 
-    <h1></h1>
+    <h1>QR code</h1>
     
     
     
-    
+    <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+    <span style="color:#75715e">// basic usage
+</span><span style="color:#75715e"></span>    <span style="color:#111">{</span> <span style="color:#75af00">qr</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;text in QR&#39;</span> <span style="color:#111">},</span>
+
+    <span style="color:#75715e">// colored QR
+</span><span style="color:#75715e"></span>    <span style="color:#111">{</span> <span style="color:#75af00">qr</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;text in QR&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">foreground</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;red&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">background</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;yellow&#39;</span> <span style="color:#111">},</span>
+  <span style="color:#111">]</span>
+<span style="color:#111">}</span>
+</code></pre></div>
+<p>Properties:</p>
+
+<ul>
+<li><em>qr</em> - text in QR code</li>
+<li><em>foreground</em> (optional) -</li>
+<li><em>background</em> (optional) -</li>
+<li><em>fit</em> (optional) -</li>
+<li><em>version</em> (optional) -</li>
+<li><em>eccLevel</em> (optional, default L) - possible values: L, M, Q, H</li>
+<li><em>mode</em> (optional) - possible values: numeric, alphanumeric, octet</li>
+<li><em>mask</em> (optional) -</li>
+</ul>
+
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-next" href="/docs/getting-started/" title="Getting started" style="margin-right: 0px;"><label>Getting started</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/docs/document-definition-object/links/" title="Links"> <i class="fa fa-chevron-left"></i><label>Links</label></a>
+    <a class="nav nav-next" href="/docs/document-definition-object/toc/" title="Table of contents" style="margin-right: 0px;"><label>Table of contents</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -378,7 +401,7 @@
 
     
     <div class="github-link">
-      <a href="https://github.com/pdfmake/docs/edit/master/content/_footer.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/pdfmake/docs/edit/master/content/document-definition-object/qr.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

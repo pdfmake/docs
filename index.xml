@@ -133,7 +133,7 @@ var docDefinition = { content: [ &amp;#39;This paragraph fills full width, as th
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/tables/</guid>
       <description>Conceptually tables are similar to columns. They can however have headers, borders and cells spanning over multiple columns/rows.
-var docDefinition = { content: [ { layout: &amp;#39;lightHorizontalLines&amp;#39;, // optional  table: { // headers are automatically repeated if the table spans over multiple pages  // you can declare how many rows should be treated as headers  headerRows: 1, widths: [ &amp;#39;*&amp;#39;, &amp;#39;auto&amp;#39;, 100, &amp;#39;*&amp;#39; ], body: [ [ &amp;#39;First&amp;#39;, &amp;#39;Second&amp;#39;, &amp;#39;Third&amp;#39;, &amp;#39;The last one&amp;#39; ], [ &amp;#39;Value 1&amp;#39;, &amp;#39;Value 2&amp;#39;, &amp;#39;Value 3&amp;#39;, &amp;#39;Value 4&amp;#39; ], [ { text: &amp;#39;Bold value&amp;#39;, bold: true }, &amp;#39;Val 2&amp;#39;, &amp;#39;Val 3&amp;#39;, &amp;#39;Val 4&amp;#39; ] ] } } ] };  Own table layouts Own table layouts must be defined before calling pdfMake.</description>
+var docDefinition = { content: [ { layout: &amp;#39;lightHorizontalLines&amp;#39;, // optional  table: { // headers are automatically repeated if the table spans over multiple pages  // you can declare how many rows should be treated as headers  headerRows: 1, widths: [ &amp;#39;*&amp;#39;, &amp;#39;auto&amp;#39;, 100, &amp;#39;*&amp;#39; ], body: [ [ &amp;#39;First&amp;#39;, &amp;#39;Second&amp;#39;, &amp;#39;Third&amp;#39;, &amp;#39;The last one&amp;#39; ], [ &amp;#39;Value 1&amp;#39;, &amp;#39;Value 2&amp;#39;, &amp;#39;Value 3&amp;#39;, &amp;#39;Value 4&amp;#39; ], [ { text: &amp;#39;Bold value&amp;#39;, bold: true }, &amp;#39;Val 2&amp;#39;, &amp;#39;Val 3&amp;#39;, &amp;#39;Val 4&amp;#39; ] ] } } ] };  Table layouts Can be used layout property for set table layout.</description>
     </item>
     
     <item>
@@ -212,6 +212,16 @@ var docDefinition = { content: [ { // you&amp;#39;ll most often use dataURI imag
     </item>
     
     <item>
+      <title>QR code</title>
+      <link>https://pdfmake.github.io/docs/document-definition-object/qr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pdfmake.github.io/docs/document-definition-object/qr/</guid>
+      <description>var docDefinition = { content: [ // basic usage  { qr: &amp;#39;text in QR&amp;#39; }, // colored QR  { qr: &amp;#39;text in QR&amp;#39;, foreground: &amp;#39;red&amp;#39;, background: &amp;#39;yellow&amp;#39; }, ] }  Properties:
+ qr - text in QR code foreground (optional) - background (optional) - fit (optional) - version (optional) - eccLevel (optional, default L) - possible values: L, M, Q, H mode (optional) - possible values: numeric, alphanumeric, octet mask (optional) -  </description>
+    </item>
+    
+    <item>
       <title>Table of contents</title>
       <link>https://pdfmake.github.io/docs/document-definition-object/toc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -237,7 +247,7 @@ var docDefinition = { content: [ { // you&amp;#39;ll most often use dataURI imag
       <guid>https://pdfmake.github.io/docs/document-definition-object/document-medatadata/</guid>
       <description>PDF documents can have various metadata associated with them, such as the title, or author of the document. You can add that information by adding it to the document definition
 var docDefinition = { info: { title: &amp;#39;awesome Document&amp;#39;, author: &amp;#39;john doe&amp;#39;, subject: &amp;#39;subject of document&amp;#39;, keywords: &amp;#39;keywords for document&amp;#39;, }, content: &amp;#39;This is an sample PDF printed with pdfMake&amp;#39; }  Standard properties:
- title - the title of the document author - the name of the author subject - the subject of the document keywords - keywords associated with the document creator - the creator of the document (default is &amp;lsquo;pdfmake&amp;rsquo;) producer - the producer of the document (default is &amp;lsquo;pdfmake&amp;rsquo;) creationDate - the date the document was created (added automatically by pdfmake) modDate - the date the document was last modified trapped - the trapped flag in a PDF document indicates whether the document has been &amp;ldquo;trapped&amp;rdquo;  Custom properties:</description>
+ title - the title of the document author - the name of the author subject - the subject of the document keywords - keywords associated with the document creator - the creator of the document (default is &amp;lsquo;pdfmake&amp;rsquo;) producer - the producer of the document (default is &amp;lsquo;pdfmake&amp;rsquo;) creationDate - the date the document was created (added automatically by pdfmake) modDate - the date the document was last modified trapped - the trapped flag in a PDF document indicates whether the document has been &amp;ldquo;trapped&amp;rdquo;, i.</description>
     </item>
     
     <item>

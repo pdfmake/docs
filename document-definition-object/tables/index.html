@@ -247,6 +247,13 @@
           </a>
         </div>
     </li>
+      <li data-nav-id="/docs/document-definition-object/qr/" class="dd-item">
+        <div>
+          <a href="/docs/document-definition-object/qr/">
+            QR code
+          </a>
+        </div>
+    </li>
       <li data-nav-id="/docs/document-definition-object/toc/" class="dd-item">
         <div>
           <a href="/docs/document-definition-object/toc/">
@@ -330,6 +337,7 @@
       <option value="/docs/document-definition-object/stack/" >- Stack of paragraphs</option>
       <option value="/docs/document-definition-object/images/" >- Images</option>
       <option value="/docs/document-definition-object/links/" >- Links</option>
+      <option value="/docs/document-definition-object/qr/" >- QR code</option>
       <option value="/docs/document-definition-object/toc/" >- Table of contents</option>
       <option value="/docs/document-definition-object/page/" >- Page dimensions, orientation and margins</option>
       <option value="/docs/document-definition-object/document-medatadata/" >- Document Metadata</option>
@@ -370,6 +378,18 @@
   <span style="color:#111">]</span>
 <span style="color:#111">};</span>
 </code></pre></div>
+<h5 id="table-layouts">Table layouts</h5>
+
+<p>Can be used <code>layout</code> property for set table layout.</p>
+
+<p>Available table layouts:</p>
+
+<ul>
+<li>noBorders</li>
+<li>headerLineOnly</li>
+<li>lightHorizontalLines</li>
+</ul>
+
 <h5 id="own-table-layouts">Own table layouts</h5>
 
 <p>Own table layouts must be defined before calling <code>pdfMake.createPdf(docDefinition)</code>.</p>
