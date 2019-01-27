@@ -119,3 +119,12 @@ Parameters:
 
 * `cb` - callback function
 * `options` _(optional)_
+
+#### Get PDFKit document object
+
+{{% alert theme="warning" %}}pdfmake minimal version **0.1.41** is required.{{% /alert %}}
+
+```js
+const pdfDocGenerator = pdfMake.createPdf(docDefinition);
+var document = pdfDocGenerator.getStream();
+```
