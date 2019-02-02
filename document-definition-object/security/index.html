@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="generator" content="Hugo 0.53" />
-<title>Getting started :: pdfmake</title>
+<title>Encryption and access privileges :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
 <link href="/docs/css/nucleus.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/docs/getting-started/">
+  <body data-url="/docs/document-definition-object/security/">
     
       <header>
   <div class="logo">
@@ -62,7 +62,7 @@
             <i class="fa fa-fw fa-home"></i>
           </a>
           </li>
-    <li data-nav-id="/docs/getting-started/" class="dd-item parent active alwaysopen haschildren
+    <li data-nav-id="/docs/getting-started/" class="dd-item alwaysopen haschildren
         ">
       <div>
       <a href="/docs/getting-started/">Getting started</a>
@@ -131,6 +131,29 @@
             <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
+    <li data-nav-id="/docs/fonts/custom-fonts-client-side/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/fonts/custom-fonts-client-side/">Custom fonts (client-side)</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="/docs/fonts/custom-fonts-client-side/php/" class="dd-item">
+        <div>
+          <a href="/docs/fonts/custom-fonts-client-side/php/">
+            Building font file via PHP script
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/docs/fonts/custom-fonts-client-side/shell/" class="dd-item">
+        <div>
+          <a href="/docs/fonts/custom-fonts-client-side/shell/">
+            Building font file via shell script
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
       <li data-nav-id="/docs/fonts/icons/" class="dd-item">
         <div>
           <a href="/docs/fonts/icons/">
@@ -147,7 +170,7 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/docs/document-definition-object/" class="dd-item alwaysopen haschildren
+    <li data-nav-id="/docs/document-definition-object/" class="dd-item parent alwaysopen haschildren
         ">
       <div>
       <a href="/docs/document-definition-object/">Document-definition-object</a>
@@ -259,7 +282,7 @@
           </a>
         </div>
     </li>
-      <li data-nav-id="/docs/document-definition-object/security/" class="dd-item">
+      <li data-nav-id="/docs/document-definition-object/security/" class="dd-item active">
         <div>
           <a href="/docs/document-definition-object/security/">
             Encryption and access privileges
@@ -282,7 +305,7 @@
       <center>Navigation : 
         <select onchange="javascript:location.href = this.value;">
           
-    <option value="/docs/getting-started/"  selected>
+    <option value="/docs/getting-started/" >
    Getting started</option> 
     <option value="/docs/getting-started/client-side/" >
   - 
@@ -326,7 +349,7 @@
       <option value="/docs/document-definition-object/page/" >- Page dimensions, orientation and margins</option>
       <option value="/docs/document-definition-object/document-medatadata/" >- Document Metadata</option>
       <option value="/docs/document-definition-object/compression/" >- Compression</option>
-      <option value="/docs/document-definition-object/security/" >- Encryption and access privileges</option>
+      <option value="/docs/document-definition-object/security/"  selected>- Encryption and access privileges</option>
   
 
 
@@ -336,21 +359,36 @@
     </div>
     
 
-    <h1>Getting started</h1>
+    <h1>Encryption and access privileges</h1>
     
     
     
-
-<p>Pdfmake is runnable in browser (client-side) and in Node.js (server-side). Usages are described in next chapters.</p>
-
+    <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">userPassword</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;123&#39;</span><span style="color:#111">,</span>
+  <span style="color:#75af00">ownerPassword</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;123456&#39;</span><span style="color:#111">,</span>
+  <span style="color:#75af00">permissions</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">printing</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;highResolution&#39;</span><span style="color:#111">,</span> <span style="color:#75715e">//&#39;lowResolution&#39;
+</span><span style="color:#75715e"></span>    <span style="color:#75af00">modifying</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">false</span><span style="color:#111">,</span>
+    <span style="color:#75af00">copying</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">false</span><span style="color:#111">,</span>
+    <span style="color:#75af00">annotating</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+    <span style="color:#75af00">fillingForms</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+    <span style="color:#75af00">contentAccessibility</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+    <span style="color:#75af00">documentAssembly</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+    <span style="color:#d88200">&#39;...&#39;</span>
+  <span style="color:#111">]</span>
+<span style="color:#111">};</span>
+</code></pre></div>
+<p>Description is available <a href="https://github.com/foliojs/pdfkit/blob/master/docs/getting_started.md#encryption-and-access-privileges">here</a>.</p>
 
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/docs/" title="pdfmake"> <i class="fa fa-chevron-left"></i><label>pdfmake</label></a>
-    <a class="nav nav-next" href="/docs/getting-started/client-side/" title="Client-side" style="margin-right: 0px;"><label>Client-side</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/docs/document-definition-object/compression/" title="Compression"> <i class="fa fa-chevron-left"></i><label>Compression</label></a>
+    <a class="nav nav-next" href="/docs/document-definition-object/styling/" title="Styling" style="margin-right: 0px;"><label>Styling</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -367,7 +405,7 @@
 
     
     <div class="github-link">
-      <a href="https://github.com/pdfmake/docs/edit/master/content/getting-started/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/pdfmake/docs/edit/master/content/document-definition-object/security.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     
