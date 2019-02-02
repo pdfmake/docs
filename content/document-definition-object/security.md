@@ -5,6 +5,8 @@ weight = 296
 alwaysopen = true
 +++
 
+{{% alert theme="warning" %}}Minimal version: **0.1.50**{{% /alert %}}
+
 ```js
 var docDefinition = {
   userPassword: '123',

@@ -122,7 +122,7 @@ Parameters:
 
 #### Get PDFKit document object
 
-{{% alert theme="warning" %}}pdfmake minimal version **0.1.41** is required.{{% /alert %}}
+{{% alert theme="warning" %}}Minimal version: **0.1.41**{{% /alert %}}
 
 ```js
 const pdfDocGenerator = pdfMake.createPdf(docDefinition);
