@@ -7,6 +7,10 @@ alwaysopen = true
 
 pdfmake makes it possible to style any paragraph or its part:
 
+var docDefinition = {
+  div:outline:1 solid
+}
+
 ```js
 var docDefinition = {
   content: [
