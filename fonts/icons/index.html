@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="generator" content="Hugo 0.53" />
+<meta name="generator" content="Hugo 0.55.5" />
 <title>Icons :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -377,31 +377,30 @@
         <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fontello.ttf&#39;</span>
     <span style="color:#111">}</span>
 <span style="color:#111">}</span>
-</code></pre></div></li>
-
-<li><p>add a style for icons:
+</code></pre></div>
+<ul>
+<li>add a style for icons:
 <code>icon: {
-            font: 'Fontello'
-        }</code></p></li>
-
-<li><p>make a text paragraph:
+        font: 'Fontello'
+    }</code></li>
+<li>make a text paragraph:
 <code>
-        { text: '', style: 'icon' }, //icon wifi</code></p></li>
-
-<li><p>as the text you copy from the fontello-codes.css from the comments (not the escaped value)</p></li>
+    { text: '', style: 'icon' }, //icon wifi</code></li>
+<li>as the text you copy from the fontello-codes.css from the comments (not the escaped value)</li>
 </ul>
 
 <hr />
 
 <p>If you need an icon within text, you need to nest text objects:</p>
 
-<pre><code>    text: [
-        { text: '', style: 'icon' }, //icon gift
-        &quot; my present&quot;
-    ]
+<pre><code>text: [
+    { text: '', style: 'icon' }, //icon gift
+    &quot; my present&quot;
+]
 </code></pre>
 
-<p>this puts out: &ldquo;[gift icon] my present&rdquo;</p>
+<p>this puts out: &ldquo;[gift icon] my present&rdquo;</p></li>
+</ul>
 
 
     
