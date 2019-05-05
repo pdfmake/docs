@@ -6,5 +6,5 @@ alwaysopen = true
 +++
 
 * 6 LTS (End-of-life: April 2019)
-* 8 LTS
+* 8 LTS (End-of-life: December 2019)
 * 10 LTS
