@@ -17,10 +17,9 @@
       
       <guid>https://pdfmake.github.io/docs/getting-started/client-side/methods/</guid>
       <description>Download the PDF pdfMake.createPdf(docDefinition).download();  Parameters:
- defaultFileName (optional) - file name cb (optional) - callback function options (optional)  Open the PDF in a new window pdfMake.createPdf(docDefinition).open();  Parameters:
- options (optional) win (optional) - window (when an asynchronous operation)  Name can be defined only by using metadata title property (see Document metadata).
-Asynchronous example:
-$scope.generatePdf = function() { // create the window before the callback  var win = window.</description>
+ defaultFileName (optional) - file name cb (optional) - callback function options (optional) - advanced options see options chapter  Open the PDF in a new window pdfMake.createPdf(docDefinition).open();  Parameters:
+ options (optional) - advanced options see options chapter win (optional) - window (when an asynchronous operation)  Name can be defined only by using metadata title property (see Document metadata).
+Asynchronous example:</description>
     </item>
     
     <item>

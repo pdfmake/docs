@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2019-05-05T13:16:43 CEST">
-<title>Encryption and access privileges :: pdfmake</title>
+<title>Options :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
 <link href="/docs/css/nucleus.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/docs/document-definition-object/security/">
+  <body data-url="/docs/options/">
     
       <header>
   <div class="logo">
@@ -170,7 +170,7 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/docs/document-definition-object/" class="dd-item parent alwaysopen haschildren
+    <li data-nav-id="/docs/document-definition-object/" class="dd-item alwaysopen haschildren
         ">
       <div>
       <a href="/docs/document-definition-object/">Document-definition-object</a>
@@ -282,7 +282,7 @@
           </a>
         </div>
     </li>
-      <li data-nav-id="/docs/document-definition-object/security/" class="dd-item active">
+      <li data-nav-id="/docs/document-definition-object/security/" class="dd-item">
         <div>
           <a href="/docs/document-definition-object/security/">
             Encryption and access privileges
@@ -291,7 +291,7 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/docs/options/" class="dd-item alwaysopen
+    <li data-nav-id="/docs/options/" class="dd-item parent active alwaysopen
         ">
       <div>
       <a href="/docs/options/">Options</a>
@@ -355,9 +355,9 @@
       <option value="/docs/document-definition-object/page/" >- Page dimensions, orientation and margins</option>
       <option value="/docs/document-definition-object/document-medatadata/" >- Document Metadata</option>
       <option value="/docs/document-definition-object/compression/" >- Compression</option>
-      <option value="/docs/document-definition-object/security/"  selected>- Encryption and access privileges</option>
+      <option value="/docs/document-definition-object/security/" >- Encryption and access privileges</option>
   
-    <option value="/docs/options/" >
+    <option value="/docs/options/"  selected>
    Options</option> 
   
 
@@ -368,103 +368,28 @@
     </div>
     
 
-    <h1>Encryption and access privileges</h1>
+    <h1>Options</h1>
     
     
     
-    <div class="alert 
-alert-warning"
- 
-role="alert">Minimal version: **0.1.50**</div>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-  <span style="color:#75af00">userPassword</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;123&#39;</span><span style="color:#111">,</span>
-  <span style="color:#75af00">ownerPassword</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;123456&#39;</span><span style="color:#111">,</span>
-  <span style="color:#75af00">permissions</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-    <span style="color:#75af00">printing</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;highResolution&#39;</span><span style="color:#111">,</span> <span style="color:#75715e">//&#39;lowResolution&#39;
-</span><span style="color:#75715e"></span>    <span style="color:#75af00">modifying</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">false</span><span style="color:#111">,</span>
-    <span style="color:#75af00">copying</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">false</span><span style="color:#111">,</span>
-    <span style="color:#75af00">annotating</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
-    <span style="color:#75af00">fillingForms</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
-    <span style="color:#75af00">contentAccessibility</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
-    <span style="color:#75af00">documentAssembly</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span>
-  <span style="color:#111">},</span>
-  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
-    <span style="color:#d88200">&#39;...&#39;</span>
-  <span style="color:#111">]</span>
-<span style="color:#111">};</span>
-</code></pre></div>
-<p>PDF document allow you to encrypt the PDF file and require a password when opening the file,
-and/or set permissions of what users can do with the PDF file.</p>
 
-<p>To enable encryption set user password in <code>userPassword</code> (string value). The PDF file will
-be encrypted when a user password is provided, and users will be prompted to enter the password
-to decrypt the file when opening it.</p>
+<p>Advanced options for creating document used in <a href="/docs/getting-started/client-side/methods/">client-side methods</a> or <a href="http://localhost:1313/docs/getting-started/server-side/">server-side method</a>.</p>
 
-<p>To set access privileges for the PDF file, you need to provide an owner password in <code>ownerPassword</code> (string value)
-and object <code>permissions</code> with permissions. By default, all operations are disallowed.
-You need to explicitly allow certain operations.</p>
-
-<p>Following settings are allowed in <code>permissions</code> object:</p>
+<p>Options:</p>
 
 <ul>
-<li><code>printing</code> - whether printing is allowed. Specify <code>&quot;lowResolution&quot;</code> to allow degraded printing, or <code>&quot;highResolution&quot;</code> to allow printing with high resolution</li>
-<li><code>modifying</code> - whether modifying the file is allowed. Specify <code>true</code> to allow modifying document content</li>
-<li><code>copying</code> - whether copying text or graphics is allowed. Specify <code>true</code> to allow copying</li>
-<li><code>annotating</code> - whether annotating, form filling is allowed. Specify <code>true</code> to allow annotating and form filling</li>
-<li><code>fillingForms</code> - whether form filling and signing is allowed. Specify <code>true</code> to allow filling in form fields and signing</li>
-<li><code>contentAccessibility</code> - whether copying text for accessibility is allowed. Specify <code>true</code> to allow copying for accessibility</li>
-<li><code>documentAssembly</code> - whether assembling document is allowed. Specify <code>true</code> to allow document assembly</li>
+<li><code>fontLayoutCache</code> - option to disable font layout cache (<em>default</em>: <code>true</code> - cache enabled)</li>
+<li><code>bufferPages</code> -  allows you to control when pages are flushed to the output file (see <a href="http://pdfkit.org/docs/getting_started.html">pdfkit documentation</a>) (<em>default</em>: <code>false</code> - buffer disabled)</li>
 </ul>
 
-<p>You can specify either user password, owner password or both passwords.
-Behavior differs according to passwords you provides:</p>
-
-<ul>
-<li>When only user password is provided,
-users with user password are able to decrypt the file and have full access to the document.</li>
-<li>When only owner password is provided,
-users are able to decrypt and open the document without providing any password,
-but the access is limited to those operations explicitly permitted.
-Users with owner password have full access to the document.</li>
-<li>When both passwords are provided,
-users with user password are able to decrypt the file
-but only have limited access to the file according to permission settings.
-Users with owner password have full access to the document.</li>
-</ul>
-
-<p>Note that PDF file itself cannot enforce access privileges.
-When file is decrypted, PDF viewer applications have full access to the file content,
-and it is up to viewer applications to respect permission settings.</p>
-
-<p>To choose encryption method, you need to specify PDF version by <code>version</code>.
-The best possible encryption method for PDF version is used.</p>
-
-<div class="alert 
-alert-warning"
- 
-role="alert">PDF version is used only for encryption method, all other items are in versin PDF 1.3.</div>
-
-<p>Available versions:</p>
-
-<ul>
-<li><code>1.3</code> - PDF version 1.3 (default), 40-bit RC4 is used</li>
-<li><code>1.4</code> - PDF version 1.4, 128-bit RC4 is used</li>
-<li><code>1.5</code> - PDF version 1.5, 128-bit RC4 is used</li>
-<li><code>1.6</code> - PDF version 1.6, 128-bit AES is used</li>
-<li><code>1.7</code> - PDF version 1.7, 128-bit AES is used</li>
-<li><code>1.7ext3</code> - PDF version 1.7 ExtensionLevel 3, 256-bit AES is used</li>
-</ul>
-
-<p>When using PDF version 1.7 ExtensionLevel 3, password is truncated to 127 bytes of its UTF-8 representation.
-In older versions, password is truncated to 32 bytes, and only Latin-1 characters are allowed.</p>
 
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/docs/document-definition-object/compression/" title="Compression"> <i class="fa fa-chevron-left"></i><label>Compression</label></a>
-    <a class="nav nav-next" href="/docs/options/" title="Options" style="margin-right: 0px;"><label>Options</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/docs/document-definition-object/security/" title="Encryption and access privileges"> <i class="fa fa-chevron-left"></i><label>Encryption and access privileges</label></a>
+    <a class="nav nav-next" href="/docs/getting-started/" title="Getting started" style="margin-right: 0px;"><label>Getting started</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -481,7 +406,7 @@ In older versions, password is truncated to 32 bytes, and only Latin-1 character
 
     
     <div class="github-link">
-      <a href="https://github.com/pdfmake/docs/edit/master/content/document-definition-object/security.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/pdfmake/docs/edit/master/content/options/_index.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

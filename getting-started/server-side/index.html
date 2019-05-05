@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="generator" content="Hugo 0.55.5" />
+<meta name="revised" content="2019-05-05T13:16:43 CEST">
 <title>Server-side :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -69,59 +69,6 @@
             <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
-    <li data-nav-id="/docs/getting-started/client-side/" class="dd-item alwaysopen haschildren
-        ">
-      <div>
-      <a href="/docs/getting-started/client-side/">Client-side</a>
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
-      </div>
-        <ul>
-      <li data-nav-id="/docs/getting-started/client-side/methods/" class="dd-item">
-        <div>
-          <a href="/docs/getting-started/client-side/methods/">
-            Methods
-          </a>
-        </div>
-    </li>
-      <li data-nav-id="/docs/getting-started/client-side/supported-browsers/" class="dd-item">
-        <div>
-          <a href="/docs/getting-started/client-side/supported-browsers/">
-            Supported browsers
-          </a>
-        </div>
-    </li>
-      <li data-nav-id="/docs/getting-started/client-side/examples/" class="dd-item">
-        <div>
-          <a href="/docs/getting-started/client-side/examples/">
-            Examples
-          </a>
-        </div>
-    </li>
-        </ul>
-    </li>
-    <li data-nav-id="/docs/getting-started/server-side/" class="dd-item parent active alwaysopen haschildren
-        ">
-      <div>
-      <a href="/docs/getting-started/server-side/">Server-side</a>
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
-      </div>
-        <ul>
-      <li data-nav-id="/docs/getting-started/server-side/supported-nodejs-versions/" class="dd-item">
-        <div>
-          <a href="/docs/getting-started/server-side/supported-nodejs-versions/">
-            Supported Node.js versions
-          </a>
-        </div>
-    </li>
-      <li data-nav-id="/docs/getting-started/server-side/examples/" class="dd-item">
-        <div>
-          <a href="/docs/getting-started/server-side/examples/">
-            Examples
-          </a>
-        </div>
-    </li>
-        </ul>
-    </li>
         </ul>
     </li>
     <li data-nav-id="/docs/fonts/" class="dd-item alwaysopen haschildren
@@ -291,6 +238,12 @@
     </li>
         </ul>
     </li>
+    <li data-nav-id="/docs/options/" class="dd-item alwaysopen
+        ">
+      <div>
+      <a href="/docs/options/">Options</a>
+      </div>
+    </li>
 
 
 
@@ -351,6 +304,9 @@
       <option value="/docs/document-definition-object/compression/" >- Compression</option>
       <option value="/docs/document-definition-object/security/" >- Encryption and access privileges</option>
   
+    <option value="/docs/options/" >
+   Options</option> 
+  
 
 
 
@@ -385,15 +341,26 @@
 <span style="color:#00a8c8">var</span> <span style="color:#75af00">PdfPrinter</span> <span style="color:#f92672">=</span> <span style="color:#75af00">require</span><span style="color:#111">(</span><span style="color:#d88200">&#39;pdfmake&#39;</span><span style="color:#111">);</span>
 <span style="color:#00a8c8">var</span> <span style="color:#75af00">printer</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#75af00">PdfPrinter</span><span style="color:#111">(</span><span style="color:#75af00">fonts</span><span style="color:#111">);</span>
 <span style="color:#00a8c8">var</span> <span style="color:#75af00">fs</span> <span style="color:#f92672">=</span> <span style="color:#75af00">require</span><span style="color:#111">(</span><span style="color:#d88200">&#39;fs&#39;</span><span style="color:#111">);</span>
- 
+
 <span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
   <span style="color:#75715e">// ...
 </span><span style="color:#75715e"></span><span style="color:#111">};</span>
- 
-<span style="color:#00a8c8">var</span> <span style="color:#75af00">pdfDoc</span> <span style="color:#f92672">=</span> <span style="color:#75af00">printer</span><span style="color:#111">.</span><span style="color:#75af00">createPdfKitDocument</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
+
+<span style="color:#00a8c8">var</span> <span style="color:#75af00">options</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span><span style="color:#111">}</span>
+
+<span style="color:#00a8c8">var</span> <span style="color:#75af00">pdfDoc</span> <span style="color:#f92672">=</span> <span style="color:#75af00">printer</span><span style="color:#111">.</span><span style="color:#75af00">createPdfKitDocument</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">,</span> <span style="color:#75af00">options</span><span style="color:#111">);</span>
 <span style="color:#75af00">pdfDoc</span><span style="color:#111">.</span><span style="color:#75af00">pipe</span><span style="color:#111">(</span><span style="color:#75af00">fs</span><span style="color:#111">.</span><span style="color:#75af00">createWriteStream</span><span style="color:#111">(</span><span style="color:#d88200">&#39;document.pdf&#39;</span><span style="color:#111">));</span>
 <span style="color:#75af00">pdfDoc</span><span style="color:#111">.</span><span style="color:#75af00">end</span><span style="color:#111">();</span>
 </code></pre></div>
+<p>Parameters for <code>createPdfKitDocument</code>:</p>
+
+<ul>
+<li><code>docDefinition</code> - object with document definition</li>
+<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
+</ul>
+
 
 
     

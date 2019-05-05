@@ -38,10 +38,9 @@ If you don&amp;rsquo;t want to install gulp and/or just downloaded pdfMake and w
       
       <guid>https://pdfmake.github.io/docs/getting-started/client-side/methods/</guid>
       <description>Download the PDF pdfMake.createPdf(docDefinition).download();  Parameters:
- defaultFileName (optional) - file name cb (optional) - callback function options (optional)  Open the PDF in a new window pdfMake.createPdf(docDefinition).open();  Parameters:
- options (optional) win (optional) - window (when an asynchronous operation)  Name can be defined only by using metadata title property (see Document metadata).
-Asynchronous example:
-$scope.generatePdf = function() { // create the window before the callback  var win = window.</description>
+ defaultFileName (optional) - file name cb (optional) - callback function options (optional) - advanced options see options chapter  Open the PDF in a new window pdfMake.createPdf(docDefinition).open();  Parameters:
+ options (optional) - advanced options see options chapter win (optional) - window (when an asynchronous operation)  Name can be defined only by using metadata title property (see Document metadata).
+Asynchronous example:</description>
     </item>
     
     <item>
@@ -266,7 +265,8 @@ var docDefinition = { compress: false, content: (...) }; </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/security/</guid>
-      <description>Minimal version: **0.1.50** var docDefinition = { userPassword: &amp;#39;123&amp;#39;, ownerPassword: &amp;#39;123456&amp;#39;, permissions: { printing: &amp;#39;highResolution&amp;#39;, //&amp;#39;lowResolution&amp;#39;  modifying: false, copying: false, annotating: true, fillingForms: true, contentAccessibility: true, documentAssembly: true }, content: [ &amp;#39;...&amp;#39; ] };  Description is available here.</description>
+      <description>Minimal version: **0.1.50** var docDefinition = { userPassword: &amp;#39;123&amp;#39;, ownerPassword: &amp;#39;123456&amp;#39;, permissions: { printing: &amp;#39;highResolution&amp;#39;, //&amp;#39;lowResolution&amp;#39;  modifying: false, copying: false, annotating: true, fillingForms: true, contentAccessibility: true, documentAssembly: true }, content: [ &amp;#39;...&amp;#39; ] };  PDF document allow you to encrypt the PDF file and require a password when opening the file, and/or set permissions of what users can do with the PDF file.
+To enable encryption set user password in userPassword (string value).</description>
     </item>
     
     <item>
