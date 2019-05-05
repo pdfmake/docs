@@ -68,7 +68,7 @@ and it is up to viewer applications to respect permission settings.
 To choose encryption method, you need to specify PDF version by `version`.
 The best possible encryption method for PDF version is used.
 
-{{% alert theme="warning" %}}PDF version is used only for encryption method, all other items are in versin PDF 1.3.{{% /alert %}}
+{{% alert theme="warning" %}}PDF version is used only for encryption method, all other PDF elements are in version 1.3.{{% /alert %}}
 
 Available versions:
 
