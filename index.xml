@@ -58,9 +58,8 @@ Asynchronous example:</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/getting-started/client-side/supported-browsers/</guid>
-      <description>Internet Explorer 10+ Edge 12+ Firefox Chrome Chrome (Android) Opera Safari (iOS) Safari (iOS) iPhone  Limitations Methods **`open()`** and **`print()`** are supported only in: * Firefox * Chrome * Opera 
-Add-ons used in browsers can affect the functionality of pdfmake (especially for `open()` and `print()`). If pdfmake is not working try disable add-ons in browser. Problematic add-ons AdBlock 
-Fully description is available in issue.</description>
+      <description>Internet Explorer 10+ Edge 12+ Firefox Chrome Chrome (Android) Opera Safari (iOS) Safari (iOS) iPhone  LimitationsMethods open() and print() are supported only in:
+ Firefox Chrome Opera  Add-ons used in browsers can affect the functionality of pdfmake (especially for open() and print()). If pdfmake is not working try disable add-ons in browser.Problematic add-onsAdBlockFully description is available in issue.</description>
     </item>
     
     <item>
@@ -90,7 +89,8 @@ Fully description is available in issue.</description>
       <description>make a font at http://fontello.com/ or something and download it
  from font file (for example .ttf) create vfs_fonts.js file, use custom fonts)
  define font in js (just defining normal might be enough):
-pdfMake.fonts = { Fontello: { normal: &amp;#39;fontello.ttf&amp;#39;, bold: &amp;#39;fontello.ttf&amp;#39;, italics: &amp;#39;fontello.ttf&amp;#39;, bolditalics: &amp;#39;fontello.ttf&amp;#39; } }   add a style for icons: icon: { font: &#39;Fontello&#39; } make a text paragraph:  { text: &#39;&#39;, style: &#39;icon&#39; }, //icon wifi as the text you copy from the fontello-codes.</description>
+pdfMake.fonts = { Fontello: { normal: &amp;#39;fontello.ttf&amp;#39;, bold: &amp;#39;fontello.ttf&amp;#39;, italics: &amp;#39;fontello.ttf&amp;#39;, bolditalics: &amp;#39;fontello.ttf&amp;#39; } }  add a style for icons: icon: { font: &#39;Fontello&#39; }
+ make a text paragraph:  { text: &#39;&#39;, style: &#39;icon&#39; }, //icon wifi</description>
     </item>
     
     <item>
@@ -265,7 +265,7 @@ var docDefinition = { compress: false, content: (...) }; </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/security/</guid>
-      <description>Minimal version: **0.1.50** var docDefinition = { userPassword: &amp;#39;123&amp;#39;, ownerPassword: &amp;#39;123456&amp;#39;, permissions: { printing: &amp;#39;highResolution&amp;#39;, //&amp;#39;lowResolution&amp;#39;  modifying: false, copying: false, annotating: true, fillingForms: true, contentAccessibility: true, documentAssembly: true }, content: [ &amp;#39;...&amp;#39; ] };  PDF document allow you to encrypt the PDF file and require a password when opening the file, and/or set permissions of what users can do with the PDF file.
+      <description>Minimal version: 0.1.50var docDefinition = { userPassword: &amp;#39;123&amp;#39;, ownerPassword: &amp;#39;123456&amp;#39;, permissions: { printing: &amp;#39;highResolution&amp;#39;, //&amp;#39;lowResolution&amp;#39;  modifying: false, copying: false, annotating: true, fillingForms: true, contentAccessibility: true, documentAssembly: true }, content: [ &amp;#39;...&amp;#39; ] };  PDF document allow you to encrypt the PDF file and require a password when opening the file, and/or set permissions of what users can do with the PDF file.
 To enable encryption set user password in userPassword (string value).</description>
     </item>
     
