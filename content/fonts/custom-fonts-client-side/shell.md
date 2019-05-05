@@ -2,7 +2,7 @@
 title = "Building font file via shell script"
 description = ""
 weight = 11
-alwaysopen = true
+alwaysopen = false
 +++
 
 

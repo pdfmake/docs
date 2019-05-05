@@ -2,7 +2,7 @@
 title = "Building font file via PHP script"
 description = ""
 weight = 10
-alwaysopen = true
+alwaysopen = false
 +++
 
 For a complete description of use custom fonts in client-side, read the article: [Custom fonts (client-side)](/docs/fonts/custom-fonts-client-side/)

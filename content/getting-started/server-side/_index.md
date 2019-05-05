@@ -25,12 +25,21 @@ var fonts = {
 var PdfPrinter = require('pdfmake');
 var printer = new PdfPrinter(fonts);
 var fs = require('fs');
- 
+
 var docDefinition = {
   // ...
 };
- 
-var pdfDoc = printer.createPdfKitDocument(docDefinition);
+
+var options = {
+  // ...
+}
+
+var pdfDoc = printer.createPdfKitDocument(docDefinition, options);
 pdfDoc.pipe(fs.createWriteStream('document.pdf'));
 pdfDoc.end();
  ```
+
+Parameters for `createPdfKitDocument`:
+
+* `docDefinition` - object with document definition
+* `options` _(optional)_ - advanced options see [options chapter](/docs/options/)
