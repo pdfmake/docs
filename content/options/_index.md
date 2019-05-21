@@ -5,7 +5,7 @@ weight = 30
 alwaysopen = true
 +++
 
-Advanced options for creating document used in [client-side methods](/docs/getting-started/client-side/methods/) or [server-side method](http://localhost:1313/docs/getting-started/server-side/).
+Advanced options for creating document used in [client-side methods](/docs/getting-started/client-side/methods/) or [server-side method](/docs/getting-started/server-side/).
 
 Options:
 
