@@ -73,6 +73,7 @@ pdfMake.createPdf(docDefinition).download();
 
 Alternatively, you can pass the tableLayouts directly to `createPdf` without changing the global value:
 
+- On the client side
 ```js
 pdfMake.createPdf(docDefinition, tableLayouts).download();
 
@@ -80,6 +81,28 @@ pdfMake.createPdf(docDefinition, tableLayouts).download();
 // tableLayouts, fonts and vfs are all optional - falsy values will cause
 // pdfMake.tableLayouts, pdfMake.fonts or pdfMake.vfs to be used.
 pdfMake.createPdf(docDefinition, tableLayouts, fonts, vfs)
+```
+
+- On the server side
+```js
+var PdfPrinter = require('pdfmake');
+var printer = new PdfPrinter(fonts);
+
+// Declaring your layout
+var myTableLayouts = {
+    exampleLayout: {
+        /* 
+        Your layout here.
+        */
+    }
+};
+
+// Building the PDF
+var pdfDoc = printer.createPdfKitDocument(docDefinition, {tableLayouts: myTableLayouts});
+
+// Writing it to disk
+pdfDoc.pipe(fs.createWriteStream('document.pdf'));
+pdfDoc.end();
 ```
 
 All concepts related to tables are covered by TABLES example in [playground](http://pdfmake.org/playground.html).
