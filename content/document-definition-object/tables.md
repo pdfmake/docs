@@ -73,7 +73,8 @@ pdfMake.createPdf(docDefinition).download();
 
 Alternatively, you can pass the tableLayouts directly to `createPdf` without changing the global value:
 
-- On the client side
+- On the client side:
+
 ```js
 pdfMake.createPdf(docDefinition, tableLayouts).download();
 
@@ -83,7 +84,8 @@ pdfMake.createPdf(docDefinition, tableLayouts).download();
 pdfMake.createPdf(docDefinition, tableLayouts, fonts, vfs)
 ```
 
-- On the server side
+- On the server side:
+
 ```js
 var PdfPrinter = require('pdfmake');
 var printer = new PdfPrinter(fonts);
