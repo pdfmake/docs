@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-05-25T07:44:20 CEST">
+<meta name="revised" content="2019-05-25T07:50:25 CEST">
 <title>Tables :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -439,39 +439,37 @@
 <p>Alternatively, you can pass the tableLayouts directly to <code>createPdf</code> without changing the global value:</p>
 
 <ul>
-<li>On the client side
-```js
-pdfMake.createPdf(docDefinition, tableLayouts).download();</li>
+<li>On the client side:</li>
 </ul>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">,</span> <span style="color:#75af00">tableLayouts</span><span style="color:#111">).</span><span style="color:#75af00">download</span><span style="color:#111">();</span>
 
-<p>// The full signature of createPdf looks like this.
-// tableLayouts, fonts and vfs are all optional - falsy values will cause
-// pdfMake.tableLayouts, pdfMake.fonts or pdfMake.vfs to be used.
-pdfMake.createPdf(docDefinition, tableLayouts, fonts, vfs)</p>
+<span style="color:#75715e">// The full signature of createPdf looks like this.
+</span><span style="color:#75715e">// tableLayouts, fonts and vfs are all optional - falsy values will cause
+</span><span style="color:#75715e">// pdfMake.tableLayouts, pdfMake.fonts or pdfMake.vfs to be used.
+</span><span style="color:#75715e"></span><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">,</span> <span style="color:#75af00">tableLayouts</span><span style="color:#111">,</span> <span style="color:#75af00">fonts</span><span style="color:#111">,</span> <span style="color:#75af00">vfs</span><span style="color:#111">)</span>
+</code></pre></div>
+<ul>
+<li>On the server side:</li>
+</ul>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">PdfPrinter</span> <span style="color:#f92672">=</span> <span style="color:#75af00">require</span><span style="color:#111">(</span><span style="color:#d88200">&#39;pdfmake&#39;</span><span style="color:#111">);</span>
+<span style="color:#00a8c8">var</span> <span style="color:#75af00">printer</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#75af00">PdfPrinter</span><span style="color:#111">(</span><span style="color:#75af00">fonts</span><span style="color:#111">);</span>
 
-<pre><code>
-- On the server side
-```js
-var PdfPrinter = require('pdfmake');
-var printer = new PdfPrinter(fonts);
+<span style="color:#75715e">// Declaring your layout
+</span><span style="color:#75715e"></span><span style="color:#00a8c8">var</span> <span style="color:#75af00">myTableLayouts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">exampleLayout</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+        <span style="color:#75715e">/* 
+</span><span style="color:#75715e">        Your layout here.
+</span><span style="color:#75715e">        */</span>
+    <span style="color:#111">}</span>
+<span style="color:#111">};</span>
 
-// Declaring your layout
-var myTableLayouts = {
-    exampleLayout: {
-        /* 
-        Your layout here.
-        */
-    }
-};
+<span style="color:#75715e">// Building the PDF
+</span><span style="color:#75715e"></span><span style="color:#00a8c8">var</span> <span style="color:#75af00">pdfDoc</span> <span style="color:#f92672">=</span> <span style="color:#75af00">printer</span><span style="color:#111">.</span><span style="color:#75af00">createPdfKitDocument</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">,</span> <span style="color:#111">{</span><span style="color:#75af00">tableLayouts</span><span style="color:#f92672">:</span> <span style="color:#75af00">myTableLayouts</span><span style="color:#111">});</span>
 
-// Building the PDF
-var pdfDoc = printer.createPdfKitDocument(docDefinition, {tableLayouts: myTableLayouts});
-
-// Writing it to disk
-pdfDoc.pipe(fs.createWriteStream('document.pdf'));
-pdfDoc.end();
-</code></pre>
-
+<span style="color:#75715e">// Writing it to disk
+</span><span style="color:#75715e"></span><span style="color:#75af00">pdfDoc</span><span style="color:#111">.</span><span style="color:#75af00">pipe</span><span style="color:#111">(</span><span style="color:#75af00">fs</span><span style="color:#111">.</span><span style="color:#75af00">createWriteStream</span><span style="color:#111">(</span><span style="color:#d88200">&#39;document.pdf&#39;</span><span style="color:#111">));</span>
+<span style="color:#75af00">pdfDoc</span><span style="color:#111">.</span><span style="color:#75af00">end</span><span style="color:#111">();</span>
+</code></pre></div>
 <p>All concepts related to tables are covered by TABLES example in <a href="http://pdfmake.org/playground.html">playground</a>.</p>
 
 
