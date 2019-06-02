@@ -8,6 +8,7 @@ alwaysopen = true
 #### Download the PDF
 ```js
 pdfMake.createPdf(docDefinition).download();
+pdfMake.createPdf(dd).download('filename.pdf');
 ```
 Parameters:
 
