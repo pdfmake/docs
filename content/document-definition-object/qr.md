@@ -13,6 +13,9 @@ var docDefinition = {
 
     // colored QR
     { qr: 'text in QR', foreground: 'red', background: 'yellow' },
+    
+    // resized QR
+    { qr: 'text in QR', fit: '500' },
   ]
 }
 ```
