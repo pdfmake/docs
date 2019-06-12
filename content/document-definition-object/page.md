@@ -42,6 +42,20 @@ To change page orientation within a document, add a page break with the new page
 }
 ```
 
+Automatic page height:
+
+```js
+var dd = {
+  pageSize: {
+    width: 595.28,
+    height: 'auto'
+  },
+  content: [
+    // ...
+  ]
+}
+```
+
 
 #### Dynamically control page breaks, for instance to avoid orphan children
 
