@@ -121,7 +121,7 @@ var docDefinition = { content: [ { // you&amp;#39;ll most often use dataURI imag
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/qr/</guid>
-      <description>var docDefinition = { content: [ // basic usage  { qr: &amp;#39;text in QR&amp;#39; }, // colored QR  { qr: &amp;#39;text in QR&amp;#39;, foreground: &amp;#39;red&amp;#39;, background: &amp;#39;yellow&amp;#39; }, ] }  Properties:
+      <description>var docDefinition = { content: [ // basic usage  { qr: &amp;#39;text in QR&amp;#39; }, // colored QR  { qr: &amp;#39;text in QR&amp;#39;, foreground: &amp;#39;red&amp;#39;, background: &amp;#39;yellow&amp;#39; }, // resized QR  { qr: &amp;#39;text in QR&amp;#39;, fit: &amp;#39;500&amp;#39; }, ] }  Properties:
  qr - text in QR code foreground (optional) - background (optional) - fit (optional) - version (optional) - eccLevel (optional, default L) - possible values: L, M, Q, H mode (optional) - possible values: numeric, alphanumeric, octet mask (optional) -  </description>
     </item>
     

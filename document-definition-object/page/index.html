@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-05-25T07:50:25 CEST">
+<meta name="revised" content="2019-06-12T16:44:30 CEST">
 <title>Page dimensions, orientation and margins :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -405,6 +405,17 @@
     <span style="color:#111">{</span><span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Text on Landscape 2&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">pageOrientation</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;portrait&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">pageBreak</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;after&#39;</span><span style="color:#111">},</span>
     <span style="color:#111">{</span><span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Text on Portrait 2&#39;</span><span style="color:#111">},</span>
   <span style="color:#111">]</span>
+<span style="color:#111">}</span>
+</code></pre></div>
+<p>Automatic page height:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">dd</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">pageSize</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">595.28</span><span style="color:#111">,</span>
+    <span style="color:#75af00">height</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;auto&#39;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>  <span style="color:#111">]</span>
 <span style="color:#111">}</span>
 </code></pre></div>
 <h4 id="dynamically-control-page-breaks-for-instance-to-avoid-orphan-children">Dynamically control page breaks, for instance to avoid orphan children</h4>
