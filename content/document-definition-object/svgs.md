@@ -5,6 +5,8 @@ weight = 29
 alwaysopen = true
 +++
 
+{{% alert theme="warning" %}}Minimal version: **0.1.58**{{% /alert %}}
+
 To enable SVG nodes install svg-to-pdfkit:
 ```
 npm install svg-to-pdfkit --save
@@ -16,7 +18,7 @@ SVGs are much like [images](/docs/document-definition-object/images/) except it 
 var docDefinition = {
   content: [
     {
-      // If no width/height/fit is used, then dimensions from the svg element is used.  
+      // If no width/height/fit is used, then dimensions from the svg element is used.
       svg: '<svg width="300" height="200" viewBox="0 0 300 200">...</svg>'
     },
     {
