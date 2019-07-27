@@ -106,6 +106,17 @@ var docDefinition = { content: [ { // you&amp;#39;ll most often use dataURI imag
     </item>
     
     <item>
+      <title>SVGs</title>
+      <link>https://pdfmake.github.io/docs/document-definition-object/svgs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pdfmake.github.io/docs/document-definition-object/svgs/</guid>
+      <description>Minimal version: 0.1.58To enable SVG nodes install svg-to-pdfkit:
+npm install svg-to-pdfkit --save  SVGs are much like images except it is not currently possible to refer to SVGs by file or re-use from a dictionary.
+var docDefinition = { content: [ { // If no width/height/fit is used, then dimensions from the svg element is used.  svg: &amp;#39;&amp;lt;svg width=&amp;#34;300&amp;#34; height=&amp;#34;200&amp;#34; viewBox=&amp;#34;0 0 300 200&amp;#34;&amp;gt;...&amp;lt;/svg&amp;gt;&amp;#39; }, { // if you specify width, svg will scale proportionally  svg: &amp;#39;&amp;lt;svg width=&amp;#34;300&amp;#34; height=&amp;#34;200&amp;#34; viewBox=&amp;#34;0 0 300 200&amp;#34;&amp;gt;.</description>
+    </item>
+    
+    <item>
       <title>Links</title>
       <link>https://pdfmake.github.io/docs/document-definition-object/links/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

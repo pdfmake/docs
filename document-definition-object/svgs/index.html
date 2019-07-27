@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2019-07-27T14:46:20 CEST">
-<title>Categories :: pdfmake</title>
+<title>SVGs :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
 <link href="/docs/css/nucleus.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/docs/categories/">
+  <body data-url="/docs/document-definition-object/svgs/">
     
       <header>
   <div class="logo">
@@ -170,7 +170,7 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/docs/document-definition-object/" class="dd-item alwaysopen haschildren
+    <li data-nav-id="/docs/document-definition-object/" class="dd-item parent alwaysopen haschildren
         ">
       <div>
       <a href="/docs/document-definition-object/">Document-definition-object</a>
@@ -240,7 +240,7 @@
           </a>
         </div>
     </li>
-      <li data-nav-id="/docs/document-definition-object/svgs/" class="dd-item">
+      <li data-nav-id="/docs/document-definition-object/svgs/" class="dd-item active">
         <div>
           <a href="/docs/document-definition-object/svgs/">
             SVGs
@@ -356,7 +356,7 @@
       <option value="/docs/document-definition-object/margins/" >- Margins</option>
       <option value="/docs/document-definition-object/stack/" >- Stack of paragraphs</option>
       <option value="/docs/document-definition-object/images/" >- Images</option>
-      <option value="/docs/document-definition-object/svgs/" >- SVGs</option>
+      <option value="/docs/document-definition-object/svgs/"  selected>- SVGs</option>
       <option value="/docs/document-definition-object/links/" >- Links</option>
       <option value="/docs/document-definition-object/qr/" >- QR code</option>
       <option value="/docs/document-definition-object/toc/" >- Table of contents</option>
@@ -376,40 +376,53 @@
     </div>
     
 
-    <h1>Categories</h1>
+    <h1>SVGs</h1>
     
     
     
+    <div class="alert 
+alert-warning"
+ 
+role="alert">Minimal version: <strong>0.1.58</strong></div>
 
 
+<p>To enable SVG nodes install svg-to-pdfkit:</p>
 
-<div class="extra-pagination inner">
-<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 of 0</span>
-	
-</nav>
+<pre><code>npm install svg-to-pdfkit --save
+</code></pre>
 
-</div>
-
-
-
-<div style="margin-bottom:2rem"></div>
-
-<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 of 0</span>
-	
-</nav>
-
-
-
+<p>SVGs are much like <a href="/docs/document-definition-object/images/">images</a> except it is not currently possible to refer to SVGs by file or re-use from a dictionary.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+    <span style="color:#111">{</span>
+      <span style="color:#75715e">// If no width/height/fit is used, then dimensions from the svg element is used.
+</span><span style="color:#75715e"></span>      <span style="color:#75af00">svg</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&lt;svg width=&#34;300&#34; height=&#34;200&#34; viewBox=&#34;0 0 300 200&#34;&gt;...&lt;/svg&gt;&#39;</span>
+    <span style="color:#111">},</span>
+    <span style="color:#111">{</span>
+      <span style="color:#75715e">// if you specify width, svg will scale proportionally
+</span><span style="color:#75715e"></span>      <span style="color:#75af00">svg</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&lt;svg width=&#34;300&#34; height=&#34;200&#34; viewBox=&#34;0 0 300 200&#34;&gt;...&lt;/svg&gt;&#39;</span><span style="color:#111">,</span>
+      <span style="color:#75af00">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">150</span>
+    <span style="color:#111">},</span>
+    <span style="color:#111">{</span>
+      <span style="color:#75715e">// if you specify both width and height - svg will be stretched
+</span><span style="color:#75715e"></span>      <span style="color:#75af00">svg</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&lt;svg width=&#34;300&#34; height=&#34;200&#34; viewBox=&#34;0 0 300 200&#34;&gt;...&lt;/svg&gt;&#39;</span><span style="color:#111">,</span>
+      <span style="color:#75af00">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">600</span><span style="color:#111">,</span>
+      <span style="color:#75af00">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">400</span>
+    <span style="color:#111">},</span>
+    <span style="color:#111">{</span>
+      <span style="color:#75715e">// you can also fit the svg inside a rectangle
+</span><span style="color:#75715e"></span>      <span style="color:#75af00">svg</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&lt;svg width=&#34;300&#34; height=&#34;200&#34; viewBox=&#34;0 0 300 200&#34;&gt;...&lt;/svg&gt;&#39;</span><span style="color:#111">,</span>
+      <span style="color:#75af00">fit</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#ae81ff">150</span><span style="color:#111">,</span> <span style="color:#ae81ff">100</span><span style="color:#111">]</span>
+    <span style="color:#111">}</span>
+<span style="color:#111">};</span>
+</code></pre></div>
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-next" href="/docs/getting-started/" title="Getting started" style="margin-right: 0px;"><label>Getting started</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/docs/document-definition-object/images/" title="Images"> <i class="fa fa-chevron-left"></i><label>Images</label></a>
+    <a class="nav nav-next" href="/docs/document-definition-object/links/" title="Links" style="margin-right: 0px;"><label>Links</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -426,7 +439,7 @@
 
     
     <div class="github-link">
-      <a href="https://github.com/pdfmake/docs/edit/master/content/" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/pdfmake/docs/edit/master/content/document-definition-object/svgs.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     
