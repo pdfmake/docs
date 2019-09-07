@@ -20,3 +20,8 @@ and open in browser:
 ```
 http://localhost:1313/docs/
 ```
+
+#### Deploy webpages
+```
+hugo --cleanDestinationDir
+```
