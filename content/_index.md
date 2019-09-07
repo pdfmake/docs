@@ -7,10 +7,6 @@ description = ""
 
 PDF document generation library for server-side and client-side usage in pure JavaScript.
 
-{{% notice warning %}}
-<center><big><i class='fa fa-hourglass'></i> Documentation Under Construction <i class='fa fa-hourglass'></i></big></center>
-{{% /notice %}}
-
 ## Features
 
 ##### basics
