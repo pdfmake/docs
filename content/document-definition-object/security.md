@@ -1,7 +1,7 @@
 +++
 title = "Encryption and access privileges"
 description = ""
-weight = 296
+weight = 297
 alwaysopen = true
 +++
 

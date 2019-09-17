@@ -1,7 +1,7 @@
 +++
 title = "Compression"
 description = ""
-weight = 295
+weight = 296
 alwaysopen = true
 +++
 
