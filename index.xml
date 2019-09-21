@@ -240,6 +240,16 @@ var docDefinition = { content: [ { // If no width/height/fit is used, then dimen
     </item>
     
     <item>
+      <title>Watermark</title>
+      <link>https://pdfmake.github.io/docs/document-definition-object/watermark/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pdfmake.github.io/docs/document-definition-object/watermark/</guid>
+      <description>Properties  text - watermark text color - color of text opacity opacity of text bold - bold style of text italics - italics style of text fontSize - own font size of text (ideal size is calculated automatically) (minimal version: 0.1.60) angle - angle of text rotation (minimal version: 0.1.60)  Examples Example of simple basic usage:
+var docDefinition = { watermark: &amp;#39;test watermark&amp;#39;, content: [ &amp;#39;...&amp;#39; ] };  Example of font style:</description>
+    </item>
+    
+    <item>
       <title>Page dimensions, orientation and margins</title>
       <link>https://pdfmake.github.io/docs/document-definition-object/page/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
