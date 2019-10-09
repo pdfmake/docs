@@ -72,3 +72,29 @@ var docDefinition = {
   }
 };
 ```
+
+#### Style properties
+
+* `font: string`: name of the font
+* `fontSize: number`: size of the font in pt
+* `fontFeatures: `
+* `lineHeight: int`: the line height (default: 1)
+* `bold: boolean`: whether to use bold text (default: false)
+* `italics: boolean`: whether to use italic text (default: false)
+* `alignment: string`: ('left' or 'center' or 'right') the alignment of the text
+* `color: string`: the color of the text (color name e.g., 'blue' or hexadecimal color e.g., '#ff5500')
+* `background: string` the background color of the text
+* `markerColor: string`: the color of the bullets in a buletted list
+* `decoration: string`: the text decoration to applu ('underline' or 'lineThrough' or 'overline')
+* `decorationStyle: string`: ('dashed' or 'dotted' or 'double' or 'wavy')
+* `decorationColor: string`: the color of the text decoration, see color
+
+##### Table-cell properties
+* `fillColor: string`: the background color of a table cell
+* `columnGap`
+* `tableCellPadding`
+* `cellBorder`
+* `headerCellBorder`
+* `oddRowCellBorder`
+* `evenRowCellBorder`
+* `tableBorder`
