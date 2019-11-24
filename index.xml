@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>pdfmake</title>
@@ -44,22 +44,22 @@ Asynchronous example:</description>
     </item>
     
     <item>
+      <title>Supported browsers</title>
+      <link>https://pdfmake.github.io/docs/getting-started/client-side/supported-browsers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pdfmake.github.io/docs/getting-started/client-side/supported-browsers/</guid>
+      <description>Internet Explorer 10+ Edge 12+ Firefox Chrome Chrome (Android) Opera Safari (iOS) Safari (iOS) iPhone  LimitationsMethods open() and print() are supported only in:
+ Firefox Chrome Opera   Add-ons used in browsers can affect the functionality of pdfmake (especially for open() and print()). If pdfmake is not working try disable add-ons in browser. Problematic add-onsAdBlock Fully description is available in issue.</description>
+    </item>
+    
+    <item>
       <title>Supported Node.js versions</title>
       <link>https://pdfmake.github.io/docs/getting-started/server-side/supported-nodejs-versions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/getting-started/server-side/supported-nodejs-versions/</guid>
       <description> 6 LTS (End-of-life: April 2019) 8 LTS (End-of-life: December 2019) 10 LTS (End-of-life: April 2021) 12 LTS (End-of-life: April 2022)  </description>
-    </item>
-    
-    <item>
-      <title>Supported browsers</title>
-      <link>https://pdfmake.github.io/docs/getting-started/client-side/supported-browsers/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://pdfmake.github.io/docs/getting-started/client-side/supported-browsers/</guid>
-      <description>Internet Explorer 10+ Edge 12+ Firefox Chrome Chrome (Android) Opera Safari (iOS) Safari (iOS) iPhone  LimitationsMethods open() and print() are supported only in:
- Firefox Chrome Opera  Add-ons used in browsers can affect the functionality of pdfmake (especially for open() and print()). If pdfmake is not working try disable add-ons in browser.Problematic add-onsAdBlockFully description is available in issue.</description>
     </item>
     
     <item>
@@ -206,7 +206,7 @@ var docDefinition = { content: [ { // you&amp;#39;ll most often use dataURI imag
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/svgs/</guid>
-      <description>Minimal version: 0.1.59SVGs are much like images except it is not currently possible to refer to SVGs by file or re-use from a dictionary.
+      <description>Minimal version: 0.1.59 SVGs are much like images except it is not currently possible to refer to SVGs by file or re-use from a dictionary.
 var docDefinition = { content: [ { // If no width/height/fit is used, then dimensions from the svg element is used.  svg: &amp;#39;&amp;lt;svg width=&amp;#34;300&amp;#34; height=&amp;#34;200&amp;#34; viewBox=&amp;#34;0 0 300 200&amp;#34;&amp;gt;...&amp;lt;/svg&amp;gt;&amp;#39; }, { // if you specify width, svg will scale proportionally  svg: &amp;#39;&amp;lt;svg width=&amp;#34;300&amp;#34; height=&amp;#34;200&amp;#34; viewBox=&amp;#34;0 0 300 200&amp;#34;&amp;gt;.</description>
     </item>
     
@@ -285,7 +285,7 @@ var docDefinition = { compress: false, content: (...) }; </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/security/</guid>
-      <description>Minimal version: 0.1.50var docDefinition = { userPassword: &amp;#39;123&amp;#39;, ownerPassword: &amp;#39;123456&amp;#39;, permissions: { printing: &amp;#39;highResolution&amp;#39;, //&amp;#39;lowResolution&amp;#39;  modifying: false, copying: false, annotating: true, fillingForms: true, contentAccessibility: true, documentAssembly: true }, content: [ &amp;#39;...&amp;#39; ] };  PDF document allow you to encrypt the PDF file and require a password when opening the file, and/or set permissions of what users can do with the PDF file.
+      <description>Minimal version: 0.1.50 var docDefinition = { userPassword: &amp;#39;123&amp;#39;, ownerPassword: &amp;#39;123456&amp;#39;, permissions: { printing: &amp;#39;highResolution&amp;#39;, //&amp;#39;lowResolution&amp;#39;  modifying: false, copying: false, annotating: true, fillingForms: true, contentAccessibility: true, documentAssembly: true }, content: [ &amp;#39;...&amp;#39; ] };  PDF document allow you to encrypt the PDF file and require a password when opening the file, and/or set permissions of what users can do with the PDF file.
 To enable encryption set user password in userPassword (string value).</description>
     </item>
     

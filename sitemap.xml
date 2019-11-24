@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -23,11 +23,11 @@
   </url>
   
   <url>
-    <loc>https://pdfmake.github.io/docs/getting-started/server-side/supported-nodejs-versions/</loc>
+    <loc>https://pdfmake.github.io/docs/getting-started/client-side/supported-browsers/</loc>
   </url>
   
   <url>
-    <loc>https://pdfmake.github.io/docs/getting-started/client-side/supported-browsers/</loc>
+    <loc>https://pdfmake.github.io/docs/getting-started/server-side/supported-nodejs-versions/</loc>
   </url>
   
   <url>
@@ -140,20 +140,19 @@
   
   <url>
     <loc>https://pdfmake.github.io/docs/_footer/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://pdfmake.github.io/docs/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://pdfmake.github.io/docs/tags/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://pdfmake.github.io/docs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pdfmake.github.io/docs/tags/</loc>
   </url>
   
 </urlset>
