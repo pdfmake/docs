@@ -49,7 +49,7 @@ Asynchronous example:</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/getting-started/server-side/supported-nodejs-versions/</guid>
-      <description> 6 LTS (End-of-life: April 2019) 8 LTS (End-of-life: December 2019) 10 LTS  </description>
+      <description> 6 LTS (End-of-life: April 2019) 8 LTS (End-of-life: December 2019) 10 LTS (End-of-life: April 2021) 12 LTS (End-of-life: April 2022)  </description>
     </item>
     
     <item>
