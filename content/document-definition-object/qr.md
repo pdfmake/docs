@@ -21,7 +21,7 @@ var docDefinition = {
 ```
 
 Properties:
-
+<!-- TODO add descriptons for these properties. It will be nice to add these to the @types/pdfmake too -->
 * _qr_ - text in QR code
 * _foreground_ (optional) -
 * _background_ (optional) -

@@ -90,6 +90,7 @@ var docDefinition = {
 * `decorationColor: string`: the color of the text decoration, see color
 
 ##### Table-cell properties
+<!-- TODO add description for columnGap -->
 * `columnGap`
 * `fillColor: string`: the background color of a table cell
 * `fillOpacity: string`: the background opacity of a table cell
