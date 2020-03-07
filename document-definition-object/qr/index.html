@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2020-03-07T11:07:09 CET">
+<meta name="revised" content="2020-03-07T11:36:49 CET">
 <title>QR code :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -395,22 +395,25 @@
 
     <span style="color:#75715e">// colored QR
 </span><span style="color:#75715e"></span>    <span style="color:#111">{</span> <span style="color:#75af00">qr</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;text in QR&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">foreground</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;red&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">background</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;yellow&#39;</span> <span style="color:#111">},</span>
-    
+
     <span style="color:#75715e">// resized QR
 </span><span style="color:#75715e"></span>    <span style="color:#111">{</span> <span style="color:#75af00">qr</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;text in QR&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">fit</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;500&#39;</span> <span style="color:#111">},</span>
   <span style="color:#111">]</span>
 <span style="color:#111">}</span>
 </code></pre></div>
 <p>Properties:
-<!-- TODO add descriptons for these properties. It will be nice to add these to the @types/pdfmake too -->
-* <em>qr</em> - text in QR code
-* <em>foreground</em> (optional) -
-* <em>background</em> (optional) -
-* <em>fit</em> (optional) -
-* <em>version</em> (optional) -
-* <em>eccLevel</em> (optional, default L) - possible values: L, M, Q, H
-* <em>mode</em> (optional) - possible values: numeric, alphanumeric, octet
-* <em>mask</em> (optional) -</p>
+* <code>qr</code>: <code>string</code> - text in QR code
+* <code>foreground</code>: <code>string</code> (optional, default black) - foreground color
+* <code>background</code>: <code>string</code> (optional, default white) - background color
+* <code>fit</code>: <code>integer</code> (optional) - fit the output QR image
+* <code>version</code>: <code>integer</code> (optional) - QR version range from 1 to 40 (for details see <a href="https://en.wikipedia.org/wiki/QR_code#Storage">wikipedia.org</a>
+* <code>eccLevel</code>: <code>string</code> (optional, default L) - error correction capability (for details see <a href="https://en.wikipedia.org/wiki/QR_code#Error_correction">wikipedia.org</a>), possible values:
+  * <em>L</em> - Level L (Low), approx 7% of codewords can be restored
+  * <em>M</em> - Level M (Medium), approx 15% of codewords can be restored
+  * <em>Q</em> - Level Q (Quartile), approx 25% of codewords can be restored
+  * <em>H</em> - Level H (High), approx 30% of codewords can be restored
+* <code>mode</code>: <code>string</code> (optional) - encoding mode, possible values: <em>numeric</em>, <em>alphanumeric, octet</em> (for details see <a href="https://en.wikipedia.org/wiki/QR_code#Storage">wikipedia.org</a>
+* <code>mask</code>: <code>integer</code> (optional) - mask pattern, range from 0 to 7 (for details see <a href="https://en.wikipedia.org/wiki/QR_code#Encoding">wikipedia.org</a>)</p>
 
 
     
