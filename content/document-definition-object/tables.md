@@ -36,9 +36,9 @@ Can be used `layout` property for set table layout.
 
 Available table layouts:
 
-* noBorders
-* headerLineOnly
-* lightHorizontalLines
+* `noBorders`
+* `headerLineOnly`
+* `lightHorizontalLines`
 
 ##### Own table layouts
 
@@ -93,7 +93,7 @@ var printer = new PdfPrinter(fonts);
 // Declaring your layout
 var myTableLayouts = {
     exampleLayout: {
-        /* 
+        /*
         Your layout here.
         */
     }
