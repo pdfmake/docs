@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-11-24T16:35:25 CET">
+<meta name="revised" content="2020-03-07T11:07:08 CET">
 <title>Styling :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -438,7 +438,7 @@
 
 <h4 id="default-style">Default style</h4>
 
-<p>And is also possible define default style:</p>
+<p>And it is also possible to define a default style:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
   <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
     <span style="color:#d88200">&#39;Text styled by default style&#39;</span>
@@ -463,22 +463,19 @@
 <li><code>color: string</code>: the color of the text (color name e.g., &lsquo;blue&rsquo; or hexadecimal color e.g., &lsquo;#ff5500&rsquo;)</li>
 <li><code>background: string</code> the background color of the text</li>
 <li><code>markerColor: string</code>: the color of the bullets in a buletted list</li>
-<li><code>decoration: string</code>: the text decoration to applu (&lsquo;underline&rsquo; or &lsquo;lineThrough&rsquo; or &lsquo;overline&rsquo;)</li>
-<li><code>decorationStyle: string</code>: (&lsquo;dashed&rsquo; or &lsquo;dotted&rsquo; or &lsquo;double&rsquo; or &lsquo;wavy&rsquo;)</li>
+<li><code>decoration: string</code>: the text decoration to apply (&lsquo;underline&rsquo; or &lsquo;lineThrough&rsquo; or &lsquo;overline&rsquo;)</li>
+<li><code>decorationStyle: string</code>: the style of the text decoration (&lsquo;dashed&rsquo; or &lsquo;dotted&rsquo; or &lsquo;double&rsquo; or &lsquo;wavy&rsquo;)</li>
 <li><code>decorationColor: string</code>: the color of the text decoration, see color</li>
 </ul>
 
 <h5 id="table-cell-properties">Table-cell properties</h5>
 
+<!-- TODO add description for columnGap -->
+
 <ul>
-<li><code>fillColor: string</code>: the background color of a table cell</li>
 <li><code>columnGap</code></li>
-<li><code>tableCellPadding</code></li>
-<li><code>cellBorder</code></li>
-<li><code>headerCellBorder</code></li>
-<li><code>oddRowCellBorder</code></li>
-<li><code>evenRowCellBorder</code></li>
-<li><code>tableBorder</code></li>
+<li><code>fillColor: string</code>: the background color of a table cell</li>
+<li><code>fillOpacity: string</code>: the background opacity of a table cell</li>
 </ul>
 
 

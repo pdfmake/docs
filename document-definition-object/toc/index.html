@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-11-24T16:35:25 CET">
+<meta name="revised" content="2020-03-07T11:07:09 CET">
 <title>Table of contents :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -388,20 +388,57 @@
     
     
     
-    <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+    <p>The simplest example of a table of contents:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
   <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
     <span style="color:#111">{</span>
       <span style="color:#75af00">toc</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-        <span style="color:#75715e">// id: &#39;mainToc&#39;  // optional
-</span><span style="color:#75715e"></span>        <span style="color:#75af00">title</span><span style="color:#f92672">:</span> <span style="color:#111">{</span><span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;INDEX&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">style</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;header&#39;</span><span style="color:#111">}</span>
+        <span style="color:#75af00">title</span><span style="color:#f92672">:</span> <span style="color:#111">{</span><span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;INDEX&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">style</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;header&#39;</span><span style="color:#111">}</span>
       <span style="color:#111">}</span>
     <span style="color:#111">},</span>
     <span style="color:#111">{</span>
       <span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;This is a header&#39;</span><span style="color:#111">,</span>
       <span style="color:#75af00">style</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;header&#39;</span><span style="color:#111">,</span>
-      <span style="color:#75af00">tocItem</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span> <span style="color:#75715e">// or tocItem: &#39;mainToc&#39; if is used id in toc
-</span><span style="color:#75715e"></span>      <span style="color:#75715e">// or tocItem: [&#39;mainToc&#39;, &#39;subToc&#39;] for multiple tocs
-</span><span style="color:#75715e"></span>    <span style="color:#111">}</span>
+      <span style="color:#75af00">tocItem</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+    <span style="color:#111">}</span>
+  <span style="color:#111">]</span>
+<span style="color:#111">}</span>
+</code></pre></div>
+<p>If <code>id</code> is used in toc, the tocItem can target that id:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+    <span style="color:#111">{</span>
+      <span style="color:#75af00">toc</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+        <span style="color:#75af00">id</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;mainToc&#39;</span>
+        <span style="color:#75af00">title</span><span style="color:#f92672">:</span> <span style="color:#111">{</span><span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;INDEX&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">style</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;header&#39;</span><span style="color:#111">}</span>
+      <span style="color:#111">}</span>
+    <span style="color:#111">},</span>
+    <span style="color:#111">{</span>
+      <span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;This is a header&#39;</span><span style="color:#111">,</span>
+      <span style="color:#75af00">style</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;header&#39;</span><span style="color:#111">,</span>
+      <span style="color:#75af00">tocItem</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;mainToc&#39;</span>
+    <span style="color:#111">}</span>
+  <span style="color:#111">]</span>
+<span style="color:#111">}</span>
+</code></pre></div>
+<p>If multiple Table of Contents are used, tocItem can be used to place the text in the correct toc:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+    <span style="color:#111">{</span>
+      <span style="color:#75af00">toc</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+        <span style="color:#75af00">id</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;mainToc&#39;</span>
+        <span style="color:#75af00">title</span><span style="color:#f92672">:</span> <span style="color:#111">{</span><span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;INDEX&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">style</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;header&#39;</span><span style="color:#111">}</span>
+      <span style="color:#111">},</span>
+      <span style="color:#75af00">toc</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+        <span style="color:#75af00">id</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;subToc&#39;</span>
+        <span style="color:#75af00">title</span><span style="color:#f92672">:</span> <span style="color:#111">{</span><span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;SUB INDEX&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">style</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;header&#39;</span><span style="color:#111">}</span>
+      <span style="color:#111">}</span>
+    <span style="color:#111">},</span>
+    <span style="color:#111">{</span>
+      <span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;This is a header&#39;</span><span style="color:#111">,</span>
+      <span style="color:#75af00">style</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;header&#39;</span><span style="color:#111">,</span>
+      <span style="color:#75af00">tocItem</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#d88200">&#39;mainToc&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;subToc&#39;</span><span style="color:#111">]</span>
+    <span style="color:#111">}</span>
   <span style="color:#111">]</span>
 <span style="color:#111">}</span>
 </code></pre></div>
