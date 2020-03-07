@@ -21,6 +21,7 @@ var docDefinition = {
 ```
 
 Properties:
+
 * `qr`: `string` - text in QR code
 * `foreground`: `string` (optional, default black) - foreground color
 * `background`: `string` (optional, default white) - background color
