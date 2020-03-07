@@ -32,5 +32,5 @@ Properties:
   * _M_ - Level M (Medium), approx 15% of codewords can be restored
   * _Q_ - Level Q (Quartile), approx 25% of codewords can be restored
   * _H_ - Level H (High), approx 30% of codewords can be restored
-* `mode`: `string` (optional) - encoding mode, possible values: _numeric_, _alphanumeric, octet_ (for details see [wikipedia.org](https://en.wikipedia.org/wiki/QR_code#Storage)
+* `mode`: `string` (optional) - encoding mode, possible values: _numeric_, _alphanumeric, octet_ (for details see [wikipedia.org](https://en.wikipedia.org/wiki/QR_code#Storage))
 * `mask`: `integer` (optional) - mask pattern, range from 0 to 7 (for details see [wikipedia.org](https://en.wikipedia.org/wiki/QR_code#Encoding))
