@@ -226,7 +226,8 @@ var docDefinition = { content: [ { // If no width/height/fit is used, then dimen
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/qr/</guid>
-      <description>var docDefinition = { content: [ // basic usage  { qr: &amp;#39;text in QR&amp;#39; }, // colored QR  { qr: &amp;#39;text in QR&amp;#39;, foreground: &amp;#39;red&amp;#39;, background: &amp;#39;yellow&amp;#39; }, // resized QR  { qr: &amp;#39;text in QR&amp;#39;, fit: &amp;#39;500&amp;#39; }, ] }  Properties: * qr: string - text in QR code * foreground: string (optional, default black) - foreground color * background: string (optional, default white) - background color * fit: integer (optional) - fit the output QR image * version: integer (optional) - QR version range from 1 to 40 (for details see wikipedia.</description>
+      <description>var docDefinition = { content: [ // basic usage  { qr: &amp;#39;text in QR&amp;#39; }, // colored QR  { qr: &amp;#39;text in QR&amp;#39;, foreground: &amp;#39;red&amp;#39;, background: &amp;#39;yellow&amp;#39; }, // resized QR  { qr: &amp;#39;text in QR&amp;#39;, fit: &amp;#39;500&amp;#39; }, ] }  Properties:
+ qr: string - text in QR code foreground: string (optional, default black) - foreground color background: string (optional, default white) - background color fit: integer (optional) - fit the output QR image version: integer (optional) - QR version range from 1 to 40 (for details see wikipedia.</description>
     </item>
     
     <item>

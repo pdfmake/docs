@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2020-03-07T11:36:49 CET">
+<meta name="revised" content="2020-03-07T11:39:49 CET">
 <title>QR code :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -401,19 +401,25 @@
   <span style="color:#111">]</span>
 <span style="color:#111">}</span>
 </code></pre></div>
-<p>Properties:
-* <code>qr</code>: <code>string</code> - text in QR code
-* <code>foreground</code>: <code>string</code> (optional, default black) - foreground color
-* <code>background</code>: <code>string</code> (optional, default white) - background color
-* <code>fit</code>: <code>integer</code> (optional) - fit the output QR image
-* <code>version</code>: <code>integer</code> (optional) - QR version range from 1 to 40 (for details see <a href="https://en.wikipedia.org/wiki/QR_code#Storage">wikipedia.org</a>
-* <code>eccLevel</code>: <code>string</code> (optional, default L) - error correction capability (for details see <a href="https://en.wikipedia.org/wiki/QR_code#Error_correction">wikipedia.org</a>), possible values:
-  * <em>L</em> - Level L (Low), approx 7% of codewords can be restored
-  * <em>M</em> - Level M (Medium), approx 15% of codewords can be restored
-  * <em>Q</em> - Level Q (Quartile), approx 25% of codewords can be restored
-  * <em>H</em> - Level H (High), approx 30% of codewords can be restored
-* <code>mode</code>: <code>string</code> (optional) - encoding mode, possible values: <em>numeric</em>, <em>alphanumeric, octet</em> (for details see <a href="https://en.wikipedia.org/wiki/QR_code#Storage">wikipedia.org</a>
-* <code>mask</code>: <code>integer</code> (optional) - mask pattern, range from 0 to 7 (for details see <a href="https://en.wikipedia.org/wiki/QR_code#Encoding">wikipedia.org</a>)</p>
+<p>Properties:</p>
+
+<ul>
+<li><code>qr</code>: <code>string</code> - text in QR code</li>
+<li><code>foreground</code>: <code>string</code> (optional, default black) - foreground color</li>
+<li><code>background</code>: <code>string</code> (optional, default white) - background color</li>
+<li><code>fit</code>: <code>integer</code> (optional) - fit the output QR image</li>
+<li><code>version</code>: <code>integer</code> (optional) - QR version range from 1 to 40 (for details see <a href="https://en.wikipedia.org/wiki/QR_code#Storage">wikipedia.org</a></li>
+<li><code>eccLevel</code>: <code>string</code> (optional, default L) - error correction capability (for details see <a href="https://en.wikipedia.org/wiki/QR_code#Error_correction">wikipedia.org</a>), possible values:
+
+<ul>
+<li><em>L</em> - Level L (Low), approx 7% of codewords can be restored</li>
+<li><em>M</em> - Level M (Medium), approx 15% of codewords can be restored</li>
+<li><em>Q</em> - Level Q (Quartile), approx 25% of codewords can be restored</li>
+<li><em>H</em> - Level H (High), approx 30% of codewords can be restored</li>
+</ul></li>
+<li><code>mode</code>: <code>string</code> (optional) - encoding mode, possible values: <em>numeric</em>, <em>alphanumeric, octet</em> (for details see <a href="https://en.wikipedia.org/wiki/QR_code#Storage">wikipedia.org</a></li>
+<li><code>mask</code>: <code>integer</code> (optional) - mask pattern, range from 0 to 7 (for details see <a href="https://en.wikipedia.org/wiki/QR_code#Encoding">wikipedia.org</a>)</li>
+</ul>
 
 
     
