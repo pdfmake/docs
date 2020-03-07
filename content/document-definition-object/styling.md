@@ -58,7 +58,7 @@ To have a deeper understanding of styling in pdfmake, style inheritance and loca
 
 #### Default style
 
-And is also possible define default style:
+And it is also possible to define a default style:
 
 ```js
 var docDefinition = {
@@ -85,16 +85,12 @@ var docDefinition = {
 * `color: string`: the color of the text (color name e.g., 'blue' or hexadecimal color e.g., '#ff5500')
 * `background: string` the background color of the text
 * `markerColor: string`: the color of the bullets in a buletted list
-* `decoration: string`: the text decoration to applu ('underline' or 'lineThrough' or 'overline')
-* `decorationStyle: string`: ('dashed' or 'dotted' or 'double' or 'wavy')
+* `decoration: string`: the text decoration to apply ('underline' or 'lineThrough' or 'overline')
+* `decorationStyle: string`: the style of the text decoration ('dashed' or 'dotted' or 'double' or 'wavy')
 * `decorationColor: string`: the color of the text decoration, see color
 
 ##### Table-cell properties
-* `fillColor: string`: the background color of a table cell
+<!-- TODO add description for columnGap -->
 * `columnGap`
-* `tableCellPadding`
-* `cellBorder`
-* `headerCellBorder`
-* `oddRowCellBorder`
-* `evenRowCellBorder`
-* `tableBorder`
+* `fillColor: string`: the background color of a table cell
+* `fillOpacity: string`: the background opacity of a table cell
