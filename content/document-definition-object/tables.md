@@ -30,6 +30,12 @@ var docDefinition = {
 };
 ```
 
+##### Table-cell properties
+
+* `fillColor: string`: the background color of a table cell
+* `fillOpacity: string`: the background opacity of a table cell
+
+
 ##### Table layouts
 
 Can be used `layout` property for set table layout.

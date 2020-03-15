@@ -88,9 +88,3 @@ var docDefinition = {
 * `decoration: string`: the text decoration to apply ('underline' or 'lineThrough' or 'overline')
 * `decorationStyle: string`: the style of the text decoration ('dashed' or 'dotted' or 'double' or 'wavy')
 * `decorationColor: string`: the color of the text decoration, see color
-
-##### Table-cell properties
-
-* `columnGap: number` specify gap between columns
-* `fillColor: string`: the background color of a table cell
-* `fillOpacity: string`: the background opacity of a table cell

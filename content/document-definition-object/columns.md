@@ -42,7 +42,11 @@ var docDefinition = {
     'This paragraph goes below all columns and has full width'
   ]
 };
-
 ```
 
 Column content is not limited to a simple text. It can actually contain any valid pdfmake element. Make sure to look at the COLUMNS example in [playground](http://pdfmake.org/playground.html).
+
+
+##### Properties
+
+* `columnGap: number` specify gap (space) between columns
