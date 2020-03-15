@@ -77,8 +77,8 @@ var docDefinition = {
 
 * `font: string`: name of the font
 * `fontSize: number`: size of the font in pt
-* `fontFeatures: `
-* `lineHeight: int`: the line height (default: 1)
+* `fontFeatures: string[]`: array of advanced typographic features supported in TTF fonts (supported features depend on font file)
+* `lineHeight: number`: the line height (default: 1)
 * `bold: boolean`: whether to use bold text (default: false)
 * `italics: boolean`: whether to use italic text (default: false)
 * `alignment: string`: ('left' or 'center' or 'right') the alignment of the text
@@ -90,7 +90,7 @@ var docDefinition = {
 * `decorationColor: string`: the color of the text decoration, see color
 
 ##### Table-cell properties
-<!-- TODO add description for columnGap -->
-* `columnGap`
+
+* `columnGap: number` specify gap between columns
 * `fillColor: string`: the background color of a table cell
 * `fillOpacity: string`: the background opacity of a table cell
