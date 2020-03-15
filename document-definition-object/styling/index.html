@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2020-03-07T11:39:49 CET">
+<meta name="revised" content="2020-03-15T12:59:56 CET">
 <title>Styling :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -455,8 +455,8 @@
 <ul>
 <li><code>font: string</code>: name of the font</li>
 <li><code>fontSize: number</code>: size of the font in pt</li>
-<li><code>fontFeatures:</code></li>
-<li><code>lineHeight: int</code>: the line height (default: 1)</li>
+<li><code>fontFeatures: string[]</code>: array of advanced typographic features supported in TTF fonts (supported features depend on font file)</li>
+<li><code>lineHeight: number</code>: the line height (default: 1)</li>
 <li><code>bold: boolean</code>: whether to use bold text (default: false)</li>
 <li><code>italics: boolean</code>: whether to use italic text (default: false)</li>
 <li><code>alignment: string</code>: (&lsquo;left&rsquo; or &lsquo;center&rsquo; or &lsquo;right&rsquo;) the alignment of the text</li>
@@ -470,10 +470,8 @@
 
 <h5 id="table-cell-properties">Table-cell properties</h5>
 
-<!-- TODO add description for columnGap -->
-
 <ul>
-<li><code>columnGap</code></li>
+<li><code>columnGap: number</code> specify gap between columns</li>
 <li><code>fillColor: string</code>: the background color of a table cell</li>
 <li><code>fillOpacity: string</code>: the background opacity of a table cell</li>
 </ul>
