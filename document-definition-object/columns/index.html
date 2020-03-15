@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2020-03-15T12:59:56 CET">
+<meta name="revised" content="2020-03-15T13:23:37 CET">
 <title>Columns :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -388,7 +388,9 @@
     
     
     
-    <p>By default paragraphs are rendered as a vertical stack of elements (one below another). It is possible however to divide available space into columns.</p>
+    
+
+<p>By default paragraphs are rendered as a vertical stack of elements (one below another). It is possible however to divide available space into columns.</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
   <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
     <span style="color:#d88200">&#39;This paragraph fills full width, as there are no columns. Next paragraph however consists of three columns&#39;</span><span style="color:#111">,</span>
@@ -424,6 +426,12 @@
 <span style="color:#111">};</span>
 </code></pre></div>
 <p>Column content is not limited to a simple text. It can actually contain any valid pdfmake element. Make sure to look at the COLUMNS example in <a href="http://pdfmake.org/playground.html">playground</a>.</p>
+
+<h5 id="properties">Properties</h5>
+
+<ul>
+<li><code>columnGap: number</code> specify gap (space) between columns</li>
+</ul>
 
 
     
