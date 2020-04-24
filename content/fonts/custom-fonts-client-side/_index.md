@@ -17,8 +17,7 @@ When you run
 ```
 gulp buildFonts
 ```
-
-(from the pdfMake directory) a new ```build/vfs_fonts.js``` file is created containing an **embedded copy** of all files from the local ```examples/fonts``` subdirectory (in a key/value object `pdfMake.vfs`).
+in the pdfmake source directory. A new ```build/vfs_fonts.js``` file is created containing an **embedded copy** of all files from the local ```examples/fonts``` subdirectory (in a key/value object `pdfMake.vfs`).
 
 # Detailed Instructions #
 
@@ -35,7 +34,7 @@ To use custom fonts, 3 steps are required:
 
 * Copy your fonts (and other files you wish to embed) into the ```examples/fonts``` subdirectory.
 
-* Run ```npm install``` (from the pdfMake directory) to ensure all prerequisites modules are installed.
+* Run ```npm install``` from the pdfmake source directory (how to download repository see [here](/docs/getting-started/client-side/#repository)) to ensure all prerequisites modules are installed.
 
 * Run ```gulp buildFonts``` to  create a new ```build/vfs_fonts.js``` (you can update `gulpfile.js` to change the base directory path or to add an alternative config for the `buildFonts` task).
 

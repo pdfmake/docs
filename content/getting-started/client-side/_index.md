@@ -42,7 +42,7 @@ npm install pdfmake
 ```
 Files for client-side is available here:
 
-* `require('pdfmake/build/pdfmake.js');` 
+* `require('pdfmake/build/pdfmake.js');`
 * `require('pdfmake/build/vfs_fonts.js');`
 
 Using javascript frameworks:
@@ -72,4 +72,4 @@ exclude: [ /node_modules/, /pdfmake.js$/ ]
 
 #### Repository
 
-Copy them directly from the build directory from the repository. Otherwise you can always [build it from sources](https://github.com/bpampuch/pdfmake#building-from-sources).
+Copy them directly from the build directory from the repository. Otherwise you can always [build it version 0.1.x from sources](https://github.com/bpampuch/pdfmake/tree/0.1#building-from-sources-version-01x).
