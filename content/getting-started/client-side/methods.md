@@ -120,9 +120,27 @@ Parameters:
 * `cb` - callback function
 * `options` _(optional)_ - advanced options see [options chapter](/docs/options/)
 
-#### Get PDFKit document object
+#### Get PDFKit document object as stream
+
+##### Asynchronous call
+
+{{% alert theme="warning" %}}Minimal version: **0.1.66**{{% /alert %}}
+
+```js
+const pdfDocGenerator = pdfMake.createPdf(docDefinition);
+pdfDocGenerator.getStream((document) => {
+	// ...
+});
+```
+Parameters:
+
+* `cb` - callback function
+
+##### Synchronous call
 
 {{% alert theme="warning" %}}Minimal version: **0.1.41**{{% /alert %}}
+
+{{% alert theme="warning" %}}**The preferred way is asynchronous call.**{{% /alert %}}
 
 ```js
 const pdfDocGenerator = pdfMake.createPdf(docDefinition);
