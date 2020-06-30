@@ -142,6 +142,8 @@ Parameters:
 
 {{% alert theme="warning" %}}**The preferred way is asynchronous call.**{{% /alert %}}
 
+{{% alert theme="warning" %}}**Unable to download real font files from url (https:// or http://). Asynchronous call required.**{{% /alert %}}
+
 ```js
 const pdfDocGenerator = pdfMake.createPdf(docDefinition);
 var document = pdfDocGenerator.getStream();
