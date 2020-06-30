@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2020-04-24T17:51:11 CEST">
+<meta name="revised" content="2020-06-30T13:32:06 CEST">
 <title>Encryption and access privileges :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -138,19 +138,34 @@
             <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
-      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/php/" class="dd-item">
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/fonts/custom-fonts-client-side/vfs/">via Virtual file system (VFS)</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/php/" class="dd-item">
         <div>
-          <a href="/docs/fonts/custom-fonts-client-side/php/">
+          <a href="/docs/fonts/custom-fonts-client-side/vfs/php/">
             Building font file via PHP script
           </a>
         </div>
     </li>
-      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/shell/" class="dd-item">
+      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/shell/" class="dd-item">
         <div>
-          <a href="/docs/fonts/custom-fonts-client-side/shell/">
+          <a href="/docs/fonts/custom-fonts-client-side/vfs/shell/">
             Building font file via shell script
           </a>
         </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/url/" class="dd-item alwaysopen
+        ">
+      <div>
+      <a href="/docs/fonts/custom-fonts-client-side/url/">via URL protocol</a>
+      </div>
     </li>
         </ul>
     </li>
@@ -346,8 +361,16 @@
     <option value="/docs/fonts/custom-fonts-client-side/" >
   - 
    Custom fonts (client-side)</option> 
-      <option value="/docs/fonts/custom-fonts-client-side/php/" >-- Building font file via PHP script</option>
-      <option value="/docs/fonts/custom-fonts-client-side/shell/" >-- Building font file via shell script</option>
+    <option value="/docs/fonts/custom-fonts-client-side/vfs/" >
+  -- 
+   via Virtual file system (VFS)</option> 
+      <option value="/docs/fonts/custom-fonts-client-side/vfs/php/" >--- Building font file via PHP script</option>
+      <option value="/docs/fonts/custom-fonts-client-side/vfs/shell/" >--- Building font file via shell script</option>
+  
+    <option value="/docs/fonts/custom-fonts-client-side/url/" >
+  -- 
+   via URL protocol</option> 
+  
   
       <option value="/docs/fonts/icons/" >- Icons</option>
       <option value="/docs/fonts/standard-14-fonts/" >- Standard 14 fonts</option>
@@ -407,20 +430,15 @@
     <span style="color:#d88200">&#39;...&#39;</span>
   <span style="color:#111">]</span>
 <span style="color:#111">};</span>
-</code></pre></div>
-<p>PDF document allow you to encrypt the PDF file and require a password when opening the file,
+</code></pre></div><p>PDF document allow you to encrypt the PDF file and require a password when opening the file,
 and/or set permissions of what users can do with the PDF file.</p>
-
 <p>To enable encryption set user password in <code>userPassword</code> (string value). The PDF file will
 be encrypted when a user password is provided, and users will be prompted to enter the password
 to decrypt the file when opening it.</p>
-
 <p>To set access privileges for the PDF file, you need to provide an owner password in <code>ownerPassword</code> (string value)
 and object <code>permissions</code> with permissions. By default, all operations are disallowed.
 You need to explicitly allow certain operations.</p>
-
 <p>Following settings are allowed in <code>permissions</code> object:</p>
-
 <ul>
 <li><code>printing</code> - whether printing is allowed. Specify <code>&quot;lowResolution&quot;</code> to allow degraded printing, or <code>&quot;highResolution&quot;</code> to allow printing with high resolution</li>
 <li><code>modifying</code> - whether modifying the file is allowed. Specify <code>true</code> to allow modifying document content</li>
@@ -430,10 +448,8 @@ You need to explicitly allow certain operations.</p>
 <li><code>contentAccessibility</code> - whether copying text for accessibility is allowed. Specify <code>true</code> to allow copying for accessibility</li>
 <li><code>documentAssembly</code> - whether assembling document is allowed. Specify <code>true</code> to allow document assembly</li>
 </ul>
-
 <p>You can specify either user password, owner password or both passwords.
 Behavior differs according to passwords you provides:</p>
-
 <ul>
 <li>When only user password is provided,
 users with user password are able to decrypt the file and have full access to the document.</li>
@@ -446,20 +462,15 @@ users with user password are able to decrypt the file
 but only have limited access to the file according to permission settings.
 Users with owner password have full access to the document.</li>
 </ul>
-
 <p>Note that PDF file itself cannot enforce access privileges.
 When file is decrypted, PDF viewer applications have full access to the file content,
 and it is up to viewer applications to respect permission settings.</p>
-
 <p>To choose encryption method, you need to specify PDF version by <code>version</code>.
 The best possible encryption method for PDF version is used.</p>
 
-
 <div class="alert alert-warning" role="alert">PDF version is used only for encryption method, all other PDF elements are in version 1.3.</div>
 
-
 <p>Available versions:</p>
-
 <ul>
 <li><code>1.3</code> - PDF version 1.3 (default), 40-bit RC4 is used</li>
 <li><code>1.4</code> - PDF version 1.4, 128-bit RC4 is used</li>
@@ -468,7 +479,6 @@ The best possible encryption method for PDF version is used.</p>
 <li><code>1.7</code> - PDF version 1.7, 128-bit AES is used</li>
 <li><code>1.7ext3</code> - PDF version 1.7 ExtensionLevel 3, 256-bit AES is used</li>
 </ul>
-
 <p>When using PDF version 1.7 ExtensionLevel 3, password is truncated to 127 bytes of its UTF-8 representation.
 In older versions, password is truncated to 32 bytes, and only Latin-1 characters are allowed.</p>
 

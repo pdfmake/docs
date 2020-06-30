@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2020-04-24T17:51:11 CEST">
+<meta name="revised" content="2020-06-30T13:32:06 CEST">
 <title>Methods :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -138,19 +138,34 @@
             <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
-      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/php/" class="dd-item">
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/fonts/custom-fonts-client-side/vfs/">via Virtual file system (VFS)</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/php/" class="dd-item">
         <div>
-          <a href="/docs/fonts/custom-fonts-client-side/php/">
+          <a href="/docs/fonts/custom-fonts-client-side/vfs/php/">
             Building font file via PHP script
           </a>
         </div>
     </li>
-      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/shell/" class="dd-item">
+      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/shell/" class="dd-item">
         <div>
-          <a href="/docs/fonts/custom-fonts-client-side/shell/">
+          <a href="/docs/fonts/custom-fonts-client-side/vfs/shell/">
             Building font file via shell script
           </a>
         </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/url/" class="dd-item alwaysopen
+        ">
+      <div>
+      <a href="/docs/fonts/custom-fonts-client-side/url/">via URL protocol</a>
+      </div>
     </li>
         </ul>
     </li>
@@ -346,8 +361,16 @@
     <option value="/docs/fonts/custom-fonts-client-side/" >
   - 
    Custom fonts (client-side)</option> 
-      <option value="/docs/fonts/custom-fonts-client-side/php/" >-- Building font file via PHP script</option>
-      <option value="/docs/fonts/custom-fonts-client-side/shell/" >-- Building font file via shell script</option>
+    <option value="/docs/fonts/custom-fonts-client-side/vfs/" >
+  -- 
+   via Virtual file system (VFS)</option> 
+      <option value="/docs/fonts/custom-fonts-client-side/vfs/php/" >--- Building font file via PHP script</option>
+      <option value="/docs/fonts/custom-fonts-client-side/vfs/shell/" >--- Building font file via shell script</option>
+  
+    <option value="/docs/fonts/custom-fonts-client-side/url/" >
+  -- 
+   via URL protocol</option> 
+  
   
       <option value="/docs/fonts/icons/" >- Icons</option>
       <option value="/docs/fonts/standard-14-fonts/" >- Standard 14 fonts</option>
@@ -388,31 +411,22 @@
     
     
     
-    
-
-<h4 id="download-the-pdf">Download the PDF</h4>
+    <h4 id="download-the-pdf">Download the PDF</h4>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">download</span><span style="color:#111">();</span>
-</code></pre></div>
-<p>Parameters:</p>
-
+</code></pre></div><p>Parameters:</p>
 <ul>
 <li><code>defaultFileName</code> <em>(optional)</em> - file name</li>
 <li><code>cb</code> <em>(optional)</em> - callback function</li>
 <li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
 </ul>
-
 <h4 id="open-the-pdf-in-a-new-window">Open the PDF in a new window</h4>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">open</span><span style="color:#111">();</span>
-</code></pre></div>
-<p>Parameters:</p>
-
+</code></pre></div><p>Parameters:</p>
 <ul>
 <li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
 <li><code>win</code> <em>(optional)</em> - window (when an asynchronous operation)</li>
 </ul>
-
 <p>Name can be defined only by using metadata <code>title</code> property (see <a href="/docs/document-definition-object/document-medatadata/">Document metadata</a>).</p>
-
 <p>Asynchronous example:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">$scope</span><span style="color:#111">.</span><span style="color:#75af00">generatePdf</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
   <span style="color:#75715e">// create the window before the callback
@@ -422,20 +436,15 @@
 </span><span style="color:#75715e"></span>    <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">open</span><span style="color:#111">({},</span> <span style="color:#75af00">win</span><span style="color:#111">);</span>
   <span style="color:#111">});</span>
 <span style="color:#111">};</span>
-</code></pre></div>
-<p>Open in same window:</p>
+</code></pre></div><p>Open in same window:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">open</span><span style="color:#111">({},</span> <span style="color:#111">window</span><span style="color:#111">);</span>
-</code></pre></div>
-<h4 id="print-the-pdf">Print the PDF</h4>
+</code></pre></div><h4 id="print-the-pdf">Print the PDF</h4>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">print</span><span style="color:#111">();</span>
-</code></pre></div>
-<p>Parameters:</p>
-
+</code></pre></div><p>Parameters:</p>
 <ul>
 <li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
 <li><code>win</code> <em>(optional)</em> - window (when an asynchronous operation)</li>
 </ul>
-
 <p>Asynchronous example:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">$scope</span><span style="color:#111">.</span><span style="color:#75af00">generatePdf</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
   <span style="color:#75715e">// create the window before the callback
@@ -445,11 +454,9 @@
 </span><span style="color:#75715e"></span>    <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">print</span><span style="color:#111">({},</span> <span style="color:#75af00">win</span><span style="color:#111">);</span>
   <span style="color:#111">});</span>
 <span style="color:#111">};</span>
-</code></pre></div>
-<p>Print in same window:</p>
+</code></pre></div><p>Print in same window:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">print</span><span style="color:#111">({},</span> <span style="color:#111">window</span><span style="color:#111">);</span>
-</code></pre></div>
-<h4 id="put-the-pdf-into-your-own-page-as-url-data">Put the PDF into your own page as URL data</h4>
+</code></pre></div><h4 id="put-the-pdf-into-your-own-page-as-url-data">Put the PDF into your own page as URL data</h4>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">const</span> <span style="color:#75af00">pdfDocGenerator</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
 <span style="color:#75af00">pdfDocGenerator</span><span style="color:#111">.</span><span style="color:#75af00">getDataUrl</span><span style="color:#111">((</span><span style="color:#75af00">dataUrl</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
 	<span style="color:#00a8c8">const</span> <span style="color:#75af00">targetElement</span> <span style="color:#f92672">=</span> <span style="color:#111">document</span><span style="color:#111">.</span><span style="color:#75af00">querySelector</span><span style="color:#111">(</span><span style="color:#d88200">&#39;#iframeContainer&#39;</span><span style="color:#111">);</span>
@@ -457,57 +464,63 @@
 	<span style="color:#75af00">iframe</span><span style="color:#111">.</span><span style="color:#75af00">src</span> <span style="color:#f92672">=</span> <span style="color:#75af00">dataUrl</span><span style="color:#111">;</span>
 	<span style="color:#75af00">targetElement</span><span style="color:#111">.</span><span style="color:#75af00">appendChild</span><span style="color:#111">(</span><span style="color:#75af00">iframe</span><span style="color:#111">);</span>
 <span style="color:#111">});</span>
-</code></pre></div>
-<p>Parameters:</p>
-
+</code></pre></div><p>Parameters:</p>
 <ul>
 <li><code>cb</code> - callback function</li>
 <li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
 </ul>
-
 <h4 id="get-the-pdf-as-base64-data">Get the PDF as base64 data</h4>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">const</span> <span style="color:#75af00">pdfDocGenerator</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
 <span style="color:#75af00">pdfDocGenerator</span><span style="color:#111">.</span><span style="color:#75af00">getBase64</span><span style="color:#111">((</span><span style="color:#75af00">data</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
 	<span style="color:#75af00">alert</span><span style="color:#111">(</span><span style="color:#75af00">data</span><span style="color:#111">);</span>
 <span style="color:#111">});</span>
-</code></pre></div>
-<p>Parameters:</p>
-
+</code></pre></div><p>Parameters:</p>
 <ul>
 <li><code>cb</code> - callback function</li>
 <li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
 </ul>
-
 <h4 id="get-the-pdf-as-buffer">Get the PDF as buffer</h4>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">const</span> <span style="color:#75af00">pdfDocGenerator</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
 <span style="color:#75af00">pdfDocGenerator</span><span style="color:#111">.</span><span style="color:#75af00">getBuffer</span><span style="color:#111">((</span><span style="color:#75af00">buffer</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
 	<span style="color:#75715e">// ...
 </span><span style="color:#75715e"></span><span style="color:#111">});</span>
-</code></pre></div>
-<p>Parameters:</p>
-
+</code></pre></div><p>Parameters:</p>
 <ul>
 <li><code>cb</code> - callback function</li>
 <li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
 </ul>
-
 <h4 id="get-the-pdf-as-blob">Get the PDF as Blob</h4>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">const</span> <span style="color:#75af00">pdfDocGenerator</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
 <span style="color:#75af00">pdfDocGenerator</span><span style="color:#111">.</span><span style="color:#75af00">getBlob</span><span style="color:#111">((</span><span style="color:#75af00">blob</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
 	<span style="color:#75715e">// ...
 </span><span style="color:#75715e"></span><span style="color:#111">});</span>
-</code></pre></div>
-<p>Parameters:</p>
-
+</code></pre></div><p>Parameters:</p>
 <ul>
 <li><code>cb</code> - callback function</li>
 <li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
 </ul>
+<h4 id="get-pdfkit-document-object-as-stream">Get PDFKit document object as stream</h4>
+<h5 id="asynchronous-call">Asynchronous call</h5>
 
-<h4 id="get-pdfkit-document-object">Get PDFKit document object</h4>
+<div class="alert alert-warning" role="alert">Minimal version: <strong>0.1.66</strong></div>
 
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">const</span> <span style="color:#75af00">pdfDocGenerator</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
+<span style="color:#75af00">pdfDocGenerator</span><span style="color:#111">.</span><span style="color:#75af00">getStream</span><span style="color:#111">((</span><span style="color:#111">document</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+	<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span><span style="color:#111">});</span>
+</code></pre></div><p>Parameters:</p>
+<ul>
+<li><code>cb</code> - callback function</li>
+</ul>
+<h5 id="synchronous-call">Synchronous call</h5>
 
 <div class="alert alert-warning" role="alert">Minimal version: <strong>0.1.41</strong></div>
+
+
+<div class="alert alert-warning" role="alert"><strong>The preferred way is asynchronous call.</strong></div>
+
+
+<div class="alert alert-warning" role="alert"><strong>Unable to download real font files from url (https:// or http://). Asynchronous call required.</strong></div>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">const</span> <span style="color:#75af00">pdfDocGenerator</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
 <span style="color:#00a8c8">var</span> <span style="color:#111">document</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfDocGenerator</span><span style="color:#111">.</span><span style="color:#75af00">getStream</span><span style="color:#111">();</span>

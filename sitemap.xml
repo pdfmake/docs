@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/php/</loc>
+    <loc>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/php/</loc>
   </url>
   
   <url>
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/shell/</loc>
+    <loc>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/shell/</loc>
   </url>
   
   <url>
@@ -56,6 +56,14 @@
   
   <url>
     <loc>https://pdfmake.github.io/docs/fonts/standard-14-fonts/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/url/</loc>
   </url>
   
   <url>

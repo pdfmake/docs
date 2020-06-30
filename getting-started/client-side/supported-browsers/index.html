@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2020-04-24T17:51:11 CEST">
+<meta name="revised" content="2020-06-30T13:32:06 CEST">
 <title>Supported browsers :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -138,19 +138,34 @@
             <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
-      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/php/" class="dd-item">
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/fonts/custom-fonts-client-side/vfs/">via Virtual file system (VFS)</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/php/" class="dd-item">
         <div>
-          <a href="/docs/fonts/custom-fonts-client-side/php/">
+          <a href="/docs/fonts/custom-fonts-client-side/vfs/php/">
             Building font file via PHP script
           </a>
         </div>
     </li>
-      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/shell/" class="dd-item">
+      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/shell/" class="dd-item">
         <div>
-          <a href="/docs/fonts/custom-fonts-client-side/shell/">
+          <a href="/docs/fonts/custom-fonts-client-side/vfs/shell/">
             Building font file via shell script
           </a>
         </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/url/" class="dd-item alwaysopen
+        ">
+      <div>
+      <a href="/docs/fonts/custom-fonts-client-side/url/">via URL protocol</a>
+      </div>
     </li>
         </ul>
     </li>
@@ -346,8 +361,16 @@
     <option value="/docs/fonts/custom-fonts-client-side/" >
   - 
    Custom fonts (client-side)</option> 
-      <option value="/docs/fonts/custom-fonts-client-side/php/" >-- Building font file via PHP script</option>
-      <option value="/docs/fonts/custom-fonts-client-side/shell/" >-- Building font file via shell script</option>
+    <option value="/docs/fonts/custom-fonts-client-side/vfs/" >
+  -- 
+   via Virtual file system (VFS)</option> 
+      <option value="/docs/fonts/custom-fonts-client-side/vfs/php/" >--- Building font file via PHP script</option>
+      <option value="/docs/fonts/custom-fonts-client-side/vfs/shell/" >--- Building font file via shell script</option>
+  
+    <option value="/docs/fonts/custom-fonts-client-side/url/" >
+  -- 
+   via URL protocol</option> 
+  
   
       <option value="/docs/fonts/icons/" >- Icons</option>
       <option value="/docs/fonts/standard-14-fonts/" >- Standard 14 fonts</option>
@@ -399,9 +422,7 @@
 <li>Safari (iOS) iPhone</li>
 </ul>
 
-
 <div class="panel panel-warning"><div class="panel-heading">Limitations</div><div class="panel-body"><p>Methods <strong><code>open()</code></strong> and <strong><code>print()</code></strong> are supported only in:</p>
-
 <ul>
 <li>Firefox</li>
 <li>Chrome</li>
@@ -410,13 +431,10 @@
 </div></div>
 
 
-
 <div class="alert alert-warning" role="alert">Add-ons used in browsers can affect the functionality of pdfmake (especially for <code>open()</code> and <code>print()</code>). If pdfmake is not working try disable add-ons in browser.</div>
 
 
-
 <div class="panel panel-danger"><div class="panel-heading">Problematic add-ons</div><div class="panel-body">AdBlock</div></div>
-
 
 <p>Fully description is available in <a href="https://github.com/bpampuch/pdfmake/issues/800">issue</a>.</p>
 

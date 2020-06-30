@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2020-04-24T17:51:11 CEST">
+<meta name="revised" content="2020-06-30T13:32:06 CEST">
 <title>Tables :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -138,19 +138,34 @@
             <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
-      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/php/" class="dd-item">
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/fonts/custom-fonts-client-side/vfs/">via Virtual file system (VFS)</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/php/" class="dd-item">
         <div>
-          <a href="/docs/fonts/custom-fonts-client-side/php/">
+          <a href="/docs/fonts/custom-fonts-client-side/vfs/php/">
             Building font file via PHP script
           </a>
         </div>
     </li>
-      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/shell/" class="dd-item">
+      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/shell/" class="dd-item">
         <div>
-          <a href="/docs/fonts/custom-fonts-client-side/shell/">
+          <a href="/docs/fonts/custom-fonts-client-side/vfs/shell/">
             Building font file via shell script
           </a>
         </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/url/" class="dd-item alwaysopen
+        ">
+      <div>
+      <a href="/docs/fonts/custom-fonts-client-side/url/">via URL protocol</a>
+      </div>
     </li>
         </ul>
     </li>
@@ -346,8 +361,16 @@
     <option value="/docs/fonts/custom-fonts-client-side/" >
   - 
    Custom fonts (client-side)</option> 
-      <option value="/docs/fonts/custom-fonts-client-side/php/" >-- Building font file via PHP script</option>
-      <option value="/docs/fonts/custom-fonts-client-side/shell/" >-- Building font file via shell script</option>
+    <option value="/docs/fonts/custom-fonts-client-side/vfs/" >
+  -- 
+   via Virtual file system (VFS)</option> 
+      <option value="/docs/fonts/custom-fonts-client-side/vfs/php/" >--- Building font file via PHP script</option>
+      <option value="/docs/fonts/custom-fonts-client-side/vfs/shell/" >--- Building font file via shell script</option>
+  
+    <option value="/docs/fonts/custom-fonts-client-side/url/" >
+  -- 
+   via URL protocol</option> 
+  
   
       <option value="/docs/fonts/icons/" >- Icons</option>
       <option value="/docs/fonts/standard-14-fonts/" >- Standard 14 fonts</option>
@@ -388,9 +411,7 @@
     
     
     
-    
-
-<p>Conceptually tables are similar to columns. They can however have headers, borders and cells spanning over multiple columns/rows.</p>
+    <p>Conceptually tables are similar to columns. They can however have headers, borders and cells spanning over multiple columns/rows.</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
   <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
     <span style="color:#111">{</span>
@@ -410,28 +431,20 @@
     <span style="color:#111">}</span>
   <span style="color:#111">]</span>
 <span style="color:#111">};</span>
-</code></pre></div>
-<h5 id="table-cell-properties">Table-cell properties</h5>
-
+</code></pre></div><h5 id="table-cell-properties">Table-cell properties</h5>
 <ul>
 <li><code>fillColor: string</code>: the background color of a table cell</li>
 <li><code>fillOpacity: string</code>: the background opacity of a table cell</li>
 </ul>
-
 <h5 id="table-layouts">Table layouts</h5>
-
 <p>Can be used <code>layout</code> property for set table layout.</p>
-
 <p>Available table layouts:</p>
-
 <ul>
 <li><code>noBorders</code></li>
 <li><code>headerLineOnly</code></li>
 <li><code>lightHorizontalLines</code></li>
 </ul>
-
 <h5 id="own-table-layouts">Own table layouts</h5>
-
 <p>Own table layouts must be defined before calling <code>pdfMake.createPdf(docDefinition)</code>.</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">tableLayouts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
   <span style="color:#75af00">exampleLayout</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
@@ -458,30 +471,29 @@
 
 <span style="color:#75715e">// download the PDF
 </span><span style="color:#75715e"></span><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">download</span><span style="color:#111">();</span>
-</code></pre></div>
-<p>Alternatively, you can pass the tableLayouts directly to <code>createPdf</code> without changing the global value:</p>
-
+</code></pre></div><p>Alternatively, you can pass the tableLayouts directly to <code>createPdf</code> without changing the global value:</p>
 <ul>
-<li><p>On the client side:</p>
+<li>On the client side:</li>
+</ul>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">,</span> <span style="color:#75af00">tableLayouts</span><span style="color:#111">).</span><span style="color:#75af00">download</span><span style="color:#111">();</span>
 
 <span style="color:#75715e">// The full signature of createPdf looks like this.
 </span><span style="color:#75715e">// tableLayouts, fonts and vfs are all optional - falsy values will cause
 </span><span style="color:#75715e">// pdfMake.tableLayouts, pdfMake.fonts or pdfMake.vfs to be used.
 </span><span style="color:#75715e"></span><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">,</span> <span style="color:#75af00">tableLayouts</span><span style="color:#111">,</span> <span style="color:#75af00">fonts</span><span style="color:#111">,</span> <span style="color:#75af00">vfs</span><span style="color:#111">)</span>
-</code></pre></div></li>
-
-<li><p>On the server side:</p>
+</code></pre></div><ul>
+<li>On the server side:</li>
+</ul>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">PdfPrinter</span> <span style="color:#f92672">=</span> <span style="color:#75af00">require</span><span style="color:#111">(</span><span style="color:#d88200">&#39;pdfmake&#39;</span><span style="color:#111">);</span>
 <span style="color:#00a8c8">var</span> <span style="color:#75af00">printer</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#75af00">PdfPrinter</span><span style="color:#111">(</span><span style="color:#75af00">fonts</span><span style="color:#111">);</span>
 
 <span style="color:#75715e">// Declaring your layout
 </span><span style="color:#75715e"></span><span style="color:#00a8c8">var</span> <span style="color:#75af00">myTableLayouts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-<span style="color:#75af00">exampleLayout</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-    <span style="color:#75715e">/*
-</span><span style="color:#75715e">    Your layout here.
-</span><span style="color:#75715e">    */</span>
-<span style="color:#111">}</span>
+    <span style="color:#75af00">exampleLayout</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+        <span style="color:#75715e">/*
+</span><span style="color:#75715e">        Your layout here.
+</span><span style="color:#75715e">        */</span>
+    <span style="color:#111">}</span>
 <span style="color:#111">};</span>
 
 <span style="color:#75715e">// Building the PDF
@@ -490,10 +502,7 @@
 <span style="color:#75715e">// Writing it to disk
 </span><span style="color:#75715e"></span><span style="color:#75af00">pdfDoc</span><span style="color:#111">.</span><span style="color:#75af00">pipe</span><span style="color:#111">(</span><span style="color:#75af00">fs</span><span style="color:#111">.</span><span style="color:#75af00">createWriteStream</span><span style="color:#111">(</span><span style="color:#d88200">&#39;document.pdf&#39;</span><span style="color:#111">));</span>
 <span style="color:#75af00">pdfDoc</span><span style="color:#111">.</span><span style="color:#75af00">end</span><span style="color:#111">();</span>
-</code></pre></div></li>
-</ul>
-
-<p>All concepts related to tables are covered by TABLES example in <a href="http://pdfmake.org/playground.html">playground</a>.</p>
+</code></pre></div><p>All concepts related to tables are covered by TABLES example in <a href="http://pdfmake.org/playground.html">playground</a>.</p>
 
 
     

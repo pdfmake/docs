@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2020-06-30T13:32:06 CEST">
-<title>Client-side :: pdfmake</title>
+<title>via URL protocol :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
 <link href="/docs/css/nucleus.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/docs/getting-started/client-side/">
+  <body data-url="/docs/fonts/custom-fonts-client-side/url/">
     
       <header>
   <div class="logo">
@@ -62,14 +62,14 @@
             <i class="fa fa-fw fa-home"></i>
           </a>
           </li>
-    <li data-nav-id="https://pdfmake.github.io/docs/getting-started/" class="dd-item parent alwaysopen haschildren
+    <li data-nav-id="https://pdfmake.github.io/docs/getting-started/" class="dd-item alwaysopen haschildren
         ">
       <div>
       <a href="/docs/getting-started/">Getting started</a>
             <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
-    <li data-nav-id="https://pdfmake.github.io/docs/getting-started/client-side/" class="dd-item parent active alwaysopen haschildren
+    <li data-nav-id="https://pdfmake.github.io/docs/getting-started/client-side/" class="dd-item alwaysopen haschildren
         ">
       <div>
       <a href="/docs/getting-started/client-side/">Client-side</a>
@@ -124,14 +124,14 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="https://pdfmake.github.io/docs/fonts/" class="dd-item alwaysopen haschildren
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/" class="dd-item parent alwaysopen haschildren
         ">
       <div>
       <a href="/docs/fonts/">Fonts</a>
             <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
-    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/" class="dd-item alwaysopen haschildren
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/" class="dd-item parent alwaysopen haschildren
         ">
       <div>
       <a href="/docs/fonts/custom-fonts-client-side/">Custom fonts (client-side)</a>
@@ -161,7 +161,7 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/url/" class="dd-item alwaysopen
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/url/" class="dd-item parent active alwaysopen
         ">
       <div>
       <a href="/docs/fonts/custom-fonts-client-side/url/">via URL protocol</a>
@@ -342,7 +342,7 @@
           
     <option value="/docs/getting-started/" >
    Getting started</option> 
-    <option value="/docs/getting-started/client-side/"  selected>
+    <option value="/docs/getting-started/client-side/" >
   - 
    Client-side</option> 
       <option value="/docs/getting-started/client-side/methods/" >-- Methods</option>
@@ -367,7 +367,7 @@
       <option value="/docs/fonts/custom-fonts-client-side/vfs/php/" >--- Building font file via PHP script</option>
       <option value="/docs/fonts/custom-fonts-client-side/vfs/shell/" >--- Building font file via shell script</option>
   
-    <option value="/docs/fonts/custom-fonts-client-side/url/" >
+    <option value="/docs/fonts/custom-fonts-client-side/url/"  selected>
   -- 
    via URL protocol</option> 
   
@@ -407,61 +407,61 @@
     </div>
     
 
-    <h1>Client-side</h1>
+    <h1>via URL protocol</h1>
     
     
     
 
-<p>To begin in browser with the default configuration, you should include two files:</p>
-<ul>
-<li><strong>pdfmake.min.js</strong>,</li>
-<li><strong>vfs_fonts.js</strong> - default font definition (it contains Roboto, you can however <a href="/docs/fonts/custom-fonts-client-side/">use custom fonts instead</a>)</li>
-</ul>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!doctype html&gt;</span>
-<span style="color:#111">&lt;</span><span style="color:#f92672">html</span> <span style="color:#75af00">lang</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;en&#39;</span><span style="color:#111">&gt;</span>
-<span style="color:#111">&lt;</span><span style="color:#f92672">head</span><span style="color:#111">&gt;</span>
-  <span style="color:#111">&lt;</span><span style="color:#f92672">meta</span> <span style="color:#75af00">charset</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;utf-8&#39;</span><span style="color:#111">&gt;</span>
-  <span style="color:#111">&lt;</span><span style="color:#f92672">title</span><span style="color:#111">&gt;</span>my first pdfmake example<span style="color:#111">&lt;/</span><span style="color:#f92672">title</span><span style="color:#111">&gt;</span>
-  <span style="color:#111">&lt;</span><span style="color:#f92672">script</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;build/pdfmake.min.js&#39;</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
-  <span style="color:#111">&lt;</span><span style="color:#f92672">script</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;build/vfs_fonts.js&#39;</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
-<span style="color:#111">&lt;/</span><span style="color:#f92672">head</span><span style="color:#111">&gt;</span>
-<span style="color:#111">&lt;</span><span style="color:#f92672">body</span><span style="color:#111">&gt;</span>
-...
-</code></pre></div><h3 id="library-sources">Library sources</h3>
-<h4 id="cdnjs">cdnjs</h4>
-<p><a href="https://cdnjs.com/libraries/pdfmake">https://cdnjs.com/libraries/pdfmake</a></p>
-<h4 id="bower">bower</h4>
-<pre><code>bower install pdfmake
-</code></pre><h4 id="npm-primarily-server-side">npm (primarily server-side)</h4>
-<pre><code>npm install pdfmake
-</code></pre><p>Files for client-side is available here:</p>
-<ul>
-<li><code>require('pdfmake/build/pdfmake.js');</code></li>
-<li><code>require('pdfmake/build/vfs_fonts.js');</code></li>
-</ul>
-<p>Using javascript frameworks:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">pdfMake</span> <span style="color:#f92672">=</span> <span style="color:#75af00">require</span><span style="color:#111">(</span><span style="color:#d88200">&#39;pdfmake/build/pdfmake.js&#39;</span><span style="color:#111">);</span>
-<span style="color:#00a8c8">var</span> <span style="color:#75af00">pdfFonts</span> <span style="color:#f92672">=</span> <span style="color:#75af00">require</span><span style="color:#111">(</span><span style="color:#d88200">&#39;pdfmake/build/vfs_fonts.js&#39;</span><span style="color:#111">);</span>
-<span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">vfs</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfFonts</span><span style="color:#111">.</span><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">vfs</span><span style="color:#111">;</span>
-</code></pre></div><p>or</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">import</span> <span style="color:#75af00">pdfMake</span> <span style="color:#75af00">from</span> <span style="color:#d88200">&#34;pdfmake/build/pdfmake&#34;</span><span style="color:#111">;</span>
-<span style="color:#00a8c8">import</span> <span style="color:#75af00">pdfFonts</span> <span style="color:#75af00">from</span> <span style="color:#d88200">&#34;pdfmake/build/vfs_fonts&#34;</span><span style="color:#111">;</span>
-<span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">vfs</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfFonts</span><span style="color:#111">.</span><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">vfs</span><span style="color:#111">;</span>
-</code></pre></div><p>For Ionic and Angular see <a href="https://github.com/bpampuch/pdfmake/issues/1030">issue</a>.</p>
-<p>If a <strong>Cannot read property &lsquo;TYPED_ARRAY_SUPPORT&rsquo; of undefined</strong> error is thrown, add this to webpack config:</p>
-<pre><code>exclude: [ /node_modules/, /pdfmake.js$/ ]
-</code></pre><p>(see <a href="https://github.com/bpampuch/pdfmake/issues/1100#issuecomment-336728521">issue</a>)</p>
-<h4 id="repository">Repository</h4>
-<p>Copy them directly from the build directory from the repository. Otherwise you can always <a href="https://github.com/bpampuch/pdfmake/tree/0.1#building-from-sources-version-01x">build it version 0.1.x from sources</a>.</p>
 
+<div class="alert alert-warning" role="alert">Minimal version: <strong>0.1.66</strong></div>
+
+
+<div class="alert alert-warning" role="alert">This feature is available only in <strong>client-side</strong> (in browser).</div>
+
+<p>To use custom fonts, 2 steps are required:</p>
+<ol>
+<li>assign <code>pdfMake.fonts</code> your font files accessible via url address in your javascript</li>
+<li>specify the font in your doc-definition</li>
+</ol>
+<h2 id="1-assign-pdfmakefonts-your-font-files-in-your-javascript">1. assign <code>pdfMake.fonts</code> your font files in your javascript</h2>
+<p>Font files must be accessible via url address (https:// or http:// protocol). In your code, before calling <code>pdfMake.createPdf(docDefinition)</code> set <code>pdfMake.fonts</code> as in the example below:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">fonts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+   <span style="color:#75af00">yourFontName</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+     <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;https://example.com/fonts/fontFile.ttf&#39;</span><span style="color:#111">,</span>
+     <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;https://example.com/fonts/fontFile2.ttf&#39;</span><span style="color:#111">,</span>
+     <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;https://example.com/fonts/fontFile3.ttf&#39;</span><span style="color:#111">,</span>
+     <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;https://example.com/fonts/fontFile4.ttf&#39;</span>
+   <span style="color:#111">},</span>
+   <span style="color:#75af00">anotherFontName</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+     <span style="color:#111">(...)</span>
+   <span style="color:#111">},</span>
+
+   <span style="color:#75715e">// example of usage fonts in collection
+</span><span style="color:#75715e"></span>   <span style="color:#75af00">PingFangSC</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+     <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#d88200">&#39;https://example.com/fonts/pingfang.ttc&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;PingFangSC-Regular&#39;</span><span style="color:#111">],</span>
+     <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#d88200">&#39;https://example.com/fonts/pingfang.ttc&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;PingFangSC-Semibold&#39;</span><span style="color:#111">],</span>
+   <span style="color:#111">}</span>
+<span style="color:#111">}</span>
+</code></pre></div><p>Alternatively, instead of changing the global value, you can pass the <code>fonts</code> object directly to <code>createPdf</code>:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">,</span> <span style="color:#00a8c8">null</span><span style="color:#111">,</span> <span style="color:#75af00">fonts</span><span style="color:#111">)</span>
+</code></pre></div><h2 id="2-specify-the-font-in-your-doc-definition">2. specify the font in your doc-definition</h2>
+<p>pdfMake uses &lsquo;Roboto&rsquo; as default font, so in order to use your font, you should specify it in your doc-definition object.</p>
+<p>The easiest way is to set it globally in the <strong>defaultStyle</strong></p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">(...),</span>
+  <span style="color:#75af00">defaultStyle</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">font</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;yourFontName&#39;</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">}</span>
+</code></pre></div>
 
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/docs/getting-started/" title="Getting started"> <i class="fa fa-chevron-left"></i><label>Getting started</label></a>
-    <a class="nav nav-next" href="/docs/getting-started/client-side/methods/" title="Methods" style="margin-right: 0px;"><label>Methods</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/docs/fonts/custom-fonts-client-side/vfs/shell/" title="Building font file via shell script"> <i class="fa fa-chevron-left"></i><label>Building font file via shell script</label></a>
+    <a class="nav nav-next" href="/docs/fonts/icons/" title="Icons" style="margin-right: 0px;"><label>Icons</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -478,7 +478,7 @@
 
     
     <div class="github-link">
-      <a href="https://github.com/pdfmake/docs/edit/master/content/getting-started/client-side/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/pdfmake/docs/edit/master/content/fonts/custom-fonts-client-side/url/_index.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

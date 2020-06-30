@@ -17,10 +17,10 @@
       
       <guid>https://pdfmake.github.io/docs/fonts/icons/</guid>
       <description>make a font at http://fontello.com/ or something and download it
- from font file (for example .ttf) create vfs_fonts.js file (see how to use custom fonts)
- define font in js (just defining normal might be enough):
-pdfMake.fonts = { Fontello: { normal: &amp;#39;fontello.ttf&amp;#39;, bold: &amp;#39;fontello.ttf&amp;#39;, italics: &amp;#39;fontello.ttf&amp;#39;, bolditalics: &amp;#39;fontello.ttf&amp;#39; } }  add a style for icons: icon: { font: &#39;Fontello&#39; }
- make a text paragraph:  { text: &#39;&#39;, style: &#39;icon&#39; }, //icon wifi</description>
+  from font file (for example .ttf) create vfs_fonts.js file (see how to use custom fonts)
+  define font in js (just defining normal might be enough):
+pdfMake.fonts = { Fontello: { normal: &amp;#39;fontello.ttf&amp;#39;, bold: &amp;#39;fontello.ttf&amp;#39;, italics: &amp;#39;fontello.ttf&amp;#39;, bolditalics: &amp;#39;fontello.ttf&amp;#39; } }   add a style for icons:  icon: {font: &#39;Fontello&#39;}
+  make a text paragraph: { text: &#39;&#39;, style: &#39;icon&#39; }, //icon wifi</description>
     </item>
     
     <item>

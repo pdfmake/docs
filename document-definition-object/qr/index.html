@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2020-04-24T17:51:11 CEST">
+<meta name="revised" content="2020-06-30T13:32:06 CEST">
 <title>QR code :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -138,19 +138,34 @@
             <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
-      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/php/" class="dd-item">
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/fonts/custom-fonts-client-side/vfs/">via Virtual file system (VFS)</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/php/" class="dd-item">
         <div>
-          <a href="/docs/fonts/custom-fonts-client-side/php/">
+          <a href="/docs/fonts/custom-fonts-client-side/vfs/php/">
             Building font file via PHP script
           </a>
         </div>
     </li>
-      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/shell/" class="dd-item">
+      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/shell/" class="dd-item">
         <div>
-          <a href="/docs/fonts/custom-fonts-client-side/shell/">
+          <a href="/docs/fonts/custom-fonts-client-side/vfs/shell/">
             Building font file via shell script
           </a>
         </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/url/" class="dd-item alwaysopen
+        ">
+      <div>
+      <a href="/docs/fonts/custom-fonts-client-side/url/">via URL protocol</a>
+      </div>
     </li>
         </ul>
     </li>
@@ -346,8 +361,16 @@
     <option value="/docs/fonts/custom-fonts-client-side/" >
   - 
    Custom fonts (client-side)</option> 
-      <option value="/docs/fonts/custom-fonts-client-side/php/" >-- Building font file via PHP script</option>
-      <option value="/docs/fonts/custom-fonts-client-side/shell/" >-- Building font file via shell script</option>
+    <option value="/docs/fonts/custom-fonts-client-side/vfs/" >
+  -- 
+   via Virtual file system (VFS)</option> 
+      <option value="/docs/fonts/custom-fonts-client-side/vfs/php/" >--- Building font file via PHP script</option>
+      <option value="/docs/fonts/custom-fonts-client-side/vfs/shell/" >--- Building font file via shell script</option>
+  
+    <option value="/docs/fonts/custom-fonts-client-side/url/" >
+  -- 
+   via URL protocol</option> 
+  
   
       <option value="/docs/fonts/icons/" >- Icons</option>
       <option value="/docs/fonts/standard-14-fonts/" >- Standard 14 fonts</option>
@@ -400,9 +423,7 @@
 </span><span style="color:#75715e"></span>    <span style="color:#111">{</span> <span style="color:#75af00">qr</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;text in QR&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">fit</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;500&#39;</span> <span style="color:#111">},</span>
   <span style="color:#111">]</span>
 <span style="color:#111">}</span>
-</code></pre></div>
-<p>Properties:</p>
-
+</code></pre></div><p>Properties:</p>
 <ul>
 <li><code>qr</code>: <code>string</code> - text in QR code</li>
 <li><code>foreground</code>: <code>string</code> (optional, default black) - foreground color</li>
@@ -410,13 +431,13 @@
 <li><code>fit</code>: <code>integer</code> (optional) - fit the output QR image</li>
 <li><code>version</code>: <code>integer</code> (optional) - QR version range from 1 to 40 (for details see <a href="https://en.wikipedia.org/wiki/QR_code#Storage">wikipedia.org</a></li>
 <li><code>eccLevel</code>: <code>string</code> (optional, default L) - error correction capability (for details see <a href="https://en.wikipedia.org/wiki/QR_code#Error_correction">wikipedia.org</a>), possible values:
-
 <ul>
 <li><em>L</em> - Level L (Low), approx 7% of codewords can be restored</li>
 <li><em>M</em> - Level M (Medium), approx 15% of codewords can be restored</li>
 <li><em>Q</em> - Level Q (Quartile), approx 25% of codewords can be restored</li>
 <li><em>H</em> - Level H (High), approx 30% of codewords can be restored</li>
-</ul></li>
+</ul>
+</li>
 <li><code>mode</code>: <code>string</code> (optional) - encoding mode, possible values: <em>numeric</em>, <em>alphanumeric, octet</em> (for details see <a href="https://en.wikipedia.org/wiki/QR_code#Storage">wikipedia.org</a>)</li>
 <li><code>mask</code>: <code>integer</code> (optional) - mask pattern, range from 0 to 7 (for details see <a href="https://en.wikipedia.org/wiki/QR_code#Encoding">wikipedia.org</a>)</li>
 </ul>

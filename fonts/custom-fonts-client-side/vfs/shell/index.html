@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2020-04-24T17:51:11 CEST">
+<meta name="revised" content="2020-06-30T13:32:06 CEST">
 <title>Building font file via shell script :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/docs/fonts/custom-fonts-client-side/shell/">
+  <body data-url="/docs/fonts/custom-fonts-client-side/vfs/shell/">
     
       <header>
   <div class="logo">
@@ -138,19 +138,34 @@
             <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
-      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/php/" class="dd-item">
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/" class="dd-item parent alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/fonts/custom-fonts-client-side/vfs/">via Virtual file system (VFS)</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/php/" class="dd-item">
         <div>
-          <a href="/docs/fonts/custom-fonts-client-side/php/">
+          <a href="/docs/fonts/custom-fonts-client-side/vfs/php/">
             Building font file via PHP script
           </a>
         </div>
     </li>
-      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/shell/" class="dd-item active">
+      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/shell/" class="dd-item active">
         <div>
-          <a href="/docs/fonts/custom-fonts-client-side/shell/">
+          <a href="/docs/fonts/custom-fonts-client-side/vfs/shell/">
             Building font file via shell script
           </a>
         </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/url/" class="dd-item alwaysopen
+        ">
+      <div>
+      <a href="/docs/fonts/custom-fonts-client-side/url/">via URL protocol</a>
+      </div>
     </li>
         </ul>
     </li>
@@ -346,8 +361,16 @@
     <option value="/docs/fonts/custom-fonts-client-side/" >
   - 
    Custom fonts (client-side)</option> 
-      <option value="/docs/fonts/custom-fonts-client-side/php/" >-- Building font file via PHP script</option>
-      <option value="/docs/fonts/custom-fonts-client-side/shell/"  selected>-- Building font file via shell script</option>
+    <option value="/docs/fonts/custom-fonts-client-side/vfs/" >
+  -- 
+   via Virtual file system (VFS)</option> 
+      <option value="/docs/fonts/custom-fonts-client-side/vfs/php/" >--- Building font file via PHP script</option>
+      <option value="/docs/fonts/custom-fonts-client-side/vfs/shell/"  selected>--- Building font file via shell script</option>
+  
+    <option value="/docs/fonts/custom-fonts-client-side/url/" >
+  -- 
+   via URL protocol</option> 
+  
   
       <option value="/docs/fonts/icons/" >- Icons</option>
       <option value="/docs/fonts/standard-14-fonts/" >- Standard 14 fonts</option>
@@ -388,8 +411,7 @@
     
     
     
-    <p>For a complete description of use custom fonts in client-side, read the article: <a href="/docs/fonts/custom-fonts-client-side/">Custom fonts (client-side)</a></p>
-
+    <p>For a complete description of use custom fonts in client-side, read the article: <a href="/docs/fonts/custom-fonts-client-side/vfs/">Custom fonts (client-side) &gt; via Virtual file system (VFS)</a></p>
 <p>If you don&rsquo;t want to install gulp and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the <code>vfs_fonts.js</code> with an bash-script as well:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/sh
 </span><span style="color:#75715e"></span>
@@ -414,28 +436,22 @@
 		<span style="color:#00a8c8">fi</span>
 	<span style="color:#00a8c8">done</span>
 	<span style="color:#111">echo</span> -n <span style="color:#d88200">&#34;};&#34;</span>
-<span style="color:#f92672">)</span> &gt; <span style="color:#d88200">&#34;</span><span style="color:#111">$target</span><span style="color:#d88200">&#34;</span></code></pre></div>
-<p>How to use script:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">script.sh font1.ttf font2.ttf font3.ttf</code></pre></div>
-<p>If you are using a mac you need to change this line</p>
-
+<span style="color:#f92672">)</span> &gt; <span style="color:#d88200">&#34;</span><span style="color:#111">$target</span><span style="color:#d88200">&#34;</span>
+</code></pre></div><p>How to use script:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">script.sh font1.ttf font2.ttf font3.ttf
+</code></pre></div><p>If you are using a mac you need to change this line</p>
 <pre><code>		echo -n &quot;$(base64 -w 0 $file)&quot;
-</code></pre>
-
-<p>to (change the flag from <code>-w</code> to <code>-b</code>)</p>
-
+</code></pre><p>to (change the flag from <code>-w</code> to <code>-b</code>)</p>
 <pre><code>		echo -n &quot;$(base64 -b 0 $file)&quot;
-</code></pre>
-
-<p>GNU coreutils&rsquo; <code>base64</code> seems to differ to Apple&rsquo;s <code>base64</code> in this flag (which prevents line wrapping).</p>
+</code></pre><p>GNU coreutils&rsquo; <code>base64</code> seems to differ to Apple&rsquo;s <code>base64</code> in this flag (which prevents line wrapping).</p>
 
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/docs/fonts/custom-fonts-client-side/php/" title="Building font file via PHP script"> <i class="fa fa-chevron-left"></i><label>Building font file via PHP script</label></a>
-    <a class="nav nav-next" href="/docs/document-definition-object/" title="Document-definition-object" style="margin-right: 0px;"><label>Document-definition-object</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/docs/fonts/custom-fonts-client-side/vfs/php/" title="Building font file via PHP script"> <i class="fa fa-chevron-left"></i><label>Building font file via PHP script</label></a>
+    <a class="nav nav-next" href="/docs/fonts/custom-fonts-client-side/url/" title="via URL protocol" style="margin-right: 0px;"><label>via URL protocol</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -452,7 +468,7 @@
 
     
     <div class="github-link">
-      <a href="https://github.com/pdfmake/docs/edit/master/content/fonts/custom-fonts-client-side/shell.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/pdfmake/docs/edit/master/content/fonts/custom-fonts-client-side/vfs/shell.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

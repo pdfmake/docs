@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2020-04-24T17:51:11 CEST">
+<meta name="revised" content="2020-06-30T13:32:06 CEST">
 <title>Building font file via PHP script :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/docs/fonts/custom-fonts-client-side/php/">
+  <body data-url="/docs/fonts/custom-fonts-client-side/vfs/php/">
     
       <header>
   <div class="logo">
@@ -138,19 +138,34 @@
             <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
-      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/php/" class="dd-item active">
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/" class="dd-item parent alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/fonts/custom-fonts-client-side/vfs/">via Virtual file system (VFS)</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/php/" class="dd-item active">
         <div>
-          <a href="/docs/fonts/custom-fonts-client-side/php/">
+          <a href="/docs/fonts/custom-fonts-client-side/vfs/php/">
             Building font file via PHP script
           </a>
         </div>
     </li>
-      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/shell/" class="dd-item">
+      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/shell/" class="dd-item">
         <div>
-          <a href="/docs/fonts/custom-fonts-client-side/shell/">
+          <a href="/docs/fonts/custom-fonts-client-side/vfs/shell/">
             Building font file via shell script
           </a>
         </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/url/" class="dd-item alwaysopen
+        ">
+      <div>
+      <a href="/docs/fonts/custom-fonts-client-side/url/">via URL protocol</a>
+      </div>
     </li>
         </ul>
     </li>
@@ -346,8 +361,16 @@
     <option value="/docs/fonts/custom-fonts-client-side/" >
   - 
    Custom fonts (client-side)</option> 
-      <option value="/docs/fonts/custom-fonts-client-side/php/"  selected>-- Building font file via PHP script</option>
-      <option value="/docs/fonts/custom-fonts-client-side/shell/" >-- Building font file via shell script</option>
+    <option value="/docs/fonts/custom-fonts-client-side/vfs/" >
+  -- 
+   via Virtual file system (VFS)</option> 
+      <option value="/docs/fonts/custom-fonts-client-side/vfs/php/"  selected>--- Building font file via PHP script</option>
+      <option value="/docs/fonts/custom-fonts-client-side/vfs/shell/" >--- Building font file via shell script</option>
+  
+    <option value="/docs/fonts/custom-fonts-client-side/url/" >
+  -- 
+   via URL protocol</option> 
+  
   
       <option value="/docs/fonts/icons/" >- Icons</option>
       <option value="/docs/fonts/standard-14-fonts/" >- Standard 14 fonts</option>
@@ -388,8 +411,7 @@
     
     
     
-    <p>For a complete description of use custom fonts in client-side, read the article: <a href="/docs/fonts/custom-fonts-client-side/">Custom fonts (client-side)</a></p>
-
+    <p>For a complete description of use custom fonts in client-side, read the article: <a href="/docs/fonts/custom-fonts-client-side/vfs/">Custom fonts (client-side) &gt; via Virtual file system (VFS)</a></p>
 <p>If you don&rsquo;t want to install gulp and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the <code>vfs_fonts.js</code> with an PHP script as well. Put the code below in a file on a server with the font files you want to include in the same directory and view it in a browser. Use parameter &ldquo;?tofile&rdquo; in the URL to write the output to &ldquo;vfs_fonts.js&rdquo; in the same directory on the server, otherwise it outputs in the browser window for you to copy/paste.</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
 
@@ -421,8 +443,8 @@
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/docs/fonts/custom-fonts-client-side/" title="Custom fonts (client-side)"> <i class="fa fa-chevron-left"></i><label>Custom fonts (client-side)</label></a>
-    <a class="nav nav-next" href="/docs/fonts/custom-fonts-client-side/shell/" title="Building font file via shell script" style="margin-right: 0px;"><label>Building font file via shell script</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/docs/fonts/custom-fonts-client-side/vfs/" title="via Virtual file system (VFS)"> <i class="fa fa-chevron-left"></i><label>via Virtual file system (VFS)</label></a>
+    <a class="nav nav-next" href="/docs/fonts/custom-fonts-client-side/vfs/shell/" title="Building font file via shell script" style="margin-right: 0px;"><label>Building font file via shell script</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -439,7 +461,7 @@
 
     
     <div class="github-link">
-      <a href="https://github.com/pdfmake/docs/edit/master/content/fonts/custom-fonts-client-side/php.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/pdfmake/docs/edit/master/content/fonts/custom-fonts-client-side/vfs/php.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-	<meta name="generator" content="Hugo 0.59.1" />
+	<meta name="generator" content="Hugo 0.73.0" />
     <title>pdfmake</title>
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2020-04-24T17:51:11 CEST">
+<meta name="revised" content="2020-06-30T13:32:06 CEST">
 <title>pdfmake :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -139,19 +139,34 @@
             <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
-      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/php/" class="dd-item">
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/fonts/custom-fonts-client-side/vfs/">via Virtual file system (VFS)</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/php/" class="dd-item">
         <div>
-          <a href="/docs/fonts/custom-fonts-client-side/php/">
+          <a href="/docs/fonts/custom-fonts-client-side/vfs/php/">
             Building font file via PHP script
           </a>
         </div>
     </li>
-      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/shell/" class="dd-item">
+      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/shell/" class="dd-item">
         <div>
-          <a href="/docs/fonts/custom-fonts-client-side/shell/">
+          <a href="/docs/fonts/custom-fonts-client-side/vfs/shell/">
             Building font file via shell script
           </a>
         </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/url/" class="dd-item alwaysopen
+        ">
+      <div>
+      <a href="/docs/fonts/custom-fonts-client-side/url/">via URL protocol</a>
+      </div>
     </li>
         </ul>
     </li>
@@ -347,8 +362,16 @@
     <option value="/docs/fonts/custom-fonts-client-side/" >
   - 
    Custom fonts (client-side)</option> 
-      <option value="/docs/fonts/custom-fonts-client-side/php/" >-- Building font file via PHP script</option>
-      <option value="/docs/fonts/custom-fonts-client-side/shell/" >-- Building font file via shell script</option>
+    <option value="/docs/fonts/custom-fonts-client-side/vfs/" >
+  -- 
+   via Virtual file system (VFS)</option> 
+      <option value="/docs/fonts/custom-fonts-client-side/vfs/php/" >--- Building font file via PHP script</option>
+      <option value="/docs/fonts/custom-fonts-client-side/vfs/shell/" >--- Building font file via shell script</option>
+  
+    <option value="/docs/fonts/custom-fonts-client-side/url/" >
+  -- 
+   via URL protocol</option> 
+  
   
       <option value="/docs/fonts/icons/" >- Icons</option>
       <option value="/docs/fonts/standard-14-fonts/" >- Standard 14 fonts</option>
@@ -393,16 +416,10 @@
 <a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
 </span>
  
-
-
 <h1 id="pdfmake">pdfmake</h1>
-
 <p>PDF document generation library for server-side and client-side usage in pure JavaScript.</p>
-
 <h2 id="features">Features</h2>
-
 <h5 id="basics">basics</h5>
-
 <ul>
 <li>line-wrapping</li>
 <li>text-alignments <em>(left, right, centered, justified)</em></li>
@@ -410,17 +427,13 @@
 <li>margins</li>
 <li>images and vector graphics</li>
 </ul>
-
 <h5 id="styling">styling</h5>
-
 <ul>
 <li>convenient styling</li>
 <li>style inheritance</li>
 <li>custom style dictionaries</li>
 </ul>
-
 <h5 id="tables-and-columns">tables and columns</h5>
-
 <ul>
 <li>auto/fixed/star-sized/percentage columns widths</li>
 <li>col-spans and row-spans</li>
@@ -428,17 +441,13 @@
 <li>non-breaking rows</li>
 <li>non-breaking sections <em>keeping headers and rows together</em></li>
 </ul>
-
 <h5 id="page-headers-and-footers">page headers and footers</h5>
-
 <ul>
 <li>static or dynamic content</li>
 <li>page numbers</li>
 <li>page count</li>
 </ul>
-
 <h5 id="other">other</h5>
-
 <ul>
 <li>page dimensions and orientations</li>
 <li>background-layer</li>
@@ -448,17 +457,13 @@
 <li>table of contents</li>
 <li>setting of PDF metadata <em>(e.g. author, subject)</em></li>
 </ul>
-
 <h5 id="client-side-helper-methods">client-side helper methods</h5>
-
 <ul>
 <li>download <em>with the specified filename</em></li>
 <li>open <em>in another tab</em></li>
 <li>print <em>auto-triggering print</em></li>
 </ul>
-
 <h2 id="examples">Examples</h2>
-
 <p>Check out <a href="http://bpampuch.github.io/pdfmake/playground.html">the playground</a> and <a href="https://github.com/bpampuch/pdfmake/tree/0.1/examples">examples</a>.</p>
 
 

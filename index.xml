@@ -12,23 +12,23 @@
     
     <item>
       <title>Building font file via PHP script</title>
-      <link>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/php/</link>
+      <link>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/php/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/php/</guid>
-      <description>For a complete description of use custom fonts in client-side, read the article: Custom fonts (client-side)
+      <guid>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/php/</guid>
+      <description>For a complete description of use custom fonts in client-side, read the article: Custom fonts (client-side) &amp;gt; via Virtual file system (VFS)
 If you don&amp;rsquo;t want to install gulp and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the vfs_fonts.js with an PHP script as well. Put the code below in a file on a server with the font files you want to include in the same directory and view it in a browser.</description>
     </item>
     
     <item>
       <title>Building font file via shell script</title>
-      <link>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/shell/</link>
+      <link>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/shell/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/shell/</guid>
-      <description>For a complete description of use custom fonts in client-side, read the article: Custom fonts (client-side)
+      <guid>https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/shell/</guid>
+      <description>For a complete description of use custom fonts in client-side, read the article: Custom fonts (client-side) &amp;gt; via Virtual file system (VFS)
 If you don&amp;rsquo;t want to install gulp and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the vfs_fonts.js with an bash-script as well:
-#!/bin/sh  if [ -t 1 ]; then target=&amp;#34;vfs_fonts.js&amp;#34; else target=&amp;#34;/dev/stdout&amp;#34; fi ( echo -n &amp;#34;this.pdfMake = this.pdfMake || {}; this.pdfMake.vfs = {&amp;#34; for file in &amp;#34;$@&amp;#34;; do file=$1 shift echo -n &amp;#39;&amp;#34;&amp;#39; echo -n &amp;#34;$(basename $file)&amp;#34; echo -n &amp;#39;&amp;#34;:&amp;#34;&amp;#39; echo -n &amp;#34;$(base64 -w 0 $file)&amp;#34; echo -n &amp;#39;&amp;#34;&amp;#39; if [ &amp;#34;$#&amp;#34; -gt 0 ]; then echo -n &amp;#34;,&amp;#34; fi done echo -n &amp;#34;};&amp;#34; ) &amp;gt; &amp;#34;$target&amp;#34; How to use script:</description>
+#!/bin/sh  if [ -t 1 ]; then target=&amp;#34;vfs_fonts.js&amp;#34; else target=&amp;#34;/dev/stdout&amp;#34; fi ( echo -n &amp;#34;this.pdfMake = this.pdfMake || {}; this.</description>
     </item>
     
     <item>
@@ -37,10 +37,11 @@ If you don&amp;rsquo;t want to install gulp and/or just downloaded pdfMake and w
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/getting-started/client-side/methods/</guid>
-      <description>Download the PDF pdfMake.createPdf(docDefinition).download();  Parameters:
- defaultFileName (optional) - file name cb (optional) - callback function options (optional) - advanced options see options chapter  Open the PDF in a new window pdfMake.createPdf(docDefinition).open();  Parameters:
+      <description>Download the PDF pdfMake.createPdf(docDefinition).download(); Parameters:
+ defaultFileName (optional) - file name cb (optional) - callback function options (optional) - advanced options see options chapter  Open the PDF in a new window pdfMake.createPdf(docDefinition).open(); Parameters:
  options (optional) - advanced options see options chapter win (optional) - window (when an asynchronous operation)  Name can be defined only by using metadata title property (see Document metadata).
-Asynchronous example:</description>
+Asynchronous example:
+$scope.generatePdf = function() { // create the window before the callback  var win = window.</description>
     </item>
     
     <item>
@@ -50,7 +51,7 @@ Asynchronous example:</description>
       
       <guid>https://pdfmake.github.io/docs/getting-started/client-side/supported-browsers/</guid>
       <description>Internet Explorer 10+ Edge 12+ Firefox Chrome Chrome (Android) Opera Safari (iOS) Safari (iOS) iPhone  LimitationsMethods open() and print() are supported only in:
- Firefox Chrome Opera   Add-ons used in browsers can affect the functionality of pdfmake (especially for open() and print()). If pdfmake is not working try disable add-ons in browser. Problematic add-onsAdBlock Fully description is available in issue.</description>
+ Firefox Chrome Opera  Add-ons used in browsers can affect the functionality of pdfmake (especially for open() and print()). If pdfmake is not working try disable add-ons in browser.Problematic add-onsAdBlockFully description is available in issue.</description>
     </item>
     
     <item>
@@ -87,10 +88,10 @@ Asynchronous example:</description>
       
       <guid>https://pdfmake.github.io/docs/fonts/icons/</guid>
       <description>make a font at http://fontello.com/ or something and download it
- from font file (for example .ttf) create vfs_fonts.js file (see how to use custom fonts)
- define font in js (just defining normal might be enough):
-pdfMake.fonts = { Fontello: { normal: &amp;#39;fontello.ttf&amp;#39;, bold: &amp;#39;fontello.ttf&amp;#39;, italics: &amp;#39;fontello.ttf&amp;#39;, bolditalics: &amp;#39;fontello.ttf&amp;#39; } }  add a style for icons: icon: { font: &#39;Fontello&#39; }
- make a text paragraph:  { text: &#39;&#39;, style: &#39;icon&#39; }, //icon wifi</description>
+  from font file (for example .ttf) create vfs_fonts.js file (see how to use custom fonts)
+  define font in js (just defining normal might be enough):
+pdfMake.fonts = { Fontello: { normal: &amp;#39;fontello.ttf&amp;#39;, bold: &amp;#39;fontello.ttf&amp;#39;, italics: &amp;#39;fontello.ttf&amp;#39;, bolditalics: &amp;#39;fontello.ttf&amp;#39; } }   add a style for icons:  icon: {font: &#39;Fontello&#39;}
+  make a text paragraph: { text: &#39;&#39;, style: &#39;icon&#39; }, //icon wifi</description>
     </item>
     
     <item>
@@ -122,7 +123,7 @@ var docDefinition = { content: [ // if you don&amp;#39;t need styles, you can us
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/columns/</guid>
       <description>By default paragraphs are rendered as a vertical stack of elements (one below another). It is possible however to divide available space into columns.
-var docDefinition = { content: [ &amp;#39;This paragraph fills full width, as there are no columns. Next paragraph however consists of three columns&amp;#39;, { columns: [ { // auto-sized columns have their widths based on their content  width: &amp;#39;auto&amp;#39;, text: &amp;#39;First column&amp;#39; }, { // star-sized columns fill the remaining space  // if there&amp;#39;s more than one star-column, available width is divided equally  width: &amp;#39;*&amp;#39;, text: &amp;#39;Second column&amp;#39; }, { // fixed width  width: 100, text: &amp;#39;Third column&amp;#39; }, { // % width  width: &amp;#39;20%&amp;#39;, text: &amp;#39;Fourth column&amp;#39; } ], // optional space between columns  columnGap: 10 }, &amp;#39;This paragraph goes below all columns and has full width&amp;#39; ] };  Column content is not limited to a simple text.</description>
+var docDefinition = { content: [ &amp;#39;This paragraph fills full width, as there are no columns. Next paragraph however consists of three columns&amp;#39;, { columns: [ { // auto-sized columns have their widths based on their content  width: &amp;#39;auto&amp;#39;, text: &amp;#39;First column&amp;#39; }, { // star-sized columns fill the remaining space  // if there&amp;#39;s more than one star-column, available width is divided equally  width: &amp;#39;*&amp;#39;, text: &amp;#39;Second column&amp;#39; }, { // fixed width  width: 100, text: &amp;#39;Third column&amp;#39; }, { // % width  width: &amp;#39;20%&amp;#39;, text: &amp;#39;Fourth column&amp;#39; } ], // optional space between columns  columnGap: 10 }, &amp;#39;This paragraph goes below all columns and has full width&amp;#39; ] }; Column content is not limited to a simple text.</description>
     </item>
     
     <item>
@@ -132,7 +133,7 @@ var docDefinition = { content: [ &amp;#39;This paragraph fills full width, as th
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/tables/</guid>
       <description>Conceptually tables are similar to columns. They can however have headers, borders and cells spanning over multiple columns/rows.
-var docDefinition = { content: [ { layout: &amp;#39;lightHorizontalLines&amp;#39;, // optional  table: { // headers are automatically repeated if the table spans over multiple pages  // you can declare how many rows should be treated as headers  headerRows: 1, widths: [ &amp;#39;*&amp;#39;, &amp;#39;auto&amp;#39;, 100, &amp;#39;*&amp;#39; ], body: [ [ &amp;#39;First&amp;#39;, &amp;#39;Second&amp;#39;, &amp;#39;Third&amp;#39;, &amp;#39;The last one&amp;#39; ], [ &amp;#39;Value 1&amp;#39;, &amp;#39;Value 2&amp;#39;, &amp;#39;Value 3&amp;#39;, &amp;#39;Value 4&amp;#39; ], [ { text: &amp;#39;Bold value&amp;#39;, bold: true }, &amp;#39;Val 2&amp;#39;, &amp;#39;Val 3&amp;#39;, &amp;#39;Val 4&amp;#39; ] ] } } ] };  Table-cell properties  fillColor: string: the background color of a table cell fillOpacity: string: the background opacity of a table cell  Table layouts Can be used layout property for set table layout.</description>
+var docDefinition = { content: [ { layout: &amp;#39;lightHorizontalLines&amp;#39;, // optional  table: { // headers are automatically repeated if the table spans over multiple pages  // you can declare how many rows should be treated as headers  headerRows: 1, widths: [ &amp;#39;*&amp;#39;, &amp;#39;auto&amp;#39;, 100, &amp;#39;*&amp;#39; ], body: [ [ &amp;#39;First&amp;#39;, &amp;#39;Second&amp;#39;, &amp;#39;Third&amp;#39;, &amp;#39;The last one&amp;#39; ], [ &amp;#39;Value 1&amp;#39;, &amp;#39;Value 2&amp;#39;, &amp;#39;Value 3&amp;#39;, &amp;#39;Value 4&amp;#39; ], [ { text: &amp;#39;Bold value&amp;#39;, bold: true }, &amp;#39;Val 2&amp;#39;, &amp;#39;Val 3&amp;#39;, &amp;#39;Val 4&amp;#39; ] ] } } ] }; Table-cell properties  fillColor: string: the background color of a table cell fillOpacity: string: the background opacity of a table cell  Table layouts Can be used layout property for set table layout.</description>
     </item>
     
     <item>
@@ -153,7 +154,7 @@ var docDefinition = { content: [ &amp;#39;Bulleted list example:&amp;#39;, { // 
       <guid>https://pdfmake.github.io/docs/document-definition-object/headers-footers/</guid>
       <description>Page headers and footers in pdfmake can be: static or dynamic.
 They use the same syntax:
-var docDefinition = { header: &amp;#39;simple text&amp;#39;, footer: { columns: [ &amp;#39;Left part&amp;#39;, { text: &amp;#39;Right part&amp;#39;, alignment: &amp;#39;right&amp;#39; } ] }, content: (...) };  For dynamically generated content (including page numbers, page count and page size) you can pass a function to the header or footer:
+var docDefinition = { header: &amp;#39;simple text&amp;#39;, footer: { columns: [ &amp;#39;Left part&amp;#39;, { text: &amp;#39;Right part&amp;#39;, alignment: &amp;#39;right&amp;#39; } ] }, content: (...) }; For dynamically generated content (including page numbers, page count and page size) you can pass a function to the header or footer:
 var docDefinition = { footer: function(currentPage, pageCount) { return currentPage.</description>
     </item>
     
@@ -164,7 +165,7 @@ var docDefinition = { footer: function(currentPage, pageCount) { return currentP
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/background-layer/</guid>
       <description>The background-layer will be added on every page.
-var docDefinition = { background: &amp;#39;simple text&amp;#39;, content: (...) };  It may contain any other object as well (images, tables, &amp;hellip;) or be dynamically generated:
+var docDefinition = { background: &amp;#39;simple text&amp;#39;, content: (...) }; It may contain any other object as well (images, tables, &amp;hellip;) or be dynamically generated:
 var docDefinition = { background: function(currentPage, pageSize) { return `page ${currentPage}with size ${pageSize.width}x ${pageSize.height}` }, content: (...) }; </description>
     </item>
     
@@ -186,7 +187,7 @@ var docDefinition = { background: function(currentPage, pageSize) { return `page
       <guid>https://pdfmake.github.io/docs/document-definition-object/stack/</guid>
       <description>You could have figured out by now (from the examples), that if you set the content key to an array, the document becomes a stack of paragraphs.
 You&amp;rsquo;ll quite often reuse this structure in a nested element, like in the following example:
-var docDefinition = { content: [ &amp;#39;paragraph 1&amp;#39;, &amp;#39;paragraph 2&amp;#39;, { columns: [ &amp;#39;first column is a simple text&amp;#39;, [ // second column consists of paragraphs  &amp;#39;paragraph A&amp;#39;, &amp;#39;paragraph B&amp;#39;, &amp;#39;these paragraphs will be rendered one below another inside the column&amp;#39; ] ] } ] };  The problem with an array is that you cannot add styling properties to it (to change fontSize for example).</description>
+var docDefinition = { content: [ &amp;#39;paragraph 1&amp;#39;, &amp;#39;paragraph 2&amp;#39;, { columns: [ &amp;#39;first column is a simple text&amp;#39;, [ // second column consists of paragraphs  &amp;#39;paragraph A&amp;#39;, &amp;#39;paragraph B&amp;#39;, &amp;#39;these paragraphs will be rendered one below another inside the column&amp;#39; ] ] } ] }; The problem with an array is that you cannot add styling properties to it (to change fontSize for example).</description>
     </item>
     
     <item>
@@ -206,7 +207,7 @@ var docDefinition = { content: [ { // you&amp;#39;ll most often use dataURI imag
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/svgs/</guid>
-      <description>Minimal version: 0.1.59 SVGs are much like images except it is not currently possible to refer to SVGs by file or re-use from a dictionary.
+      <description>Minimal version: 0.1.59SVGs are much like images except it is not currently possible to refer to SVGs by file or re-use from a dictionary.
 var docDefinition = { content: [ { // If no width/height/fit is used, then dimensions from the svg element is used.  svg: &amp;#39;&amp;lt;svg width=&amp;#34;300&amp;#34; height=&amp;#34;200&amp;#34; viewBox=&amp;#34;0 0 300 200&amp;#34;&amp;gt;...&amp;lt;/svg&amp;gt;&amp;#39; }, { // if you specify width, svg will scale proportionally  svg: &amp;#39;&amp;lt;svg width=&amp;#34;300&amp;#34; height=&amp;#34;200&amp;#34; viewBox=&amp;#34;0 0 300 200&amp;#34;&amp;gt;.</description>
     </item>
     
@@ -216,8 +217,8 @@ var docDefinition = { content: [ { // If no width/height/fit is used, then dimen
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/links/</guid>
-      <description> To add external or internal links, use the following syntax:
-{ text: &amp;#39;google&amp;#39;, link: &amp;#39;http://google.com&amp;#39; } { text: &amp;#39;Go to page 2&amp;#39;, linkToPage: 2 } { text: &amp;#39;Go to Header&amp;#39;, linkToDestination: &amp;#39;header&amp;#39; }, { text: &amp;#39;Header content&amp;#39;, id: &amp;#39;header&amp;#39; },  Properties  link (string) - URL to external site linkToPage (number) - link to page number linkToDestination (string) - link to document destination  </description>
+      <description>To add external or internal links, use the following syntax:
+{ text: &amp;#39;google&amp;#39;, link: &amp;#39;http://google.com&amp;#39; } { text: &amp;#39;Go to page 2&amp;#39;, linkToPage: 2 } { text: &amp;#39;Go to Header&amp;#39;, linkToDestination: &amp;#39;header&amp;#39; }, { text: &amp;#39;Header content&amp;#39;, id: &amp;#39;header&amp;#39; }, Properties  link (string) - URL to external site linkToPage (number) - link to page number linkToDestination (string) - link to document destination  </description>
     </item>
     
     <item>
@@ -226,7 +227,7 @@ var docDefinition = { content: [ { // If no width/height/fit is used, then dimen
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/qr/</guid>
-      <description>var docDefinition = { content: [ // basic usage  { qr: &amp;#39;text in QR&amp;#39; }, // colored QR  { qr: &amp;#39;text in QR&amp;#39;, foreground: &amp;#39;red&amp;#39;, background: &amp;#39;yellow&amp;#39; }, // resized QR  { qr: &amp;#39;text in QR&amp;#39;, fit: &amp;#39;500&amp;#39; }, ] }  Properties:
+      <description>var docDefinition = { content: [ // basic usage  { qr: &amp;#39;text in QR&amp;#39; }, // colored QR  { qr: &amp;#39;text in QR&amp;#39;, foreground: &amp;#39;red&amp;#39;, background: &amp;#39;yellow&amp;#39; }, // resized QR  { qr: &amp;#39;text in QR&amp;#39;, fit: &amp;#39;500&amp;#39; }, ] } Properties:
  qr: string - text in QR code foreground: string (optional, default black) - foreground color background: string (optional, default white) - background color fit: integer (optional) - fit the output QR image version: integer (optional) - QR version range from 1 to 40 (for details see wikipedia.</description>
     </item>
     
@@ -237,8 +238,8 @@ var docDefinition = { content: [ { // If no width/height/fit is used, then dimen
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/toc/</guid>
       <description>The simplest example of a table of contents:
-var docDefinition = { content: [ { toc: { title: {text: &amp;#39;INDEX&amp;#39;, style: &amp;#39;header&amp;#39;} } }, { text: &amp;#39;This is a header&amp;#39;, style: &amp;#39;header&amp;#39;, tocItem: true, } ] }  If id is used in toc, the tocItem can target that id:
-var docDefinition = { content: [ { toc: { id: &amp;#39;mainToc&amp;#39; title: {text: &amp;#39;INDEX&amp;#39;, style: &amp;#39;header&amp;#39;} } }, { text: &amp;#39;This is a header&amp;#39;, style: &amp;#39;header&amp;#39;, tocItem: &amp;#39;mainToc&amp;#39; } ] }  If multiple Table of Contents are used, tocItem can be used to place the text in the correct toc:</description>
+var docDefinition = { content: [ { toc: { title: {text: &amp;#39;INDEX&amp;#39;, style: &amp;#39;header&amp;#39;} } }, { text: &amp;#39;This is a header&amp;#39;, style: &amp;#39;header&amp;#39;, tocItem: true, } ] } If id is used in toc, the tocItem can target that id:
+var docDefinition = { content: [ { toc: { id: &amp;#39;mainToc&amp;#39; title: {text: &amp;#39;INDEX&amp;#39;, style: &amp;#39;header&amp;#39;} } }, { text: &amp;#39;This is a header&amp;#39;, style: &amp;#39;header&amp;#39;, tocItem: &amp;#39;mainToc&amp;#39; } ] } If multiple Table of Contents are used, tocItem can be used to place the text in the correct toc:</description>
     </item>
     
     <item>
@@ -248,7 +249,7 @@ var docDefinition = { content: [ { toc: { id: &amp;#39;mainToc&amp;#39; title: {
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/watermark/</guid>
       <description>Properties  text - watermark text color - color of text opacity opacity of text bold - bold style of text italics - italics style of text fontSize - own font size of text (ideal size is calculated automatically) (minimal version: 0.1.60) angle - angle of text rotation (minimal version: 0.1.60)  Examples Example of simple basic usage:
-var docDefinition = { watermark: &amp;#39;test watermark&amp;#39;, content: [ &amp;#39;...&amp;#39; ] };  Example of font style:</description>
+var docDefinition = { watermark: &amp;#39;test watermark&amp;#39;, content: [ &amp;#39;...&amp;#39; ] }; Example of font style:</description>
     </item>
     
     <item>
@@ -257,7 +258,7 @@ var docDefinition = { watermark: &amp;#39;test watermark&amp;#39;, content: [ &a
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/page/</guid>
-      <description>var docDefinition = { // a string or { width: number, height: number }  pageSize: &amp;#39;A5&amp;#39;, // by default we use portrait, you can change it to landscape if you wish  pageOrientation: &amp;#39;landscape&amp;#39;, // [left, top, right, bottom] or [horizontal, vertical] or just a number for equal margins  pageMargins: [ 40, 60, 40, 60 ], };  If you set pageSize to a string, you can use one of the following values:</description>
+      <description>var docDefinition = { // a string or { width: number, height: number }  pageSize: &amp;#39;A5&amp;#39;, // by default we use portrait, you can change it to landscape if you wish  pageOrientation: &amp;#39;landscape&amp;#39;, // [left, top, right, bottom] or [horizontal, vertical] or just a number for equal margins  pageMargins: [ 40, 60, 40, 60 ], }; If you set pageSize to a string, you can use one of the following values:</description>
     </item>
     
     <item>
@@ -267,7 +268,7 @@ var docDefinition = { watermark: &amp;#39;test watermark&amp;#39;, content: [ &a
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/document-medatadata/</guid>
       <description>PDF documents can have various metadata associated with them, such as the title, or author of the document. You can add that information by adding it to the document definition
-var docDefinition = { info: { title: &amp;#39;awesome Document&amp;#39;, author: &amp;#39;john doe&amp;#39;, subject: &amp;#39;subject of document&amp;#39;, keywords: &amp;#39;keywords for document&amp;#39;, }, content: &amp;#39;This is an sample PDF printed with pdfMake&amp;#39; }  Standard properties:
+var docDefinition = { info: { title: &amp;#39;awesome Document&amp;#39;, author: &amp;#39;john doe&amp;#39;, subject: &amp;#39;subject of document&amp;#39;, keywords: &amp;#39;keywords for document&amp;#39;, }, content: &amp;#39;This is an sample PDF printed with pdfMake&amp;#39; } Standard properties:
  title - the title of the document author - the name of the author subject - the subject of the document keywords - keywords associated with the document creator - the creator of the document (default is &amp;lsquo;pdfmake&amp;rsquo;) producer - the producer of the document (default is &amp;lsquo;pdfmake&amp;rsquo;) creationDate - the date the document was created (added automatically by pdfmake) modDate - the date the document was last modified trapped - the trapped flag in a PDF document indicates whether the document has been &amp;ldquo;trapped&amp;rdquo;, i.</description>
     </item>
     
@@ -287,7 +288,7 @@ var docDefinition = { compress: false, content: (...) }; </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/document-definition-object/security/</guid>
-      <description>Minimal version: 0.1.50 var docDefinition = { userPassword: &amp;#39;123&amp;#39;, ownerPassword: &amp;#39;123456&amp;#39;, permissions: { printing: &amp;#39;highResolution&amp;#39;, //&amp;#39;lowResolution&amp;#39;  modifying: false, copying: false, annotating: true, fillingForms: true, contentAccessibility: true, documentAssembly: true }, content: [ &amp;#39;...&amp;#39; ] };  PDF document allow you to encrypt the PDF file and require a password when opening the file, and/or set permissions of what users can do with the PDF file.
+      <description>Minimal version: 0.1.50var docDefinition = { userPassword: &amp;#39;123&amp;#39;, ownerPassword: &amp;#39;123456&amp;#39;, permissions: { printing: &amp;#39;highResolution&amp;#39;, //&amp;#39;lowResolution&amp;#39;  modifying: false, copying: false, annotating: true, fillingForms: true, contentAccessibility: true, documentAssembly: true }, content: [ &amp;#39;...&amp;#39; ] }; PDF document allow you to encrypt the PDF file and require a password when opening the file, and/or set permissions of what users can do with the PDF file.
 To enable encryption set user password in userPassword (string value).</description>
     </item>
     

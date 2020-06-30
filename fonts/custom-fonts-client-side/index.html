@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2020-04-24T17:51:11 CEST">
+<meta name="revised" content="2020-06-30T13:32:06 CEST">
 <title>Custom fonts (client-side) :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -138,19 +138,34 @@
             <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
-      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/php/" class="dd-item">
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/fonts/custom-fonts-client-side/vfs/">via Virtual file system (VFS)</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/php/" class="dd-item">
         <div>
-          <a href="/docs/fonts/custom-fonts-client-side/php/">
+          <a href="/docs/fonts/custom-fonts-client-side/vfs/php/">
             Building font file via PHP script
           </a>
         </div>
     </li>
-      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/shell/" class="dd-item">
+      <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/vfs/shell/" class="dd-item">
         <div>
-          <a href="/docs/fonts/custom-fonts-client-side/shell/">
+          <a href="/docs/fonts/custom-fonts-client-side/vfs/shell/">
             Building font file via shell script
           </a>
         </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/fonts/custom-fonts-client-side/url/" class="dd-item alwaysopen
+        ">
+      <div>
+      <a href="/docs/fonts/custom-fonts-client-side/url/">via URL protocol</a>
+      </div>
     </li>
         </ul>
     </li>
@@ -346,8 +361,16 @@
     <option value="/docs/fonts/custom-fonts-client-side/"  selected>
   - 
    Custom fonts (client-side)</option> 
-      <option value="/docs/fonts/custom-fonts-client-side/php/" >-- Building font file via PHP script</option>
-      <option value="/docs/fonts/custom-fonts-client-side/shell/" >-- Building font file via shell script</option>
+    <option value="/docs/fonts/custom-fonts-client-side/vfs/" >
+  -- 
+   via Virtual file system (VFS)</option> 
+      <option value="/docs/fonts/custom-fonts-client-side/vfs/php/" >--- Building font file via PHP script</option>
+      <option value="/docs/fonts/custom-fonts-client-side/vfs/shell/" >--- Building font file via shell script</option>
+  
+    <option value="/docs/fonts/custom-fonts-client-side/url/" >
+  -- 
+   via URL protocol</option> 
+  
   
       <option value="/docs/fonts/icons/" >- Icons</option>
       <option value="/docs/fonts/standard-14-fonts/" >- Standard 14 fonts</option>
@@ -389,123 +412,20 @@
     
     
 
-
-
-
-<div class="alert alert-info" role="alert">This article is only for client-side usage (in browser)! For server-side use real font files.</div>
-
-
-<p>pdfMake uses the Roboto font by default. This guide explains how to use your own fonts with pdfMake (in client-side code).</p>
-
-<h2 id="tl-dr">TL;DR</h2>
-
-<p>pdfMake uses a 2nd file: <code>vfs_fonts.js</code> for fonts (and other files) you wish to embed into your generated PDFs.</p>
-
-<p>When you run</p>
-
-<pre><code>gulp buildFonts
-</code></pre>
-
-<p>in the pdfmake source directory. A new <code>build/vfs_fonts.js</code> file is created containing an <strong>embedded copy</strong> of all files from the local <code>examples/fonts</code> subdirectory (in a key/value object <code>pdfMake.vfs</code>).</p>
-
-<h1 id="detailed-instructions">Detailed Instructions</h1>
-
-<p>To use custom fonts, 3 steps are required:</p>
-
-<ol>
-<li>create a new <code>vfs_fonts.js</code> file containing your font files</li>
-<li>assign <code>pdfMake.fonts</code> in your javascript</li>
-<li>specify the font in your doc-definition</li>
-</ol>
-
-<h2 id="1-create-a-new-vfs-fonts-js-containing-your-font-files">1. create a new <code>vfs_fonts.js</code> containing your font files</h2>
-
+<p>pdfmake uses the Roboto font by default. This guide explains how to use your own fonts with pdfmake (in client-side code).</p>
+<h2 id="two-ways-are-now-possible">Two ways are now possible:</h2>
 <ul>
-<li><p>Create the <code>examples/fonts</code> subdirectory in your pdfMake code directory, if it doesn&rsquo;t already exist.</p></li>
-
-<li><p>Copy your fonts (and other files you wish to embed) into the <code>examples/fonts</code> subdirectory.</p></li>
-
-<li><p>Run <code>npm install</code> from the pdfmake source directory (how to download repository see <a href="/docs/getting-started/client-side/#repository">here</a>) to ensure all prerequisites modules are installed.</p></li>
-
-<li><p>Run <code>gulp buildFonts</code> to  create a new <code>build/vfs_fonts.js</code> (you can update <code>gulpfile.js</code> to change the base directory path or to add an alternative config for the <code>buildFonts</code> task).</p></li>
-
-<li><p>Include your new <strong>build/vfs_fonts.js</strong> file in your code (in the same way you include <code>pdfmake.js</code> or <code>pdfmake.min.js</code>).</p></li>
+<li><a href="/docs/fonts/custom-fonts-client-side/vfs/">use virtual file system</a></li>
+<li><strong>(NEW)</strong> <a href="/docs/fonts/custom-fonts-client-side/url/">use font file via URL (https:// or http:// protocol)</a></li>
 </ul>
 
-<p>The above <code>buildFonts</code> action embeds <strong>all</strong> files from <code>examples/fonts</code> (into a local key/value variable <code>pdfMake.vfs</code>) - not only fonts. Which means you could put images in there, run <code>gulp buildFonts</code>, and reference them by filename in your doc-definition object.</p>
-
-<p>You don&rsquo;t need to reference the files in <code>examples/fonts</code> anymore because all files have been copied to the <code>vfs_fonts.js</code>.</p>
-
-<p>Other ways:</p>
-
-<ul>
-<li><a href="/docs/fonts/custom-fonts-client-side/shell/">Building font file via shell script</a></li>
-<li><a href="/docs/fonts/custom-fonts-client-side/php/">Building font file via PHP script</a></li>
-</ul>
-
-<h2 id="2-assign-pdfmake-fonts-in-your-javascript">2. assign <code>pdfMake.fonts</code> in your javascript</h2>
-
-<p>In your code, before calling <code>pdfMake.createPdf(docDefinition)</code> set <code>pdfMake.fonts</code> as in the example below (notice we don&rsquo;t specify paths, just filenames):</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">fonts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-   <span style="color:#75af00">yourFontName</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-     <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fontFile.ttf&#39;</span><span style="color:#111">,</span>
-     <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fontFile2.ttf&#39;</span><span style="color:#111">,</span>
-     <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fontFile3.ttf&#39;</span><span style="color:#111">,</span>
-     <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fontFile4.ttf&#39;</span>
-   <span style="color:#111">},</span>
-   <span style="color:#75af00">anotherFontName</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-     <span style="color:#111">(...)</span>
-   <span style="color:#111">},</span>
-
-   <span style="color:#75715e">// example of usage fonts in collection
-</span><span style="color:#75715e"></span>   <span style="color:#75af00">PingFangSC</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-     <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#d88200">&#39;pingfang.ttc&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;PingFangSC-Regular&#39;</span><span style="color:#111">],</span>
-     <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#d88200">&#39;pingfang.ttc&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;PingFangSC-Semibold&#39;</span><span style="color:#111">],</span>
-   <span style="color:#111">}</span>
-<span style="color:#111">}</span>
-</code></pre></div>
-<p>The keys defined here will be used as font names in your doc-definition styles.</p>
-
-<p>Each font-family defines 4 properties: normal, bold, italics and bolditalics referring to appropriate files (the ones you embedded from examples/fonts/). You should define all 4 components (even if they all point to the same font file).</p>
-
-<p>By default pdfMake uses the following font structure:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">fonts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-        <span style="color:#75af00">Roboto</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-                <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Roboto-Regular.ttf&#39;</span><span style="color:#111">,</span>
-                <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Roboto-Medium.ttf&#39;</span><span style="color:#111">,</span>
-                <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Roboto-Italic.ttf&#39;</span><span style="color:#111">,</span>
-                <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Roboto-MediumItalic.ttf&#39;</span>
-        <span style="color:#111">}</span>
-<span style="color:#111">};</span>
-</code></pre></div>
-<p>Alternatively, instead of changing the global value, you can pass the <code>fonts</code> object directly to <code>createPdf</code>:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">,</span> <span style="color:#00a8c8">null</span><span style="color:#111">,</span> <span style="color:#75af00">fonts</span><span style="color:#111">)</span>
-
-<span style="color:#75715e">// The full signature of createPdf looks like this.
-</span><span style="color:#75715e">// tableLayouts, fonts and vfs are all optional - falsy values will cause
-</span><span style="color:#75715e">// pdfMake.tableLayouts, pdfMake.fonts or pdfMake.vfs to be used.
-</span><span style="color:#75715e"></span><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">,</span> <span style="color:#75af00">tableLayouts</span><span style="color:#111">,</span> <span style="color:#75af00">fonts</span><span style="color:#111">,</span> <span style="color:#75af00">vfs</span><span style="color:#111">)</span>
-</code></pre></div>
-<h2 id="3-specify-the-font-in-your-doc-definition">3. specify the font in your doc-definition</h2>
-
-<p>pdfMake uses &lsquo;Roboto&rsquo; as default font, so in order to use your font, you should specify it in your doc-definition object.</p>
-
-<p>The easiest way is to set it globally in the <strong>defaultStyle</strong></p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">(...),</span>
-  <span style="color:#75af00">defaultStyle</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-    <span style="color:#75af00">font</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;yourFontName&#39;</span>
-  <span style="color:#111">}</span>
-<span style="color:#111">}</span>
-</code></pre></div>
 
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/docs/fonts/standard-14-fonts/" title="Standard 14 fonts"> <i class="fa fa-chevron-left"></i><label>Standard 14 fonts</label></a>
-    <a class="nav nav-next" href="/docs/fonts/custom-fonts-client-side/php/" title="Building font file via PHP script" style="margin-right: 0px;"><label>Building font file via PHP script</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-next" href="/docs/fonts/custom-fonts-client-side/vfs/" title="via Virtual file system (VFS)" style="margin-right: 0px;"><label>via Virtual file system (VFS)</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
