@@ -29,17 +29,18 @@ To begin in browser with the default configuration, you should include two files
 
 https://cdnjs.com/libraries/pdfmake
 
-#### bower
+#### bower (deprecated)
 
 ```
 bower install pdfmake
 ```
 
-#### npm (primarily server-side)
+#### npm
 
 ```
 npm install pdfmake
 ```
+
 Files for client-side is available here:
 
 * `require('pdfmake/build/pdfmake.js');`
