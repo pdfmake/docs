@@ -17,7 +17,7 @@ var docDefinition = {
     {
       text: 'This is a header',
       style: 'header',
-      tocItem: true,
+      tocItem: true
     }
   ]
 }
@@ -29,7 +29,7 @@ var docDefinition = {
   content: [
     {
       toc: {
-        id: 'mainToc'
+        id: 'mainToc',
         title: {text: 'INDEX', style: 'header'}
       }
     },
@@ -48,11 +48,11 @@ var docDefinition = {
   content: [
     {
       toc: {
-        id: 'mainToc'
+        id: 'mainToc',
         title: {text: 'INDEX', style: 'header'}
       },
       toc: {
-        id: 'subToc'
+        id: 'subToc',
         title: {text: 'SUB INDEX', style: 'header'}
       }
     },
