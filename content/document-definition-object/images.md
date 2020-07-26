@@ -49,7 +49,7 @@ var docDefinition = {
   images: {
     mySuperImage: 'data:image/jpeg;base64,...content...',
 
-    // in browser is supported loading images via url (https or http protocol)
+    // in browser is supported loading images via url (https or http protocol) (minimal version: 0.1.67)
     snow: 'https://picsum.photos/seed/picsum/200/300'
   }
 };
