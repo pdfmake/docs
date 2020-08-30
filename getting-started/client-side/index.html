@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2020-07-26T16:32:42 CEST">
+<meta name="revised" content="2020-08-30T06:53:46 CEST">
 <title>Client-side :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -447,6 +447,11 @@
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">import</span> <span style="color:#75af00">pdfMake</span> <span style="color:#75af00">from</span> <span style="color:#d88200">&#34;pdfmake/build/pdfmake&#34;</span><span style="color:#111">;</span>
 <span style="color:#00a8c8">import</span> <span style="color:#75af00">pdfFonts</span> <span style="color:#75af00">from</span> <span style="color:#d88200">&#34;pdfmake/build/vfs_fonts&#34;</span><span style="color:#111">;</span>
 <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">vfs</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfFonts</span><span style="color:#111">.</span><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">vfs</span><span style="color:#111">;</span>
+</code></pre></div><p>TypeScript:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">import</span> <span style="color:#f92672">*</span> <span style="color:#75af00">as</span> <span style="color:#75af00">pdfMake</span> <span style="color:#75af00">from</span> <span style="color:#d88200">&#34;pdfmake/build/pdfmake&#34;</span><span style="color:#111">;</span>
+<span style="color:#00a8c8">import</span> <span style="color:#f92672">*</span> <span style="color:#75af00">as</span> <span style="color:#75af00">pdfFonts</span> <span style="color:#75af00">from</span> <span style="color:#d88200">&#39;pdfmake/build/vfs_fonts&#39;</span><span style="color:#111">;</span>
+
+<span style="color:#111">(</span><span style="color:#f92672">&lt;</span><span style="color:#75af00">any</span><span style="color:#f92672">&gt;</span><span style="color:#75af00">pdfMake</span><span style="color:#111">).</span><span style="color:#75af00">vfs</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfFonts</span><span style="color:#111">.</span><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">vfs</span><span style="color:#111">;</span>
 </code></pre></div><p>For Ionic and Angular see <a href="https://github.com/bpampuch/pdfmake/issues/1030">issue</a>.</p>
 <p>If a <strong>Cannot read property &lsquo;TYPED_ARRAY_SUPPORT&rsquo; of undefined</strong> error is thrown, add this to webpack config:</p>
 <pre><code>exclude: [ /node_modules/, /pdfmake.js$/ ]
@@ -460,7 +465,8 @@
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-next" href="/docs/getting-started/client-side/methods/" title="Methods" style="margin-right: 0px;"><label>Methods</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/docs/getting-started/" title="Getting started"> <i class="fa fa-chevron-left"></i><label>Getting started</label></a>
+    <a class="nav nav-next" href="/docs/getting-started/client-side/methods/" title="Methods" style="margin-right: 0px;"><label>Methods</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
