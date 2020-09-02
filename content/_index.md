@@ -56,4 +56,4 @@ PDF document generation library for server-side and client-side usage in pure Ja
 
 ## Examples
 
-Check out [the playground](http://bpampuch.github.io/pdfmake/playground.html) and [examples](https://github.com/bpampuch/pdfmake/tree/0.2/examples).
+Check out [the playground](http://bpampuch.github.io/pdfmake/playground.html) and [examples](https://github.com/bpampuch/pdfmake/tree/master/examples).
