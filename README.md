@@ -11,14 +11,14 @@ The source for website https://pdfmake.github.io/docs/
 #### Clone and start website
 
 ```
-git clone https://github.com/pdfmake/docs.git
+git clone --branch 0.1 https://github.com/pdfmake/docs.git
 cd docs
 hugo server
 ```
 
 and open in browser:
 ```
-http://localhost:1313/docs/
+http://localhost:1313/docs/0.1/
 ```
 
 #### Deploy webpages
