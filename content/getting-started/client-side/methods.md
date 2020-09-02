@@ -13,7 +13,7 @@ Parameters:
 
 * `defaultFileName` _(optional)_ - file name
 * `cb` _(optional)_ - callback function
-* `options` _(optional)_ - advanced options see [options chapter](/docs/options/)
+* `options` _(optional)_ - advanced options see [options chapter](/docs/0.2/options/)
 
 #### Open the PDF in a new window
 ```js
@@ -21,10 +21,10 @@ pdfMake.createPdf(docDefinition).open();
 ```
 Parameters:
 
-* `options` _(optional)_ - advanced options see [options chapter](/docs/options/)
+* `options` _(optional)_ - advanced options see [options chapter](/docs/0.2/options/)
 * `win` _(optional)_ - window (when an asynchronous operation)
 
-Name can be defined only by using metadata `title` property (see [Document metadata](/docs/document-definition-object/document-medatadata/)).
+Name can be defined only by using metadata `title` property (see [Document metadata](/docs/0.2/document-definition-object/document-medatadata/)).
 
 Asynchronous example:
 ```js
@@ -49,7 +49,7 @@ pdfMake.createPdf(docDefinition).print();
 ```
 Parameters:
 
-* `options` _(optional)_ - advanced options see [options chapter](/docs/options/)
+* `options` _(optional)_ - advanced options see [options chapter](/docs/0.2/options/)
 * `win` _(optional)_ - window (when an asynchronous operation)
 
 Asynchronous example:
@@ -82,7 +82,7 @@ pdfDocGenerator.getDataUrl((dataUrl) => {
 Parameters:
 
 * `cb` - callback function
-* `options` _(optional)_ - advanced options see [options chapter](/docs/options/)
+* `options` _(optional)_ - advanced options see [options chapter](/docs/0.2/options/)
 
 #### Get the PDF as base64 data
 ```js
@@ -94,7 +94,7 @@ pdfDocGenerator.getBase64((data) => {
 Parameters:
 
 * `cb` - callback function
-* `options` _(optional)_ - advanced options see [options chapter](/docs/options/)
+* `options` _(optional)_ - advanced options see [options chapter](/docs/0.2/options/)
 
 #### Get the PDF as buffer
 ```js
@@ -106,7 +106,7 @@ pdfDocGenerator.getBuffer((buffer) => {
 Parameters:
 
 * `cb` - callback function
-* `options` _(optional)_ - advanced options see [options chapter](/docs/options/)
+* `options` _(optional)_ - advanced options see [options chapter](/docs/0.2/options/)
 
 #### Get the PDF as Blob
 ```js
@@ -118,7 +118,7 @@ pdfDocGenerator.getBlob((blob) => {
 Parameters:
 
 * `cb` - callback function
-* `options` _(optional)_ - advanced options see [options chapter](/docs/options/)
+* `options` _(optional)_ - advanced options see [options chapter](/docs/0.2/options/)
 
 #### Get PDFKit document object as stream
 

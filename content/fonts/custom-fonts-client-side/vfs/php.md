@@ -5,7 +5,7 @@ weight = 10
 alwaysopen = false
 +++
 
-For a complete description of use custom fonts in client-side, read the article: [Custom fonts (client-side) > via Virtual file system (VFS)](/docs/fonts/custom-fonts-client-side/vfs/)
+For a complete description of use custom fonts in client-side, read the article: [Custom fonts (client-side) > via Virtual file system (VFS)](/docs/0.2/fonts/custom-fonts-client-side/vfs/)
 
 If you don't want to install gulp and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the `vfs_fonts.js` with an PHP script as well. Put the code below in a file on a server with the font files you want to include in the same directory and view it in a browser. Use parameter "?tofile" in the URL to write the output to "vfs_fonts.js" in the same directory on the server, otherwise it outputs in the browser window for you to copy/paste.
 

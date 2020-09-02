@@ -5,7 +5,7 @@ weight = 29
 alwaysopen = true
 +++
 
-SVGs are much like [images](/docs/document-definition-object/images/) except it is not currently possible to refer to SVGs by file or re-use from a dictionary.
+SVGs are much like [images](/docs/0.2/document-definition-object/images/) except it is not currently possible to refer to SVGs by file or re-use from a dictionary.
 
 ```js
 var docDefinition = {
