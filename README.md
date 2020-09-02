@@ -1,6 +1,6 @@
-# pdfmake docs
+# pdfmake docs for version 0.1
 
-The source for website https://pdfmake.github.io/docs/
+The source for website https://pdfmake.github.io/docs/0.1/
 
 ### Run from sources
 
