@@ -7,7 +7,7 @@ alwaysopen = true
 
 - make a font at http://fontello.com/ or something and download it
 
-- from font file (for example .ttf) create vfs_fonts.js file (see how to [use custom fonts](/docs/fonts/custom-fonts-client-side/#1-create-a-new-vfs-fonts-js-containing-your-font-files))
+- from font file (for example .ttf) create vfs_fonts.js file (see how to [use custom fonts](/docs/0.1/fonts/custom-fonts-client-side/#1-create-a-new-vfs-fonts-js-containing-your-font-files))
 
 - define font in js (just defining normal might be enough):
     ```js

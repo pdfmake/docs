@@ -32,7 +32,7 @@ To use custom fonts, 3 steps are required:
 
 * Copy your fonts (and other files you wish to embed) into the ```examples/fonts``` subdirectory.
 
-* Run ```npm install``` from the pdfmake source directory (how to download repository see [here](/docs/getting-started/client-side/#repository)) to ensure all prerequisites modules are installed.
+* Run ```npm install``` from the pdfmake source directory (how to download repository see [here](/docs/0.1/getting-started/client-side/#repository)) to ensure all prerequisites modules are installed.
 
 * Run ```gulp buildFonts``` to  create a new ```build/vfs_fonts.js``` (you can update `gulpfile.js` to change the base directory path or to add an alternative config for the `buildFonts` task).
 
