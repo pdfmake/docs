@@ -82,4 +82,4 @@ exclude: [ /node_modules/, /pdfmake.js$/ ]
 
 #### Repository
 
-Copy them directly from the build directory from the repository. Otherwise you can always [build it version 0.1.x from sources](https://github.com/bpampuch/pdfmake/tree/0.1#building-from-sources-version-01x).
+Copy them directly from the build directory from the repository. Otherwise you can always [build it version 0.2.x from sources](https://github.com/bpampuch/pdfmake#building-from-sources).
