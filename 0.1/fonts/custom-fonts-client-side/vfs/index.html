@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>pdfmake</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2020-09-02T15:51:50 CEST">
+<title>via Virtual file system (VFS) :: pdfmake</title>
+<link rel="shortcut icon" href="/docs/0.1/images/favicon.png" type="image/x-icon" />
+<link href="/docs/0.1/css/font-awesome.min.css" rel="stylesheet">
+<link href="/docs/0.1/css/nucleus.css" rel="stylesheet">
+<link href="/docs/0.1/theme-flex/style.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/docs/0.1/css/bootstrap.min.css">
+<script src="/docs/0.1/js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "https:\/\/pdfmake.github.io\/docs\/0.1\/";
+</script>
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/docs/0.1/fonts/custom-fonts-client-side/vfs/">
+    
+      <header>
+  <div class="logo">
+    
+	
+  
+    <a class="baselink" href="https://pdfmake.github.io/docs/0.1/">pdfmake</a>
+  
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="http://pdfmake.org/playground.html"  rel="noopener">
+                  <i class='fa fa-play'></i> <label>Playground</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="http://pdfmake.org"  rel="noopener">
+                  <i class='fa fa-home'></i> <label>pdfmake.org</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/bpampuch/pdfmake"  rel="noopener">
+                  <i class='fa fa-github'></i> <label>Github repo</label>
+                </a>
+            </li>
+    </nav>
+</header>
+<article>
+  <aside>
+    <ul class="menu">
+          <li data-nav-id="/docs/0.1/" class="dd-item">
+          <a href="/docs/0.1/">
+            <i class="fa fa-fw fa-home"></i>
+          </a>
+          </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/getting-started/">Getting started</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/client-side/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/getting-started/client-side/">Client-side</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/client-side/methods/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/getting-started/client-side/methods/">
+            Methods
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/client-side/supported-browsers/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/getting-started/client-side/supported-browsers/">
+            Supported browsers
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/client-side/examples/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/getting-started/client-side/examples/">
+            Examples
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/server-side/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/getting-started/server-side/">Server-side</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/server-side/supported-nodejs-versions/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/getting-started/server-side/supported-nodejs-versions/">
+            Supported Node.js versions
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/server-side/examples/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/getting-started/server-side/examples/">
+            Examples
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/" class="dd-item parent alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/fonts/">Fonts</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/" class="dd-item parent alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/fonts/custom-fonts-client-side/">Custom fonts (client-side)</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/vfs/" class="dd-item parent active alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/fonts/custom-fonts-client-side/vfs/">via Virtual file system (VFS)</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/vfs/php/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/fonts/custom-fonts-client-side/vfs/php/">
+            Building font file via PHP script
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/">
+            Building font file via shell script
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/url/" class="dd-item alwaysopen
+        ">
+      <div>
+      <a href="/docs/0.1/fonts/custom-fonts-client-side/url/">via URL protocol</a>
+      </div>
+    </li>
+        </ul>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/icons/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/fonts/icons/">
+            Icons
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/standard-14-fonts/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/fonts/standard-14-fonts/">
+            Standard 14 fonts
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/document-definition-object/">Document-definition-object</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/styling/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/styling/">
+            Styling
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/columns/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/columns/">
+            Columns
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/tables/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/tables/">
+            Tables
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/lists/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/lists/">
+            Lists
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/headers-footers/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/headers-footers/">
+            Headers and footers
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/background-layer/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/background-layer/">
+            Background-layer
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/margins/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/margins/">
+            Margins
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/stack/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/stack/">
+            Stack of paragraphs
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/images/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/images/">
+            Images
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/svgs/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/svgs/">
+            SVGs
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/links/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/links/">
+            Links
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/qr/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/qr/">
+            QR code
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/toc/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/toc/">
+            Table of contents
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/watermark/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/watermark/">
+            Watermark
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/page/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/page/">
+            Page dimensions, orientation and margins
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/document-medatadata/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/document-medatadata/">
+            Document Metadata
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/compression/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/compression/">
+            Compression
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/security/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/security/">
+            Encryption and access privileges
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/options/" class="dd-item alwaysopen
+        ">
+      <div>
+      <a href="/docs/0.1/options/">Options</a>
+      </div>
+    </li>
+
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/docs/0.1/getting-started/" >
+   Getting started</option> 
+    <option value="/docs/0.1/getting-started/client-side/" >
+  - 
+   Client-side</option> 
+      <option value="/docs/0.1/getting-started/client-side/methods/" >-- Methods</option>
+      <option value="/docs/0.1/getting-started/client-side/supported-browsers/" >-- Supported browsers</option>
+      <option value="/docs/0.1/getting-started/client-side/examples/" >-- Examples</option>
+  
+    <option value="/docs/0.1/getting-started/server-side/" >
+  - 
+   Server-side</option> 
+      <option value="/docs/0.1/getting-started/server-side/supported-nodejs-versions/" >-- Supported Node.js versions</option>
+      <option value="/docs/0.1/getting-started/server-side/examples/" >-- Examples</option>
+  
+  
+    <option value="/docs/0.1/fonts/" >
+   Fonts</option> 
+    <option value="/docs/0.1/fonts/custom-fonts-client-side/" >
+  - 
+   Custom fonts (client-side)</option> 
+    <option value="/docs/0.1/fonts/custom-fonts-client-side/vfs/"  selected>
+  -- 
+   via Virtual file system (VFS)</option> 
+      <option value="/docs/0.1/fonts/custom-fonts-client-side/vfs/php/" >--- Building font file via PHP script</option>
+      <option value="/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/" >--- Building font file via shell script</option>
+  
+    <option value="/docs/0.1/fonts/custom-fonts-client-side/url/" >
+  -- 
+   via URL protocol</option> 
+  
+  
+      <option value="/docs/0.1/fonts/icons/" >- Icons</option>
+      <option value="/docs/0.1/fonts/standard-14-fonts/" >- Standard 14 fonts</option>
+  
+    <option value="/docs/0.1/document-definition-object/" >
+   Document-definition-object</option> 
+      <option value="/docs/0.1/document-definition-object/styling/" >- Styling</option>
+      <option value="/docs/0.1/document-definition-object/columns/" >- Columns</option>
+      <option value="/docs/0.1/document-definition-object/tables/" >- Tables</option>
+      <option value="/docs/0.1/document-definition-object/lists/" >- Lists</option>
+      <option value="/docs/0.1/document-definition-object/headers-footers/" >- Headers and footers</option>
+      <option value="/docs/0.1/document-definition-object/background-layer/" >- Background-layer</option>
+      <option value="/docs/0.1/document-definition-object/margins/" >- Margins</option>
+      <option value="/docs/0.1/document-definition-object/stack/" >- Stack of paragraphs</option>
+      <option value="/docs/0.1/document-definition-object/images/" >- Images</option>
+      <option value="/docs/0.1/document-definition-object/svgs/" >- SVGs</option>
+      <option value="/docs/0.1/document-definition-object/links/" >- Links</option>
+      <option value="/docs/0.1/document-definition-object/qr/" >- QR code</option>
+      <option value="/docs/0.1/document-definition-object/toc/" >- Table of contents</option>
+      <option value="/docs/0.1/document-definition-object/watermark/" >- Watermark</option>
+      <option value="/docs/0.1/document-definition-object/page/" >- Page dimensions, orientation and margins</option>
+      <option value="/docs/0.1/document-definition-object/document-medatadata/" >- Document Metadata</option>
+      <option value="/docs/0.1/document-definition-object/compression/" >- Compression</option>
+      <option value="/docs/0.1/document-definition-object/security/" >- Encryption and access privileges</option>
+  
+    <option value="/docs/0.1/options/" >
+   Options</option> 
+  
+
+
+
+        </select>
+      </center>
+    </div>
+    
+
+    <h1>via Virtual file system (VFS)</h1>
+    
+    
+    
+
+
+<div class="alert alert-info" role="alert">This article is only for <strong>client-side usage</strong> (in browser)! For server-side use <strong>real font files</strong>.</div>
+
+<h2 id="tldr">TL;DR</h2>
+<p>pdfmake uses a 2nd file: <code>vfs_fonts.js</code> for fonts (and other files) you wish to embed into your generated PDFs.</p>
+<p>When you run</p>
+<pre><code>gulp buildFonts
+</code></pre><p>in the pdfmake source directory. A new <code>build/vfs_fonts.js</code> file is created containing an <strong>embedded copy</strong> of all files from the local <code>examples/fonts</code> subdirectory (in a key/value object <code>pdfMake.vfs</code>).</p>
+<h1 id="detailed-instructions">Detailed Instructions</h1>
+<p>To use custom fonts, 3 steps are required:</p>
+<ol>
+<li>create a new <code>vfs_fonts.js</code> file containing your font files</li>
+<li>assign <code>pdfMake.fonts</code> in your javascript</li>
+<li>specify the font in your doc-definition</li>
+</ol>
+<h2 id="1-create-a-new-vfs_fontsjs-containing-your-font-files">1. create a new <code>vfs_fonts.js</code> containing your font files</h2>
+<ul>
+<li>
+<p>Create the <code>examples/fonts</code> subdirectory in your pdfMake code directory, if it doesn&rsquo;t already exist.</p>
+</li>
+<li>
+<p>Copy your fonts (and other files you wish to embed) into the <code>examples/fonts</code> subdirectory.</p>
+</li>
+<li>
+<p>Run <code>npm install</code> from the pdfmake source directory (how to download repository see <a href="/docs/getting-started/client-side/#repository">here</a>) to ensure all prerequisites modules are installed.</p>
+</li>
+<li>
+<p>Run <code>gulp buildFonts</code> to  create a new <code>build/vfs_fonts.js</code> (you can update <code>gulpfile.js</code> to change the base directory path or to add an alternative config for the <code>buildFonts</code> task).</p>
+</li>
+<li>
+<p>Include your new <strong>build/vfs_fonts.js</strong> file in your code (in the same way you include <code>pdfmake.js</code> or <code>pdfmake.min.js</code>).</p>
+</li>
+</ul>
+<p>The above <code>buildFonts</code> action embeds <strong>all</strong> files from <code>examples/fonts</code> (into a local key/value variable <code>pdfMake.vfs</code>) - not only fonts. Which means you could put images in there, run <code>gulp buildFonts</code>, and reference them by filename in your doc-definition object.</p>
+<p>You don&rsquo;t need to reference the files in <code>examples/fonts</code> anymore because all files have been copied to the <code>vfs_fonts.js</code>.</p>
+<p>Other ways:</p>
+<ul>
+<li><a href="/docs/fonts/custom-fonts-client-side/vfs/shell/">Building font file via shell script</a></li>
+<li><a href="/docs/fonts/custom-fonts-client-side/vfs/php/">Building font file via PHP script</a></li>
+</ul>
+<h2 id="2-assign-pdfmakefonts-in-your-javascript">2. assign <code>pdfMake.fonts</code> in your javascript</h2>
+<p>In your code, before calling <code>pdfMake.createPdf(docDefinition)</code> set <code>pdfMake.fonts</code> as in the example below (notice we don&rsquo;t specify paths, just filenames):</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">fonts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+   <span style="color:#75af00">yourFontName</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+     <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fontFile.ttf&#39;</span><span style="color:#111">,</span>
+     <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fontFile2.ttf&#39;</span><span style="color:#111">,</span>
+     <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fontFile3.ttf&#39;</span><span style="color:#111">,</span>
+     <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fontFile4.ttf&#39;</span>
+   <span style="color:#111">},</span>
+   <span style="color:#75af00">anotherFontName</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+     <span style="color:#111">(...)</span>
+   <span style="color:#111">},</span>
+
+   <span style="color:#75715e">// example of usage fonts in collection
+</span><span style="color:#75715e"></span>   <span style="color:#75af00">PingFangSC</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+     <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#d88200">&#39;pingfang.ttc&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;PingFangSC-Regular&#39;</span><span style="color:#111">],</span>
+     <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#d88200">&#39;pingfang.ttc&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;PingFangSC-Semibold&#39;</span><span style="color:#111">],</span>
+   <span style="color:#111">}</span>
+<span style="color:#111">}</span>
+</code></pre></div><p>The keys defined here will be used as font names in your doc-definition styles.</p>
+<p>Each font-family defines 4 properties: normal, bold, italics and bolditalics referring to appropriate files (the ones you embedded from examples/fonts/). You should define all 4 components (even if they all point to the same font file).</p>
+<p>By default pdfMake uses the following font structure:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">fonts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+        <span style="color:#75af00">Roboto</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+                <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Roboto-Regular.ttf&#39;</span><span style="color:#111">,</span>
+                <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Roboto-Medium.ttf&#39;</span><span style="color:#111">,</span>
+                <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Roboto-Italic.ttf&#39;</span><span style="color:#111">,</span>
+                <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Roboto-MediumItalic.ttf&#39;</span>
+        <span style="color:#111">}</span>
+<span style="color:#111">};</span>
+</code></pre></div><p>Alternatively, instead of changing the global value, you can pass the <code>fonts</code> object directly to <code>createPdf</code>:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">,</span> <span style="color:#00a8c8">null</span><span style="color:#111">,</span> <span style="color:#75af00">fonts</span><span style="color:#111">)</span>
+
+<span style="color:#75715e">// The full signature of createPdf looks like this.
+</span><span style="color:#75715e">// tableLayouts, fonts and vfs are all optional - falsy values will cause
+</span><span style="color:#75715e">// pdfMake.tableLayouts, pdfMake.fonts or pdfMake.vfs to be used.
+</span><span style="color:#75715e"></span><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">,</span> <span style="color:#75af00">tableLayouts</span><span style="color:#111">,</span> <span style="color:#75af00">fonts</span><span style="color:#111">,</span> <span style="color:#75af00">vfs</span><span style="color:#111">)</span>
+</code></pre></div><h2 id="3-specify-the-font-in-your-doc-definition">3. specify the font in your doc-definition</h2>
+<p>pdfMake uses &lsquo;Roboto&rsquo; as default font, so in order to use your font, you should specify it in your doc-definition object.</p>
+<p>The easiest way is to set it globally in the <strong>defaultStyle</strong></p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">(...),</span>
+  <span style="color:#75af00">defaultStyle</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">font</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;yourFontName&#39;</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">}</span>
+</code></pre></div>
+
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="/docs/0.1/fonts/custom-fonts-client-side/" title="Custom fonts (client-side)"> <i class="fa fa-chevron-left"></i><label>Custom fonts (client-side)</label></a>
+    <a class="nav nav-next" href="/docs/0.1/fonts/custom-fonts-client-side/vfs/php/" title="Building font file via PHP script" style="margin-right: 0px;"><label>Building font file via PHP script</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+    <div class="github-link">
+      <a href="https://github.com/pdfmake/docs/edit/master/content/fonts/custom-fonts-client-side/vfs/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+        Improve this page</a>
+    </div>
+    
+  </div>
+
+
+	<div>
+
+
+  
+    
+  
+
+
+
+	</div>
+</footer>
+
+<script src="/docs/0.1/js/clipboard.min.js"></script>
+
+<link href="/docs/0.1/css/featherlight.min.css" rel="stylesheet">
+<script src="/docs/0.1/js/featherlight.min.js"></script>
+
+
+
+<script src="/docs/0.1/theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    
+  </body>
+</html>

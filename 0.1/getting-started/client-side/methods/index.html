@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>pdfmake</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2020-09-02T15:51:50 CEST">
+<title>Methods :: pdfmake</title>
+<link rel="shortcut icon" href="/docs/0.1/images/favicon.png" type="image/x-icon" />
+<link href="/docs/0.1/css/font-awesome.min.css" rel="stylesheet">
+<link href="/docs/0.1/css/nucleus.css" rel="stylesheet">
+<link href="/docs/0.1/theme-flex/style.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/docs/0.1/css/bootstrap.min.css">
+<script src="/docs/0.1/js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "https:\/\/pdfmake.github.io\/docs\/0.1\/";
+</script>
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/docs/0.1/getting-started/client-side/methods/">
+    
+      <header>
+  <div class="logo">
+    
+	
+  
+    <a class="baselink" href="https://pdfmake.github.io/docs/0.1/">pdfmake</a>
+  
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="http://pdfmake.org/playground.html"  rel="noopener">
+                  <i class='fa fa-play'></i> <label>Playground</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="http://pdfmake.org"  rel="noopener">
+                  <i class='fa fa-home'></i> <label>pdfmake.org</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/bpampuch/pdfmake"  rel="noopener">
+                  <i class='fa fa-github'></i> <label>Github repo</label>
+                </a>
+            </li>
+    </nav>
+</header>
+<article>
+  <aside>
+    <ul class="menu">
+          <li data-nav-id="/docs/0.1/" class="dd-item">
+          <a href="/docs/0.1/">
+            <i class="fa fa-fw fa-home"></i>
+          </a>
+          </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/" class="dd-item parent alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/getting-started/">Getting started</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/client-side/" class="dd-item parent alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/getting-started/client-side/">Client-side</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/client-side/methods/" class="dd-item active">
+        <div>
+          <a href="/docs/0.1/getting-started/client-side/methods/">
+            Methods
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/client-side/supported-browsers/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/getting-started/client-side/supported-browsers/">
+            Supported browsers
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/client-side/examples/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/getting-started/client-side/examples/">
+            Examples
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/server-side/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/getting-started/server-side/">Server-side</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/server-side/supported-nodejs-versions/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/getting-started/server-side/supported-nodejs-versions/">
+            Supported Node.js versions
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/server-side/examples/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/getting-started/server-side/examples/">
+            Examples
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/fonts/">Fonts</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/fonts/custom-fonts-client-side/">Custom fonts (client-side)</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/vfs/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/fonts/custom-fonts-client-side/vfs/">via Virtual file system (VFS)</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/vfs/php/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/fonts/custom-fonts-client-side/vfs/php/">
+            Building font file via PHP script
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/">
+            Building font file via shell script
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/url/" class="dd-item alwaysopen
+        ">
+      <div>
+      <a href="/docs/0.1/fonts/custom-fonts-client-side/url/">via URL protocol</a>
+      </div>
+    </li>
+        </ul>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/icons/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/fonts/icons/">
+            Icons
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/standard-14-fonts/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/fonts/standard-14-fonts/">
+            Standard 14 fonts
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/document-definition-object/">Document-definition-object</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/styling/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/styling/">
+            Styling
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/columns/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/columns/">
+            Columns
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/tables/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/tables/">
+            Tables
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/lists/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/lists/">
+            Lists
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/headers-footers/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/headers-footers/">
+            Headers and footers
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/background-layer/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/background-layer/">
+            Background-layer
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/margins/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/margins/">
+            Margins
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/stack/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/stack/">
+            Stack of paragraphs
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/images/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/images/">
+            Images
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/svgs/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/svgs/">
+            SVGs
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/links/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/links/">
+            Links
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/qr/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/qr/">
+            QR code
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/toc/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/toc/">
+            Table of contents
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/watermark/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/watermark/">
+            Watermark
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/page/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/page/">
+            Page dimensions, orientation and margins
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/document-medatadata/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/document-medatadata/">
+            Document Metadata
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/compression/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/compression/">
+            Compression
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/security/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/security/">
+            Encryption and access privileges
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/options/" class="dd-item alwaysopen
+        ">
+      <div>
+      <a href="/docs/0.1/options/">Options</a>
+      </div>
+    </li>
+
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/docs/0.1/getting-started/" >
+   Getting started</option> 
+    <option value="/docs/0.1/getting-started/client-side/" >
+  - 
+   Client-side</option> 
+      <option value="/docs/0.1/getting-started/client-side/methods/"  selected>-- Methods</option>
+      <option value="/docs/0.1/getting-started/client-side/supported-browsers/" >-- Supported browsers</option>
+      <option value="/docs/0.1/getting-started/client-side/examples/" >-- Examples</option>
+  
+    <option value="/docs/0.1/getting-started/server-side/" >
+  - 
+   Server-side</option> 
+      <option value="/docs/0.1/getting-started/server-side/supported-nodejs-versions/" >-- Supported Node.js versions</option>
+      <option value="/docs/0.1/getting-started/server-side/examples/" >-- Examples</option>
+  
+  
+    <option value="/docs/0.1/fonts/" >
+   Fonts</option> 
+    <option value="/docs/0.1/fonts/custom-fonts-client-side/" >
+  - 
+   Custom fonts (client-side)</option> 
+    <option value="/docs/0.1/fonts/custom-fonts-client-side/vfs/" >
+  -- 
+   via Virtual file system (VFS)</option> 
+      <option value="/docs/0.1/fonts/custom-fonts-client-side/vfs/php/" >--- Building font file via PHP script</option>
+      <option value="/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/" >--- Building font file via shell script</option>
+  
+    <option value="/docs/0.1/fonts/custom-fonts-client-side/url/" >
+  -- 
+   via URL protocol</option> 
+  
+  
+      <option value="/docs/0.1/fonts/icons/" >- Icons</option>
+      <option value="/docs/0.1/fonts/standard-14-fonts/" >- Standard 14 fonts</option>
+  
+    <option value="/docs/0.1/document-definition-object/" >
+   Document-definition-object</option> 
+      <option value="/docs/0.1/document-definition-object/styling/" >- Styling</option>
+      <option value="/docs/0.1/document-definition-object/columns/" >- Columns</option>
+      <option value="/docs/0.1/document-definition-object/tables/" >- Tables</option>
+      <option value="/docs/0.1/document-definition-object/lists/" >- Lists</option>
+      <option value="/docs/0.1/document-definition-object/headers-footers/" >- Headers and footers</option>
+      <option value="/docs/0.1/document-definition-object/background-layer/" >- Background-layer</option>
+      <option value="/docs/0.1/document-definition-object/margins/" >- Margins</option>
+      <option value="/docs/0.1/document-definition-object/stack/" >- Stack of paragraphs</option>
+      <option value="/docs/0.1/document-definition-object/images/" >- Images</option>
+      <option value="/docs/0.1/document-definition-object/svgs/" >- SVGs</option>
+      <option value="/docs/0.1/document-definition-object/links/" >- Links</option>
+      <option value="/docs/0.1/document-definition-object/qr/" >- QR code</option>
+      <option value="/docs/0.1/document-definition-object/toc/" >- Table of contents</option>
+      <option value="/docs/0.1/document-definition-object/watermark/" >- Watermark</option>
+      <option value="/docs/0.1/document-definition-object/page/" >- Page dimensions, orientation and margins</option>
+      <option value="/docs/0.1/document-definition-object/document-medatadata/" >- Document Metadata</option>
+      <option value="/docs/0.1/document-definition-object/compression/" >- Compression</option>
+      <option value="/docs/0.1/document-definition-object/security/" >- Encryption and access privileges</option>
+  
+    <option value="/docs/0.1/options/" >
+   Options</option> 
+  
+
+
+
+        </select>
+      </center>
+    </div>
+    
+
+    <h1>Methods</h1>
+    
+    
+    
+    <h4 id="download-the-pdf">Download the PDF</h4>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">download</span><span style="color:#111">();</span>
+</code></pre></div><p>Parameters:</p>
+<ul>
+<li><code>defaultFileName</code> <em>(optional)</em> - file name</li>
+<li><code>cb</code> <em>(optional)</em> - callback function</li>
+<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
+</ul>
+<h4 id="open-the-pdf-in-a-new-window">Open the PDF in a new window</h4>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">open</span><span style="color:#111">();</span>
+</code></pre></div><p>Parameters:</p>
+<ul>
+<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
+<li><code>win</code> <em>(optional)</em> - window (when an asynchronous operation)</li>
+</ul>
+<p>Name can be defined only by using metadata <code>title</code> property (see <a href="/docs/document-definition-object/document-medatadata/">Document metadata</a>).</p>
+<p>Asynchronous example:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">$scope</span><span style="color:#111">.</span><span style="color:#75af00">generatePdf</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+  <span style="color:#75715e">// create the window before the callback
+</span><span style="color:#75715e"></span>  <span style="color:#00a8c8">var</span> <span style="color:#75af00">win</span> <span style="color:#f92672">=</span> <span style="color:#111">window</span><span style="color:#111">.</span><span style="color:#75af00">open</span><span style="color:#111">(</span><span style="color:#d88200">&#39;&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;_blank&#39;</span><span style="color:#111">);</span>
+  <span style="color:#75af00">$http</span><span style="color:#111">.</span><span style="color:#75af00">post</span><span style="color:#111">(</span><span style="color:#d88200">&#39;/someUrl&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">data</span><span style="color:#111">).</span><span style="color:#75af00">then</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">response</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#75715e">// pass the &#34;win&#34; argument
+</span><span style="color:#75715e"></span>    <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">open</span><span style="color:#111">({},</span> <span style="color:#75af00">win</span><span style="color:#111">);</span>
+  <span style="color:#111">});</span>
+<span style="color:#111">};</span>
+</code></pre></div><p>Open in same window:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">open</span><span style="color:#111">({},</span> <span style="color:#111">window</span><span style="color:#111">);</span>
+</code></pre></div><h4 id="print-the-pdf">Print the PDF</h4>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">print</span><span style="color:#111">();</span>
+</code></pre></div><p>Parameters:</p>
+<ul>
+<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
+<li><code>win</code> <em>(optional)</em> - window (when an asynchronous operation)</li>
+</ul>
+<p>Asynchronous example:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">$scope</span><span style="color:#111">.</span><span style="color:#75af00">generatePdf</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+  <span style="color:#75715e">// create the window before the callback
+</span><span style="color:#75715e"></span>  <span style="color:#00a8c8">var</span> <span style="color:#75af00">win</span> <span style="color:#f92672">=</span> <span style="color:#111">window</span><span style="color:#111">.</span><span style="color:#75af00">open</span><span style="color:#111">(</span><span style="color:#d88200">&#39;&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;_blank&#39;</span><span style="color:#111">);</span>
+  <span style="color:#75af00">$http</span><span style="color:#111">.</span><span style="color:#75af00">post</span><span style="color:#111">(</span><span style="color:#d88200">&#39;/someUrl&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">data</span><span style="color:#111">).</span><span style="color:#75af00">then</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">response</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#75715e">// pass the &#34;win&#34; argument
+</span><span style="color:#75715e"></span>    <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">print</span><span style="color:#111">({},</span> <span style="color:#75af00">win</span><span style="color:#111">);</span>
+  <span style="color:#111">});</span>
+<span style="color:#111">};</span>
+</code></pre></div><p>Print in same window:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">print</span><span style="color:#111">({},</span> <span style="color:#111">window</span><span style="color:#111">);</span>
+</code></pre></div><h4 id="put-the-pdf-into-your-own-page-as-url-data">Put the PDF into your own page as URL data</h4>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">const</span> <span style="color:#75af00">pdfDocGenerator</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
+<span style="color:#75af00">pdfDocGenerator</span><span style="color:#111">.</span><span style="color:#75af00">getDataUrl</span><span style="color:#111">((</span><span style="color:#75af00">dataUrl</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+	<span style="color:#00a8c8">const</span> <span style="color:#75af00">targetElement</span> <span style="color:#f92672">=</span> <span style="color:#111">document</span><span style="color:#111">.</span><span style="color:#75af00">querySelector</span><span style="color:#111">(</span><span style="color:#d88200">&#39;#iframeContainer&#39;</span><span style="color:#111">);</span>
+	<span style="color:#00a8c8">const</span> <span style="color:#75af00">iframe</span> <span style="color:#f92672">=</span> <span style="color:#111">document</span><span style="color:#111">.</span><span style="color:#75af00">createElement</span><span style="color:#111">(</span><span style="color:#d88200">&#39;iframe&#39;</span><span style="color:#111">);</span>
+	<span style="color:#75af00">iframe</span><span style="color:#111">.</span><span style="color:#75af00">src</span> <span style="color:#f92672">=</span> <span style="color:#75af00">dataUrl</span><span style="color:#111">;</span>
+	<span style="color:#75af00">targetElement</span><span style="color:#111">.</span><span style="color:#75af00">appendChild</span><span style="color:#111">(</span><span style="color:#75af00">iframe</span><span style="color:#111">);</span>
+<span style="color:#111">});</span>
+</code></pre></div><p>Parameters:</p>
+<ul>
+<li><code>cb</code> - callback function</li>
+<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
+</ul>
+<h4 id="get-the-pdf-as-base64-data">Get the PDF as base64 data</h4>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">const</span> <span style="color:#75af00">pdfDocGenerator</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
+<span style="color:#75af00">pdfDocGenerator</span><span style="color:#111">.</span><span style="color:#75af00">getBase64</span><span style="color:#111">((</span><span style="color:#75af00">data</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+	<span style="color:#75af00">alert</span><span style="color:#111">(</span><span style="color:#75af00">data</span><span style="color:#111">);</span>
+<span style="color:#111">});</span>
+</code></pre></div><p>Parameters:</p>
+<ul>
+<li><code>cb</code> - callback function</li>
+<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
+</ul>
+<h4 id="get-the-pdf-as-buffer">Get the PDF as buffer</h4>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">const</span> <span style="color:#75af00">pdfDocGenerator</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
+<span style="color:#75af00">pdfDocGenerator</span><span style="color:#111">.</span><span style="color:#75af00">getBuffer</span><span style="color:#111">((</span><span style="color:#75af00">buffer</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+	<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span><span style="color:#111">});</span>
+</code></pre></div><p>Parameters:</p>
+<ul>
+<li><code>cb</code> - callback function</li>
+<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
+</ul>
+<h4 id="get-the-pdf-as-blob">Get the PDF as Blob</h4>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">const</span> <span style="color:#75af00">pdfDocGenerator</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
+<span style="color:#75af00">pdfDocGenerator</span><span style="color:#111">.</span><span style="color:#75af00">getBlob</span><span style="color:#111">((</span><span style="color:#75af00">blob</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+	<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span><span style="color:#111">});</span>
+</code></pre></div><p>Parameters:</p>
+<ul>
+<li><code>cb</code> - callback function</li>
+<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
+</ul>
+<h4 id="get-pdfkit-document-object-as-stream">Get PDFKit document object as stream</h4>
+<h5 id="asynchronous-call">Asynchronous call</h5>
+
+<div class="alert alert-warning" role="alert">Minimal version: <strong>0.1.66</strong></div>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">const</span> <span style="color:#75af00">pdfDocGenerator</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
+<span style="color:#75af00">pdfDocGenerator</span><span style="color:#111">.</span><span style="color:#75af00">getStream</span><span style="color:#111">((</span><span style="color:#111">document</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+	<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span><span style="color:#111">});</span>
+</code></pre></div><p>Parameters:</p>
+<ul>
+<li><code>cb</code> - callback function</li>
+</ul>
+<h5 id="synchronous-call">Synchronous call</h5>
+
+<div class="alert alert-warning" role="alert">Minimal version: <strong>0.1.41</strong></div>
+
+
+<div class="alert alert-warning" role="alert"><strong>The preferred way is asynchronous call.</strong></div>
+
+
+<div class="alert alert-warning" role="alert"><strong>Unable to download real font files from url (https:// or http://). Asynchronous call required.</strong></div>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">const</span> <span style="color:#75af00">pdfDocGenerator</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
+<span style="color:#00a8c8">var</span> <span style="color:#111">document</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfDocGenerator</span><span style="color:#111">.</span><span style="color:#75af00">getStream</span><span style="color:#111">();</span>
+</code></pre></div>
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="/docs/0.1/getting-started/client-side/" title="Client-side"> <i class="fa fa-chevron-left"></i><label>Client-side</label></a>
+    <a class="nav nav-next" href="/docs/0.1/getting-started/client-side/supported-browsers/" title="Supported browsers" style="margin-right: 0px;"><label>Supported browsers</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+    <div class="github-link">
+      <a href="https://github.com/pdfmake/docs/edit/master/content/getting-started/client-side/methods.md" target="blank"><i class="fa fa-code-fork"></i>
+        Improve this page</a>
+    </div>
+    
+  </div>
+
+
+	<div>
+
+
+  
+    
+  
+
+
+
+	</div>
+</footer>
+
+<script src="/docs/0.1/js/clipboard.min.js"></script>
+
+<link href="/docs/0.1/css/featherlight.min.css" rel="stylesheet">
+<script src="/docs/0.1/js/featherlight.min.js"></script>
+
+
+
+<script src="/docs/0.1/theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    
+  </body>
+</html>

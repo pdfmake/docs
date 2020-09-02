@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>pdfmake</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2020-09-02T15:51:50 CEST">
+<title>Building font file via shell script :: pdfmake</title>
+<link rel="shortcut icon" href="/docs/0.1/images/favicon.png" type="image/x-icon" />
+<link href="/docs/0.1/css/font-awesome.min.css" rel="stylesheet">
+<link href="/docs/0.1/css/nucleus.css" rel="stylesheet">
+<link href="/docs/0.1/theme-flex/style.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/docs/0.1/css/bootstrap.min.css">
+<script src="/docs/0.1/js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "https:\/\/pdfmake.github.io\/docs\/0.1\/";
+</script>
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/">
+    
+      <header>
+  <div class="logo">
+    
+	
+  
+    <a class="baselink" href="https://pdfmake.github.io/docs/0.1/">pdfmake</a>
+  
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="http://pdfmake.org/playground.html"  rel="noopener">
+                  <i class='fa fa-play'></i> <label>Playground</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="http://pdfmake.org"  rel="noopener">
+                  <i class='fa fa-home'></i> <label>pdfmake.org</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/bpampuch/pdfmake"  rel="noopener">
+                  <i class='fa fa-github'></i> <label>Github repo</label>
+                </a>
+            </li>
+    </nav>
+</header>
+<article>
+  <aside>
+    <ul class="menu">
+          <li data-nav-id="/docs/0.1/" class="dd-item">
+          <a href="/docs/0.1/">
+            <i class="fa fa-fw fa-home"></i>
+          </a>
+          </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/getting-started/">Getting started</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/client-side/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/getting-started/client-side/">Client-side</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/client-side/methods/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/getting-started/client-side/methods/">
+            Methods
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/client-side/supported-browsers/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/getting-started/client-side/supported-browsers/">
+            Supported browsers
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/client-side/examples/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/getting-started/client-side/examples/">
+            Examples
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/server-side/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/getting-started/server-side/">Server-side</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/server-side/supported-nodejs-versions/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/getting-started/server-side/supported-nodejs-versions/">
+            Supported Node.js versions
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/server-side/examples/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/getting-started/server-side/examples/">
+            Examples
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/" class="dd-item parent alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/fonts/">Fonts</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/" class="dd-item parent alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/fonts/custom-fonts-client-side/">Custom fonts (client-side)</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/vfs/" class="dd-item parent alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/fonts/custom-fonts-client-side/vfs/">via Virtual file system (VFS)</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/vfs/php/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/fonts/custom-fonts-client-side/vfs/php/">
+            Building font file via PHP script
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/" class="dd-item active">
+        <div>
+          <a href="/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/">
+            Building font file via shell script
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/url/" class="dd-item alwaysopen
+        ">
+      <div>
+      <a href="/docs/0.1/fonts/custom-fonts-client-side/url/">via URL protocol</a>
+      </div>
+    </li>
+        </ul>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/icons/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/fonts/icons/">
+            Icons
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/fonts/standard-14-fonts/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/fonts/standard-14-fonts/">
+            Standard 14 fonts
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.1/document-definition-object/">Document-definition-object</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/styling/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/styling/">
+            Styling
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/columns/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/columns/">
+            Columns
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/tables/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/tables/">
+            Tables
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/lists/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/lists/">
+            Lists
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/headers-footers/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/headers-footers/">
+            Headers and footers
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/background-layer/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/background-layer/">
+            Background-layer
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/margins/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/margins/">
+            Margins
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/stack/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/stack/">
+            Stack of paragraphs
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/images/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/images/">
+            Images
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/svgs/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/svgs/">
+            SVGs
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/links/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/links/">
+            Links
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/qr/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/qr/">
+            QR code
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/toc/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/toc/">
+            Table of contents
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/watermark/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/watermark/">
+            Watermark
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/page/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/page/">
+            Page dimensions, orientation and margins
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/document-medatadata/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/document-medatadata/">
+            Document Metadata
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/compression/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/compression/">
+            Compression
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.1/document-definition-object/security/" class="dd-item">
+        <div>
+          <a href="/docs/0.1/document-definition-object/security/">
+            Encryption and access privileges
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/options/" class="dd-item alwaysopen
+        ">
+      <div>
+      <a href="/docs/0.1/options/">Options</a>
+      </div>
+    </li>
+
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/docs/0.1/getting-started/" >
+   Getting started</option> 
+    <option value="/docs/0.1/getting-started/client-side/" >
+  - 
+   Client-side</option> 
+      <option value="/docs/0.1/getting-started/client-side/methods/" >-- Methods</option>
+      <option value="/docs/0.1/getting-started/client-side/supported-browsers/" >-- Supported browsers</option>
+      <option value="/docs/0.1/getting-started/client-side/examples/" >-- Examples</option>
+  
+    <option value="/docs/0.1/getting-started/server-side/" >
+  - 
+   Server-side</option> 
+      <option value="/docs/0.1/getting-started/server-side/supported-nodejs-versions/" >-- Supported Node.js versions</option>
+      <option value="/docs/0.1/getting-started/server-side/examples/" >-- Examples</option>
+  
+  
+    <option value="/docs/0.1/fonts/" >
+   Fonts</option> 
+    <option value="/docs/0.1/fonts/custom-fonts-client-side/" >
+  - 
+   Custom fonts (client-side)</option> 
+    <option value="/docs/0.1/fonts/custom-fonts-client-side/vfs/" >
+  -- 
+   via Virtual file system (VFS)</option> 
+      <option value="/docs/0.1/fonts/custom-fonts-client-side/vfs/php/" >--- Building font file via PHP script</option>
+      <option value="/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/"  selected>--- Building font file via shell script</option>
+  
+    <option value="/docs/0.1/fonts/custom-fonts-client-side/url/" >
+  -- 
+   via URL protocol</option> 
+  
+  
+      <option value="/docs/0.1/fonts/icons/" >- Icons</option>
+      <option value="/docs/0.1/fonts/standard-14-fonts/" >- Standard 14 fonts</option>
+  
+    <option value="/docs/0.1/document-definition-object/" >
+   Document-definition-object</option> 
+      <option value="/docs/0.1/document-definition-object/styling/" >- Styling</option>
+      <option value="/docs/0.1/document-definition-object/columns/" >- Columns</option>
+      <option value="/docs/0.1/document-definition-object/tables/" >- Tables</option>
+      <option value="/docs/0.1/document-definition-object/lists/" >- Lists</option>
+      <option value="/docs/0.1/document-definition-object/headers-footers/" >- Headers and footers</option>
+      <option value="/docs/0.1/document-definition-object/background-layer/" >- Background-layer</option>
+      <option value="/docs/0.1/document-definition-object/margins/" >- Margins</option>
+      <option value="/docs/0.1/document-definition-object/stack/" >- Stack of paragraphs</option>
+      <option value="/docs/0.1/document-definition-object/images/" >- Images</option>
+      <option value="/docs/0.1/document-definition-object/svgs/" >- SVGs</option>
+      <option value="/docs/0.1/document-definition-object/links/" >- Links</option>
+      <option value="/docs/0.1/document-definition-object/qr/" >- QR code</option>
+      <option value="/docs/0.1/document-definition-object/toc/" >- Table of contents</option>
+      <option value="/docs/0.1/document-definition-object/watermark/" >- Watermark</option>
+      <option value="/docs/0.1/document-definition-object/page/" >- Page dimensions, orientation and margins</option>
+      <option value="/docs/0.1/document-definition-object/document-medatadata/" >- Document Metadata</option>
+      <option value="/docs/0.1/document-definition-object/compression/" >- Compression</option>
+      <option value="/docs/0.1/document-definition-object/security/" >- Encryption and access privileges</option>
+  
+    <option value="/docs/0.1/options/" >
+   Options</option> 
+  
+
+
+
+        </select>
+      </center>
+    </div>
+    
+
+    <h1>Building font file via shell script</h1>
+    
+    
+    
+    <p>For a complete description of use custom fonts in client-side, read the article: <a href="/docs/fonts/custom-fonts-client-side/vfs/">Custom fonts (client-side) &gt; via Virtual file system (VFS)</a></p>
+<p>If you don&rsquo;t want to install gulp and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the <code>vfs_fonts.js</code> with an bash-script as well:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+<span style="color:#00a8c8">if</span> <span style="color:#f92672">[</span> -t <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span><span style="color:#111">;</span> <span style="color:#00a8c8">then</span>
+	<span style="color:#111">target</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;vfs_fonts.js&#34;</span>
+<span style="color:#00a8c8">else</span>
+	<span style="color:#111">target</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;/dev/stdout&#34;</span>
+<span style="color:#00a8c8">fi</span>
+
+<span style="color:#f92672">(</span>
+	<span style="color:#111">echo</span> -n <span style="color:#d88200">&#34;this.pdfMake = this.pdfMake || {}; this.pdfMake.vfs = {&#34;</span>
+	<span style="color:#00a8c8">for</span> file in <span style="color:#d88200">&#34;</span><span style="color:#111">$@</span><span style="color:#d88200">&#34;</span><span style="color:#111">;</span> <span style="color:#00a8c8">do</span>
+		<span style="color:#111">file</span><span style="color:#f92672">=</span><span style="color:#111">$1</span>
+		<span style="color:#111">shift</span>
+		<span style="color:#111">echo</span> -n <span style="color:#d88200">&#39;&#34;&#39;</span>
+		<span style="color:#111">echo</span> -n <span style="color:#d88200">&#34;</span><span style="color:#00a8c8">$(</span>basename <span style="color:#111">$file</span><span style="color:#00a8c8">)</span><span style="color:#d88200">&#34;</span>
+		<span style="color:#111">echo</span> -n <span style="color:#d88200">&#39;&#34;:&#34;&#39;</span>
+		<span style="color:#111">echo</span> -n <span style="color:#d88200">&#34;</span><span style="color:#00a8c8">$(</span>base64 -w <span style="color:#ae81ff">0</span> <span style="color:#111">$file</span><span style="color:#00a8c8">)</span><span style="color:#d88200">&#34;</span>
+		<span style="color:#111">echo</span> -n <span style="color:#d88200">&#39;&#34;&#39;</span>
+		<span style="color:#00a8c8">if</span> <span style="color:#f92672">[</span> <span style="color:#d88200">&#34;</span><span style="color:#111">$#</span><span style="color:#d88200">&#34;</span> -gt <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span><span style="color:#111">;</span> <span style="color:#00a8c8">then</span>
+			<span style="color:#111">echo</span> -n <span style="color:#d88200">&#34;,&#34;</span>
+		<span style="color:#00a8c8">fi</span>
+	<span style="color:#00a8c8">done</span>
+	<span style="color:#111">echo</span> -n <span style="color:#d88200">&#34;};&#34;</span>
+<span style="color:#f92672">)</span> &gt; <span style="color:#d88200">&#34;</span><span style="color:#111">$target</span><span style="color:#d88200">&#34;</span>
+</code></pre></div><p>How to use script:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">script.sh font1.ttf font2.ttf font3.ttf
+</code></pre></div><p>If you are using a mac you need to change this line</p>
+<pre><code>		echo -n &quot;$(base64 -w 0 $file)&quot;
+</code></pre><p>to (change the flag from <code>-w</code> to <code>-b</code>)</p>
+<pre><code>		echo -n &quot;$(base64 -b 0 $file)&quot;
+</code></pre><p>GNU coreutils&rsquo; <code>base64</code> seems to differ to Apple&rsquo;s <code>base64</code> in this flag (which prevents line wrapping).</p>
+
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="/docs/0.1/fonts/custom-fonts-client-side/vfs/php/" title="Building font file via PHP script"> <i class="fa fa-chevron-left"></i><label>Building font file via PHP script</label></a>
+    <a class="nav nav-next" href="/docs/0.1/fonts/custom-fonts-client-side/url/" title="via URL protocol" style="margin-right: 0px;"><label>via URL protocol</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+    <div class="github-link">
+      <a href="https://github.com/pdfmake/docs/edit/master/content/fonts/custom-fonts-client-side/vfs/shell.md" target="blank"><i class="fa fa-code-fork"></i>
+        Improve this page</a>
+    </div>
+    
+  </div>
+
+
+	<div>
+
+
+  
+    
+  
+
+
+
+	</div>
+</footer>
+
+<script src="/docs/0.1/js/clipboard.min.js"></script>
+
+<link href="/docs/0.1/css/featherlight.min.css" rel="stylesheet">
+<script src="/docs/0.1/js/featherlight.min.js"></script>
+
+
+
+<script src="/docs/0.1/theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    
+  </body>
+</html>

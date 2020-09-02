@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Client-side on pdfmake</title>
+    <link>https://pdfmake.github.io/docs/0.1/getting-started/client-side/</link>
+    <description>Recent content in Client-side on pdfmake</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://pdfmake.github.io/docs/0.1/getting-started/client-side/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Methods</title>
+      <link>https://pdfmake.github.io/docs/0.1/getting-started/client-side/methods/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pdfmake.github.io/docs/0.1/getting-started/client-side/methods/</guid>
+      <description>Download the PDF pdfMake.createPdf(docDefinition).download(); Parameters:
+ defaultFileName (optional) - file name cb (optional) - callback function options (optional) - advanced options see options chapter  Open the PDF in a new window pdfMake.createPdf(docDefinition).open(); Parameters:
+ options (optional) - advanced options see options chapter win (optional) - window (when an asynchronous operation)  Name can be defined only by using metadata title property (see Document metadata).
+Asynchronous example:
+$scope.generatePdf = function() { // create the window before the callback  var win = window.</description>
+    </item>
+    
+    <item>
+      <title>Supported browsers</title>
+      <link>https://pdfmake.github.io/docs/0.1/getting-started/client-side/supported-browsers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pdfmake.github.io/docs/0.1/getting-started/client-side/supported-browsers/</guid>
+      <description>Internet Explorer 10+ Edge 12+ Firefox Chrome Chrome (Android) Opera Safari (iOS) Safari (iOS) iPhone  LimitationsMethods open() and print() are supported only in:
+ Firefox Chrome Opera  Add-ons used in browsers can affect the functionality of pdfmake (especially for open() and print()). If pdfmake is not working try disable add-ons in browser.Problematic add-onsAdBlockFully description is available in issue.</description>
+    </item>
+    
+    <item>
+      <title>Examples</title>
+      <link>https://pdfmake.github.io/docs/0.1/getting-started/client-side/examples/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pdfmake.github.io/docs/0.1/getting-started/client-side/examples/</guid>
+      <description>Check out the playground and examples.</description>
+    </item>
+    
+  </channel>
+</rss>

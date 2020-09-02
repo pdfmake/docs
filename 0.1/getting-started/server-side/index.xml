@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Server-side on pdfmake</title>
+    <link>https://pdfmake.github.io/docs/0.1/getting-started/server-side/</link>
+    <description>Recent content in Server-side on pdfmake</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://pdfmake.github.io/docs/0.1/getting-started/server-side/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Supported Node.js versions</title>
+      <link>https://pdfmake.github.io/docs/0.1/getting-started/server-side/supported-nodejs-versions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pdfmake.github.io/docs/0.1/getting-started/server-side/supported-nodejs-versions/</guid>
+      <description> 6 LTS (End-of-life: April 2019) 8 LTS (End-of-life: December 2019) 10 LTS (End-of-life: April 2021) 12 LTS (End-of-life: April 2022)  </description>
+    </item>
+    
+    <item>
+      <title>Examples</title>
+      <link>https://pdfmake.github.io/docs/0.1/getting-started/server-side/examples/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pdfmake.github.io/docs/0.1/getting-started/server-side/examples/</guid>
+      <description>see examples and dev-playground server script</description>
+    </item>
+    
+  </channel>
+</rss>
