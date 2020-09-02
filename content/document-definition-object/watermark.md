@@ -12,8 +12,8 @@ alwaysopen = true
 * `opacity` opacity of text
 * `bold` - bold style of text
 * `italics` - italics style of text
-* `fontSize` - own font size of text (ideal size is calculated automatically) (**minimal version: 0.1.60**)
-* `angle` - angle of text rotation (**minimal version: 0.1.60**)
+* `fontSize` - own font size of text (ideal size is calculated automatically)
+* `angle` - angle of text rotation
 
 #### Examples
 
@@ -38,7 +38,6 @@ var docDefinition = {
 ```
 
 Example of own font size:
-{{% alert theme="warning" %}}Minimal version: **0.1.60**{{% /alert %}}
 ```js
 var docDefinition = {
   watermark: { text: 'test watermark', fontSize: 20 },
@@ -49,7 +48,6 @@ var docDefinition = {
 ```
 
 Example of watermark rotation angle:
-{{% alert theme="warning" %}}Minimal version: **0.1.60**{{% /alert %}}
 ```js
 var docDefinition = {
   watermark: { text: 'test watermark', angle: 70 },

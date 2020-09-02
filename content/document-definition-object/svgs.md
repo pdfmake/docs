@@ -5,8 +5,6 @@ weight = 29
 alwaysopen = true
 +++
 
-{{% alert theme="warning" %}}Minimal version: **0.1.59**{{% /alert %}}
-
 SVGs are much like [images](/docs/document-definition-object/images/) except it is not currently possible to refer to SVGs by file or re-use from a dictionary.
 
 ```js

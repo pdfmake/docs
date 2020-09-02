@@ -124,8 +124,6 @@ Parameters:
 
 ##### Asynchronous call
 
-{{% alert theme="warning" %}}Minimal version: **0.1.66**{{% /alert %}}
-
 ```js
 const pdfDocGenerator = pdfMake.createPdf(docDefinition);
 pdfDocGenerator.getStream((document) => {
@@ -137,8 +135,6 @@ Parameters:
 * `cb` - callback function
 
 ##### Synchronous call
-
-{{% alert theme="warning" %}}Minimal version: **0.1.41**{{% /alert %}}
 
 {{% alert theme="warning" %}}**The preferred way is asynchronous call.**{{% /alert %}}
 

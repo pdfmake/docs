@@ -5,8 +5,6 @@ weight = 16
 alwaysopen = true
 +++
 
-{{% alert theme="warning" %}}Minimal version: **0.1.66**{{% /alert %}}
-
 {{% alert theme="warning" %}}This feature is available only in **client-side** (in browser).{{% /alert %}}
 
 To use custom fonts, 2 steps are required:
