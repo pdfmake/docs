@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2020-09-02T16:42:31 CEST">
+<meta name="revised" content="2020-09-02T16:48:34 CEST">
 <title>Methods :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.1/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.1/css/font-awesome.min.css" rel="stylesheet">
@@ -417,16 +417,16 @@
 <ul>
 <li><code>defaultFileName</code> <em>(optional)</em> - file name</li>
 <li><code>cb</code> <em>(optional)</em> - callback function</li>
-<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
+<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/0.1/options/">options chapter</a></li>
 </ul>
 <h4 id="open-the-pdf-in-a-new-window">Open the PDF in a new window</h4>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">open</span><span style="color:#111">();</span>
 </code></pre></div><p>Parameters:</p>
 <ul>
-<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
+<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/0.1/options/">options chapter</a></li>
 <li><code>win</code> <em>(optional)</em> - window (when an asynchronous operation)</li>
 </ul>
-<p>Name can be defined only by using metadata <code>title</code> property (see <a href="/docs/document-definition-object/document-medatadata/">Document metadata</a>).</p>
+<p>Name can be defined only by using metadata <code>title</code> property (see <a href="/docs/0.1/document-definition-object/document-medatadata/">Document metadata</a>).</p>
 <p>Asynchronous example:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">$scope</span><span style="color:#111">.</span><span style="color:#75af00">generatePdf</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
   <span style="color:#75715e">// create the window before the callback
@@ -442,7 +442,7 @@
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">print</span><span style="color:#111">();</span>
 </code></pre></div><p>Parameters:</p>
 <ul>
-<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
+<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/0.1/options/">options chapter</a></li>
 <li><code>win</code> <em>(optional)</em> - window (when an asynchronous operation)</li>
 </ul>
 <p>Asynchronous example:</p>
@@ -467,7 +467,7 @@
 </code></pre></div><p>Parameters:</p>
 <ul>
 <li><code>cb</code> - callback function</li>
-<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
+<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/0.1/options/">options chapter</a></li>
 </ul>
 <h4 id="get-the-pdf-as-base64-data">Get the PDF as base64 data</h4>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">const</span> <span style="color:#75af00">pdfDocGenerator</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
@@ -477,7 +477,7 @@
 </code></pre></div><p>Parameters:</p>
 <ul>
 <li><code>cb</code> - callback function</li>
-<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
+<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/0.1/options/">options chapter</a></li>
 </ul>
 <h4 id="get-the-pdf-as-buffer">Get the PDF as buffer</h4>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">const</span> <span style="color:#75af00">pdfDocGenerator</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
@@ -487,7 +487,7 @@
 </code></pre></div><p>Parameters:</p>
 <ul>
 <li><code>cb</code> - callback function</li>
-<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
+<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/0.1/options/">options chapter</a></li>
 </ul>
 <h4 id="get-the-pdf-as-blob">Get the PDF as Blob</h4>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">const</span> <span style="color:#75af00">pdfDocGenerator</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
@@ -497,7 +497,7 @@
 </code></pre></div><p>Parameters:</p>
 <ul>
 <li><code>cb</code> - callback function</li>
-<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/options/">options chapter</a></li>
+<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/0.1/options/">options chapter</a></li>
 </ul>
 <h4 id="get-pdfkit-document-object-as-stream">Get PDFKit document object as stream</h4>
 <h5 id="asynchronous-call">Asynchronous call</h5>
