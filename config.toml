@@ -1,4 +1,4 @@
-baseURL = "https://pdfmake.github.io/docs/0.1/"
+baseURL = "https://pdfmake.github.io/docs/0.2/"
 languageCode = "en-us"
 title = "pdfmake"
 theme = "docdock"
