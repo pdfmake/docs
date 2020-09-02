@@ -44,8 +44,8 @@ You don't need to reference the files in ```examples/fonts``` anymore because al
 
 Other ways:
 
-* [Building font file via shell script](/docs/fonts/custom-fonts-client-side/vfs/shell/)
-* [Building font file via PHP script](/docs/fonts/custom-fonts-client-side/vfs/php/)
+* [Building font file via shell script](/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/)
+* [Building font file via PHP script](/docs/0.1/fonts/custom-fonts-client-side/vfs/php/)
 
 ## 2. assign `pdfMake.fonts` in your javascript
 
