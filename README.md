@@ -2,6 +2,8 @@
 
 The source for website https://pdfmake.github.io/docs/0.1/
 
+For source of version 0.2 go here: https://github.com/pdfmake/docs/tree/master
+
 ### Run from sources
 
 #### Requirements
