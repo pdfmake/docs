@@ -68,7 +68,7 @@ If you really need it, you can build with standard fonts by `gulp buildWithStand
 
 **Building with standard fonts from sources:**
 ```
-git clone https://github.com/bpampuch/pdfmake.git
+git clone --branch 0.1 https://github.com/bpampuch/pdfmake.git
 cd pdfmake
 npm install
 gulp buildWithStandardFonts
