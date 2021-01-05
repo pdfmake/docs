@@ -43,7 +43,11 @@ var docDefinition = {
       // under NodeJS (or in case you use virtual file system provided by pdfmake)
       // you can also pass file names here
       image: 'myImageDictionary/image1.jpg'
-    }
+    },
+    {
+      // in browser is supported loading images via url from reference by name in images
+      image: 'snow'
+    },
   ],
 
   images: {
