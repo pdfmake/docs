@@ -82,6 +82,7 @@ var docDefinition = {
 * `bold: boolean`: whether to use bold text (default: false)
 * `italics: boolean`: whether to use italic text (default: false)
 * `alignment: string`: ('left' or 'center' or 'right') the alignment of the text
+* `characterSpacing: number`: size of the letter spacing in pt
 * `color: string`: the color of the text (color name e.g., 'blue' or hexadecimal color e.g., '#ff5500')
 * `background: string` the background color of the text
 * `markerColor: string`: the color of the bullets in a buletted list
