@@ -1,8 +1,8 @@
-# pdfmake docs for version 0.2
+# pdfmake docs for version 0.3
 
 The source for website https://pdfmake.github.io/docs/
 
-For source of version 0.1 go here: https://github.com/pdfmake/docs/tree/0.1
+For source of version 0.1 or 0.2 go here: https://github.com/pdfmake/docs/tree/0.1
 
 ### Run from sources
 
