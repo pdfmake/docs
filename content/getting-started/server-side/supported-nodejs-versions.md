@@ -5,8 +5,8 @@ weight = 11
 alwaysopen = true
 +++
 
-* 6 LTS (End-of-life: April 2019)
-* 8 LTS (End-of-life: December 2019)
-* 10 LTS (End-of-life: April 2021)
 * 12 LTS (End-of-life: April 2022)
 * 14 LTS (End-of-life: April 2023)
+* 16 LTS (End-of-life: April 2024)
+
+Version 0.1.x supports Node.js 8 LTS, 10 LTS, 12 LTS, 14 LTS

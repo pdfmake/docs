@@ -5,14 +5,16 @@ weight = 11
 alwaysopen = true
 +++
 
-* Internet Explorer 10+
+* Internet Explorer 11
 * Edge 12+
-* Firefox 
+* Firefox
 * Chrome
 * Chrome (Android)
 * Opera
 * Safari (iOS)
 * Safari (iOS) iPhone
+
+{{% panel theme="warning" %}}Internet Explorer 10 supports only version 0.1.x.{{% /panel %}}
 
 {{% panel theme="warning" header="Limitations" %}}Methods **`open()`** and **`print()`** are supported only in:
 
