@@ -79,6 +79,16 @@ exclude: [ /node_modules/, /pdfmake.js$/ ]
 ```
 (see [issue](https://github.com/bpampuch/pdfmake/issues/1100#issuecomment-336728521))
 
+If you are using rollup, and a **Cannot read property 'pdfMake' of undefined at vfs_fonts.js** error is thrown, add this to rollup config:
+```js
+moduleContext: {
+  './node_modules/pdfmake/build/vfs_fonts.js': 'window',
+},
+```
+Then, if console outputs a **Illegal reassignment to import 'pdfMake'**, do not assign vfs manually, just import fonts like this:
+```js
+import 'pdfmake/build/vfs_fonts';
+```
 
 #### Repository
 
