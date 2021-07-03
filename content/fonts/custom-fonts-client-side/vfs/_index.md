@@ -28,7 +28,7 @@ To use custom fonts, 3 steps are required:
 
 * Install pdfmake `npm install pdfmake`
 * Go to package directory `./node_modules/pdfmake/`
-* Create the `examples/fonts` subdirectory in your pdfMake code directory, if it doesn't already exist.
+* Create the `examples/fonts` subdirectory in your pdfmake code directory, if it doesn't already exist.
 * Copy your fonts (and other files you wish to embed) into the `examples/fonts` subdirectory.
 * Run command `node build-vfs.js "./examples/fonts"`. Or run `node build-vfs.js` to show help.
 * Include your new **build/vfs_fonts.js** file in your code (in the same way you include `pdfmake.js` or `pdfmake.min.js`).
@@ -70,7 +70,7 @@ The keys defined here will be used as font names in your doc-definition styles.
 
 Each font-family defines 4 properties: normal, bold, italics and bolditalics referring to appropriate files (the ones you embedded from `examples/fonts/`). You should define all 4 components (even if they all point to the same font file).
 
-By default pdfMake uses the following font structure:
+By default pdfmake uses the following font structure:
 
 ```javascript
 pdfMake.fonts = {
