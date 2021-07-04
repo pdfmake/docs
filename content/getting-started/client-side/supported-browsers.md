@@ -14,7 +14,7 @@ alwaysopen = true
 * Safari (iOS)
 * Safari (iOS) iPhone
 
-{{% panel theme="warning" %}}Internet Explorer 10 supports only version 0.1.x.{{% /panel %}}
+{{% alert theme="warning" %}}Internet Explorer 10 supports only version 0.1.x.{{% /alert %}}
 
 {{% panel theme="warning" header="Limitations" %}}Methods **`open()`** and **`print()`** are supported only in:
 
