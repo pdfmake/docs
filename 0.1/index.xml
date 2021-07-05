@@ -5,11 +5,7 @@
     <link>https://pdfmake.github.io/docs/0.1/</link>
     <description>Recent content on pdfmake</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://pdfmake.github.io/docs/0.1/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://pdfmake.github.io/docs/0.1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building font file via PHP script</title>
       <link>https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/vfs/php/</link>
@@ -50,7 +46,7 @@ $scope.generatePdf = function() { // create the window before the callback  var 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/0.1/getting-started/client-side/supported-browsers/</guid>
-      <description>Internet Explorer 10+ Edge 12+ Firefox Chrome Chrome (Android) Opera Safari (iOS) Safari (iOS) iPhone  LimitationsMethods open() and print() are supported only in:
+      <description>Internet Explorer 11 Edge 12+ Firefox Chrome Chrome (Android) Opera Safari (iOS) Safari (iOS) iPhone  Internet Explorer 10 supports only version 0.1.x.LimitationsMethods open() and print() are supported only in:
  Firefox Chrome Opera  Add-ons used in browsers can affect the functionality of pdfmake (especially for open() and print()). If pdfmake is not working try disable add-ons in browser.Problematic add-onsAdBlockFully description is available in issue.</description>
     </item>
     
@@ -60,7 +56,7 @@ $scope.generatePdf = function() { // create the window before the callback  var 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/0.1/getting-started/server-side/supported-nodejs-versions/</guid>
-      <description> 6 LTS (End-of-life: April 2019) 8 LTS (End-of-life: December 2019) 10 LTS (End-of-life: April 2021) 12 LTS (End-of-life: April 2022)  </description>
+      <description>12 LTS (End-of-life: April 2022) 14 LTS (End-of-life: April 2023) 16 LTS (End-of-life: April 2024)  Version 0.1.x supports Node.js 8 LTS, 10 LTS, 12 LTS, 14 LTS</description>
     </item>
     
     <item>

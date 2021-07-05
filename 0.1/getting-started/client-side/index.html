@@ -5,18 +5,16 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-01-07T16:22:06 CET">
+<meta name="revised" content="2021-07-05T10:34:27 CEST">
 <title>Client-side :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.1/images/favicon.png" type="image/x-icon" />
-<link href="/docs/0.1/css/font-awesome.min.css" rel="stylesheet">
 <link href="/docs/0.1/css/nucleus.css" rel="stylesheet">
+<link href="/docs/0.1/css/font-awesome.min.css" rel="stylesheet">
+<link href="/docs/0.1/css/featherlight.min.css" rel="stylesheet">
+<link href="/docs/0.1/css/auto-complete.css" rel="stylesheet">
 <link href="/docs/0.1/theme-flex/style.css" rel="stylesheet">
 
 <link rel="stylesheet" href="/docs/0.1/css/bootstrap.min.css">
-<script src="/docs/0.1/js/jquery-2.x.min.js"></script>
-<script type="text/javascript">
-      var baseurl = "https:\/\/pdfmake.github.io\/docs\/0.1\/";
-</script>
 <meta name="description" content="">
 
 
@@ -62,14 +60,14 @@
             <i class="fa fa-fw fa-home"></i>
           </a>
           </li>
-    <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/" class="dd-item parent alwaysopen haschildren
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/" class="dd-item alwaysopen haschildren
         ">
       <div>
       <a href="/docs/0.1/getting-started/">Getting started</a>
             <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
-    <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/client-side/" class="dd-item parent active alwaysopen haschildren
+    <li data-nav-id="https://pdfmake.github.io/docs/0.1/getting-started/client-side/" class="dd-item alwaysopen haschildren
         ">
       <div>
       <a href="/docs/0.1/getting-started/client-side/">Client-side</a>
@@ -456,7 +454,13 @@
 <p>If a <strong>Cannot read property &lsquo;TYPED_ARRAY_SUPPORT&rsquo; of undefined</strong> error is thrown, add this to webpack config:</p>
 <pre><code>exclude: [ /node_modules/, /pdfmake.js$/ ]
 </code></pre><p>(see <a href="https://github.com/bpampuch/pdfmake/issues/1100#issuecomment-336728521">issue</a>)</p>
-<h4 id="repository">Repository</h4>
+<p>If you are using rollup, and a <strong>Cannot read property &lsquo;pdfMake&rsquo; of undefined at vfs_fonts.js</strong> error is thrown, add this to rollup config:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">moduleContext</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+  <span style="color:#d88200">&#39;./node_modules/pdfmake/build/vfs_fonts.js&#39;</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;window&#39;</span><span style="color:#111">,</span>
+<span style="color:#111">},</span>
+</code></pre></div><p>Then, if console outputs a <strong>Illegal reassignment to import &lsquo;pdfMake&rsquo;</strong>, do not assign vfs manually, just import fonts like this:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">import</span> <span style="color:#d88200">&#39;pdfmake/build/vfs_fonts&#39;</span><span style="color:#111">;</span>
+</code></pre></div><h4 id="repository">Repository</h4>
 <p>Copy them directly from the build directory from the repository. Otherwise you can always <a href="https://github.com/bpampuch/pdfmake/tree/0.1#building-from-sources-version-01x">build it version 0.1.x from sources</a>.</p>
 
 
@@ -502,16 +506,24 @@
 	</div>
 </footer>
 
+<script src="/docs/0.1/js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/pdfmake.github.io\/docs\/0.1\/";
+    
+</script>
 <script src="/docs/0.1/js/clipboard.min.js"></script>
-
-<link href="/docs/0.1/css/featherlight.min.css" rel="stylesheet">
 <script src="/docs/0.1/js/featherlight.min.js"></script>
 
-
-
+<script type="text/javascript" src="/docs/0.1/js/lunr.min.js"></script>
+<script type="text/javascript" src="/docs/0.1/js/auto-complete.js"></script>
+<script type="text/javascript" src="/docs/0.1/js/search.js"></script>
 <script src="/docs/0.1/theme-flex/script.js"></script>
 
 
+
+
+<script src="https://pdfmake.github.io/docs/0.1/js/scripts.min.js"></script>
     
 
     

@@ -5,10 +5,6 @@
     <link>https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/</link>
     <description>Recent content in Custom fonts (client-side) on pdfmake</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -1,166 +1,86 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/vfs/php/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/getting-started/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/getting-started/client-side/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/getting-started/client-side/methods/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/getting-started/client-side/supported-browsers/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/getting-started/server-side/supported-nodejs-versions/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/getting-started/client-side/examples/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/getting-started/server-side/examples/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/getting-started/server-side/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/fonts/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/fonts/icons/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/fonts/standard-14-fonts/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/vfs/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/url/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/document-definition-object/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/document-definition-object/styling/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/document-definition-object/columns/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/document-definition-object/tables/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/document-definition-object/lists/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/document-definition-object/headers-footers/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/document-definition-object/background-layer/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/document-definition-object/margins/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/document-definition-object/stack/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/document-definition-object/images/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/document-definition-object/svgs/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/options/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/document-definition-object/links/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/document-definition-object/qr/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/document-definition-object/toc/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/document-definition-object/watermark/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/document-definition-object/page/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/document-definition-object/document-medatadata/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/document-definition-object/compression/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/document-definition-object/security/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/_footer/</loc>
     <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/tags/</loc>
   </url>
-  
 </urlset>

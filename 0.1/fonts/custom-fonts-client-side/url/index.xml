@@ -5,10 +5,6 @@
     <link>https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/url/</link>
     <description>Recent content in via URL protocol on pdfmake</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/url/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/url/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

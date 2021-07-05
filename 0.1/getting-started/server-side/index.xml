@@ -5,18 +5,14 @@
     <link>https://pdfmake.github.io/docs/0.1/getting-started/server-side/</link>
     <description>Recent content in Server-side on pdfmake</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://pdfmake.github.io/docs/0.1/getting-started/server-side/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://pdfmake.github.io/docs/0.1/getting-started/server-side/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Supported Node.js versions</title>
       <link>https://pdfmake.github.io/docs/0.1/getting-started/server-side/supported-nodejs-versions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/0.1/getting-started/server-side/supported-nodejs-versions/</guid>
-      <description> 6 LTS (End-of-life: April 2019) 8 LTS (End-of-life: December 2019) 10 LTS (End-of-life: April 2021) 12 LTS (End-of-life: April 2022)  </description>
+      <description>12 LTS (End-of-life: April 2022) 14 LTS (End-of-life: April 2023) 16 LTS (End-of-life: April 2024)  Version 0.1.x supports Node.js 8 LTS, 10 LTS, 12 LTS, 14 LTS</description>
     </item>
     
     <item>
