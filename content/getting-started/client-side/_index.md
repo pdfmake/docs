@@ -92,4 +92,6 @@ import 'pdfmake/build/vfs_fonts';
 
 #### Repository
 
-Copy them directly from the build directory from the repository. Otherwise you can always [build it version 0.1.x from sources](https://github.com/bpampuch/pdfmake/tree/0.1#building-from-sources-version-01x).
+Copy them directly from the build directory from the repository. Otherwise you can always build it from sources:
+-  [instructions for version 0.2.x](https://github.com/bpampuch/pdfmake/tree/0.2#building-from-sources-version-02x)
+-  [instructions for version 0.1.x](https://github.com/bpampuch/pdfmake/tree/0.1#building-from-sources-version-01x)
