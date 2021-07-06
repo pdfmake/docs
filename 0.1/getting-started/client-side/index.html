@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-07-05T10:34:27 CEST">
+<meta name="revised" content="2021-07-06T12:35:17 CEST">
 <title>Client-side :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.1/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.1/css/nucleus.css" rel="stylesheet">
@@ -340,19 +340,22 @@
           
     <option value="/docs/0.1/getting-started/" >
    Getting started</option> 
-    <option value="/docs/0.1/getting-started/client-side/"  selected>
+    <option value="/docs/0.1/fonts/custom-fonts-client-side/" >
   - 
-   Client-side</option> 
-      <option value="/docs/0.1/getting-started/client-side/methods/" >-- Methods</option>
-      <option value="/docs/0.1/getting-started/client-side/supported-browsers/" >-- Supported browsers</option>
-      <option value="/docs/0.1/getting-started/client-side/examples/" >-- Examples</option>
+   Custom fonts (client-side)</option> 
+    <option value="/docs/0.1/fonts/custom-fonts-client-side/vfs/" >
+  -- 
+   via Virtual file system (VFS)</option> 
+      <option value="/docs/0.1/fonts/custom-fonts-client-side/vfs/php/" >--- Building font file via PHP script</option>
+      <option value="/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/" >--- Building font file via shell script</option>
   
-    <option value="/docs/0.1/getting-started/server-side/" >
-  - 
-   Server-side</option> 
-      <option value="/docs/0.1/getting-started/server-side/supported-nodejs-versions/" >-- Supported Node.js versions</option>
-      <option value="/docs/0.1/getting-started/server-side/examples/" >-- Examples</option>
+    <option value="/docs/0.1/fonts/custom-fonts-client-side/url/" >
+  -- 
+   via URL protocol</option> 
   
+  
+      <option value="/docs/0.1/fonts/icons/" >- Icons</option>
+      <option value="/docs/0.1/fonts/standard-14-fonts/" >- Standard 14 fonts</option>
   
     <option value="/docs/0.1/fonts/" >
    Fonts</option> 
@@ -461,7 +464,11 @@
 </code></pre></div><p>Then, if console outputs a <strong>Illegal reassignment to import &lsquo;pdfMake&rsquo;</strong>, do not assign vfs manually, just import fonts like this:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">import</span> <span style="color:#d88200">&#39;pdfmake/build/vfs_fonts&#39;</span><span style="color:#111">;</span>
 </code></pre></div><h4 id="repository">Repository</h4>
-<p>Copy them directly from the build directory from the repository. Otherwise you can always <a href="https://github.com/bpampuch/pdfmake/tree/0.1#building-from-sources-version-01x">build it version 0.1.x from sources</a>.</p>
+<p>Copy them directly from the build directory from the repository. Otherwise you can always build it from sources:</p>
+<ul>
+<li><a href="https://github.com/bpampuch/pdfmake/tree/0.2#building-from-sources-version-02x">instructions for version 0.2.x</a></li>
+<li><a href="https://github.com/bpampuch/pdfmake/tree/0.1#building-from-sources-version-01x">instructions for version 0.1.x</a></li>
+</ul>
 
 
 
