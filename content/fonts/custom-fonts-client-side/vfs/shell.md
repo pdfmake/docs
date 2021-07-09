@@ -20,20 +20,18 @@ else
 fi
 
 (
-	echo -n "this.pdfMake = this.pdfMake || {}; this.pdfMake.vfs = {"
+	echo "this.pdfMake = this.pdfMake || {}; this.pdfMake.vfs = {"
 	for file in "$@"; do
 		file=$1
+		filename=$(basename $file)
+		filecontent=$(base64 -w 0 $file)
 		shift
-		echo -n '"'
-		echo -n "$(basename $file)"
-		echo -n '":"'
-		echo -n "$(base64 -w 0 $file)"
-		echo -n '"'
+		echo "\"${filename}\":\"${filecontent}\""
 		if [ "$#" -gt 0 ]; then
-			echo -n ","
+			echo ","
 		fi
 	done
-	echo -n "};"
+	echo "};"
 ) > "$target"
 ```
 
@@ -44,13 +42,13 @@ script.sh font1.ttf font2.ttf font3.ttf
 
 If you are using a mac you need to change this line
 ```
-		echo -n "$(base64 -w 0 $file)"
+		filecontent=$(base64 -w 0 $file)
 ```
 
 to (change the flag from `-w` to `-b`)
 
 ```
-		echo -n "$(base64 -b 0 $file)"
+		filecontent=$(base64 -b 0 $file)
 ```
 
 GNU coreutils' `base64` seems to differ to Apple's `base64` in this flag (which prevents line wrapping).
