@@ -24,7 +24,7 @@ If you don&amp;rsquo;t want to install gulp and/or just downloaded pdfMake and w
       <guid>https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/</guid>
       <description>For a complete description of use custom fonts in client-side, read the article: Custom fonts (client-side) &amp;gt; via Virtual file system (VFS)
 If you don&amp;rsquo;t want to install gulp and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the vfs_fonts.js with an bash-script as well:
-#!/bin/sh  if [ -t 1 ]; then target=&amp;#34;vfs_fonts.js&amp;#34; else target=&amp;#34;/dev/stdout&amp;#34; fi ( echo -n &amp;#34;this.pdfMake = this.pdfMake || {}; this.</description>
+#!/bin/sh  if [ -t 1 ]; then target=&amp;#34;vfs_fonts.js&amp;#34; else target=&amp;#34;/dev/stdout&amp;#34; fi ( echo &amp;#34;this.pdfMake = this.pdfMake || {}; this.</description>
     </item>
     
     <item>
@@ -204,6 +204,7 @@ var docDefinition = { content: [ { // you&amp;#39;ll most often use dataURI imag
       
       <guid>https://pdfmake.github.io/docs/0.1/document-definition-object/svgs/</guid>
       <description>Minimal version: 0.1.59SVGs are much like images except it is not currently possible to refer to SVGs by file or re-use from a dictionary.
+Library SVG-to-PDFKit is used to transformation from SVG to PDF document.
 var docDefinition = { content: [ { // If no width/height/fit is used, then dimensions from the svg element is used.  svg: &amp;#39;&amp;lt;svg width=&amp;#34;300&amp;#34; height=&amp;#34;200&amp;#34; viewBox=&amp;#34;0 0 300 200&amp;#34;&amp;gt;...&amp;lt;/svg&amp;gt;&amp;#39; }, { // if you specify width, svg will scale proportionally  svg: &amp;#39;&amp;lt;svg width=&amp;#34;300&amp;#34; height=&amp;#34;200&amp;#34; viewBox=&amp;#34;0 0 300 200&amp;#34;&amp;gt;.</description>
     </item>
     

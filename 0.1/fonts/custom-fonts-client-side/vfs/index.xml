@@ -24,7 +24,7 @@ If you don&amp;rsquo;t want to install gulp and/or just downloaded pdfMake and w
       <guid>https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/</guid>
       <description>For a complete description of use custom fonts in client-side, read the article: Custom fonts (client-side) &amp;gt; via Virtual file system (VFS)
 If you don&amp;rsquo;t want to install gulp and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the vfs_fonts.js with an bash-script as well:
-#!/bin/sh  if [ -t 1 ]; then target=&amp;#34;vfs_fonts.js&amp;#34; else target=&amp;#34;/dev/stdout&amp;#34; fi ( echo -n &amp;#34;this.pdfMake = this.pdfMake || {}; this.</description>
+#!/bin/sh  if [ -t 1 ]; then target=&amp;#34;vfs_fonts.js&amp;#34; else target=&amp;#34;/dev/stdout&amp;#34; fi ( echo &amp;#34;this.pdfMake = this.pdfMake || {}; this.</description>
     </item>
     
   </channel>

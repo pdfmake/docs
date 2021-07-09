@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-07-06T12:35:17 CEST">
+<meta name="revised" content="2021-07-09T07:37:30 CEST">
 <title>Building font file via shell script :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.1/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.1/css/nucleus.css" rel="stylesheet">
@@ -420,27 +420,25 @@
 <span style="color:#00a8c8">fi</span>
 
 <span style="color:#f92672">(</span>
-	<span style="color:#111">echo</span> -n <span style="color:#d88200">&#34;this.pdfMake = this.pdfMake || {}; this.pdfMake.vfs = {&#34;</span>
+	<span style="color:#111">echo</span> <span style="color:#d88200">&#34;this.pdfMake = this.pdfMake || {}; this.pdfMake.vfs = {&#34;</span>
 	<span style="color:#00a8c8">for</span> file in <span style="color:#d88200">&#34;</span><span style="color:#111">$@</span><span style="color:#d88200">&#34;</span><span style="color:#111">;</span> <span style="color:#00a8c8">do</span>
 		<span style="color:#111">file</span><span style="color:#f92672">=</span><span style="color:#111">$1</span>
+		<span style="color:#111">filename</span><span style="color:#f92672">=</span><span style="color:#00a8c8">$(</span>basename <span style="color:#111">$file</span><span style="color:#00a8c8">)</span>
+		<span style="color:#111">filecontent</span><span style="color:#f92672">=</span><span style="color:#00a8c8">$(</span>base64 -w <span style="color:#ae81ff">0</span> <span style="color:#111">$file</span><span style="color:#00a8c8">)</span>
 		<span style="color:#111">shift</span>
-		<span style="color:#111">echo</span> -n <span style="color:#d88200">&#39;&#34;&#39;</span>
-		<span style="color:#111">echo</span> -n <span style="color:#d88200">&#34;</span><span style="color:#00a8c8">$(</span>basename <span style="color:#111">$file</span><span style="color:#00a8c8">)</span><span style="color:#d88200">&#34;</span>
-		<span style="color:#111">echo</span> -n <span style="color:#d88200">&#39;&#34;:&#34;&#39;</span>
-		<span style="color:#111">echo</span> -n <span style="color:#d88200">&#34;</span><span style="color:#00a8c8">$(</span>base64 -w <span style="color:#ae81ff">0</span> <span style="color:#111">$file</span><span style="color:#00a8c8">)</span><span style="color:#d88200">&#34;</span>
-		<span style="color:#111">echo</span> -n <span style="color:#d88200">&#39;&#34;&#39;</span>
+		<span style="color:#111">echo</span> <span style="color:#d88200">&#34;\&#34;</span><span style="color:#d88200">${</span><span style="color:#111">filename</span><span style="color:#d88200">}</span><span style="color:#d88200">\&#34;:\&#34;</span><span style="color:#d88200">${</span><span style="color:#111">filecontent</span><span style="color:#d88200">}</span><span style="color:#d88200">\&#34;&#34;</span>
 		<span style="color:#00a8c8">if</span> <span style="color:#f92672">[</span> <span style="color:#d88200">&#34;</span><span style="color:#111">$#</span><span style="color:#d88200">&#34;</span> -gt <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span><span style="color:#111">;</span> <span style="color:#00a8c8">then</span>
-			<span style="color:#111">echo</span> -n <span style="color:#d88200">&#34;,&#34;</span>
+			<span style="color:#111">echo</span> <span style="color:#d88200">&#34;,&#34;</span>
 		<span style="color:#00a8c8">fi</span>
 	<span style="color:#00a8c8">done</span>
-	<span style="color:#111">echo</span> -n <span style="color:#d88200">&#34;};&#34;</span>
+	<span style="color:#111">echo</span> <span style="color:#d88200">&#34;};&#34;</span>
 <span style="color:#f92672">)</span> &gt; <span style="color:#d88200">&#34;</span><span style="color:#111">$target</span><span style="color:#d88200">&#34;</span>
 </code></pre></div><p>How to use script:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">script.sh font1.ttf font2.ttf font3.ttf
 </code></pre></div><p>If you are using a mac you need to change this line</p>
-<pre><code>		echo -n &quot;$(base64 -w 0 $file)&quot;
+<pre><code>		filecontent=$(base64 -w 0 $file)
 </code></pre><p>to (change the flag from <code>-w</code> to <code>-b</code>)</p>
-<pre><code>		echo -n &quot;$(base64 -b 0 $file)&quot;
+<pre><code>		filecontent=$(base64 -b 0 $file)
 </code></pre><p>GNU coreutils' <code>base64</code> seems to differ to Apple&rsquo;s <code>base64</code> in this flag (which prevents line wrapping).</p>
 
 
