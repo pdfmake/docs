@@ -71,7 +71,7 @@ If you really need it, you can build with standard fonts by `gulp buildWithStand
 git clone --branch 0.2 https://github.com/bpampuch/pdfmake.git
 cd pdfmake
 npm install
-gulp buildWithStandardFonts
+npm run build:browser-standard-fonts
 ```
 
 or for version 0.1.x:
