@@ -46,6 +46,7 @@ PDF document generation library for server-side and client-side usage in pure Ja
 * support for complex, multi-level (nested) structures
 * table of contents
 * setting of PDF metadata _(e.g. author, subject)_
+* tiling patterns
 
 ##### client-side helper methods
 
