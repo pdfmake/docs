@@ -5,6 +5,8 @@ weight = 295
 alwaysopen = true
 +++
 
+{{% alert theme="warning" %}}Minimal version: **0.2.3**{{% /alert %}}
+
 Patterns can be defined as a dictionary of predefined patterns in the document definition.
 
 Only tiling patterns are supported.
