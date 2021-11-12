@@ -174,6 +174,18 @@ var docDefinition = { info: { title: &amp;#39;awesome Document&amp;#39;, author:
     </item>
     
     <item>
+      <title>Patterns</title>
+      <link>https://pdfmake.github.io/docs/0.1/document-definition-object/patterns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pdfmake.github.io/docs/0.1/document-definition-object/patterns/</guid>
+      <description>Minimal version: 0.2.3Patterns can be defined as a dictionary of predefined patterns in the document definition.
+Only tiling patterns are supported.
+Pattern definition Each pattern is defined using:
+ boundingBox - bounding box used to clip the pattern cell xStep - horizontal spacing between cells yStep - vertical spacing between cells pattern - a PDF stream of operations that render the graphics/text of the cell  For more information on each property and patterns in general see the PDF reference, section 4.</description>
+    </item>
+    
+    <item>
       <title>Compression</title>
       <link>https://pdfmake.github.io/docs/0.1/document-definition-object/compression/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
