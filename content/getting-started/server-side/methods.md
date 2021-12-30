@@ -16,4 +16,4 @@ pdfMake.createPdf(docDefinition).write(filename).then(() => {
 Parameters:
 
 * `filename` - PDF document file name
-* `options` _(optional)_ - advanced options see [options chapter](/docs/0.2/options/)
+* `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)

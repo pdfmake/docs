@@ -20,7 +20,7 @@ hugo server
 
 and open in browser:
 ```
-http://localhost:1313/docs/0.2/
+http://localhost:1313/docs/0.3/
 ```
 
 #### Deploy webpages

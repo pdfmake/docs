@@ -8,7 +8,7 @@ alwaysopen = true
 To begin in browser with the default configuration, you should include two files:
 
 * **pdfmake.min.js**,
-* **vfs_fonts.js** - default font definition (it contains Roboto, you can however [use custom fonts instead](/docs/0.2/fonts/custom-fonts-client-side/))
+* **vfs_fonts.js** - default font definition (it contains Roboto, you can however [use custom fonts instead](/docs/0.3/fonts/custom-fonts-client-side/))
 
 ```html
 <!doctype html>
@@ -82,4 +82,4 @@ exclude: [ /node_modules/, /pdfmake.js$/ ]
 
 #### Repository
 
-Copy them directly from the build directory from the repository. Otherwise you can always [build it version 0.2.x from sources](https://github.com/bpampuch/pdfmake#building-from-sources).
+Copy them directly from the build directory from the repository. Otherwise you can always [build it version 0.3.x from sources](https://github.com/bpampuch/pdfmake#building-from-sources).

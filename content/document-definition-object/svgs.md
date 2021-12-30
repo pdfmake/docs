@@ -5,7 +5,7 @@ weight = 29
 alwaysopen = true
 +++
 
-SVGs are much like [images](/docs/0.2/document-definition-object/images/) except it is not currently possible to refer to SVGs by file or re-use from a dictionary.
+SVGs are much like [images](/docs/0.3/document-definition-object/images/) except it is not currently possible to refer to SVGs by file or re-use from a dictionary.
 
 Library [SVG-to-PDFKit](https://github.com/alafr/SVG-to-PDFKit) is used to transformation from SVG to PDF document.
 

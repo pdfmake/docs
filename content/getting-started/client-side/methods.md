@@ -14,7 +14,7 @@ pdfMake.createPdf(docDefinition, options).download();
 Parameters:
 
 * `filename` _(optional)_ - PDF document file name (default 'file.pdf')
-* `options` _(optional)_ - advanced options see [options chapter](/docs/0.2/options/)
+* `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)
 
 #### Open the PDF in a new window
 ```js
@@ -25,9 +25,9 @@ pdfMake.createPdf(docDefinition, options).open();
 Parameters:
 
 * `win` _(optional)_ - window (when an asynchronous operation)
-* `options` _(optional)_ - advanced options see [options chapter](/docs/0.2/options/)
+* `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)
 
-Name can be defined only by using metadata `title` property (see [Document metadata](/docs/0.2/document-definition-object/document-medatadata/)).
+Name can be defined only by using metadata `title` property (see [Document metadata](/docs/0.3/document-definition-object/document-medatadata/)).
 
 Asynchronous example:
 ```js
@@ -55,7 +55,7 @@ pdfMake.createPdf(docDefinition, options).print();
 Parameters:
 
 * `win` _(optional)_ - window (when an asynchronous operation)
-* `options` _(optional)_ - advanced options see [options chapter](/docs/0.2/options/)
+* `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)
 
 Asynchronous example:
 ```js
@@ -89,7 +89,7 @@ pdfMake.createPdf(docDefinition).getDataUrl()
 ```
 Parameters:
 
-* `options` _(optional)_ - advanced options see [options chapter](/docs/0.2/options/)
+* `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)
 
 #### Get the PDF as base64 data
 ```js
@@ -103,7 +103,7 @@ pdfMake.createPdf(docDefinition, options).getBase64()
 ```
 Parameters:
 
-* `options` _(optional)_ - advanced options see [options chapter](/docs/0.2/options/)
+* `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)
 
 #### Get the PDF as buffer
 ```js
@@ -115,7 +115,7 @@ pdfMake.createPdf(docDefinition).getBuffer().then((buffer) => {
 ```
 Parameters:
 
-* `options` _(optional)_ - advanced options see [options chapter](/docs/0.2/options/)
+* `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)
 
 #### Get the PDF as Blob
 ```js
@@ -127,7 +127,7 @@ pdfMake.createPdf(docDefinition).getBlob().then((blob) => {
 ```
 Parameters:
 
-* `options` _(optional)_ - advanced options see [options chapter](/docs/0.2/options/)
+* `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)
 
 #### Get document object as stream
 

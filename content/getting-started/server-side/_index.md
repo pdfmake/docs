@@ -42,4 +42,4 @@ pdfDoc.end();
 Parameters for `createPdfKitDocument`:
 
 * `docDefinition` - object with document definition
-* `options` _(optional)_ - advanced options see [options chapter](/docs/0.2/options/)
+* `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)
