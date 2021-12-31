@@ -18,7 +18,7 @@ When you run command `node build-vfs.js "./examples/fonts"` in the pdfmake packa
 To use custom fonts, 3 steps are required:
 
 1. create a new `vfs_fonts.js` file containing your font files
-1. assign `pdfMake.fonts` in your javascript
+1. assign `pdfMake.addFonts(...)` in your javascript
 1. specify the font in your doc-definition
 
 
@@ -40,9 +40,9 @@ Other ways:
 * [Building font file via shell script](/docs/0.3/fonts/custom-fonts-client-side/vfs/shell/)
 * [Building font file via PHP script](/docs/0.3/fonts/custom-fonts-client-side/vfs/php/)
 
-## 2. assign `pdfMake.fonts` in your javascript
+## 2. assign `pdfMake.addFonts(...)` in your javascript
 
-In your code, before calling `pdfMake.createPdf(docDefinition)` set `pdfMake.fonts` as in the example below (notice we don't specify paths, just filenames):
+In your code, before calling `pdfMake.createPdf(docDefinition)` set `pdfMake.addFonts(...)` as in the example below (notice we don't specify paths, just filenames):
 
 ```javascript
 pdfMake.fonts = {
@@ -71,25 +71,14 @@ Each font-family defines 4 properties: normal, bold, italics and bolditalics ref
 By default pdfmake uses the following font structure:
 
 ```javascript
-pdfMake.fonts = {
+pdfMake.addFonts({
   Roboto: {
     normal: 'Roboto-Regular.ttf',
     bold: 'Roboto-Medium.ttf',
     italics: 'Roboto-Italic.ttf',
     bolditalics: 'Roboto-MediumItalic.ttf'
   }
-};
-```
-
-Alternatively, instead of changing the global value, you can pass the `fonts` object directly to `createPdf`:
-
-```javascript
-pdfMake.createPdf(docDefinition, null, fonts)
-
-// The full signature of createPdf looks like this.
-// tableLayouts, fonts and vfs are all optional - falsy values will cause
-// pdfMake.tableLayouts, pdfMake.fonts or pdfMake.vfs to be used.
-pdfMake.createPdf(docDefinition, tableLayouts, fonts, vfs)
+});
 ```
 
 ## 3. specify the font in your doc-definition
