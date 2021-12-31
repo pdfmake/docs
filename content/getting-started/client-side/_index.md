@@ -29,12 +29,6 @@ To begin in browser with the default configuration, you should include two files
 
 https://cdnjs.com/libraries/pdfmake
 
-#### bower (deprecated)
-
-```
-bower install pdfmake
-```
-
 #### npm
 
 ```
