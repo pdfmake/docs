@@ -11,7 +11,7 @@ alwaysopen = true
 
 pdfmake uses a 2nd file: `vfs_fonts.js` for fonts (and other files) you wish to embed into your generated PDFs.
 
-When you run command `node build-vfs.js "./examples/fonts"` in the pdfmake package directory a new `build/vfs_fonts.js` file is created containing an **embedded copy** of all files from the local `examples/fonts` subdirectory (in a key/value object `pdfMake.vfs`).
+When you run command `node build-vfs.js "./examples/fonts"` in the pdfmake package directory a new `build/vfs_fonts.js` file is created containing an **embedded copy** of all files from the local `examples/fonts` subdirectory.
 
 # Detailed Instructions
 
