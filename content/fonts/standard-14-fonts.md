@@ -40,9 +40,8 @@ var fonts = {
   }
 };
 
-var PdfPrinter = require('pdfmake');
-var printer = new PdfPrinter(fonts);
-var fs = require('fs');
+var pdfmake = require('pdfmake');
+pdfmake.addFonts(fonts);
 
 var docDefinition = {
   content: [
@@ -54,9 +53,12 @@ var docDefinition = {
   }
 };
 
-var pdfDoc = printer.createPdfKitDocument(docDefinition);
-pdfDoc.pipe(fs.createWriteStream('document.pdf'));
-pdfDoc.end();
+var pdf = pdfmake.createPdf(docDefinition);
+pdf.write('pdfs/basics.pdf').then(() => {
+	// success event
+}, err => {
+	console.error(err);
+});
 ```
 
 

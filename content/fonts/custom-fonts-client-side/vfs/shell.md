@@ -20,7 +20,7 @@ else
 fi
 
 (
-	echo "this.pdfMake = this.pdfMake || {}; this.pdfMake.vfs = {"
+	echo "var vfs = "
 	for file in "$@"; do
 		file=$1
 		filename=$(basename $file)
@@ -31,7 +31,8 @@ fi
 			echo ","
 		fi
 	done
-	echo "};"
+	echo "}"
+	echo "; var _global = typeof window === 'object' ? window : typeof global === 'object' ? global : typeof self === 'object' ? self : this; if (typeof _global.pdfMake !== 'undefined' && typeof _global.pdfMake.addVirtualFileSystem !== 'undefined') { _global.pdfMake.addVirtualFileSystem(vfs); } if (typeof module !== 'undefined') { module.exports = vfs; }"
 ) > "$target"
 ```
 

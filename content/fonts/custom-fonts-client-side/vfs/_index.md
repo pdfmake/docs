@@ -11,11 +11,7 @@ alwaysopen = true
 
 pdfmake uses a 2nd file: `vfs_fonts.js` for fonts (and other files) you wish to embed into your generated PDFs.
 
-When you run
-```
-gulp buildFonts
-```
-in the pdfmake source directory. A new ```build/vfs_fonts.js``` file is created containing an **embedded copy** of all files from the local ```examples/fonts``` subdirectory (in a key/value object `pdfMake.vfs`).
+When you run command `node build-vfs.js "./examples/fonts"` in the pdfmake package directory a new `build/vfs_fonts.js` file is created containing an **embedded copy** of all files from the local `examples/fonts` subdirectory (in a key/value object `pdfMake.vfs`).
 
 # Detailed Instructions
 
@@ -28,17 +24,14 @@ To use custom fonts, 3 steps are required:
 
 ## 1. create a new `vfs_fonts.js` containing your font files
 
-* Create the ```examples/fonts``` subdirectory in your pdfMake code directory, if it doesn't already exist.
-
-* Copy your fonts (and other files you wish to embed) into the ```examples/fonts``` subdirectory.
-
-* Run ```npm install``` from the pdfmake source directory (how to download repository see [here](/docs/0.3/getting-started/client-side/#repository)) to ensure all prerequisites modules are installed.
-
-* Run ```gulp buildFonts``` to  create a new ```build/vfs_fonts.js``` (you can update `gulpfile.js` to change the base directory path or to add an alternative config for the `buildFonts` task).
-
+* Install pdfmake `npm install pdfmake`
+* Go to package directory `./node_modules/pdfmake/`
+* Create the `examples/fonts` subdirectory in your pdfmake code directory, if it doesn't already exist.
+* Copy your fonts (and other files you wish to embed) into the `examples/fonts` subdirectory.
+* Run command `node build-vfs.js "./examples/fonts"`. Or run `node build-vfs.js` to show help.
 * Include your new **build/vfs_fonts.js** file in your code (in the same way you include `pdfmake.js` or `pdfmake.min.js`).
 
-The above `buildFonts` action embeds **all** files from ```examples/fonts``` (into a local key/value variable `pdfMake.vfs`) - not only fonts. Which means you could put images in there, run ```gulp buildFonts```, and reference them by filename in your doc-definition object.
+The above steps embeds **all** files from `examples/fonts` (into a local key/value variable `pdfMake.vfs`) - not only fonts. Which means you could put images in there, run `node build-vfs.js "./examples/fonts`, and reference them by filename in your doc-definition object.
 
 You don't need to reference the files in ```examples/fonts``` anymore because all files have been copied to the `vfs_fonts.js`.
 
@@ -53,38 +46,38 @@ In your code, before calling `pdfMake.createPdf(docDefinition)` set `pdfMake.fon
 
 ```javascript
 pdfMake.fonts = {
-   yourFontName: {
-     normal: 'fontFile.ttf',
-     bold: 'fontFile2.ttf',
-     italics: 'fontFile3.ttf',
-     bolditalics: 'fontFile4.ttf'
-   },
-   anotherFontName: {
-     (...)
-   },
+  yourFontName: {
+    normal: 'fontFile.ttf',
+    bold: 'fontFile2.ttf',
+    italics: 'fontFile3.ttf',
+    bolditalics: 'fontFile4.ttf'
+  },
+  anotherFontName: {
+    (...)
+  },
 
-   // example of usage fonts in collection
-   PingFangSC: {
-     normal: ['pingfang.ttc', 'PingFangSC-Regular'],
-     bold: ['pingfang.ttc', 'PingFangSC-Semibold'],
-   }
+  // example of usage fonts in collection
+  PingFangSC: {
+    normal: ['pingfang.ttc', 'PingFangSC-Regular'],
+    bold: ['pingfang.ttc', 'PingFangSC-Semibold'],
+  }
 }
 ```
 
 The keys defined here will be used as font names in your doc-definition styles.
 
-Each font-family defines 4 properties: normal, bold, italics and bolditalics referring to appropriate files (the ones you embedded from examples/fonts/). You should define all 4 components (even if they all point to the same font file).
+Each font-family defines 4 properties: normal, bold, italics and bolditalics referring to appropriate files (the ones you embedded from `examples/fonts/`). You should define all 4 components (even if they all point to the same font file).
 
-By default pdfMake uses the following font structure:
+By default pdfmake uses the following font structure:
 
 ```javascript
 pdfMake.fonts = {
-        Roboto: {
-                normal: 'Roboto-Regular.ttf',
-                bold: 'Roboto-Medium.ttf',
-                italics: 'Roboto-Italic.ttf',
-                bolditalics: 'Roboto-MediumItalic.ttf'
-        }
+  Roboto: {
+    normal: 'Roboto-Regular.ttf',
+    bold: 'Roboto-Medium.ttf',
+    italics: 'Roboto-Italic.ttf',
+    bolditalics: 'Roboto-MediumItalic.ttf'
+  }
 };
 ```
 
