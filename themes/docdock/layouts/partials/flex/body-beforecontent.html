@@ -32,16 +32,16 @@
       {{- partialCached "menu.html" . }}
 
     </ul>
-    
+
     {{- partial "language-selector.html" . }}
     <section>
         {{- partial "menu-footer.html" . }}
     </section>
   </aside>
   <section class="page">
-    
+
     <div class="nav-select">
-      <center>Navigation : 
+      <center>Navigation :
         <select onchange="javascript:location.href = this.value;">
           {{partial "flex/selectnavigation.html" .}}
         </select>
@@ -55,7 +55,9 @@
         </div>
       </div>
     {{- end}}
-    
+
 
     {{if not .IsHome}}<h1>{{.Title}}</h1>{{end}}
+
     <div class="alert alert-warning" role="alert"><strong>Version 0.3 is under development. Do not use in a production.</strong></div>
+    <div class="alert alert-warning" role="alert"><strong>Documentation is under development.</strong></div>
