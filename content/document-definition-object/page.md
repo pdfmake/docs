@@ -71,8 +71,12 @@ var dd = {
        {text: '3 Headline', headlineLevel: 1},
        'Some long text of variable length ...',
     ],
-  pageBreakBefore: function(currentNode, followingNodesOnPage, nodesOnNextPage, previousNodesOnPage) {
-     return currentNode.headlineLevel === 1 && followingNodesOnPage.length === 0;
+  pageBreakBefore: function(currentNode, nodeContainer) {
+    // nodeContainer.getFollowingNodesOnPage();
+    // nodeContainer.getNodesOnNextPage();
+    // nodeContainer.getPreviousNodesOnPage();
+
+    return currentNode.headlineLevel === 1 && nodeContainer.getFollowingNodesOnPage().length === 0;
   }
 }
 ```
