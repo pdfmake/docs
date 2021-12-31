@@ -7,7 +7,7 @@ alwaysopen = true
 
 On server-side you can simply install via npm:
 ```
-npm install pdfmake
+npm install pdfmake@0.3.0-beta.1
 ```
 
 #### Example of usage:
@@ -22,9 +22,8 @@ var fonts = {
   }
 };
 
-var PdfPrinter = require('pdfmake');
-var printer = new PdfPrinter(fonts);
-var fs = require('fs');
+var pdfmake = require('pdfmake');
+pdfmake.addFonts(fonts);
 
 var docDefinition = {
   // ...
@@ -34,9 +33,13 @@ var options = {
   // ...
 }
 
-var pdfDoc = printer.createPdfKitDocument(docDefinition, options);
-pdfDoc.pipe(fs.createWriteStream('document.pdf'));
-pdfDoc.end();
+var pdf = pdfmake.createPdf(docDefinition);
+pdf.write('document.pdf').then(() => {
+  // success event
+}, err => {
+  // error event
+  console.error(err);
+});
  ```
 
 Parameters for `createPdfKitDocument`:

@@ -32,7 +32,7 @@ https://cdnjs.com/libraries/pdfmake
 #### npm
 
 ```
-npm install pdfmake
+npm install pdfmake@0.3.0-beta.1
 ```
 
 Files for client-side is available here:
@@ -45,7 +45,7 @@ Using javascript frameworks:
 ```js
 var pdfMake = require('pdfmake/build/pdfmake.js');
 var pdfFonts = require('pdfmake/build/vfs_fonts.js');
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+pdfMake.addVirtualFileSystem(pdfFonts);
 ```
 
 or
@@ -53,7 +53,7 @@ or
 ```js
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+pdfMake.addVirtualFileSystem(pdfFonts);
 ```
 
 TypeScript:
@@ -62,7 +62,7 @@ TypeScript:
 import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 
-(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
+(<any>pdfMake).addVirtualFileSystem(pdfFonts);
 ```
 
 For Ionic and Angular see [issue](https://github.com/bpampuch/pdfmake/issues/1030).
