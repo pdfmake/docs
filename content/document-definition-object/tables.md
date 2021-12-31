@@ -50,7 +50,8 @@ Available table layouts:
 
 Own table layouts must be defined before calling `pdfMake.createPdf(docDefinition)`.
 ```js
-pdfMake.tableLayouts = {
+// define table layouts
+var tableLayouts = {
   exampleLayout: {
     hLineWidth: function (i, node) {
       if (i === 0 || i === node.table.body.length) {
@@ -73,28 +74,19 @@ pdfMake.tableLayouts = {
   }
 };
 
+// add table layouts
+pdfMake.addTableLayouts(tableLayouts);
+
 // download the PDF
 pdfMake.createPdf(docDefinition).download();
 ```
 
-Alternatively, you can pass the tableLayouts directly to `createPdf` without changing the global value:
-
-- On the client side:
-
-```js
-pdfMake.createPdf(docDefinition, tableLayouts).download();
-
-// The full signature of createPdf looks like this.
-// tableLayouts, fonts and vfs are all optional - falsy values will cause
-// pdfMake.tableLayouts, pdfMake.fonts or pdfMake.vfs to be used.
-pdfMake.createPdf(docDefinition, tableLayouts, fonts, vfs)
-```
 
 - On the server side:
 
 ```js
-var PdfPrinter = require('pdfmake');
-var printer = new PdfPrinter(fonts);
+var pdfmake = require('pdfmake');
+pdfmake.addFonts(fonts);
 
 // Declaring your layout
 var myTableLayouts = {
@@ -106,11 +98,15 @@ var myTableLayouts = {
 };
 
 // Building the PDF
-var pdfDoc = printer.createPdfKitDocument(docDefinition, {tableLayouts: myTableLayouts});
+var pdf = pdfmake.createPdf(docDefinition);
 
 // Writing it to disk
-pdfDoc.pipe(fs.createWriteStream('document.pdf'));
-pdfDoc.end();
+pdf.write('document.pdf').then(() => {
+	// success event
+}, err => {
+  // error event
+	console.error(err);
+});
 ```
 
 All concepts related to tables are covered by TABLES example in [playground](http://pdfmake.org/playground.html).
