@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>pdfmake</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2022-01-01T10:36:47 CET">
+<title>Standard 14 fonts :: pdfmake</title>
+<link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
+<link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
+<link href="/docs/0.3/css/font-awesome.min.css" rel="stylesheet">
+<link href="/docs/0.3/css/featherlight.min.css" rel="stylesheet">
+<link href="/docs/0.3/css/auto-complete.css" rel="stylesheet">
+<link href="/docs/0.3/theme-flex/style.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/docs/0.3/css/bootstrap.min.css">
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/docs/0.3/fonts/standard-14-fonts/">
+    
+      <header>
+  <div class="logo">
+    
+	
+  
+    <a class="baselink" href="https://pdfmake.github.io/docs/0.3/">pdfmake</a>
+  
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="http://pdfmake.org/playground.html"  rel="noopener">
+                  <i class='fa fa-play'></i> <label>Playground</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="http://pdfmake.org"  rel="noopener">
+                  <i class='fa fa-home'></i> <label>pdfmake.org</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/bpampuch/pdfmake"  rel="noopener">
+                  <i class='fa fa-github'></i> <label>Github repo</label>
+                </a>
+            </li>
+    </nav>
+</header>
+<article>
+  <aside>
+
+    <div>Version: <b>0.3.x</b> <a href="/docs/"><u>(change)</u></a></div>
+
+    <ul class="menu">
+          <li data-nav-id="/docs/0.3/" class="dd-item">
+          <a href="/docs/0.3/">
+            <i class="fa fa-fw fa-home"></i>
+          </a>
+          </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.3/migration-from-0.1/" class="dd-item alwaysopen
+        ">
+      <div>
+      <a href="/docs/0.3/migration-from-0.1/">Migration from 0.1/0.2</a>
+      </div>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.3/getting-started/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.3/getting-started/">Getting started</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.3/getting-started/client-side/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.3/getting-started/client-side/">Client-side</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/getting-started/client-side/methods/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/getting-started/client-side/methods/">
+            Methods
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/getting-started/client-side/supported-browsers/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/getting-started/client-side/supported-browsers/">
+            Supported browsers
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/getting-started/client-side/examples/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/getting-started/client-side/examples/">
+            Examples
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.3/getting-started/server-side/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.3/getting-started/server-side/">Server-side</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/getting-started/server-side/supported-nodejs-versions/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/getting-started/server-side/supported-nodejs-versions/">
+            Supported Node.js versions
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/getting-started/server-side/methods/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/getting-started/server-side/methods/">
+            Methods
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/getting-started/server-side/examples/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/getting-started/server-side/examples/">
+            Examples
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.3/fonts/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.3/fonts/">Fonts</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.3/fonts/custom-fonts-client-side/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.3/fonts/custom-fonts-client-side/">Custom fonts (client-side)</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.3/fonts/custom-fonts-client-side/vfs/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.3/fonts/custom-fonts-client-side/vfs/">via Virtual file system (VFS)</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/fonts/custom-fonts-client-side/vfs/php/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/fonts/custom-fonts-client-side/vfs/php/">
+            Building font file via PHP script
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/fonts/custom-fonts-client-side/vfs/shell/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/fonts/custom-fonts-client-side/vfs/shell/">
+            Building font file via shell script
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.3/fonts/custom-fonts-client-side/url/" class="dd-item alwaysopen
+        ">
+      <div>
+      <a href="/docs/0.3/fonts/custom-fonts-client-side/url/">via URL protocol</a>
+      </div>
+    </li>
+        </ul>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/fonts/icons/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/fonts/icons/">
+            Icons
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/fonts/standard-14-fonts/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/fonts/standard-14-fonts/">
+            Standard 14 fonts
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/docs/0.3/document-definition-object/">Document-definition-object</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/styling/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/styling/">
+            Styling
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/columns/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/columns/">
+            Columns
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/tables/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/tables/">
+            Tables
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/lists/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/lists/">
+            Lists
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/headers-footers/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/headers-footers/">
+            Headers and footers
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/background-layer/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/background-layer/">
+            Background-layer
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/margins/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/margins/">
+            Margins
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/stack/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/stack/">
+            Stack of paragraphs
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/images/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/images/">
+            Images
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/svgs/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/svgs/">
+            SVGs
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/links/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/links/">
+            Links
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/qr/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/qr/">
+            QR code
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/toc/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/toc/">
+            Table of contents
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/watermark/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/watermark/">
+            Watermark
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/page/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/page/">
+            Page dimensions, orientation and margins
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/document-medatadata/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/document-medatadata/">
+            Document Metadata
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/patterns/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/patterns/">
+            Patterns
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/compression/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/compression/">
+            Compression
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/security/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/security/">
+            Encryption and access privileges
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="https://pdfmake.github.io/docs/0.3/options/" class="dd-item alwaysopen
+        ">
+      <div>
+      <a href="/docs/0.3/options/">Options</a>
+      </div>
+    </li>
+
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+
+    <div class="nav-select">
+      <center>Navigation :
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/docs/0.3/migration-from-0.1/" >
+   Migration from 0.1/0.2</option> 
+  
+    <option value="/docs/0.3/getting-started/" >
+   Getting started</option> 
+    <option value="/docs/0.3/getting-started/client-side/" >
+  - 
+   Client-side</option> 
+      <option value="/docs/0.3/getting-started/client-side/methods/" >-- Methods</option>
+      <option value="/docs/0.3/getting-started/client-side/supported-browsers/" >-- Supported browsers</option>
+      <option value="/docs/0.3/getting-started/client-side/examples/" >-- Examples</option>
+  
+    <option value="/docs/0.3/getting-started/server-side/" >
+  - 
+   Server-side</option> 
+      <option value="/docs/0.3/getting-started/server-side/supported-nodejs-versions/" >-- Supported Node.js versions</option>
+      <option value="/docs/0.3/getting-started/server-side/methods/" >-- Methods</option>
+      <option value="/docs/0.3/getting-started/server-side/examples/" >-- Examples</option>
+  
+  
+    <option value="/docs/0.3/fonts/" >
+   Fonts</option> 
+    <option value="/docs/0.3/fonts/custom-fonts-client-side/" >
+  - 
+   Custom fonts (client-side)</option> 
+    <option value="/docs/0.3/fonts/custom-fonts-client-side/vfs/" >
+  -- 
+   via Virtual file system (VFS)</option> 
+      <option value="/docs/0.3/fonts/custom-fonts-client-side/vfs/php/" >--- Building font file via PHP script</option>
+      <option value="/docs/0.3/fonts/custom-fonts-client-side/vfs/shell/" >--- Building font file via shell script</option>
+  
+    <option value="/docs/0.3/fonts/custom-fonts-client-side/url/" >
+  -- 
+   via URL protocol</option> 
+  
+  
+      <option value="/docs/0.3/fonts/icons/" >- Icons</option>
+      <option value="/docs/0.3/fonts/standard-14-fonts/"  selected>- Standard 14 fonts</option>
+  
+    <option value="/docs/0.3/document-definition-object/" >
+   Document-definition-object</option> 
+      <option value="/docs/0.3/document-definition-object/styling/" >- Styling</option>
+      <option value="/docs/0.3/document-definition-object/columns/" >- Columns</option>
+      <option value="/docs/0.3/document-definition-object/tables/" >- Tables</option>
+      <option value="/docs/0.3/document-definition-object/lists/" >- Lists</option>
+      <option value="/docs/0.3/document-definition-object/headers-footers/" >- Headers and footers</option>
+      <option value="/docs/0.3/document-definition-object/background-layer/" >- Background-layer</option>
+      <option value="/docs/0.3/document-definition-object/margins/" >- Margins</option>
+      <option value="/docs/0.3/document-definition-object/stack/" >- Stack of paragraphs</option>
+      <option value="/docs/0.3/document-definition-object/images/" >- Images</option>
+      <option value="/docs/0.3/document-definition-object/svgs/" >- SVGs</option>
+      <option value="/docs/0.3/document-definition-object/links/" >- Links</option>
+      <option value="/docs/0.3/document-definition-object/qr/" >- QR code</option>
+      <option value="/docs/0.3/document-definition-object/toc/" >- Table of contents</option>
+      <option value="/docs/0.3/document-definition-object/watermark/" >- Watermark</option>
+      <option value="/docs/0.3/document-definition-object/page/" >- Page dimensions, orientation and margins</option>
+      <option value="/docs/0.3/document-definition-object/document-medatadata/" >- Document Metadata</option>
+      <option value="/docs/0.3/document-definition-object/patterns/" >- Patterns</option>
+      <option value="/docs/0.3/document-definition-object/compression/" >- Compression</option>
+      <option value="/docs/0.3/document-definition-object/security/" >- Encryption and access privileges</option>
+  
+    <option value="/docs/0.3/options/" >
+   Options</option> 
+  
+
+
+
+        </select>
+      </center>
+    </div>
+
+
+    <h1>Standard 14 fonts</h1>
+
+    <div class="alert alert-warning" role="alert"><strong>Version 0.3 is under development. Do not use in a production.</strong></div>
+    <div class="alert alert-warning" role="alert"><strong>Documentation is under development.</strong></div>
+    
+    
+    
+    <p>PDF contains <a href="http://www.enfocus.com/manuals/ReferenceGuide/PS/18/enUS/en-us/common/pse/concept/c_aa1044513.html">standard 14 fonts</a>.</p>
+<p><strong>Attention!</strong> This fonts supports only <strong>ANSI</strong> code page (only english characters)!</p>
+<h2 id="use-in-pdfmake-on-server-side">Use in pdfmake on server-side</h2>
+<p><strong>Example of usage:</strong></p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">fonts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">Courier</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier-Bold&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier-Oblique&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier-BoldOblique&#39;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">Helvetica</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica-Bold&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica-Oblique&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica-BoldOblique&#39;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">Times</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-Roman&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-Bold&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-Italic&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-BoldItalic&#39;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">Symbol</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Symbol&#39;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">ZapfDingbats</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;ZapfDingbats&#39;</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">};</span>
+
+<span style="color:#00a8c8">var</span> <span style="color:#75af00">pdfmake</span> <span style="color:#f92672">=</span> <span style="color:#75af00">require</span><span style="color:#111">(</span><span style="color:#d88200">&#39;pdfmake&#39;</span><span style="color:#111">);</span>
+<span style="color:#75af00">pdfmake</span><span style="color:#111">.</span><span style="color:#75af00">addFonts</span><span style="color:#111">(</span><span style="color:#75af00">fonts</span><span style="color:#111">);</span>
+
+<span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+    <span style="color:#d88200">&#39;First paragraph&#39;</span><span style="color:#111">,</span>
+    <span style="color:#d88200">&#39;Another paragraph, this time a little bit longer to make sure, this line will be divided into at least two lines&#39;</span><span style="color:#111">,</span>
+  <span style="color:#111">],</span>
+  <span style="color:#75af00">defaultStyle</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">font</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica&#39;</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">};</span>
+
+<span style="color:#00a8c8">var</span> <span style="color:#75af00">pdf</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfmake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
+<span style="color:#75af00">pdf</span><span style="color:#111">.</span><span style="color:#75af00">write</span><span style="color:#111">(</span><span style="color:#d88200">&#39;pdfs/basics.pdf&#39;</span><span style="color:#111">).</span><span style="color:#75af00">then</span><span style="color:#111">(()</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+	<span style="color:#75715e">// success event
+</span><span style="color:#75715e"></span><span style="color:#111">},</span> <span style="color:#75af00">err</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+	<span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">error</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">);</span>
+<span style="color:#111">});</span>
+</code></pre></div><h2 id="use-in-pdfmake-on-client-side">Use in pdfmake on client-side</h2>
+<p>Is not supported by default, because this increase size of pdfmake library file about <strong>700 kB</strong>.</p>
+<p>If you really need it, you can build with standard fonts by <code>gulp buildWithStandardFonts</code> command.</p>
+<p><strong>Building with standard fonts from sources:</strong></p>
+<pre><code>git clone https://github.com/bpampuch/pdfmake.git
+cd pdfmake
+npm install
+gulp buildWithStandardFonts
+</code></pre><p><strong>Example of usage:</strong></p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">fonts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">Courier</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier-Bold&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier-Oblique&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier-BoldOblique&#39;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">Helvetica</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica-Bold&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica-Oblique&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica-BoldOblique&#39;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">Times</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-Roman&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-Bold&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-Italic&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-BoldItalic&#39;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">Symbol</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Symbol&#39;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">ZapfDingbats</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;ZapfDingbats&#39;</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">};</span>
+
+<span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+    <span style="color:#d88200">&#39;First paragraph&#39;</span><span style="color:#111">,</span>
+    <span style="color:#d88200">&#39;Another paragraph, this time a little bit longer to make sure, this line will be divided into at least two lines&#39;</span><span style="color:#111">,</span>
+  <span style="color:#111">],</span>
+  <span style="color:#75af00">defaultStyle</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">font</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica&#39;</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">};</span>
+
+<span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">download</span><span style="color:#111">(</span><span style="color:#d88200">&#39;document.pdf&#39;</span><span style="color:#111">);</span>
+</code></pre></div>
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="/docs/0.3/fonts/icons/" title="Icons"> <i class="fa fa-chevron-left"></i><label>Icons</label></a>
+    <a class="nav nav-next" href="/docs/0.3/document-definition-object/" title="Document-definition-object" style="margin-right: 0px;"><label>Document-definition-object</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+    <div class="github-link">
+      <a href="https://github.com/pdfmake/docs/edit/master/content/fonts/standard-14-fonts.md" target="blank"><i class="fa fa-code-fork"></i>
+        Improve this page</a>
+    </div>
+    
+  </div>
+
+
+	<div>
+
+
+  
+    
+  
+
+
+
+	</div>
+</footer>
+
+<script src="/docs/0.3/js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/pdfmake.github.io\/docs\/0.3\/";
+    
+</script>
+<script src="/docs/0.3/js/clipboard.min.js"></script>
+<script src="/docs/0.3/js/featherlight.min.js"></script>
+
+<script type="text/javascript" src="/docs/0.3/js/lunr.min.js"></script>
+<script type="text/javascript" src="/docs/0.3/js/auto-complete.js"></script>
+<script type="text/javascript" src="/docs/0.3/js/search.js"></script>
+<script src="/docs/0.3/theme-flex/script.js"></script>
+
+
+
+
+<script src="https://pdfmake.github.io/docs/0.3/js/scripts.min.js"></script>
+    
+
+    
+    
+
+    
+  </body>
+</html>
