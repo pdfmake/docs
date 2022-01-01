@@ -1,5 +1,5 @@
 +++
-title = "Migration from 0.1"
+title = "Migration from 0.1/0.2"
 description = ""
 weight = 9
 alwaysopen = true
