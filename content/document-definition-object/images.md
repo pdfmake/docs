@@ -45,7 +45,7 @@ var docDefinition = {
       image: 'myImageDictionary/image1.jpg'
     },
     {
-      // in browser is supported loading images via url from reference by name in images
+      // is supported loading images via url from reference by name in images
       image: 'snow'
     },
   ],
@@ -53,7 +53,7 @@ var docDefinition = {
   images: {
     mySuperImage: 'data:image/jpeg;base64,...content...',
 
-    // in browser is supported loading images via url (https or http protocol)
+    // is supported loading images via url (https or http protocol)
     snow: 'https://picsum.photos/seed/picsum/200/300'
   }
 };
