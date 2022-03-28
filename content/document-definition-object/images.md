@@ -48,13 +48,25 @@ var docDefinition = {
       // is supported loading images via url from reference by name in images
       image: 'snow'
     },
+    {
+      image: 'strawberries'
+    },
   ],
 
   images: {
     mySuperImage: 'data:image/jpeg;base64,...content...',
 
     // is supported loading images via url (https or http protocol)
-    snow: 'https://picsum.photos/seed/picsum/200/300'
+    snow: 'https://picsum.photos/seed/picsum/200/300',
+
+    // is supported loding images via url with custom headers
+    strawberries: {
+      url: 'https://picsum.photos/id/1080/367/267'
+      headers: {
+        myheader: '123',
+        myotherheader: 'abc',
+      }
+    }
   }
 };
 ```
