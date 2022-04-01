@@ -311,6 +311,15 @@ To enable encryption set user password in userPassword (string value).</descript
     </item>
     
     <item>
+      <title>Attachments embedding</title>
+      <link>https://pdfmake.github.io/docs/0.3/document-definition-object/attachments/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pdfmake.github.io/docs/0.3/document-definition-object/attachments/</guid>
+      <description>Minimal version: 0.3.0-beta.2pdfmake supports attaching files as annotations as well as embedded files. Embedded files are added in the &amp;ldquo;files&amp;rdquo; dictionary and will show up in supported pdf viewers in their respective attachment panels. File attachments are annotations which link to a file. Any attachment or embedded file must provide at least a &amp;ldquo;src&amp;rdquo;, providing a filename through &amp;ldquo;name&amp;rdquo; is highly recommended. The &amp;ldquo;src&amp;rdquo; of any attachment can be provided in dataURL format (like the following attachment, taken from http://www.</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>https://pdfmake.github.io/docs/0.3/_footer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2022-04-01T16:42:29 CEST">
-<title>Headers and footers :: pdfmake</title>
+<title>Attachments embedding :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
 <link href="/docs/0.3/css/font-awesome.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
 
     
   </head>
-  <body data-url="/docs/0.3/document-definition-object/headers-footers/">
+  <body data-url="/docs/0.3/document-definition-object/attachments/">
     
       <header>
   <div class="logo">
@@ -413,7 +413,7 @@
       <option value="/docs/0.3/document-definition-object/columns/" >- Columns</option>
       <option value="/docs/0.3/document-definition-object/tables/" >- Tables</option>
       <option value="/docs/0.3/document-definition-object/lists/" >- Lists</option>
-      <option value="/docs/0.3/document-definition-object/headers-footers/"  selected>- Headers and footers</option>
+      <option value="/docs/0.3/document-definition-object/headers-footers/" >- Headers and footers</option>
       <option value="/docs/0.3/document-definition-object/background-layer/" >- Background-layer</option>
       <option value="/docs/0.3/document-definition-object/margins/" >- Margins</option>
       <option value="/docs/0.3/document-definition-object/stack/" >- Stack of paragraphs</option>
@@ -428,7 +428,7 @@
       <option value="/docs/0.3/document-definition-object/patterns/" >- Patterns</option>
       <option value="/docs/0.3/document-definition-object/compression/" >- Compression</option>
       <option value="/docs/0.3/document-definition-object/security/" >- Encryption and access privileges</option>
-      <option value="/docs/0.3/document-definition-object/attachments/" >- Attachments embedding</option>
+      <option value="/docs/0.3/document-definition-object/attachments/"  selected>- Attachments embedding</option>
   
     <option value="/docs/0.3/options/" >
    Options</option> 
@@ -441,39 +441,76 @@
     </div>
 
 
-    <h1>Headers and footers</h1>
+    <h1>Attachments embedding</h1>
 
     <div class="alert alert-warning" role="alert"><strong>Version 0.3 is under development. Do not use in a production.</strong></div>
     <div class="alert alert-warning" role="alert"><strong>Documentation is under development.</strong></div>
     
     
     
-    <p>Page headers and footers in pdfmake can be: <em>static</em> or <em>dynamic</em>.</p>
-<p>They use the same syntax:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-  <span style="color:#75af00">header</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;simple text&#39;</span><span style="color:#111">,</span>
+    
+<div class="alert alert-warning" role="alert">Minimal version: <strong>0.3.0-beta.2</strong></div>
 
-  <span style="color:#75af00">footer</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-    <span style="color:#75af00">columns</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
-      <span style="color:#d88200">&#39;Left part&#39;</span><span style="color:#111">,</span>
-      <span style="color:#111">{</span> <span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Right part&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">alignment</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;right&#39;</span> <span style="color:#111">}</span>
-    <span style="color:#111">]</span>
-  <span style="color:#111">},</span>
-
-  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">(...)</span>
-<span style="color:#111">};</span>
-</code></pre></div><p>For dynamically generated content (including page numbers, page count and page size) you can pass a function to the header or footer:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-  <span style="color:#75af00">footer</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">currentPage</span><span style="color:#111">,</span> <span style="color:#75af00">pageCount</span><span style="color:#111">)</span> <span style="color:#111">{</span> <span style="color:#00a8c8">return</span> <span style="color:#75af00">currentPage</span><span style="color:#111">.</span><span style="color:#75af00">toString</span><span style="color:#111">()</span> <span style="color:#f92672">+</span> <span style="color:#d88200">&#39; of &#39;</span> <span style="color:#f92672">+</span> <span style="color:#75af00">pageCount</span><span style="color:#111">;</span> <span style="color:#111">},</span>
-  <span style="color:#75af00">header</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">currentPage</span><span style="color:#111">,</span> <span style="color:#75af00">pageCount</span><span style="color:#111">,</span> <span style="color:#75af00">pageSize</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-    <span style="color:#75715e">// you can apply any logic and return any valid pdfmake element
-</span><span style="color:#75715e"></span>
-    <span style="color:#00a8c8">return</span> <span style="color:#111">[</span>
-      <span style="color:#111">{</span> <span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;simple text&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">alignment</span><span style="color:#f92672">:</span> <span style="color:#111">(</span><span style="color:#75af00">currentPage</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span><span style="color:#111">)</span> <span style="color:#f92672">?</span> <span style="color:#d88200">&#39;left&#39;</span> <span style="color:#f92672">:</span> <span style="color:#d88200">&#39;right&#39;</span> <span style="color:#111">},</span>
-      <span style="color:#111">{</span> <span style="color:#75af00">canvas</span><span style="color:#f92672">:</span> <span style="color:#111">[</span> <span style="color:#111">{</span> <span style="color:#75af00">type</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;rect&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">x</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">170</span><span style="color:#111">,</span> <span style="color:#75af00">y</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">32</span><span style="color:#111">,</span> <span style="color:#75af00">w</span><span style="color:#f92672">:</span> <span style="color:#75af00">pageSize</span><span style="color:#111">.</span><span style="color:#75af00">width</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">170</span><span style="color:#111">,</span> <span style="color:#75af00">h</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">40</span> <span style="color:#111">}</span> <span style="color:#111">]</span> <span style="color:#111">}</span>
-    <span style="color:#111">]</span>
-  <span style="color:#111">},</span>
-  <span style="color:#111">(...)</span>
+<p>pdfmake supports attaching files as annotations as well as embedded files.
+Embedded files are added in the &ldquo;files&rdquo; dictionary and will show up in supported pdf viewers in their respective attachment panels.
+File attachments are annotations which link to a file.
+Any attachment or embedded file must provide at least a &ldquo;src&rdquo;, providing a filename through &ldquo;name&rdquo; is highly recommended.
+The &ldquo;src&rdquo; of any attachment can be provided in dataURL format (like the following attachment, taken from <a href="http://www.clipartbest.com/clipart-dT7zx5rT9),">http://www.clipartbest.com/clipart-dT7zx5rT9),</a> but local files are allowed as well.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">dd</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+	<span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+		<span style="color:#d88200">&#39;Any attachment or embedded file must provide at least a &#34;src&#34;, providing a filename through &#34;name&#34; is highly recommended.&#39;</span><span style="color:#111">,</span>
+		<span style="color:#d88200">&#39;The &#34;src&#34; of any attachment can be provided in dataURL format (like the following attachment, taken from http://www.clipartbest.com/clipart-dT7zx5rT9), but local files are allowed as well.&#39;</span><span style="color:#111">,</span>
+		<span style="color:#111">{</span>
+			<span style="color:#75af00">attachment</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+				<span style="color:#75af00">src</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;data:image/png;base64,iVBOR....&#39;</span><span style="color:#111">,</span>
+				<span style="color:#75af00">name</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;testImage.png&#39;</span>
+			<span style="color:#111">}</span>
+		<span style="color:#111">},</span>
+		<span style="color:#d88200">&#39;You can also define an attachment in the &#34;attachments&#34; dictionary and reference it by name.&#39;</span><span style="color:#111">,</span>
+		<span style="color:#111">{</span>
+			<span style="color:#75af00">attachment</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;sampleImage&#39;</span>
+		<span style="color:#111">},</span>
+		<span style="color:#d88200">&#39;And there are three different standard icons for attachments, &#34;GraphPush&#34;, &#34;Paperclip&#34;, and &#34;Push&#34; (the default value). Set them with the &#34;icon&#34; option.&#39;</span><span style="color:#111">,</span>
+		<span style="color:#111">{</span>
+			<span style="color:#75af00">attachment</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;sampleImage&#39;</span><span style="color:#111">,</span>
+			<span style="color:#75af00">icon</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;GraphPush&#39;</span>
+		<span style="color:#111">},</span>
+		<span style="color:#111">{</span>
+			<span style="color:#75af00">attachment</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;sampleImage&#39;</span><span style="color:#111">,</span>
+			<span style="color:#75af00">icon</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Paperclip&#39;</span>
+		<span style="color:#111">},</span>
+		<span style="color:#111">{</span>
+			<span style="color:#75af00">attachment</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;sampleImage&#39;</span><span style="color:#111">,</span>
+			<span style="color:#75af00">icon</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Push&#39;</span>
+		<span style="color:#111">},</span>
+		<span style="color:#d88200">&#39;For better customization, add an image and attach a file to it with linkToFile:&#39;</span><span style="color:#111">,</span>
+		<span style="color:#111">{</span>
+			<span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fonts/sampleImage.jpg&#39;</span><span style="color:#111">,</span>
+			<span style="color:#75af00">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">150</span><span style="color:#111">,</span>
+			<span style="color:#75af00">linkToFile</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;sampleImage&#39;</span>
+		<span style="color:#111">},</span>
+		<span style="color:#d88200">&#34;You can add a description, which will show in your pdf viewer&#39;s attachments panel and as a tooltip when hovering over the attachment.&#34;</span><span style="color:#111">,</span>
+		<span style="color:#111">{</span>
+			<span style="color:#75af00">attachment</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+				<span style="color:#75af00">src</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;data:image/png;base64,iVBOR....&#39;</span><span style="color:#111">,</span>
+				<span style="color:#75af00">name</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;withDescription.png&#39;</span><span style="color:#111">,</span>
+				<span style="color:#75af00">description</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;file description&#39;</span>
+			<span style="color:#111">}</span>
+		<span style="color:#111">},</span>
+		<span style="color:#d88200">&#39;You can also define the &#34;src&#34; of an attachment or embedded file in the &#34;attachments&#34; and &#34;files&#34; dictionary via URL address.&#39;</span><span style="color:#111">,</span>
+	<span style="color:#111">],</span>
+	<span style="color:#75af00">attachments</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+		<span style="color:#75af00">sampleImage</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+			<span style="color:#75af00">src</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fonts/sampleImage.jpg&#39;</span><span style="color:#111">,</span>
+			<span style="color:#75af00">name</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;sampleImage.png&#39;</span>
+		<span style="color:#111">}</span>
+	<span style="color:#111">},</span>
+	<span style="color:#75af00">files</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+		<span style="color:#75af00">README</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+			<span style="color:#75af00">src</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;https://raw.githubusercontent.com/bpampuch/pdfmake/master/README.md&#39;</span><span style="color:#111">,</span>
+			<span style="color:#75af00">name</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;pdfmake README.md&#39;</span>
+		<span style="color:#111">}</span>
+	<span style="color:#111">}</span>
 <span style="color:#111">};</span>
 </code></pre></div>
 
@@ -481,8 +518,8 @@
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/docs/0.3/document-definition-object/lists/" title="Lists"> <i class="fa fa-chevron-left"></i><label>Lists</label></a>
-    <a class="nav nav-next" href="/docs/0.3/document-definition-object/background-layer/" title="Background-layer" style="margin-right: 0px;"><label>Background-layer</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/docs/0.3/document-definition-object/security/" title="Encryption and access privileges"> <i class="fa fa-chevron-left"></i><label>Encryption and access privileges</label></a>
+    <a class="nav nav-next" href="/docs/0.3/options/" title="Options" style="margin-right: 0px;"><label>Options</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -499,7 +536,7 @@
 
     
     <div class="github-link">
-      <a href="https://github.com/pdfmake/docs/edit/master/content/document-definition-object/headers-footers.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/pdfmake/docs/edit/master/content/document-definition-object/attachments.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

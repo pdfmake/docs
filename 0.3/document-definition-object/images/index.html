@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-01T10:36:46 CET">
+<meta name="revised" content="2022-04-01T16:42:29 CEST">
 <title>Images :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -339,6 +339,13 @@
           </a>
         </div>
     </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/attachments/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/attachments/">
+            Attachments embedding
+          </a>
+        </div>
+    </li>
         </ul>
     </li>
     <li data-nav-id="https://pdfmake.github.io/docs/0.3/options/" class="dd-item alwaysopen
@@ -421,6 +428,7 @@
       <option value="/docs/0.3/document-definition-object/patterns/" >- Patterns</option>
       <option value="/docs/0.3/document-definition-object/compression/" >- Compression</option>
       <option value="/docs/0.3/document-definition-object/security/" >- Encryption and access privileges</option>
+      <option value="/docs/0.3/document-definition-object/attachments/" >- Attachments embedding</option>
   
     <option value="/docs/0.3/options/" >
    Options</option> 
@@ -476,16 +484,28 @@
 </span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;myImageDictionary/image1.jpg&#39;</span>
     <span style="color:#111">},</span>
     <span style="color:#111">{</span>
-      <span style="color:#75715e">// in browser is supported loading images via url from reference by name in images
+      <span style="color:#75715e">// is supported loading images via url from reference by name in images
 </span><span style="color:#75715e"></span>      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;snow&#39;</span>
+    <span style="color:#111">},</span>
+    <span style="color:#111">{</span>
+      <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;strawberries&#39;</span>
     <span style="color:#111">},</span>
   <span style="color:#111">],</span>
 
   <span style="color:#75af00">images</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
     <span style="color:#75af00">mySuperImage</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;data:image/jpeg;base64,...content...&#39;</span><span style="color:#111">,</span>
 
-    <span style="color:#75715e">// in browser is supported loading images via url (https or http protocol)
-</span><span style="color:#75715e"></span>    <span style="color:#75af00">snow</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;https://picsum.photos/seed/picsum/200/300&#39;</span>
+    <span style="color:#75715e">// is supported loading images via url (https or http protocol)
+</span><span style="color:#75715e"></span>    <span style="color:#75af00">snow</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;https://picsum.photos/seed/picsum/200/300&#39;</span><span style="color:#111">,</span>
+
+    <span style="color:#75715e">// is supported loding images via url with custom headers
+</span><span style="color:#75715e"></span>    <span style="color:#75af00">strawberries</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+      <span style="color:#75af00">url</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;https://picsum.photos/id/1080/367/267&#39;</span>
+      <span style="color:#75af00">headers</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+        <span style="color:#75af00">myheader</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;123&#39;</span><span style="color:#111">,</span>
+        <span style="color:#75af00">myotherheader</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;abc&#39;</span><span style="color:#111">,</span>
+      <span style="color:#111">}</span>
+    <span style="color:#111">}</span>
   <span style="color:#111">}</span>
 <span style="color:#111">};</span>
 </code></pre></div>
