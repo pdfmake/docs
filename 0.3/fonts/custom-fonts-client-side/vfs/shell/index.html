@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-04-01T16:42:29 CEST">
+<meta name="revised" content="2022-04-04T17:12:02 CEST">
 <title>Building font file via shell script :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -459,7 +459,7 @@
 <span style="color:#00a8c8">fi</span>
 
 <span style="color:#f92672">(</span>
-	<span style="color:#111">echo</span> <span style="color:#d88200">&#34;var vfs = &#34;</span>
+	<span style="color:#111">echo</span> <span style="color:#d88200">&#34;var vfs = {&#34;</span>
 	<span style="color:#00a8c8">for</span> file in <span style="color:#d88200">&#34;</span><span style="color:#111">$@</span><span style="color:#d88200">&#34;</span><span style="color:#111">;</span> <span style="color:#00a8c8">do</span>
 		<span style="color:#111">file</span><span style="color:#f92672">=</span><span style="color:#111">$1</span>
 		<span style="color:#111">filename</span><span style="color:#f92672">=</span><span style="color:#00a8c8">$(</span>basename <span style="color:#111">$file</span><span style="color:#00a8c8">)</span>

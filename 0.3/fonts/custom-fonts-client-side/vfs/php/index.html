@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-04-01T16:42:29 CEST">
+<meta name="revised" content="2022-04-04T17:12:02 CEST">
 <title>Building font file via PHP script :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -452,7 +452,7 @@
 <p>If you don&rsquo;t want to install gulp and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the <code>vfs_fonts.js</code> with an PHP script as well. Put the code below in a file on a server with the font files you want to include in the same directory and view it in a browser. Use parameter &ldquo;?tofile&rdquo; in the URL to write the output to &ldquo;vfs_fonts.js&rdquo; in the same directory on the server, otherwise it outputs in the browser window for you to copy/paste.</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#75af00">php</span>
 
-    <span style="color:#111">$output</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;var vfs = &#34;</span><span style="color:#111">;</span>
+    <span style="color:#111">$output</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;var vfs = {&#34;</span><span style="color:#111">;</span>
     <span style="color:#111">$phpDir</span> <span style="color:#f92672">=</span> <span style="color:#75af00">dir</span><span style="color:#111">(</span><span style="color:#d88200">&#39;.&#39;</span><span style="color:#111">);</span>
     <span style="color:#00a8c8">while</span> <span style="color:#111">((</span><span style="color:#111">$file</span> <span style="color:#f92672">=</span> <span style="color:#111">$phpDir</span><span style="color:#f92672">-&gt;</span><span style="color:#75af00">read</span><span style="color:#111">())</span><span style="color:#f92672">!==</span><span style="color:#00a8c8">false</span><span style="color:#111">)</span> <span style="color:#111">{</span>
         <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">$file</span> <span style="color:#f92672">!=</span> <span style="color:#d88200">&#39;..&#39;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">$file</span><span style="color:#f92672">!=</span><span style="color:#d88200">&#39;.&#39;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">$file</span> <span style="color:#f92672">!=</span> <span style="color:#d88200">&#39;makefont.php&#39;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">$file</span> <span style="color:#f92672">!=</span> <span style="color:#d88200">&#39;vfs_fonts.js&#39;</span><span style="color:#111">)</span> <span style="color:#111">{</span>

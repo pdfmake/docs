@@ -24,7 +24,7 @@ If you don&amp;rsquo;t want to install gulp and/or just downloaded pdfMake and w
       <guid>https://pdfmake.github.io/docs/0.3/fonts/custom-fonts-client-side/vfs/shell/</guid>
       <description>For a complete description of use custom fonts in client-side, read the article: Custom fonts (client-side) &amp;gt; via Virtual file system (VFS)
 If you don&amp;rsquo;t want to install gulp and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the vfs_fonts.js with an bash-script as well:
-#!/bin/sh  if [ -t 1 ]; then target=&amp;#34;vfs_fonts.js&amp;#34; else target=&amp;#34;/dev/stdout&amp;#34; fi ( echo &amp;#34;var vfs = &amp;#34; for file in &amp;#34;$@&amp;#34;; do file=$1 filename=$(basename $file) filecontent=$(base64 -w 0 $file) shift echo &amp;#34;\&amp;#34;${filename}\&amp;#34;:\&amp;#34;${filecontent}\&amp;#34;&amp;#34; if [ &amp;#34;$#&amp;#34; -gt 0 ]; then echo &amp;#34;,&amp;#34; fi done echo &amp;#34;}&amp;#34; echo &amp;#34;; var _global = typeof window === &amp;#39;object&amp;#39; ?</description>
+#!/bin/sh  if [ -t 1 ]; then target=&amp;#34;vfs_fonts.js&amp;#34; else target=&amp;#34;/dev/stdout&amp;#34; fi ( echo &amp;#34;var vfs = {&amp;#34; for file in &amp;#34;$@&amp;#34;; do file=$1 filename=$(basename $file) filecontent=$(base64 -w 0 $file) shift echo &amp;#34;\&amp;#34;${filename}\&amp;#34;:\&amp;#34;${filecontent}\&amp;#34;&amp;#34; if [ &amp;#34;$#&amp;#34; -gt 0 ]; then echo &amp;#34;,&amp;#34; fi done echo &amp;#34;}&amp;#34; echo &amp;#34;; var _global = typeof window === &amp;#39;object&amp;#39; ?</description>
     </item>
     
     <item>
