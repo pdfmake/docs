@@ -20,7 +20,7 @@ else
 fi
 
 (
-	echo "var vfs = "
+	echo "var vfs = {"
 	for file in "$@"; do
 		file=$1
 		filename=$(basename $file)

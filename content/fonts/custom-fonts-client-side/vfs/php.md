@@ -12,7 +12,7 @@ If you don't want to install gulp and/or just downloaded pdfMake and want to use
 ```php
 <?php
 
-    $output = "var vfs = ";
+    $output = "var vfs = {";
     $phpDir = dir('.');
     while (($file = $phpDir->read())!==false) {
         if ($file != '..' && $file!='.' && $file != 'makefont.php' && $file != 'vfs_fonts.js') {
