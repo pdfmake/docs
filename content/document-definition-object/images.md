@@ -59,7 +59,7 @@ var docDefinition = {
     // in browser is supported loading images via url (https or http protocol) (minimal version: 0.1.67)
     snow: 'https://picsum.photos/seed/picsum/200/300',
 
-    // is supported loding images via url with custom headers (minimal version: 0.2.5)
+    // is supported loading images via url with custom headers (minimal version: 0.2.5)
     strawberries: {
       url: 'https://picsum.photos/id/1080/367/267'
       headers: {
