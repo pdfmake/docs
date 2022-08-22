@@ -61,7 +61,7 @@ var docDefinition = {
 
     // is supported loading images via url with custom headers (minimal version: 0.2.5)
     strawberries: {
-      url: 'https://picsum.photos/id/1080/367/267'
+      url: 'https://picsum.photos/id/1080/367/267',
       headers: {
         myheader: '123',
         myotherheader: 'abc',
