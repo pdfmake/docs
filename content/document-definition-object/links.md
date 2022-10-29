@@ -13,6 +13,17 @@ To add external or internal links, use the following syntax:
 { text: 'Go to Header', linkToDestination: 'header' },
 { text: 'Header content', id: 'header' },
 ```
+Or link to local computer file:
+```js
+var dd = {
+	content: [
+		{
+		    text: 'link',
+		    link: 'file:///c:/testFile.txt'
+		}
+	]
+};
+```
 
 ##### Properties
 
