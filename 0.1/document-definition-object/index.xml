@@ -119,7 +119,8 @@ var docDefinition = { content: [ { // If no width/height/fit is used, then dimen
       
       <guid>https://pdfmake.github.io/docs/0.1/document-definition-object/links/</guid>
       <description>To add external or internal links, use the following syntax:
-{ text: &amp;#39;google&amp;#39;, link: &amp;#39;http://google.com&amp;#39; } { text: &amp;#39;Go to page 2&amp;#39;, linkToPage: 2 } { text: &amp;#39;Go to Header&amp;#39;, linkToDestination: &amp;#39;header&amp;#39; }, { text: &amp;#39;Header content&amp;#39;, id: &amp;#39;header&amp;#39; }, Properties  link (string) - URL to external site linkToPage (number) - link to page number linkToDestination (string) - link to document destination  </description>
+{ text: &amp;#39;google&amp;#39;, link: &amp;#39;http://google.com&amp;#39; } { text: &amp;#39;Go to page 2&amp;#39;, linkToPage: 2 } { text: &amp;#39;Go to Header&amp;#39;, linkToDestination: &amp;#39;header&amp;#39; }, { text: &amp;#39;Header content&amp;#39;, id: &amp;#39;header&amp;#39; }, Or link to local computer file:
+var dd = { content: [ { text: &amp;#39;link&amp;#39;, link: &amp;#39;file:///c:/testFile.txt&amp;#39; } ] }; Properties  link (string) - URL to external site linkToPage (number) - link to page number linkToDestination (string) - link to document destination  </description>
     </item>
     
     <item>
