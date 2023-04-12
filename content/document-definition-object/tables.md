@@ -8,6 +8,8 @@ alwaysopen = true
 
 Conceptually tables are similar to columns. They can however have headers, borders and cells spanning over multiple columns/rows.
 
+{{% alert theme="warning" %}}The table node expects a valid table value. If the value is invalid or empty, an error is thrown. This includes the table.body property as well.{{% /alert %}}
+
 ```js
 var docDefinition = {
   content: [
