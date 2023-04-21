@@ -7,6 +7,8 @@ alwaysopen = true
 
 SVGs are much like [images](/docs/0.3/document-definition-object/images/) except it is not currently possible to refer to SVGs by file or re-use from a dictionary.
 
+{{% alert theme="warning" %}}The SVG node expects a valid SVG value. If the value is invalid or empty, an error is thrown.{{% /alert %}}
+
 Library [SVG-to-PDFKit](https://github.com/alafr/SVG-to-PDFKit) is used to transformation from SVG to PDF document.
 
 ```js

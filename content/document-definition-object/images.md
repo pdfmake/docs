@@ -10,6 +10,8 @@ This is simple. Just use the ```{ image: '...' }``` node type.
 
 JPEG and PNG formats are supported.
 
+{{% alert theme="warning" %}}The image node expects a valid image value. If the value is invalid or empty, an error is thrown.{{% /alert %}}
+
 ```js
 var docDefinition = {
   content: [
