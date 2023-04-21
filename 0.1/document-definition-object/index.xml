@@ -33,7 +33,7 @@ var docDefinition = { content: [ &amp;#39;This paragraph fills full width, as th
       
       <guid>https://pdfmake.github.io/docs/0.1/document-definition-object/tables/</guid>
       <description>Conceptually tables are similar to columns. They can however have headers, borders and cells spanning over multiple columns/rows.
-var docDefinition = { content: [ { layout: &amp;#39;lightHorizontalLines&amp;#39;, // optional  table: { // headers are automatically repeated if the table spans over multiple pages  // you can declare how many rows should be treated as headers  headerRows: 1, widths: [ &amp;#39;*&amp;#39;, &amp;#39;auto&amp;#39;, 100, &amp;#39;*&amp;#39; ], body: [ [ &amp;#39;First&amp;#39;, &amp;#39;Second&amp;#39;, &amp;#39;Third&amp;#39;, &amp;#39;The last one&amp;#39; ], [ &amp;#39;Value 1&amp;#39;, &amp;#39;Value 2&amp;#39;, &amp;#39;Value 3&amp;#39;, &amp;#39;Value 4&amp;#39; ], [ { text: &amp;#39;Bold value&amp;#39;, bold: true }, &amp;#39;Val 2&amp;#39;, &amp;#39;Val 3&amp;#39;, &amp;#39;Val 4&amp;#39; ] ] } } ] }; Table-cell properties  fillColor: string: the background color of a table cell fillOpacity: string: the background opacity of a table cell  Table layouts Can be used layout property for set table layout.</description>
+The table node expects a valid table value. If the value is invalid or empty, an error is thrown. This includes the table.body property as well.var docDefinition = { content: [ { layout: &amp;#39;lightHorizontalLines&amp;#39;, // optional  table: { // headers are automatically repeated if the table spans over multiple pages  // you can declare how many rows should be treated as headers  headerRows: 1, widths: [ &amp;#39;*&amp;#39;, &amp;#39;auto&amp;#39;, 100, &amp;#39;*&amp;#39; ], body: [ [ &amp;#39;First&amp;#39;, &amp;#39;Second&amp;#39;, &amp;#39;Third&amp;#39;, &amp;#39;The last one&amp;#39; ], [ &amp;#39;Value 1&amp;#39;, &amp;#39;Value 2&amp;#39;, &amp;#39;Value 3&amp;#39;, &amp;#39;Value 4&amp;#39; ], [ { text: &amp;#39;Bold value&amp;#39;, bold: true }, &amp;#39;Val 2&amp;#39;, &amp;#39;Val 3&amp;#39;, &amp;#39;Val 4&amp;#39; ] ] } } ] }; Table-cell properties  fillColor: string: the background color of a table cell fillOpacity: string: the background opacity of a table cell  Table layouts Can be used layout property for set table layout.</description>
     </item>
     
     <item>
@@ -98,7 +98,7 @@ var docDefinition = { content: [ &amp;#39;paragraph 1&amp;#39;, &amp;#39;paragra
       <guid>https://pdfmake.github.io/docs/0.1/document-definition-object/images/</guid>
       <description>This is simple. Just use the { image: &#39;...&#39; } node type.
 JPEG and PNG formats are supported.
-var docDefinition = { content: [ { // you&amp;#39;ll most often use dataURI images on the browser side  // if no width/height/fit is provided, the original size will be used  image: &amp;#39;data:image/jpeg;base64,...encodedContent...&amp;#39; }, { // if you specify width, image will scale proportionally  image: &amp;#39;data:image/jpeg;base64,...encodedContent...&amp;#39;, width: 150 }, { // if you specify both width and height - image will be stretched  image: &amp;#39;data:image/jpeg;base64,.</description>
+The image node expects a valid image value. If the value is invalid or empty, an error is thrown.var docDefinition = { content: [ { // you&amp;#39;ll most often use dataURI images on the browser side  // if no width/height/fit is provided, the original size will be used  image: &amp;#39;data:image/jpeg;base64,.</description>
     </item>
     
     <item>
@@ -108,8 +108,8 @@ var docDefinition = { content: [ { // you&amp;#39;ll most often use dataURI imag
       
       <guid>https://pdfmake.github.io/docs/0.1/document-definition-object/svgs/</guid>
       <description>Minimal version: 0.1.59SVGs are much like images except it is not currently possible to refer to SVGs by file or re-use from a dictionary.
-Library SVG-to-PDFKit is used to transformation from SVG to PDF document.
-var docDefinition = { content: [ { // If no width/height/fit is used, then dimensions from the svg element is used.  svg: &amp;#39;&amp;lt;svg width=&amp;#34;300&amp;#34; height=&amp;#34;200&amp;#34; viewBox=&amp;#34;0 0 300 200&amp;#34;&amp;gt;...&amp;lt;/svg&amp;gt;&amp;#39; }, { // if you specify width, svg will scale proportionally  svg: &amp;#39;&amp;lt;svg width=&amp;#34;300&amp;#34; height=&amp;#34;200&amp;#34; viewBox=&amp;#34;0 0 300 200&amp;#34;&amp;gt;.</description>
+The SVG node expects a valid SVG value. If the value is invalid or empty, an error is thrown.Library SVG-to-PDFKit is used to transformation from SVG to PDF document.
+var docDefinition = { content: [ { // If no width/height/fit is used, then dimensions from the svg element is used.</description>
     </item>
     
     <item>
