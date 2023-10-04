@@ -86,6 +86,6 @@ var docDefinition = {
 * `color: string`: the color of the text (color name e.g., 'blue' or hexadecimal color e.g., '#ff5500')
 * `background: string` the background color of the text
 * `markerColor: string`: the color of the bullets in a buletted list
-* `decoration: string`: the text decoration to apply ('underline' or 'lineThrough' or 'overline')
+* `decoration: string | string[]`: the text decoration to apply ('underline' or 'lineThrough' or 'overline')
 * `decorationStyle: string`: the style of the text decoration ('dashed' or 'dotted' or 'double' or 'wavy')
 * `decorationColor: string`: the color of the text decoration, see color
