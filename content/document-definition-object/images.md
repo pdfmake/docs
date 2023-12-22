@@ -37,6 +37,11 @@ var docDefinition = {
       fit: [100, 100]
     },
     {
+      // You can also cover the image inside a rectangle
+      image: 'data:image/jpeg;base64,...encodedContent...',
+      cover: { width: 100, height: 100, valign: "bottom", align: "right" },
+    },
+    {
       // if you reuse the same image in multiple nodes,
       // you should put it to to images dictionary and reference it by name
       image: 'mySuperImage'
