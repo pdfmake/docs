@@ -36,3 +36,15 @@ Standard properties:
 Custom properties:
 
 You can add custom properties. Key of property not contain spaces.
+
+#### Document language
+
+PDF document can have custom language set via `language` property.
+
+Example:
+```js
+var docDefinition = {
+  language: 'cs-CZ'
+  content: 'Jednoduchý PDF dokument vytvoření pomocí pdfmake'
+}
+```
