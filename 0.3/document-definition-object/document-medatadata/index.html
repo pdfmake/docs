@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2024-01-02T13:44:28 CET">
+<meta name="revised" content="2024-07-17T13:51:29 CEST">
 <title>Document Metadata :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -473,7 +473,14 @@ of the document. You can add that information by adding it to the document defin
 </ul>
 <p>Custom properties:</p>
 <p>You can add custom properties. Key of property not contain spaces.</p>
-
+<h4 id="document-language">Document language</h4>
+<p>PDF document can have custom language set via <code>language</code> property.</p>
+<p>Example:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">language</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;cs-CZ&#39;</span>
+  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Jednoduchý PDF dokument vytvoření pomocí pdfmake&#39;</span>
+<span style="color:#111">}</span>
+</code></pre></div>
 
     
     
