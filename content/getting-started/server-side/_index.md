@@ -42,7 +42,7 @@ pdf.write('document.pdf').then(() => {
 });
  ```
 
-Parameters for `createPdfKitDocument`:
+Parameters for `createPdf`:
 
-* `docDefinition` - object with document definition
+* `docDefinition` - object with document definition, see [chapter](/docs/0.3/document-definition-object/)
 * `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)

@@ -5,27 +5,37 @@ weight = 11
 alwaysopen = true
 +++
 
+#### Base usage
+
+This call will generate a PDF document, methods to get document are described below.
+
+```js
+pdfMake.createPdf(docDefinition);
+pdfMake.createPdf(docDefinition, options);
+```
+
+Parameters:
+
+* `docDefinition` - object with document definition, see [chapter](/docs/0.3/document-definition-object/)
+* `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)
+
 #### Download the PDF
 ```js
 pdfMake.createPdf(docDefinition).download();
 pdfMake.createPdf(docDefinition).download('file.pdf');
-pdfMake.createPdf(docDefinition, options).download();
 ```
 Parameters:
 
 * `filename` _(optional)_ - PDF document file name (default 'file.pdf')
-* `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)
 
 #### Open the PDF in a new window
 ```js
 pdfMake.createPdf(docDefinition).open();
 pdfMake.createPdf(docDefinition).open(win);
-pdfMake.createPdf(docDefinition, options).open();
 ```
 Parameters:
 
 * `win` _(optional)_ - window (when an asynchronous operation)
-* `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)
 
 Name can be defined only by using metadata `title` property (see [Document metadata](/docs/0.3/document-definition-object/document-medatadata/)).
 
@@ -50,12 +60,10 @@ pdfMake.createPdf(docDefinition).open(window);
 ```js
 pdfMake.createPdf(docDefinition).print();
 pdfMake.createPdf(docDefinition).print(win);
-pdfMake.createPdf(docDefinition, options).print();
 ```
 Parameters:
 
 * `win` _(optional)_ - window (when an asynchronous operation)
-* `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)
 
 Asynchronous example:
 ```js
@@ -74,7 +82,9 @@ Print in same window:
 pdfMake.createPdf(docDefinition).print(window);
 ```
 
-#### Put the PDF into your own page as URL data
+#### Get the PDF document as URL data
+
+Example of put the PDF document into your own page as URL data:
 ```js
 pdfMake.createPdf(docDefinition).getDataUrl().then((dataUrl) => {
 	const targetElement = document.querySelector('#iframeContainer');
@@ -84,26 +94,25 @@ pdfMake.createPdf(docDefinition).getDataUrl().then((dataUrl) => {
 }, err => {
 	console.error(err);
 });
-
-pdfMake.createPdf(docDefinition).getDataUrl()
 ```
-Parameters:
 
-* `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)
-
-#### Get the PDF as base64 data
+#### Get the PDF document as base64 data
 ```js
 pdfMake.createPdf(docDefinition).getBase64().then((data) => {
 	alert(data)
 }, err => {
 	console.error(err);
 });
-
-pdfMake.createPdf(docDefinition, options).getBase64()
 ```
-Parameters:
 
-* `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)
+#### Get the PDF document as Blob
+```js
+pdfMake.createPdf(docDefinition).getBlob().then((blob) => {
+	// ...
+}, err => {
+	console.error(err);
+});
+```
 
 #### Get the PDF as buffer
 ```js
@@ -113,23 +122,8 @@ pdfMake.createPdf(docDefinition).getBuffer().then((buffer) => {
 	console.error(err);
 });
 ```
-Parameters:
 
-* `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)
-
-#### Get the PDF as Blob
-```js
-pdfMake.createPdf(docDefinition).getBlob().then((blob) => {
-	// ...
-}, err => {
-	console.error(err);
-});
-```
-Parameters:
-
-* `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)
-
-#### Get document object as stream
+#### Get the PDF document as stream
 
 ```js
 pdfMake.createPdf(docDefinition).getStream().then((stream) => {
