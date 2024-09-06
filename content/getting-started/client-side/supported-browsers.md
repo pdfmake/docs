@@ -5,8 +5,7 @@ weight = 11
 alwaysopen = true
 +++
 
-* Internet Explorer 11
-* Edge 12+
+* Edge
 * Firefox
 * Chrome
 * Chrome (Android)
