@@ -12,9 +12,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/0.3/getting-started/client-side/methods/</guid>
-      <description>Download the PDF pdfMake.createPdf(docDefinition).download(); pdfMake.createPdf(docDefinition).download(&amp;#39;file.pdf&amp;#39;); pdfMake.createPdf(docDefinition, options).download(); Parameters:
- filename (optional) - PDF document file name (default &amp;lsquo;file.pdf&amp;rsquo;) options (optional) - advanced options see options chapter  Open the PDF in a new window pdfMake.createPdf(docDefinition).open(); pdfMake.createPdf(docDefinition).open(win); pdfMake.createPdf(docDefinition, options).open(); Parameters:
- win (optional) - window (when an asynchronous operation) options (optional) - advanced options see options chapter  Name can be defined only by using metadata title property (see Document metadata).</description>
+      <description>Base usage This call will generate a PDF document, methods to get document are described below.
+pdfMake.createPdf(docDefinition); pdfMake.createPdf(docDefinition, options); Parameters:
+ docDefinition - object with document definition, see chapter options (optional) - advanced options see options chapter  Download the PDF pdfMake.createPdf(docDefinition).download(); pdfMake.createPdf(docDefinition).download(&amp;#39;file.pdf&amp;#39;); Parameters:
+ filename (optional) - PDF document file name (default &amp;lsquo;file.pdf&amp;rsquo;)  Open the PDF in a new window pdfMake.createPdf(docDefinition).open(); pdfMake.createPdf(docDefinition).open(win); Parameters:
+ win (optional) - window (when an asynchronous operation)  Name can be defined only by using metadata title property (see Document metadata).</description>
     </item>
     
     <item>
@@ -23,7 +25,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/0.3/getting-started/client-side/supported-browsers/</guid>
-      <description>Internet Explorer 11 Edge 12+ Firefox Chrome Chrome (Android) Opera Safari (iOS) Safari (iOS) iPhone  LimitationsMethods open() and print() are supported only in:
+      <description>Edge Firefox Chrome Chrome (Android) Opera Safari (iOS) Safari (iOS) iPhone  LimitationsMethods open() and print() are supported only in:
  Firefox Chrome Opera  Add-ons used in browsers can affect the functionality of pdfmake (especially for open() and print()). If pdfmake is not working try disable add-ons in browser.Problematic add-onsAdBlockFully description is available in issue.</description>
     </item>
     

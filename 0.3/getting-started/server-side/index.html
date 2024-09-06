@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2024-07-17T13:51:29 CEST">
+<meta name="revised" content="2024-09-06T17:42:52 CEST">
 <title>Server-side :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -451,7 +451,8 @@
 
 <p>On server-side you can simply install via npm:</p>
 <pre><code>npm install pdfmake@0.3.0-beta.1
-</code></pre><h4 id="example-of-usage">Example of usage:</h4>
+</code></pre><p>Actual information about beta version is available in <a href="https://github.com/bpampuch/pdfmake/issues/2375">GitHub issue</a>.</p>
+<h4 id="example-of-usage">Example of usage:</h4>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Define font files
 </span><span style="color:#75715e"></span><span style="color:#00a8c8">var</span> <span style="color:#75af00">fonts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
   <span style="color:#75af00">Roboto</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
@@ -480,9 +481,9 @@
   <span style="color:#75715e">// error event
 </span><span style="color:#75715e"></span>  <span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">error</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">);</span>
 <span style="color:#111">});</span>
-</code></pre></div><p>Parameters for <code>createPdfKitDocument</code>:</p>
+</code></pre></div><p>Parameters for <code>createPdf</code>:</p>
 <ul>
-<li><code>docDefinition</code> - object with document definition</li>
+<li><code>docDefinition</code> - object with document definition, see <a href="/docs/0.3/document-definition-object/">chapter</a></li>
 <li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/0.3/options/">options chapter</a></li>
 </ul>
 

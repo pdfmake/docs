@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/0.3/getting-started/server-side/supported-nodejs-versions/</guid>
-      <description> 14 LTS (End-of-life: April 2023) 16 LTS (End-of-life: April 2024) 18 LTS (End-of-life: April 2025) 20 LTS (End-of-life: April 2026)  </description>
+      <description> 18 LTS (End-of-life: April 2025) 20 LTS (End-of-life: April 2026)  </description>
     </item>
     
     <item>
@@ -21,8 +21,10 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/0.3/getting-started/server-side/methods/</guid>
-      <description>Write pdfMake.createPdf(docDefinition).write(filename).then(() =&amp;gt; { // finished }, err =&amp;gt; { console.error(err); }); Parameters:
- filename - PDF document file name options (optional) - advanced options see options chapter  </description>
+      <description>Base usage This call will generate a PDF document, methods to get document are described below.
+pdfmake.createPdf(docDefinition); pdfmake.createPdf(docDefinition, options); Parameters:
+ docDefinition - object with document definition, see chapter options (optional) - advanced options see options chapter  Write the PDF document as file pdfmake.createPdf(docDefinition).write(filename).then(() =&amp;gt; { // finished }, err =&amp;gt; { console.error(err); }); Parameters:
+ filename - PDF document file name options (optional) - advanced options see options chapter  Get the PDF document as URL data pdfmake.</description>
     </item>
     
     <item>

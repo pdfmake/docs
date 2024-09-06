@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2024-07-17T13:51:29 CEST">
+<meta name="revised" content="2024-09-06T17:42:52 CEST">
 <title>Methods :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -448,23 +448,28 @@
     
     
     
-    <h4 id="download-the-pdf">Download the PDF</h4>
+    <h4 id="base-usage">Base usage</h4>
+<p>This call will generate a PDF document, methods to get document are described below.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
+<span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">,</span> <span style="color:#75af00">options</span><span style="color:#111">);</span>
+</code></pre></div><p>Parameters:</p>
+<ul>
+<li><code>docDefinition</code> - object with document definition, see <a href="/docs/0.3/document-definition-object/">chapter</a></li>
+<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/0.3/options/">options chapter</a></li>
+</ul>
+<h4 id="download-the-pdf">Download the PDF</h4>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">download</span><span style="color:#111">();</span>
 <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">download</span><span style="color:#111">(</span><span style="color:#d88200">&#39;file.pdf&#39;</span><span style="color:#111">);</span>
-<span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">,</span> <span style="color:#75af00">options</span><span style="color:#111">).</span><span style="color:#75af00">download</span><span style="color:#111">();</span>
 </code></pre></div><p>Parameters:</p>
 <ul>
 <li><code>filename</code> <em>(optional)</em> - PDF document file name (default &lsquo;file.pdf&rsquo;)</li>
-<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/0.3/options/">options chapter</a></li>
 </ul>
 <h4 id="open-the-pdf-in-a-new-window">Open the PDF in a new window</h4>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">open</span><span style="color:#111">();</span>
 <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">open</span><span style="color:#111">(</span><span style="color:#75af00">win</span><span style="color:#111">);</span>
-<span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">,</span> <span style="color:#75af00">options</span><span style="color:#111">).</span><span style="color:#75af00">open</span><span style="color:#111">();</span>
 </code></pre></div><p>Parameters:</p>
 <ul>
 <li><code>win</code> <em>(optional)</em> - window (when an asynchronous operation)</li>
-<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/0.3/options/">options chapter</a></li>
 </ul>
 <p>Name can be defined only by using metadata <code>title</code> property (see <a href="/docs/0.3/document-definition-object/document-medatadata/">Document metadata</a>).</p>
 <p>Asynchronous example:</p>
@@ -481,11 +486,9 @@
 </code></pre></div><h4 id="print-the-pdf">Print the PDF</h4>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">print</span><span style="color:#111">();</span>
 <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">print</span><span style="color:#111">(</span><span style="color:#75af00">win</span><span style="color:#111">);</span>
-<span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">,</span> <span style="color:#75af00">options</span><span style="color:#111">).</span><span style="color:#75af00">print</span><span style="color:#111">();</span>
 </code></pre></div><p>Parameters:</p>
 <ul>
 <li><code>win</code> <em>(optional)</em> - window (when an asynchronous operation)</li>
-<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/0.3/options/">options chapter</a></li>
 </ul>
 <p>Asynchronous example:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">$scope</span><span style="color:#111">.</span><span style="color:#75af00">generatePdf</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
@@ -498,7 +501,8 @@
 <span style="color:#111">};</span>
 </code></pre></div><p>Print in same window:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">print</span><span style="color:#111">(</span><span style="color:#111">window</span><span style="color:#111">);</span>
-</code></pre></div><h4 id="put-the-pdf-into-your-own-page-as-url-data">Put the PDF into your own page as URL data</h4>
+</code></pre></div><h4 id="get-the-pdf-document-as-url-data">Get the PDF document as URL data</h4>
+<p>Example of put the PDF document into your own page as URL data:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">getDataUrl</span><span style="color:#111">().</span><span style="color:#75af00">then</span><span style="color:#111">((</span><span style="color:#75af00">dataUrl</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
 	<span style="color:#00a8c8">const</span> <span style="color:#75af00">targetElement</span> <span style="color:#f92672">=</span> <span style="color:#111">document</span><span style="color:#111">.</span><span style="color:#75af00">querySelector</span><span style="color:#111">(</span><span style="color:#d88200">&#39;#iframeContainer&#39;</span><span style="color:#111">);</span>
 	<span style="color:#00a8c8">const</span> <span style="color:#75af00">iframe</span> <span style="color:#f92672">=</span> <span style="color:#111">document</span><span style="color:#111">.</span><span style="color:#75af00">createElement</span><span style="color:#111">(</span><span style="color:#d88200">&#39;iframe&#39;</span><span style="color:#111">);</span>
@@ -507,45 +511,25 @@
 <span style="color:#111">},</span> <span style="color:#75af00">err</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
 	<span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">error</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">);</span>
 <span style="color:#111">});</span>
-
-<span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">getDataUrl</span><span style="color:#111">()</span>
-</code></pre></div><p>Parameters:</p>
-<ul>
-<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/0.3/options/">options chapter</a></li>
-</ul>
-<h4 id="get-the-pdf-as-base64-data">Get the PDF as base64 data</h4>
+</code></pre></div><h4 id="get-the-pdf-document-as-base64-data">Get the PDF document as base64 data</h4>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">getBase64</span><span style="color:#111">().</span><span style="color:#75af00">then</span><span style="color:#111">((</span><span style="color:#75af00">data</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
 	<span style="color:#75af00">alert</span><span style="color:#111">(</span><span style="color:#75af00">data</span><span style="color:#111">)</span>
 <span style="color:#111">},</span> <span style="color:#75af00">err</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
 	<span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">error</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">);</span>
 <span style="color:#111">});</span>
-
-<span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">,</span> <span style="color:#75af00">options</span><span style="color:#111">).</span><span style="color:#75af00">getBase64</span><span style="color:#111">()</span>
-</code></pre></div><p>Parameters:</p>
-<ul>
-<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/0.3/options/">options chapter</a></li>
-</ul>
-<h4 id="get-the-pdf-as-buffer">Get the PDF as buffer</h4>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">getBuffer</span><span style="color:#111">().</span><span style="color:#75af00">then</span><span style="color:#111">((</span><span style="color:#75af00">buffer</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
-	<span style="color:#75715e">// ...
-</span><span style="color:#75715e"></span><span style="color:#111">},</span> <span style="color:#75af00">err</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
-	<span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">error</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">);</span>
-<span style="color:#111">});</span>
-</code></pre></div><p>Parameters:</p>
-<ul>
-<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/0.3/options/">options chapter</a></li>
-</ul>
-<h4 id="get-the-pdf-as-blob">Get the PDF as Blob</h4>
+</code></pre></div><h4 id="get-the-pdf-document-as-blob">Get the PDF document as Blob</h4>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">getBlob</span><span style="color:#111">().</span><span style="color:#75af00">then</span><span style="color:#111">((</span><span style="color:#75af00">blob</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
 	<span style="color:#75715e">// ...
 </span><span style="color:#75715e"></span><span style="color:#111">},</span> <span style="color:#75af00">err</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
 	<span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">error</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">);</span>
 <span style="color:#111">});</span>
-</code></pre></div><p>Parameters:</p>
-<ul>
-<li><code>options</code> <em>(optional)</em> - advanced options see <a href="/docs/0.3/options/">options chapter</a></li>
-</ul>
-<h4 id="get-document-object-as-stream">Get document object as stream</h4>
+</code></pre></div><h4 id="get-the-pdf-as-buffer">Get the PDF as buffer</h4>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">getBuffer</span><span style="color:#111">().</span><span style="color:#75af00">then</span><span style="color:#111">((</span><span style="color:#75af00">buffer</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+	<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span><span style="color:#111">},</span> <span style="color:#75af00">err</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+	<span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">error</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">);</span>
+<span style="color:#111">});</span>
+</code></pre></div><h4 id="get-the-pdf-document-as-stream">Get the PDF document as stream</h4>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">getStream</span><span style="color:#111">().</span><span style="color:#75af00">then</span><span style="color:#111">((</span><span style="color:#75af00">stream</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
 	<span style="color:#75715e">// ...
 </span><span style="color:#75715e"></span><span style="color:#111">},</span> <span style="color:#75af00">err</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
