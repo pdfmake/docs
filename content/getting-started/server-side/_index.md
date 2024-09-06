@@ -9,6 +9,7 @@ On server-side you can simply install via npm:
 ```
 npm install pdfmake@0.3.0-beta.1
 ```
+Actual information about beta version is available in [GitHub issue](https://github.com/bpampuch/pdfmake/issues/2375).
 
 #### Example of usage:
 ```js
