@@ -50,8 +50,22 @@ Using javascript frameworks:
 
 ```js
 var pdfMake = require('pdfmake/build/pdfmake.js');
+require('pdfmake/build/vfs_fonts.js');
+```
+
+or
+
+```js
+var pdfMake = require('pdfmake/build/pdfmake.js');
 var pdfFonts = require('pdfmake/build/vfs_fonts.js');
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+pdfMake.addVirtualFileSystem(pdfFonts);
+```
+
+or
+
+```js
+import pdfMake from "pdfmake/build/pdfmake";
+import "pdfmake/build/vfs_fonts";
 ```
 
 or
@@ -59,7 +73,7 @@ or
 ```js
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+pdfMake.addVirtualFileSystem(pdfFonts);
 ```
 
 TypeScript:
@@ -68,7 +82,7 @@ TypeScript:
 import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 
-(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
+(<any>pdfMake).addVirtualFileSystem(pdfFonts);
 ```
 
 For Ionic and Angular see [issue](https://github.com/bpampuch/pdfmake/issues/1030).
