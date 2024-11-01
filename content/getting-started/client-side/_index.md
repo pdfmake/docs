@@ -44,8 +44,22 @@ Using javascript frameworks:
 
 ```js
 var pdfMake = require('pdfmake/build/pdfmake.js');
+require('pdfmake/build/vfs_fonts.js');
+```
+
+or
+
+```js
+var pdfMake = require('pdfmake/build/pdfmake.js');
 var pdfFonts = require('pdfmake/build/vfs_fonts.js');
 pdfMake.addVirtualFileSystem(pdfFonts);
+```
+
+or
+
+```js
+import pdfMake from "pdfmake/build/pdfmake";
+import "pdfmake/build/vfs_fonts";
 ```
 
 or
