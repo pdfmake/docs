@@ -5,10 +5,12 @@ weight = 11
 alwaysopen = false
 +++
 
+{{% alert theme="warning" %}}Minimal version: **0.2.15**{{% /alert %}}
+
 
 For a complete description of use custom fonts in client-side, read the article: [Custom fonts (client-side) > via Virtual file system (VFS)](/docs/0.1/fonts/custom-fonts-client-side/vfs/)
 
-If you don't want to install gulp and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the `vfs_fonts.js` with an bash-script as well:
+If you don't want to install nodejs and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the `vfs_fonts.js` with an bash-script as well:
 
 ```sh
 #!/bin/sh
@@ -20,7 +22,7 @@ else
 fi
 
 (
-	echo "this.pdfMake = this.pdfMake || {}; this.pdfMake.vfs = {"
+	echo "var vfs = {"
 	for file in "$@"; do
 		file=$1
 		filename=$(basename $file)
@@ -31,7 +33,8 @@ fi
 			echo ","
 		fi
 	done
-	echo "};"
+	echo "}"
+	echo "; var _global = typeof window === 'object' ? window : typeof global === 'object' ? global : typeof self === 'object' ? self : this; if (typeof _global.pdfMake !== 'undefined' && typeof _global.pdfMake.addVirtualFileSystem !== 'undefined') { _global.pdfMake.addVirtualFileSystem(vfs); } if (typeof module !== 'undefined') { module.exports = vfs; }"
 ) > "$target"
 ```
 
