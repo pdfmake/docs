@@ -8,7 +8,7 @@ alwaysopen = false
 
 For a complete description of use custom fonts in client-side, read the article: [Custom fonts (client-side) > via Virtual file system (VFS)](/docs/0.3/fonts/custom-fonts-client-side/vfs/)
 
-If you don't want to install gulp and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the `vfs_fonts.js` with an bash-script as well:
+If you don't want to install nodejs and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the `vfs_fonts.js` with an bash-script as well:
 
 ```sh
 #!/bin/sh
