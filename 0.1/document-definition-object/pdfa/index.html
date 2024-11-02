@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2024-11-02T10:56:30 CET">
-<title>Background-layer :: pdfmake</title>
+<title>PDF/A :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.1/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.1/css/nucleus.css" rel="stylesheet">
 <link href="/docs/0.1/css/font-awesome.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
 
     
   </head>
-  <body data-url="/docs/0.1/document-definition-object/background-layer/">
+  <body data-url="/docs/0.1/document-definition-object/pdfa/">
     
       <header>
   <div class="logo">
@@ -397,7 +397,7 @@
       <option value="/docs/0.1/document-definition-object/tables/" >- Tables</option>
       <option value="/docs/0.1/document-definition-object/lists/" >- Lists</option>
       <option value="/docs/0.1/document-definition-object/headers-footers/" >- Headers and footers</option>
-      <option value="/docs/0.1/document-definition-object/background-layer/"  selected>- Background-layer</option>
+      <option value="/docs/0.1/document-definition-object/background-layer/" >- Background-layer</option>
       <option value="/docs/0.1/document-definition-object/margins/" >- Margins</option>
       <option value="/docs/0.1/document-definition-object/stack/" >- Stack of paragraphs</option>
       <option value="/docs/0.1/document-definition-object/images/" >- Images</option>
@@ -411,7 +411,7 @@
       <option value="/docs/0.1/document-definition-object/patterns/" >- Patterns</option>
       <option value="/docs/0.1/document-definition-object/compression/" >- Compression</option>
       <option value="/docs/0.1/document-definition-object/security/" >- Encryption and access privileges</option>
-      <option value="/docs/0.1/document-definition-object/pdfa/" >- PDF/A</option>
+      <option value="/docs/0.1/document-definition-object/pdfa/"  selected>- PDF/A</option>
   
     <option value="/docs/0.1/options/" >
    Options</option> 
@@ -424,32 +424,67 @@
     </div>
     
 
-    <h1>Background-layer</h1>
+    <h1>PDF/A</h1>
     
     
     
-    <p>The background-layer will be added on every page.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-  <span style="color:#75af00">background</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;simple text&#39;</span><span style="color:#111">,</span>
+    
+<div class="alert alert-warning" role="alert">Minimal version: <strong>0.2.15</strong></div>
 
-  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">(...)</span>
-<span style="color:#111">};</span>
-</code></pre></div><p>It may contain any other object as well (images, tables, &hellip;) or be dynamically generated:</p>
+<p>PDF/A is specialized for use in the archiving and long-term preservation of electronic documents.</p>
+<p>PDF version 1.4 or above is required.</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-  <span style="color:#75af00">background</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">currentPage</span><span style="color:#111">,</span> <span style="color:#75af00">pageSize</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-    <span style="color:#00a8c8">return</span> <span style="color:#d88200">`page </span><span style="color:#d88200">${</span><span style="color:#75af00">currentPage</span><span style="color:#d88200">}</span><span style="color:#d88200"> with size </span><span style="color:#d88200">${</span><span style="color:#75af00">pageSize</span><span style="color:#111">.</span><span style="color:#75af00">width</span><span style="color:#d88200">}</span><span style="color:#d88200"> x </span><span style="color:#d88200">${</span><span style="color:#75af00">pageSize</span><span style="color:#111">.</span><span style="color:#75af00">height</span><span style="color:#d88200">}</span><span style="color:#d88200">`</span>
-  <span style="color:#111">},</span>
-
-  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">(...)</span>
+    <span style="color:#75af00">version</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;1.5&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">subset</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;PDF/A-3a&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">tagged</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+    <span style="color:#75af00">displayTitle</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+    <span style="color:#75af00">info</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+        <span style="color:#75af00">title</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Awesome PDF document from pdfmake&#39;</span>
+    <span style="color:#111">},</span>
+    <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+        <span style="color:#d88200">&#39;PDF/A document for archive&#39;</span>
+    <span style="color:#111">]</span>
 <span style="color:#111">};</span>
-</code></pre></div>
+</code></pre></div><p>Supported PDF versions (property <code>version</code>):</p>
+<ul>
+<li><code>1.3</code> - PDF version 1.3 (default) <strong>not supported PDF/A</strong></li>
+<li><code>1.4</code> - PDF version 1.4</li>
+<li><code>1.5</code> - PDF version 1.5</li>
+<li><code>1.6</code> - PDF version 1.6</li>
+<li><code>1.7</code> - PDF version 1.7</li>
+<li><code>1.7ext3</code> - PDF version 1.7 ExtensionLevel 3</li>
+</ul>
+<p>Subset of document (property <code>subset</code>):</p>
+<ul>
+<li><code>PDF/A-1</code> (shortcut for PDF/A-1b)</li>
+<li><code>PDF/A-1a</code></li>
+<li><code>PDF/A-1b</code></li>
+<li><code>PDF/A-2</code> (shortcut for PDF/A-2b)</li>
+<li><code>PDF/A-2a</code></li>
+<li><code>PDF/A-2b</code></li>
+<li><code>PDF/A-3</code> (shortcut for PDF/A-3b)</li>
+<li><code>PDF/A-3a</code></li>
+<li><code>PDF/A-3b</code></li>
+<li><code>PDF/UA</code></li>
+</ul>
+<p>Mark document as Tagged PDF (property <code>tagged</code>)</p>
+<ul>
+<li><code>true</code> - enable</li>
+<li><code>false</code> - disable</li>
+</ul>
+<p>Display of document title in window title (property <code>displayTitle</code>)</p>
+<ul>
+<li><code>true</code> - enable</li>
+<li><code>false</code> - disable</li>
+</ul>
+
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/docs/0.1/document-definition-object/headers-footers/" title="Headers and footers"> <i class="fa fa-chevron-left"></i><label>Headers and footers</label></a>
-    <a class="nav nav-next" href="/docs/0.1/document-definition-object/margins/" title="Margins" style="margin-right: 0px;"><label>Margins</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/docs/0.1/document-definition-object/security/" title="Encryption and access privileges"> <i class="fa fa-chevron-left"></i><label>Encryption and access privileges</label></a>
+    <a class="nav nav-next" href="/docs/0.1/options/" title="Options" style="margin-right: 0px;"><label>Options</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -466,7 +501,7 @@
 
     
     <div class="github-link">
-      <a href="https://github.com/pdfmake/docs/edit/0.1/content/document-definition-object/background-layer.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/pdfmake/docs/edit/0.1/content/document-definition-object/pdfa.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

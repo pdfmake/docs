@@ -12,8 +12,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/vfs/php/</guid>
-      <description>For a complete description of use custom fonts in client-side, read the article: Custom fonts (client-side) &amp;gt; via Virtual file system (VFS)
-If you don&amp;rsquo;t want to install gulp and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the vfs_fonts.js with an PHP script as well. Put the code below in a file on a server with the font files you want to include in the same directory and view it in a browser.</description>
+      <description>Minimal version: 0.2.15For a complete description of use custom fonts in client-side, read the article: Custom fonts (client-side) &amp;gt; via Virtual file system (VFS)
+If you don&amp;rsquo;t want to install nodejs and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the vfs_fonts.js with an PHP script as well. Put the code below in a file on a server with the font files you want to include in the same directory and view it in a browser.</description>
     </item>
     
     <item>
@@ -22,9 +22,9 @@ If you don&amp;rsquo;t want to install gulp and/or just downloaded pdfMake and w
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/</guid>
-      <description>For a complete description of use custom fonts in client-side, read the article: Custom fonts (client-side) &amp;gt; via Virtual file system (VFS)
-If you don&amp;rsquo;t want to install gulp and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the vfs_fonts.js with an bash-script as well:
-#!/bin/sh  if [ -t 1 ]; then target=&amp;#34;vfs_fonts.js&amp;#34; else target=&amp;#34;/dev/stdout&amp;#34; fi ( echo &amp;#34;this.pdfMake = this.pdfMake || {}; this.</description>
+      <description>Minimal version: 0.2.15For a complete description of use custom fonts in client-side, read the article: Custom fonts (client-side) &amp;gt; via Virtual file system (VFS)
+If you don&amp;rsquo;t want to install nodejs and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the vfs_fonts.js with an bash-script as well:
+#!/bin/sh  if [ -t 1 ]; then target=&amp;#34;vfs_fonts.js&amp;#34; else target=&amp;#34;/dev/stdout&amp;#34; fi ( echo &amp;#34;var vfs = {&amp;#34; for file in &amp;#34;$@&amp;#34;; do file=$1 filename=$(basename $file) filecontent=$(base64 -w 0 $file) shift echo &amp;#34;\&amp;#34;${filename}\&amp;#34;:\&amp;#34;${filecontent}\&amp;#34;&amp;#34; if [ &amp;#34;$#&amp;#34; -gt 0 ]; then echo &amp;#34;,&amp;#34; fi done echo &amp;#34;}&amp;#34; echo &amp;#34;; var _global = typeof window === &amp;#39;object&amp;#39; ?</description>
     </item>
     
     <item>
@@ -301,6 +301,18 @@ var docDefinition = { compress: false, content: (...) }; </description>
       <guid>https://pdfmake.github.io/docs/0.1/document-definition-object/security/</guid>
       <description>Minimal version: 0.1.50var docDefinition = { userPassword: &amp;#39;123&amp;#39;, ownerPassword: &amp;#39;123456&amp;#39;, permissions: { printing: &amp;#39;highResolution&amp;#39;, //&amp;#39;lowResolution&amp;#39;  modifying: false, copying: false, annotating: true, fillingForms: true, contentAccessibility: true, documentAssembly: true }, content: [ &amp;#39;...&amp;#39; ] }; PDF document allow you to encrypt the PDF file and require a password when opening the file, and/or set permissions of what users can do with the PDF file.
 To enable encryption set user password in userPassword (string value).</description>
+    </item>
+    
+    <item>
+      <title>PDF/A</title>
+      <link>https://pdfmake.github.io/docs/0.1/document-definition-object/pdfa/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pdfmake.github.io/docs/0.1/document-definition-object/pdfa/</guid>
+      <description>Minimal version: 0.2.15PDF/A is specialized for use in the archiving and long-term preservation of electronic documents.
+PDF version 1.4 or above is required.
+var docDefinition = { version: &amp;#39;1.5&amp;#39;, subset: &amp;#39;PDF/A-3a&amp;#39;, tagged: true, displayTitle: true, info: { title: &amp;#39;Awesome PDF document from pdfmake&amp;#39; }, content: [ &amp;#39;PDF/A document for archive&amp;#39; ] }; Supported PDF versions (property version):
+ 1.3 - PDF version 1.3 (default) not supported PDF/A 1.4 - PDF version 1.</description>
     </item>
     
     <item>

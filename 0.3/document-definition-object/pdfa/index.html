@@ -5,8 +5,8 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2024-11-02T10:57:03 CET">
-<title>Options :: pdfmake</title>
+<meta name="revised" content="2024-11-02T10:57:02 CET">
+<title>PDF/A :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
 <link href="/docs/0.3/css/font-awesome.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
 
     
   </head>
-  <body data-url="/docs/0.3/options/">
+  <body data-url="/docs/0.3/document-definition-object/pdfa/">
     
       <header>
   <div class="logo">
@@ -436,9 +436,9 @@
       <option value="/docs/0.3/document-definition-object/compression/" >- Compression</option>
       <option value="/docs/0.3/document-definition-object/security/" >- Encryption and access privileges</option>
       <option value="/docs/0.3/document-definition-object/attachments/" >- Attachments embedding</option>
-      <option value="/docs/0.3/document-definition-object/pdfa/" >- PDF/A</option>
+      <option value="/docs/0.3/document-definition-object/pdfa/"  selected>- PDF/A</option>
   
-    <option value="/docs/0.3/options/"  selected>
+    <option value="/docs/0.3/options/" >
    Options</option> 
   
 
@@ -449,29 +449,70 @@
     </div>
 
 
-    <h1>Options</h1>
+    <h1>PDF/A</h1>
 
     <div class="alert alert-warning" role="alert"><strong>Version 0.3 is under development. Do not use in a production.</strong></div>
     <div class="alert alert-warning" role="alert"><strong>Documentation is under development.</strong></div>
     
     
     
+    
+<div class="alert alert-warning" role="alert">Minimal version: <strong>0.3.0-beta.12</strong></div>
 
-<p>Advanced options for creating document used in <a href="/docs/0.3/getting-started/client-side/methods/">client-side methods</a> or <a href="/docs/0.3/getting-started/server-side/">server-side method</a>.</p>
-<p>Options:</p>
+<p>PDF/A is specialized for use in the archiving and long-term preservation of electronic documents.</p>
+<p>PDF version 1.4 or above is required.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">version</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;1.5&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">subset</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;PDF/A-3a&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">tagged</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+    <span style="color:#75af00">displayTitle</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+    <span style="color:#75af00">info</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+        <span style="color:#75af00">title</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Awesome PDF document from pdfmake&#39;</span>
+    <span style="color:#111">},</span>
+    <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+        <span style="color:#d88200">&#39;PDF/A document for archive&#39;</span>
+    <span style="color:#111">]</span>
+<span style="color:#111">};</span>
+</code></pre></div><p>Supported PDF versions (property <code>version</code>):</p>
 <ul>
-<li><code>fontLayoutCache</code> - option to disable font layout cache (<em>default</em>: <code>true</code> - cache enabled)</li>
-<li><code>bufferPages</code> -  allows you to control when pages are flushed to the output file (see <a href="http://pdfkit.org/docs/getting_started.html">pdfkit documentation</a>) (<em>default</em>: <code>false</code> - buffer disabled)</li>
+<li><code>1.3</code> - PDF version 1.3 (default) <strong>not supported PDF/A</strong></li>
+<li><code>1.4</code> - PDF version 1.4</li>
+<li><code>1.5</code> - PDF version 1.5</li>
+<li><code>1.6</code> - PDF version 1.6</li>
+<li><code>1.7</code> - PDF version 1.7</li>
+<li><code>1.7ext3</code> - PDF version 1.7 ExtensionLevel 3</li>
 </ul>
-
+<p>Subset of document (property <code>subset</code>):</p>
+<ul>
+<li><code>PDF/A-1</code> (shortcut for PDF/A-1b)</li>
+<li><code>PDF/A-1a</code></li>
+<li><code>PDF/A-1b</code></li>
+<li><code>PDF/A-2</code> (shortcut for PDF/A-2b)</li>
+<li><code>PDF/A-2a</code></li>
+<li><code>PDF/A-2b</code></li>
+<li><code>PDF/A-3</code> (shortcut for PDF/A-3b)</li>
+<li><code>PDF/A-3a</code></li>
+<li><code>PDF/A-3b</code></li>
+<li><code>PDF/UA</code></li>
+</ul>
+<p>Mark document as Tagged PDF (property <code>tagged</code>)</p>
+<ul>
+<li><code>true</code> - enable</li>
+<li><code>false</code> - disable</li>
+</ul>
+<p>Display of document title in window title (property <code>displayTitle</code>)</p>
+<ul>
+<li><code>true</code> - enable</li>
+<li><code>false</code> - disable</li>
+</ul>
 
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/docs/0.3/document-definition-object/pdfa/" title="PDF/A"> <i class="fa fa-chevron-left"></i><label>PDF/A</label></a>
-    <a class="nav nav-next" href="/docs/0.3/migration-from-0.1/" title="Migration from 0.1/0.2" style="margin-right: 0px;"><label>Migration from 0.1/0.2</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/docs/0.3/document-definition-object/attachments/" title="Attachments embedding"> <i class="fa fa-chevron-left"></i><label>Attachments embedding</label></a>
+    <a class="nav nav-next" href="/docs/0.3/options/" title="Options" style="margin-right: 0px;"><label>Options</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -488,7 +529,7 @@
 
     
     <div class="github-link">
-      <a href="https://github.com/pdfmake/docs/edit/master/content/options/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/pdfmake/docs/edit/master/content/document-definition-object/pdfa.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

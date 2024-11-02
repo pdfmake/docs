@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2024-09-06T17:42:52 CEST">
+<meta name="revised" content="2024-11-02T10:57:02 CET">
 <title>Building font file via shell script :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -346,6 +346,13 @@
           </a>
         </div>
     </li>
+      <li data-nav-id="https://pdfmake.github.io/docs/0.3/document-definition-object/pdfa/" class="dd-item">
+        <div>
+          <a href="/docs/0.3/document-definition-object/pdfa/">
+            PDF/A
+          </a>
+        </div>
+    </li>
         </ul>
     </li>
     <li data-nav-id="https://pdfmake.github.io/docs/0.3/options/" class="dd-item alwaysopen
@@ -429,6 +436,7 @@
       <option value="/docs/0.3/document-definition-object/compression/" >- Compression</option>
       <option value="/docs/0.3/document-definition-object/security/" >- Encryption and access privileges</option>
       <option value="/docs/0.3/document-definition-object/attachments/" >- Attachments embedding</option>
+      <option value="/docs/0.3/document-definition-object/pdfa/" >- PDF/A</option>
   
     <option value="/docs/0.3/options/" >
    Options</option> 
@@ -449,7 +457,7 @@
     
     
     <p>For a complete description of use custom fonts in client-side, read the article: <a href="/docs/0.3/fonts/custom-fonts-client-side/vfs/">Custom fonts (client-side) &gt; via Virtual file system (VFS)</a></p>
-<p>If you don&rsquo;t want to install gulp and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the <code>vfs_fonts.js</code> with an bash-script as well:</p>
+<p>If you don&rsquo;t want to install nodejs and/or just downloaded pdfMake and want to use custom fonts in client-side, you can generate the <code>vfs_fonts.js</code> with an bash-script as well:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/sh
 </span><span style="color:#75715e"></span>
 <span style="color:#00a8c8">if</span> <span style="color:#f92672">[</span> -t <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span><span style="color:#111">;</span> <span style="color:#00a8c8">then</span>
