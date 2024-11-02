@@ -31,6 +31,12 @@ To use custom fonts, 3 steps are required:
 * Run command `node build-vfs.js "./examples/fonts"`. Or run `node build-vfs.js` to show help.
 * Include your new **build/vfs_fonts.js** file in your code (in the same way you include `pdfmake.js` or `pdfmake.min.js`).
 
+{{% alert theme="info" %}}It is recommended to **move** `vfs_fonts.js` file into your own folder structure (should not be in `node_modules` folder).
+
+The next time you run `npm install` it might get replaced in `node_modules` with the original content.
+
+If your framework caches `node_modules` folder the changes may not take effect. Clear the cache or move `vfs_fonts.js` file outside of `node_modules` folder.{{% /alert %}}
+
 The above steps embeds **all** files from `examples/fonts` (into a local key/value variable `pdfMake.vfs`) - not only fonts. Which means you could put images in there, run `node build-vfs.js "./examples/fonts`, and reference them by filename in your doc-definition object.
 
 You don't need to reference the files in ```examples/fonts``` anymore because all files have been copied to the `vfs_fonts.js`.
