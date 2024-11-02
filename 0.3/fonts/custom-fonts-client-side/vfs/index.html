@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2024-11-02T10:57:03 CET">
+<meta name="revised" content="2024-11-02T13:06:24 CET">
 <title>via Virtual file system (VFS) :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -479,6 +479,12 @@
 <li>Run command <code>node build-vfs.js &quot;./examples/fonts&quot;</code>. Or run <code>node build-vfs.js</code> to show help.</li>
 <li>Include your new <strong>build/vfs_fonts.js</strong> file in your code (in the same way you include <code>pdfmake.js</code> or <code>pdfmake.min.js</code>).</li>
 </ul>
+
+<div class="alert alert-info" role="alert"><p>It is recommended to <strong>move</strong> <code>vfs_fonts.js</code> file into your own folder structure (should not be in <code>node_modules</code> folder).</p>
+<p>The next time you run <code>npm install</code> it might get replaced in <code>node_modules</code> with the original content.</p>
+<p>If your framework caches <code>node_modules</code> folder the changes may not take effect. Clear the cache or move <code>vfs_fonts.js</code> file outside of <code>node_modules</code> folder.</p>
+</div>
+
 <p>The above steps embeds <strong>all</strong> files from <code>examples/fonts</code> (into a local key/value variable <code>pdfMake.vfs</code>) - not only fonts. Which means you could put images in there, run <code>node build-vfs.js &quot;./examples/fonts</code>, and reference them by filename in your doc-definition object.</p>
 <p>You don&rsquo;t need to reference the files in <code>examples/fonts</code> anymore because all files have been copied to the <code>vfs_fonts.js</code>.</p>
 <p>Other ways:</p>

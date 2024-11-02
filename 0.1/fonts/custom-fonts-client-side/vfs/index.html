@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2024-11-02T10:56:30 CET">
+<meta name="revised" content="2024-11-02T13:05:45 CET">
 <title>via Virtual file system (VFS) :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.1/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.1/css/nucleus.css" rel="stylesheet">
@@ -442,7 +442,7 @@
 <p>To use custom fonts, 3 steps are required:</p>
 <ol>
 <li>create a new <code>vfs_fonts.js</code> file containing your font files</li>
-<li>assign <code>pdfMake.fonts</code> in your javascript</li>
+<li>assign <code>pdfMake.addFonts(...)</code> (or legacy <code>pdfMake.fonts</code>) in your javascript</li>
 <li>specify the font in your doc-definition</li>
 </ol>
 <h2 id="1-create-a-new-vfs_fontsjs-containing-your-font-files">1. create a new <code>vfs_fonts.js</code> containing your font files</h2>
@@ -454,6 +454,12 @@
 <li>Run command <code>node build-vfs.js &quot;./examples/fonts&quot;</code>. Or run <code>node build-vfs.js</code> to show help.</li>
 <li>Include your new <strong>build/vfs_fonts.js</strong> file in your code (in the same way you include <code>pdfmake.js</code> or <code>pdfmake.min.js</code>).</li>
 </ul>
+
+<div class="alert alert-info" role="alert"><p>It is recommended to <strong>move</strong> <code>vfs_fonts.js</code> file into your own folder structure (should not be in <code>node_modules</code> folder).</p>
+<p>The next time you run <code>npm install</code> it might get replaced in <code>node_modules</code> with the original content.</p>
+<p>If your framework caches <code>node_modules</code> folder the changes may not take effect. Clear the cache or move <code>vfs_fonts.js</code> file outside of <code>node_modules</code> folder.</p>
+</div>
+
 <p>The above steps embeds <strong>all</strong> files from <code>examples/fonts</code> (into a local key/value variable <code>pdfMake.vfs</code>) - not only fonts. Which means you could put images in there, run <code>node build-vfs.js &quot;./examples/fonts</code>, and reference them by filename in your doc-definition object.</p>
 <p>You don&rsquo;t need to reference the files in <code>examples/fonts</code> anymore because all files have been copied to the <code>vfs_fonts.js</code>.</p>
 <p>Other ways:</p>
@@ -461,8 +467,26 @@
 <li><a href="/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/">Building font file via shell script</a></li>
 <li><a href="/docs/0.1/fonts/custom-fonts-client-side/vfs/php/">Building font file via PHP script</a></li>
 </ul>
-<h2 id="2-assign-pdfmakefonts-in-your-javascript">2. assign <code>pdfMake.fonts</code> in your javascript</h2>
-<p>In your code, before calling <code>pdfMake.createPdf(docDefinition)</code> set <code>pdfMake.fonts</code> as in the example below (notice we don&rsquo;t specify paths, just filenames):</p>
+<h2 id="2-assign-pdfmakeaddfonts-or-legacy-pdfmakefonts-in-your-javascript">2. assign <code>pdfMake.addFonts(...)</code> (or legacy <code>pdfMake.fonts</code>) in your javascript</h2>
+<p>In your code, before calling <code>pdfMake.createPdf(docDefinition)</code> set <code>pdfMake.addFonts(...)</code> (or legacy <code>pdfMake.fonts</code>) as in the example below (notice we don&rsquo;t specify paths, just filenames):</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">addFonts</span><span style="color:#111">({</span>
+  <span style="color:#75af00">yourFontName</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fontFile.ttf&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fontFile2.ttf&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fontFile3.ttf&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fontFile4.ttf&#39;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">anotherFontName</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#111">(...)</span>
+  <span style="color:#111">},</span>
+
+  <span style="color:#75715e">// example of usage fonts in collection
+</span><span style="color:#75715e"></span>  <span style="color:#75af00">PingFangSC</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#d88200">&#39;pingfang.ttc&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;PingFangSC-Regular&#39;</span><span style="color:#111">],</span>
+    <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#d88200">&#39;pingfang.ttc&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;PingFangSC-Semibold&#39;</span><span style="color:#111">],</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">});</span>
+</code></pre></div><p>or legacy:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">fonts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
   <span style="color:#75af00">yourFontName</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
     <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;fontFile.ttf&#39;</span><span style="color:#111">,</span>
@@ -483,6 +507,15 @@
 </code></pre></div><p>The keys defined here will be used as font names in your doc-definition styles.</p>
 <p>Each font-family defines 4 properties: normal, bold, italics and bolditalics referring to appropriate files (the ones you embedded from <code>examples/fonts/</code>). You should define all 4 components (even if they all point to the same font file).</p>
 <p>By default pdfmake uses the following font structure:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">addFonts</span><span style="color:#111">({</span>
+  <span style="color:#75af00">Roboto</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Roboto-Regular.ttf&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Roboto-Medium.ttf&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Roboto-Italic.ttf&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Roboto-MediumItalic.ttf&#39;</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">});</span>
+</code></pre></div><p>or legacy:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">fonts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
   <span style="color:#75af00">Roboto</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
     <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Roboto-Regular.ttf&#39;</span><span style="color:#111">,</span>
