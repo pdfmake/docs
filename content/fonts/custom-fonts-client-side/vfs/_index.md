@@ -20,7 +20,7 @@ When you run command `node build-vfs.js "./examples/fonts"` in the pdfmake packa
 To use custom fonts, 3 steps are required:
 
 1. create a new `vfs_fonts.js` file containing your font files
-1. assign `pdfMake.fonts` in your javascript
+1. assign `pdfMake.addFonts(...)` (or legacy `pdfMake.fonts`) in your javascript
 1. specify the font in your doc-definition
 
 
@@ -33,6 +33,13 @@ To use custom fonts, 3 steps are required:
 * Run command `node build-vfs.js "./examples/fonts"`. Or run `node build-vfs.js` to show help.
 * Include your new **build/vfs_fonts.js** file in your code (in the same way you include `pdfmake.js` or `pdfmake.min.js`).
 
+{{% alert theme="info" %}}It is recommended to **move** `vfs_fonts.js` file into your own folder structure (should not be in `node_modules` folder).
+
+The next time you run `npm install` it might get replaced in `node_modules` with the original content.
+
+If your framework caches `node_modules` folder the changes may not take effect. Clear the cache or move `vfs_fonts.js` file outside of `node_modules` folder.{{% /alert %}}
+
+
 The above steps embeds **all** files from `examples/fonts` (into a local key/value variable `pdfMake.vfs`) - not only fonts. Which means you could put images in there, run `node build-vfs.js "./examples/fonts`, and reference them by filename in your doc-definition object.
 
 You don't need to reference the files in ```examples/fonts``` anymore because all files have been copied to the `vfs_fonts.js`.
@@ -42,10 +49,31 @@ Other ways:
 * [Building font file via shell script](/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/)
 * [Building font file via PHP script](/docs/0.1/fonts/custom-fonts-client-side/vfs/php/)
 
-## 2. assign `pdfMake.fonts` in your javascript
+## 2. assign `pdfMake.addFonts(...)` (or legacy `pdfMake.fonts`) in your javascript
 
-In your code, before calling `pdfMake.createPdf(docDefinition)` set `pdfMake.fonts` as in the example below (notice we don't specify paths, just filenames):
+In your code, before calling `pdfMake.createPdf(docDefinition)` set `pdfMake.addFonts(...)` (or legacy `pdfMake.fonts`) as in the example below (notice we don't specify paths, just filenames):
 
+```javascript
+pdfMake.addFonts({
+  yourFontName: {
+    normal: 'fontFile.ttf',
+    bold: 'fontFile2.ttf',
+    italics: 'fontFile3.ttf',
+    bolditalics: 'fontFile4.ttf'
+  },
+  anotherFontName: {
+    (...)
+  },
+
+  // example of usage fonts in collection
+  PingFangSC: {
+    normal: ['pingfang.ttc', 'PingFangSC-Regular'],
+    bold: ['pingfang.ttc', 'PingFangSC-Semibold'],
+  }
+});
+```
+
+or legacy:
 ```javascript
 pdfMake.fonts = {
   yourFontName: {
@@ -72,6 +100,18 @@ Each font-family defines 4 properties: normal, bold, italics and bolditalics ref
 
 By default pdfmake uses the following font structure:
 
+```javascript
+pdfMake.addFonts({
+  Roboto: {
+    normal: 'Roboto-Regular.ttf',
+    bold: 'Roboto-Medium.ttf',
+    italics: 'Roboto-Italic.ttf',
+    bolditalics: 'Roboto-MediumItalic.ttf'
+  }
+});
+```
+
+or legacy:
 ```javascript
 pdfMake.fonts = {
   Roboto: {
