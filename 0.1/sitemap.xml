@@ -2,11 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/vfs/php/</loc>
-  </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/getting-started/</loc>
-  </url><url>
-    <loc>https://pdfmake.github.io/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/</loc>
   </url><url>
     <loc>https://pdfmake.github.io/docs/0.1/getting-started/client-side/</loc>
   </url><url>
