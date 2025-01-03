@@ -115,4 +115,29 @@ pdfDoc.pipe(fs.createWriteStream('document.pdf'));
 pdfDoc.end();
 ```
 
+##### colSpan and rowSpan
+
+{{% alert theme="info" %}}If you use colSpan or rowSpan, don't forget to use an empty cell for the next columns or rows. See example below.{{% /alert %}}
+
+```js
+var dd = {
+  content: [
+    {
+      table: {
+        body: [
+          [{text: 'Header with Colspan = 2', style: 'tableHeader', colSpan: 2, alignment: 'center'}, '', {text: 'Header 3', style: 'tableHeader', alignment: 'center'}],
+          [{text: 'Header 1', style: 'tableHeader', alignment: 'center'}, {text: 'Header 2', style: 'tableHeader', alignment: 'center'}, {text: 'Header 3', style: 'tableHeader', alignment: 'center'}],
+          ['Sample value 1', 'Sample value 2', 'Sample value 3'],
+          [{rowSpan: 3, text: 'rowSpan set to 3\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'}, 'Sample value 2', 'Sample value 3'],
+          ['', 'Sample value 2', 'Sample value 3'],
+          ['Sample value 1', 'Sample value 2', 'Sample value 3'],
+          ['Sample value 1', {colSpan: 2, rowSpan: 2, text: 'Both:\nrowSpan and colSpan\ncan be defined at the same time'}, ''],
+          ['Sample value 1', '', ''],
+        ]
+      }
+    }
+  ]
+}
+```
+
 All concepts related to tables are covered by TABLES example in [playground](http://pdfmake.org/playground.html).
