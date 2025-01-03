@@ -184,7 +184,7 @@ var docDefinition = { background: function(currentPage, pageSize) { return `page
       
       <guid>https://pdfmake.github.io/docs/0.3/document-definition-object/margins/</guid>
       <description>Any element in pdfMake can have a margin:
-(...) // margin: [left, top, right, bottom] { text: &amp;#39;sample&amp;#39;, margin: [ 5, 2, 10, 20 ] }, // margin: [horizontal, vertical] { text: &amp;#39;another text&amp;#39;, margin: [5, 2] }, // margin: equalLeftTopRightBottom { text: &amp;#39;last one&amp;#39;, margin: 5 } (...) </description>
+// margin: [left, top, right, bottom] { text: &amp;#39;sample&amp;#39;, margin: [ 5, 2, 10, 20 ] }, // margin: [horizontal, vertical] { text: &amp;#39;another text&amp;#39;, margin: [5, 2] }, // margin: equalLeftTopRightBottom { text: &amp;#39;last one&amp;#39;, margin: 5 } // single-side margins { text: &amp;#39;sample&amp;#39;, marginLeft: 5, marginTop: 2, marginRight: 10, marginBottom: 2 }, </description>
     </item>
     
     <item>
