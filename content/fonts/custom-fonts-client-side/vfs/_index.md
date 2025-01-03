@@ -44,10 +44,7 @@ The above steps embeds **all** files from `examples/fonts` (into a local key/val
 
 You don't need to reference the files in ```examples/fonts``` anymore because all files have been copied to the `vfs_fonts.js`.
 
-Other ways:
-
-* [Building font file via shell script](/docs/0.1/fonts/custom-fonts-client-side/vfs/shell/)
-* [Building font file via PHP script](/docs/0.1/fonts/custom-fonts-client-side/vfs/php/)
+For building script in other languages see [https://github.com/pdfmake/vfs-builders](https://github.com/pdfmake/vfs-builders).
 
 ## 2. assign `pdfMake.addFonts(...)` (or legacy `pdfMake.fonts`) in your javascript
 
