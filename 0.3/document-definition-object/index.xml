@@ -91,6 +91,18 @@ var docDefinition = { content: [ &amp;#39;paragraph 1&amp;#39;, &amp;#39;paragra
     </item>
     
     <item>
+      <title>Document sections</title>
+      <link>https://pdfmake.github.io/docs/0.3/document-definition-object/sections/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pdfmake.github.io/docs/0.3/document-definition-object/sections/</guid>
+      <description>Minimal version: 0.3.0-beta.18Document sections allow you to divide a document into multiple parts, each with its own page settings.
+Each section support:
+ custom page size and orientation custom page margin custom header/footer custom watermark custom background  Definition including all properties:
+var docDefinition = { content: [ { header: function (currentPage, pageCount) { return currentPage.toString() + &amp;#39; of &amp;#39; + pageCount; }, footer: function (currentPage, pageCount) { return currentPage.</description>
+    </item>
+    
+    <item>
       <title>Images</title>
       <link>https://pdfmake.github.io/docs/0.3/document-definition-object/images/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
