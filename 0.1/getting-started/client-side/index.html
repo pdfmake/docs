@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2025-01-03T15:57:40 CET">
+<meta name="revised" content="2025-05-09T10:49:17 CEST">
 <title>Client-side :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.1/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.1/css/nucleus.css" rel="stylesheet">
@@ -346,6 +346,22 @@
           
     <option value="/docs/0.1/getting-started/" >
    Getting started</option> 
+    <option value="/docs/0.1/getting-started/client-side/"  selected>
+  - 
+   Client-side</option> 
+      <option value="/docs/0.1/getting-started/client-side/methods/" >-- Methods</option>
+      <option value="/docs/0.1/getting-started/client-side/supported-browsers/" >-- Supported browsers</option>
+      <option value="/docs/0.1/getting-started/client-side/examples/" >-- Examples</option>
+  
+    <option value="/docs/0.1/getting-started/server-side/" >
+  - 
+   Server-side</option> 
+      <option value="/docs/0.1/getting-started/server-side/supported-nodejs-versions/" >-- Supported Node.js versions</option>
+      <option value="/docs/0.1/getting-started/server-side/examples/" >-- Examples</option>
+  
+    <option value="/docs/0.1/getting-started/examples-from-comunity/" >
+  - 
+   Examples from the community</option>
   
     <option value="/docs/0.1/fonts/" >
    Fonts</option> 
@@ -459,6 +475,27 @@
 <span style="color:#111">},</span>
 </code></pre></div><p>Then, if console outputs a <strong>Illegal reassignment to import &lsquo;pdfMake&rsquo;</strong>, do not assign vfs manually, just import fonts like this:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">import</span> <span style="color:#d88200">&#39;pdfmake/build/vfs_fonts&#39;</span><span style="color:#111">;</span>
+</code></pre></div><h4 id="composer">Composer</h4>
+<p>You can use asset-packagist.org service, see: <a href="https://asset-packagist.org/package/npm-asset/pdfmake">npm-asset/pdfmake</a></p>
+<p>Example of composer.json:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#111">{</span>
+  <span style="color:#f92672">&#34;require&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+    <span style="color:#f92672">&#34;npm-asset/pdfmake&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;^0.2.20&#34;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#f92672">&#34;replace&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+    <span style="color:#f92672">&#34;npm-asset/pdfkit&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;*&#34;</span><span style="color:#111">,</span>
+    <span style="color:#f92672">&#34;npm-asset/linebreak&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;*&#34;</span><span style="color:#111">,</span>
+    <span style="color:#f92672">&#34;npm-asset/iconv-lite&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;*&#34;</span><span style="color:#111">,</span>
+    <span style="color:#f92672">&#34;npm-asset/svg-to-pdfkit&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;*&#34;</span><span style="color:#111">,</span>
+    <span style="color:#f92672">&#34;npm-asset/xmldoc&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;*&#34;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#f92672">&#34;repositories&#34;</span><span style="color:#111">:</span> <span style="color:#111">[</span>
+    <span style="color:#111">{</span>
+      <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;composer&#34;</span><span style="color:#111">,</span>
+      <span style="color:#f92672">&#34;url&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;https://asset-packagist.org&#34;</span>
+    <span style="color:#111">}</span>
+  <span style="color:#111">]</span>
+<span style="color:#111">}</span>
 </code></pre></div><h4 id="repository">Repository</h4>
 <p>Copy them directly from the build directory from the repository. Otherwise you can always build it from sources:</p>
 <ul>

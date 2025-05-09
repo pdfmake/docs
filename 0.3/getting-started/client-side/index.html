@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2025-05-09T10:01:30 CEST">
+<meta name="revised" content="2025-05-09T10:50:00 CEST">
 <title>Client-side :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -503,7 +503,28 @@
 <p>If a <strong>Cannot read property &lsquo;TYPED_ARRAY_SUPPORT&rsquo; of undefined</strong> error is thrown, add this to webpack config:</p>
 <pre><code>exclude: [ /node_modules/, /pdfmake.js$/ ]
 </code></pre><p>(see <a href="https://github.com/bpampuch/pdfmake/issues/1100#issuecomment-336728521">issue</a>)</p>
-<h4 id="repository">Repository</h4>
+<h4 id="composer">Composer</h4>
+<p>You can use asset-packagist.org service, see: <a href="https://asset-packagist.org/package/npm-asset/pdfmake">npm-asset/pdfmake</a></p>
+<p>Example of composer.json:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#111">{</span>
+  <span style="color:#f92672">&#34;require&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+    <span style="color:#f92672">&#34;npm-asset/pdfmake&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;^0.3.0-beta.18&#34;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#f92672">&#34;replace&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+    <span style="color:#f92672">&#34;npm-asset/pdfkit&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;*&#34;</span><span style="color:#111">,</span>
+    <span style="color:#f92672">&#34;npm-asset/linebreak&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;*&#34;</span><span style="color:#111">,</span>
+    <span style="color:#f92672">&#34;npm-asset/iconv-lite&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;*&#34;</span><span style="color:#111">,</span>
+    <span style="color:#f92672">&#34;npm-asset/svg-to-pdfkit&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;*&#34;</span><span style="color:#111">,</span>
+    <span style="color:#f92672">&#34;npm-asset/xmldoc&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;*&#34;</span>
+  <span style="color:#111">},</span>
+  <span style="color:#f92672">&#34;repositories&#34;</span><span style="color:#111">:</span> <span style="color:#111">[</span>
+    <span style="color:#111">{</span>
+      <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;composer&#34;</span><span style="color:#111">,</span>
+      <span style="color:#f92672">&#34;url&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;https://asset-packagist.org&#34;</span>
+    <span style="color:#111">}</span>
+  <span style="color:#111">]</span>
+<span style="color:#111">}</span>
+</code></pre></div><h4 id="repository">Repository</h4>
 <p>Copy them directly from the build directory from the repository. Otherwise you can always <a href="https://github.com/bpampuch/pdfmake#building-from-sources">build it version 0.3.x from sources</a>.</p>
 
 
