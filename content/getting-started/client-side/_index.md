@@ -104,6 +104,32 @@ Then, if console outputs a **Illegal reassignment to import 'pdfMake'**, do not 
 import 'pdfmake/build/vfs_fonts';
 ```
 
+#### Composer
+
+You can use asset-packagist.org service, see: [npm-asset/pdfmake](https://asset-packagist.org/package/npm-asset/pdfmake)
+
+Example of composer.json:
+```json
+{
+  "require": {
+    "npm-asset/pdfmake": "^0.2.20"
+  },
+  "replace": {
+    "npm-asset/pdfkit": "*",
+    "npm-asset/linebreak": "*",
+    "npm-asset/iconv-lite": "*",
+    "npm-asset/svg-to-pdfkit": "*",
+    "npm-asset/xmldoc": "*"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
+}
+```
+
 #### Repository
 
 Copy them directly from the build directory from the repository. Otherwise you can always build it from sources:
