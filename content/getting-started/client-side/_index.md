@@ -88,6 +88,32 @@ exclude: [ /node_modules/, /pdfmake.js$/ ]
 (see [issue](https://github.com/bpampuch/pdfmake/issues/1100#issuecomment-336728521))
 
 
+#### Composer
+
+You can use asset-packagist.org service, see: [npm-asset/pdfmake](https://asset-packagist.org/package/npm-asset/pdfmake)
+
+Example of composer.json:
+```json
+{
+  "require": {
+    "npm-asset/pdfmake": "^0.3.0-beta.18"
+  },
+  "replace": {
+    "npm-asset/pdfkit": "*",
+    "npm-asset/linebreak": "*",
+    "npm-asset/iconv-lite": "*",
+    "npm-asset/svg-to-pdfkit": "*",
+    "npm-asset/xmldoc": "*"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
+}
+```
+
 #### Repository
 
 Copy them directly from the build directory from the repository. Otherwise you can always [build it version 0.3.x from sources](https://github.com/bpampuch/pdfmake#building-from-sources).
