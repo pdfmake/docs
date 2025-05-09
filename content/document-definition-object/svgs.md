@@ -1,7 +1,7 @@
 +++
 title = "SVGs"
 description = ""
-weight = 29
+weight = 2110
 alwaysopen = true
 +++
 

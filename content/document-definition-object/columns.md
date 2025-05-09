@@ -1,7 +1,7 @@
 +++
 title = "Columns"
 description = ""
-weight = 22
+weight = 2020
 alwaysopen = true
 +++
 

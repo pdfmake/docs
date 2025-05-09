@@ -1,7 +1,7 @@
 +++
 title = "Stack of paragraphs"
 description = ""
-weight = 28
+weight = 2080
 alwaysopen = true
 +++
 

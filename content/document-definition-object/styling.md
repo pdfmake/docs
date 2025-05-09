@@ -1,7 +1,7 @@
 +++
 title = "Styling"
 description = ""
-weight = 21
+weight = 2010
 alwaysopen = true
 +++
 

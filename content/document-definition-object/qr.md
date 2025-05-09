@@ -1,7 +1,7 @@
 +++
 title = "QR code"
 description = ""
-weight = 292
+weight = 2220
 alwaysopen = true
 +++
 

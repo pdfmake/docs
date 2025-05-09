@@ -1,7 +1,7 @@
 +++
 title = "Headers and footers"
 description = ""
-weight = 25
+weight = 2050
 alwaysopen = true
 +++
 
