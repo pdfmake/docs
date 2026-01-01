@@ -5,8 +5,6 @@ weight = 2300
 alwaysopen = true
 +++
 
-{{% alert theme="warning" %}}Minimal version: **0.3.0-beta.2**{{% /alert %}}
-
 pdfmake supports attaching files as annotations as well as embedded files.
 Embedded files are added in the "files" dictionary and will show up in supported pdf viewers in their respective attachment panels.
 File attachments are annotations which link to a file.

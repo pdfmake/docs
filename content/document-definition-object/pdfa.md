@@ -5,8 +5,6 @@ weight = 2310
 alwaysopen = true
 +++
 
-{{% alert theme="warning" %}}Minimal version: **0.3.0-beta.12**{{% /alert %}}
-
 PDF/A is specialized for use in the archiving and long-term preservation of electronic documents.
 
 PDF version 1.4 or above is required.

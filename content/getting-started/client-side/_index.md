@@ -32,7 +32,7 @@ https://cdnjs.com/libraries/pdfmake
 #### npm
 
 ```
-npm install pdfmake@0.3.0-beta.1
+npm install pdfmake
 ```
 
 Files for client-side is available here:
@@ -96,7 +96,7 @@ Example of composer.json:
 ```json
 {
   "require": {
-    "npm-asset/pdfmake": "^0.3.0-beta.18"
+    "npm-asset/pdfmake": "^0.3.0"
   },
   "replace": {
     "npm-asset/pdfkit": "*",

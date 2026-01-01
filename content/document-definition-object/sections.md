@@ -5,9 +5,6 @@ weight = 2090
 alwaysopen = true
 +++
 
-{{% alert theme="warning" %}}Minimal version: **0.3.0-beta.18**{{% /alert %}}
-
-
 Document sections allow you to divide a document into multiple parts, each with its own page settings.
 
 Each section support:
