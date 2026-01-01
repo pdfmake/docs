@@ -96,10 +96,10 @@ var docDefinition = { content: [ &amp;#39;paragraph 1&amp;#39;, &amp;#39;paragra
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/0.3/document-definition-object/sections/</guid>
-      <description>Minimal version: 0.3.0-beta.18Document sections allow you to divide a document into multiple parts, each with its own page settings.
+      <description>Document sections allow you to divide a document into multiple parts, each with its own page settings.
 Each section support:
  custom page size and orientation custom page margin custom header/footer custom watermark custom background  Definition including all properties:
-var docDefinition = { content: [ { header: function (currentPage, pageCount) { return currentPage.toString() + &amp;#39; of &amp;#39; + pageCount; }, footer: function (currentPage, pageCount) { return currentPage.</description>
+var docDefinition = { content: [ { header: function (currentPage, pageCount) { return currentPage.toString() + &amp;#39; of &amp;#39; + pageCount; }, footer: function (currentPage, pageCount) { return currentPage.toString() + &amp;#39; of &amp;#39; + pageCount; }, background: function () { return {text: &amp;#39;background&amp;#39;, alignment: &amp;#39;right&amp;#39;}; }, watermark: &amp;#39;watermark&amp;#39;, pageSize: &amp;#39;A4&amp;#39;, pageOrientation: &amp;#39;landscape&amp;#39;, pageMargins: 5, section: [ &amp;#39;Text in section.</description>
     </item>
     
     <item>
@@ -225,7 +225,7 @@ To enable encryption set user password in userPassword (string value).</descript
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/0.3/document-definition-object/attachments/</guid>
-      <description>Minimal version: 0.3.0-beta.2pdfmake supports attaching files as annotations as well as embedded files. Embedded files are added in the &amp;ldquo;files&amp;rdquo; dictionary and will show up in supported pdf viewers in their respective attachment panels. File attachments are annotations which link to a file. Any attachment or embedded file must provide at least a &amp;ldquo;src&amp;rdquo;, providing a filename through &amp;ldquo;name&amp;rdquo; is highly recommended. The &amp;ldquo;src&amp;rdquo; of any attachment can be provided in dataURL format (like the following attachment, taken from http://www.</description>
+      <description>pdfmake supports attaching files as annotations as well as embedded files. Embedded files are added in the &amp;ldquo;files&amp;rdquo; dictionary and will show up in supported pdf viewers in their respective attachment panels. File attachments are annotations which link to a file. Any attachment or embedded file must provide at least a &amp;ldquo;src&amp;rdquo;, providing a filename through &amp;ldquo;name&amp;rdquo; is highly recommended. The &amp;ldquo;src&amp;rdquo; of any attachment can be provided in dataURL format (like the following attachment, taken from http://www.</description>
     </item>
     
     <item>
@@ -234,10 +234,10 @@ To enable encryption set user password in userPassword (string value).</descript
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/0.3/document-definition-object/pdfa/</guid>
-      <description>Minimal version: 0.3.0-beta.12PDF/A is specialized for use in the archiving and long-term preservation of electronic documents.
+      <description>PDF/A is specialized for use in the archiving and long-term preservation of electronic documents.
 PDF version 1.4 or above is required.
 var docDefinition = { version: &amp;#39;1.5&amp;#39;, subset: &amp;#39;PDF/A-3a&amp;#39;, tagged: true, displayTitle: true, info: { title: &amp;#39;Awesome PDF document from pdfmake&amp;#39; }, content: [ &amp;#39;PDF/A document for archive&amp;#39; ] }; Supported PDF versions (property version):
- 1.3 - PDF version 1.3 (default) not supported PDF/A 1.4 - PDF version 1.</description>
+ 1.3 - PDF version 1.3 (default) not supported PDF/A 1.4 - PDF version 1.4 1.</description>
     </item>
     
   </channel>
