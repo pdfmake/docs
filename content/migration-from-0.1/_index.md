@@ -11,11 +11,9 @@ alwaysopen = true
 
 #### Unified interfaces and all methods return promise
 
-##### Client-side: replace callbacks with promises.
-[See documentation](/docs/0.3/getting-started/client-side/methods/).
+Client-side: replace callbacks with promises [see documentation](/docs/0.3/getting-started/client-side/methods/).
 
-##### Server-side: introduce new methods as on the client.
-[See documentation](/docs/0.3/getting-started/server-side/methods/).
+Server-side: introduce new methods as on the client [see documentation](/docs/0.3/getting-started/server-side/methods/).
 
 
 #### Changed including virtual font storage in client-side
