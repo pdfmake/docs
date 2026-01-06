@@ -5,11 +5,17 @@ weight = 9
 alwaysopen = true
 +++
 
+#### Server-side: a different way of invoking the library
+
+[See documentation](/docs/0.3/getting-started/server-side/).
+
 #### Unified interfaces and all methods return promise
 
-[See Methods for client-side](/docs/0.3/getting-started/client-side/methods/).
+##### Client-side: replace callbacks with promises.
+[See documentation](/docs/0.3/getting-started/client-side/methods/).
 
-[See Methods for server-side](/docs/0.3/getting-started/server-side/methods/).
+##### Server-side: introduce new methods as on the client.
+[See documentation](/docs/0.3/getting-started/server-side/methods/).
 
 
 #### Changed including virtual font storage in client-side

@@ -101,7 +101,6 @@ Example of composer.json:
   "replace": {
     "npm-asset/pdfkit": "*",
     "npm-asset/linebreak": "*",
-    "npm-asset/iconv-lite": "*",
     "npm-asset/svg-to-pdfkit": "*",
     "npm-asset/xmldoc": "*"
   },

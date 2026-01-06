@@ -99,7 +99,7 @@ pdfMake.createPdf(docDefinition).getDataUrl().then((dataUrl) => {
 #### Get the PDF document as base64 data
 ```js
 pdfMake.createPdf(docDefinition).getBase64().then((data) => {
-	alert(data)
+	alert(data);
 }, err => {
 	console.error(err);
 });
