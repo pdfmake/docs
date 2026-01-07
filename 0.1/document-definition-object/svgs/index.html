@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2026-01-02T13:45:16 CET">
+<meta name="revised" content="2026-01-07T10:00:50 CET">
 <title>SVGs :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.1/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.1/css/nucleus.css" rel="stylesheet">
@@ -426,6 +426,10 @@
 <div class="alert alert-warning" role="alert">The SVG node expects a valid SVG value. If the value is invalid or empty, an error is thrown.</div>
 
 <p>Library <a href="https://github.com/alafr/SVG-to-PDFKit">SVG-to-PDFKit</a> is used to transformation from SVG to PDF document.</p>
+<p>Node <code>svg</code> value can be string or <code>SVGElement</code> object (is available only in browser).</p>
+
+<div class="alert alert-warning" role="alert">Support of <code>SVGElement</code> object required version <strong>0.2.22</strong> or later</div>
+
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
   <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
     <span style="color:#111">{</span>
@@ -448,6 +452,7 @@
 </span><span style="color:#75715e"></span>      <span style="color:#75af00">svg</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&lt;svg width=&#34;300&#34; height=&#34;200&#34; viewBox=&#34;0 0 300 200&#34;&gt;...&lt;/svg&gt;&#39;</span><span style="color:#111">,</span>
       <span style="color:#75af00">fit</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#ae81ff">150</span><span style="color:#111">,</span> <span style="color:#ae81ff">100</span><span style="color:#111">]</span>
     <span style="color:#111">}</span>
+  <span style="color:#111">]</span>
 <span style="color:#111">};</span>
 </code></pre></div>
 
