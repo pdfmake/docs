@@ -39,7 +39,13 @@ var docDefinition = {
       // you can also fit the svg inside a rectangle
       svg: '<svg width="300" height="200" viewBox="0 0 300 200">...</svg>',
       fit: [150, 100]
-    }
+    },
+    {
+      // if no width/height is specified in SVG element, you must set width and height for node
+      svg: '<svg>...</svg>',
+      width: 300,
+      height: 200
+    },
   ]
 };
 ```
