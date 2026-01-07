@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2026-01-07T10:00:22 CET">
+<meta name="revised" content="2026-01-07T15:32:08 CET">
 <title>SVGs :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -482,7 +482,13 @@
       <span style="color:#75715e">// you can also fit the svg inside a rectangle
 </span><span style="color:#75715e"></span>      <span style="color:#75af00">svg</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&lt;svg width=&#34;300&#34; height=&#34;200&#34; viewBox=&#34;0 0 300 200&#34;&gt;...&lt;/svg&gt;&#39;</span><span style="color:#111">,</span>
       <span style="color:#75af00">fit</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#ae81ff">150</span><span style="color:#111">,</span> <span style="color:#ae81ff">100</span><span style="color:#111">]</span>
-    <span style="color:#111">}</span>
+    <span style="color:#111">},</span>
+    <span style="color:#111">{</span>
+      <span style="color:#75715e">// if no width/height is specified in SVG element, you must set width and height for node
+</span><span style="color:#75715e"></span>      <span style="color:#75af00">svg</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&lt;svg&gt;...&lt;/svg&gt;&#39;</span><span style="color:#111">,</span>
+      <span style="color:#75af00">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">300</span><span style="color:#111">,</span>
+      <span style="color:#75af00">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">200</span>
+    <span style="color:#111">},</span>
   <span style="color:#111">]</span>
 <span style="color:#111">};</span>
 </code></pre></div>
