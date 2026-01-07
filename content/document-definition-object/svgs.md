@@ -13,6 +13,10 @@ SVGs are much like [images](/docs/0.1/document-definition-object/images/) except
 
 Library [SVG-to-PDFKit](https://github.com/alafr/SVG-to-PDFKit) is used to transformation from SVG to PDF document.
 
+Node `svg` value can be string or `SVGElement` object (is available only in browser).
+
+{{% alert theme="warning" %}}Support of `SVGElement` object required version **0.2.22** or later{{% /alert %}}
+
 ```js
 var docDefinition = {
   content: [
@@ -36,5 +40,6 @@ var docDefinition = {
       svg: '<svg width="300" height="200" viewBox="0 0 300 200">...</svg>',
       fit: [150, 100]
     }
+  ]
 };
 ```
