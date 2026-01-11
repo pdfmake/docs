@@ -119,7 +119,7 @@ The table node expects a valid table value. If the value is invalid or empty, an
       
       <guid>https://pdfmake.github.io/docs/0.1/document-definition-object/lists/</guid>
       <description>pdfmake supports both numbered and bulleted lists:
-var docDefinition = { content: [ &amp;#39;Bulleted list example:&amp;#39;, { // to treat a paragraph as a bulleted list, set an array of items under the ul key  ul: [ &amp;#39;Item 1&amp;#39;, &amp;#39;Item 2&amp;#39;, &amp;#39;Item 3&amp;#39;, { text: &amp;#39;Item 4&amp;#39;, bold: true }, ] }, &amp;#39;Numbered list example:&amp;#39;, { // for numbered lists set the ol key  ol: [ &amp;#39;Item 1&amp;#39;, &amp;#39;Item 2&amp;#39;, &amp;#39;Item 3&amp;#39; ] } ] }; </description>
+var docDefinition = { content: [ &amp;#39;Bulleted list example:&amp;#39;, { // to treat a paragraph as a bulleted list, set an array of items under the ul key  ul: [ &amp;#39;Item 1&amp;#39;, &amp;#39;Item 2&amp;#39;, &amp;#39;Item 3&amp;#39;, { text: &amp;#39;Item 4&amp;#39;, bold: true }, ] }, &amp;#39;Numbered list example:&amp;#39;, { // for numbered lists set the ol key  ol: [ &amp;#39;Item 1&amp;#39;, &amp;#39;Item 2&amp;#39;, &amp;#39;Item 3&amp;#39; ] }, &amp;#39;Colored unordered list:&amp;#39;, { color: &amp;#39;blue&amp;#39;, ul: [ &amp;#39;item 1&amp;#39;, &amp;#39;item 2&amp;#39;, &amp;#39;item 3&amp;#39; ] }, &amp;#39;Colored unordered list with own marker color:&amp;#39;, { color: &amp;#39;blue&amp;#39;, markerColor: &amp;#39;red&amp;#39;, ul: [ &amp;#39;item 1&amp;#39;, &amp;#39;item 2&amp;#39;, { text: &amp;#39;item 3 with custom marker color&amp;#39;, markerColor: &amp;#39;lime&amp;#39; } // Minimal pdfmake version: 0.</description>
     </item>
     
     <item>
