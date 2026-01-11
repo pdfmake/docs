@@ -83,6 +83,7 @@ var docDefinition = {
 * `italics: boolean`: whether to use italic text (default: false)
 * `alignment: string`: ('left' or 'center' or 'right' or 'justify') the alignment of the text
 * `characterSpacing: number`: size of the letter spacing in pt
+* `wordBreak: string`: controls how text is wrapped when it exceeds the available width (supported values: `'normal'` (default), `'break-all'`) (Minimal pdfmake version: 0.2.21)  
 * `color: string`: the color of the text (color name e.g., 'blue' or hexadecimal color e.g., '#ff5500')
 * `background: string` the background color of the text
 * `markerColor: string`: the color of the bullets in a buletted list
