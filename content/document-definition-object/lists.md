@@ -30,7 +30,48 @@ var docDefinition = {
         'Item 2',
         'Item 3'
       ]
-    }
+    },
+
+      'Colored unordered list:',
+      {
+          color: 'blue',
+          ul: [
+              'item 1',
+              'item 2',
+              'item 3'
+          ]
+      },
+
+      'Colored unordered list with own marker color:',
+      {
+          color: 'blue',
+          markerColor: 'red',
+          ul: [
+              'item 1',
+              'item 2',
+              { text: 'item 3 with custom marker color', markerColor: 'lime' } // Minimal pdfmake version: 0.2.23
+          ]
+      },
+
+      'Colored ordered list',
+      {
+          color: 'blue',
+          ol: [
+              'item 1',
+              'item 2',
+              'item 3'
+          ]
+      },
+      'Colored ordered list with own marker color:',
+      {
+          color: 'blue',
+          markerColor: 'red',
+          ol: [
+              'item 1',
+              'item 2',
+              { text: 'item 3 with custom marker color', markerColor: 'lime' } // Minimal pdfmake version: 0.2.23
+          ]
+      },
   ]
 };
 ```
