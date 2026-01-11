@@ -26,6 +26,12 @@ var docDefinition = {
       width: 150
     },
     {
+      // if you specify height, image will scale proportionally
+      // Minimal pdfmake version: 0.2.23
+      image: 'data:image/jpeg;base64,...encodedContent...',
+      height: 100
+    },      
+    {
       // if you specify both width and height - image will be stretched
       image: 'data:image/jpeg;base64,...encodedContent...',
       width: 150,
