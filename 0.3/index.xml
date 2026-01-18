@@ -240,7 +240,7 @@ var dd = { content: [ { text: &amp;#39;link&amp;#39;, link: &amp;#39;file:///c:/
       
       <guid>https://pdfmake.github.io/docs/0.3/document-definition-object/toc/</guid>
       <description>The simplest example of a table of contents:
-var docDefinition = { content: [ { toc: { title: {text: &amp;#39;INDEX&amp;#39;, style: &amp;#39;header&amp;#39;} } }, { text: &amp;#39;This is a header&amp;#39;, style: &amp;#39;header&amp;#39;, tocItem: true } ] } If id is used in toc, the tocItem can target that id:
+var docDefinition = { content: [ { toc: { title: {text: &amp;#39;INDEX&amp;#39;, style: &amp;#39;header&amp;#39;} //textMargin: [0, 0, 0, 0],  //textStyle: {italics: true},  numberStyle: { bold: true }, } }, { text: &amp;#39;This is a header&amp;#39;, style: &amp;#39;header&amp;#39;, tocItem: true } ] } If id is used in toc, the tocItem can target that id:
 var docDefinition = { content: [ { toc: { id: &amp;#39;mainToc&amp;#39;, title: {text: &amp;#39;INDEX&amp;#39;, style: &amp;#39;header&amp;#39;} } }, { text: &amp;#39;This is a header&amp;#39;, style: &amp;#39;header&amp;#39;, tocItem: &amp;#39;mainToc&amp;#39; } ] } If multiple Table of Contents are used, tocItem can be used to place the text in the correct toc:</description>
     </item>
     

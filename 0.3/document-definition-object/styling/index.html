@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2026-01-11T12:43:35 CET">
+<meta name="revised" content="2026-01-18T13:25:08 CET">
 <title>Styling :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -490,10 +490,15 @@
     <span style="color:#75af00">anotherStyle</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
       <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
       <span style="color:#75af00">alignment</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;right&#39;</span>
-    <span style="color:#111">}</span>
+    <span style="color:#111">},</span>
+    <span style="color:#75af00">subheader</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+      <span style="color:#75af00">fontSize</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">15</span><span style="color:#111">,</span>
+      <span style="color:#00a8c8">extends</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;header&#39;</span> <span style="color:#75715e">// or array of strings
+</span><span style="color:#75715e"></span>    <span style="color:#111">}</span>
   <span style="color:#111">}</span>
 <span style="color:#111">};</span>
-</code></pre></div><p>To have a deeper understanding of styling in pdfmake, style inheritance and local-style-overrides check STYLES1, STYLES2 and STYLES3 examples in <a href="http://pdfmake.org/playground.html">playground</a>.</p>
+</code></pre></div><p>Property <code>extends</code> in style inherited/extends styles. <em>(Minimal pdfmake version: 0.3.3)</em></p>
+<p>To have a deeper understanding of styling in pdfmake, style inheritance and local-style-overrides check STYLES1, STYLES2 and STYLES3 examples in <a href="http://pdfmake.org/playground.html">playground</a>.</p>
 <h4 id="default-style">Default style</h4>
 <p>And it is also possible to define a default style:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
@@ -519,10 +524,12 @@
 <li><code>wordBreak: string</code>: controls how text is wrapped when it exceeds the available width (supported values: <code>'normal'</code> (default), <code>'break-all'</code>)</li>
 <li><code>color: string</code>: the color of the text (color name e.g., &lsquo;blue&rsquo; or hexadecimal color e.g., &lsquo;#ff5500&rsquo;)</li>
 <li><code>background: string</code> the background color of the text</li>
+<li><code>style: string | array&lt;string&gt;</code>: defined style of item</li>
 <li><code>markerColor: string</code>: the color of the bullets in a buletted list</li>
 <li><code>decoration: string | string[]</code>: the text decoration to apply (&lsquo;underline&rsquo; or &lsquo;lineThrough&rsquo; or &lsquo;overline&rsquo;)</li>
 <li><code>decorationStyle: string</code>: the style of the text decoration (&lsquo;dashed&rsquo; or &lsquo;dotted&rsquo; or &lsquo;double&rsquo; or &lsquo;wavy&rsquo;)</li>
 <li><code>decorationColor: string</code>: the color of the text decoration, see color</li>
+<li><code>decorationThickness: integer</code>: for <code>text</code> to set width of the decoration line <em>(Minimal pdfmake version: 0.3.3)</em></li>
 </ul>
 
 

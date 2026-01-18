@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2026-01-11T12:43:35 CET">
+<meta name="revised" content="2026-01-18T13:25:08 CET">
 <title>Table of contents :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -458,6 +458,9 @@
     <span style="color:#111">{</span>
       <span style="color:#75af00">toc</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
         <span style="color:#75af00">title</span><span style="color:#f92672">:</span> <span style="color:#111">{</span><span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;INDEX&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">style</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;header&#39;</span><span style="color:#111">}</span>
+        <span style="color:#75715e">//textMargin: [0, 0, 0, 0],
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//textStyle: {italics: true},
+</span><span style="color:#75715e"></span>        <span style="color:#75af00">numberStyle</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span> <span style="color:#111">},</span>
       <span style="color:#111">}</span>
     <span style="color:#111">},</span>
     <span style="color:#111">{</span>
@@ -503,7 +506,25 @@
     <span style="color:#111">}</span>
   <span style="color:#111">]</span>
 <span style="color:#111">}</span>
-</code></pre></div>
+</code></pre></div><h4 id="toc-properties">ToC properties</h4>
+<ul>
+<li><code>id: string</code>: (optional) only usable if you use multiple ToC lists to identify</li>
+<li><code>title: string | text node</code>:  (optional) title of ToC, string or text node</li>
+<li><code>hideEmpty: boolean</code>: (optional) (default <code>false</code>) hide ToC if is empty <em>(Minimal pdfmake version: 0.3.3)</em></li>
+<li><code>textStyle</code>: (optional)</li>
+<li><code>numberStyle</code>: (optional)</li>
+<li><code>textMargin</code>: (optional)</li>
+<li><code>sortBy: string</code>: (optional) <code>'page'</code> (default) or <code>'title'</code> <em>(Minimal pdfmake version: 0.3.3)</em></li>
+<li><code>sortLocale: string</code>: (optional) default browser or nodejs language is used <em>(Minimal pdfmake version: 0.3.3)</em></li>
+</ul>
+<h4 id="node-properties">Node properties</h4>
+<ul>
+<li><code>tocItem: boolean | string</code>:</li>
+<li><code>textStyle</code>: (optional)</li>
+<li><code>numberStyle</code>: (optional)</li>
+<li><code>textMargin</code>: (optional)</li>
+</ul>
+
 
     
     
