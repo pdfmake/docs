@@ -12,6 +12,9 @@ var docDefinition = {
     {
       toc: {
         title: {text: 'INDEX', style: 'header'}
+        //textMargin: [0, 0, 0, 0],
+        //textStyle: {italics: true},
+        numberStyle: { bold: true },
       }
     },
     {
@@ -64,3 +67,21 @@ var docDefinition = {
   ]
 }
 ```
+
+#### ToC properties
+
+* `id: string`: (optional) only usable if you use multiple ToC lists to identify
+* `title: string | text node`:  (optional) title of ToC, string or text node
+* `hideEmpty: boolean`: (optional) (default `false`) hide ToC if is empty _(Minimal pdfmake version: 0.3.3)_
+* `textStyle`: (optional)
+* `numberStyle`: (optional)
+* `textMargin`: (optional)
+* `sortBy: string`: (optional) `'page'` (default) or `'title'` _(Minimal pdfmake version: 0.3.3)_
+* `sortLocale: string`: (optional) default browser or nodejs language is used _(Minimal pdfmake version: 0.3.3)_
+
+#### Node properties 
+
+* `tocItem: boolean | string`:
+* `textStyle`: (optional)
+* `numberStyle`: (optional)
+* `textMargin`: (optional)

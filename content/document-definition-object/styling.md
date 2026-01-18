@@ -49,10 +49,16 @@ var docDefinition = {
     anotherStyle: {
       italics: true,
       alignment: 'right'
+    },
+    subheader: {
+      fontSize: 15,
+      extends: 'header' // or array of strings
     }
   }
 };
 ```
+
+Property `extends` in style inherited/extends styles. _(Minimal pdfmake version: 0.3.3)_
 
 To have a deeper understanding of styling in pdfmake, style inheritance and local-style-overrides check STYLES1, STYLES2 and STYLES3 examples in [playground](http://pdfmake.org/playground.html).
 
@@ -86,7 +92,9 @@ var docDefinition = {
 * `wordBreak: string`: controls how text is wrapped when it exceeds the available width (supported values: `'normal'` (default), `'break-all'`)
 * `color: string`: the color of the text (color name e.g., 'blue' or hexadecimal color e.g., '#ff5500')
 * `background: string` the background color of the text
+* `style: string | array<string>`: defined style of item
 * `markerColor: string`: the color of the bullets in a buletted list
 * `decoration: string | string[]`: the text decoration to apply ('underline' or 'lineThrough' or 'overline')
 * `decorationStyle: string`: the style of the text decoration ('dashed' or 'dotted' or 'double' or 'wavy')
 * `decorationColor: string`: the color of the text decoration, see color
+* `decorationThickness: integer`: for `text` to set width of the decoration line _(Minimal pdfmake version: 0.3.3)_
