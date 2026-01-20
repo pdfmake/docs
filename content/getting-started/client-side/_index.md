@@ -25,9 +25,15 @@ To begin in browser with the default configuration, you should include two files
 
 ### Library sources
 
-#### cdnjs
+#### CDN
 
-https://cdnjs.com/libraries/pdfmake
+* [https://app.unpkg.com/pdfmake](https://app.unpkg.com/pdfmake@0.2/files/build)
+  * `https://unpkg.com/pdfmake@0.2/build/pdfmake.min.js`
+  * `https://unpkg.com/pdfmake@0.2/build/vfs_fonts.js`
+* [https://www.jsdelivr.com/package/npm/pdfmake](https://www.jsdelivr.com/package/npm/pdfmake?tab=files&path=build)
+  * `https://cdn.jsdelivr.net/npm/pdfmake@0.2/build/pdfmake.min.js`
+  * `https://cdn.jsdelivr.net/npm/pdfmake@0.2/build/vfs_fonts.js`
+* https://cdnjs.com/libraries/pdfmake (The service is currently unavailable.)
 
 #### bower (deprecated)
 
