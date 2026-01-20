@@ -26,12 +26,12 @@ var fonts = {
      (...)
    },
 
-   // download default Roboto font from cdnjs.com
+   // download default Roboto font from unpkg.com
    Roboto: {
-     normal: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.3.1/fonts/Roboto/Roboto-Regular.ttf',
-     bold: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.3.1/fonts/Roboto/Roboto-Medium.ttf',
-     italics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.3.1/fonts/Roboto/Roboto-Italic.ttf',
-     bolditalics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.3.1/fonts/Roboto/Roboto-MediumItalic.ttf'
+     normal: 'https://unpkg.com/pdfmake@0.3/build/fonts/Roboto/Roboto-Regular.ttf',
+     bold: 'https://unpkg.com/pdfmake@0.3/build/fonts/Roboto/Roboto-Medium.ttf',
+     italics: 'https://unpkg.com/pdfmake@0.3/build/fonts/Roboto/Roboto-Italic.ttf',
+     bolditalics: 'https://unpkg.com/pdfmake@0.3/build/fonts/Roboto/Roboto-MediumItalic.ttf'
    },
 
    // example of usage fonts in collection
