@@ -78,6 +78,7 @@ var docDefinition = {
 * `textMargin`: (optional)
 * `sortBy: string`: (optional) `'page'` (default) or `'title'` _(Minimal pdfmake version: 0.3.3)_
 * `sortLocale: string`: (optional) default browser or nodejs language is used _(Minimal pdfmake version: 0.3.3)_
+* `outlines: boolean`: (optional) adds all items to outlines / bookmarks (any existing outline settings on texts are respected) see this [article](/docs/0.3/document-definition-object/outlines/) _(Minimal version: 0.3.5)_
 
 #### Node properties 
 
