@@ -34,8 +34,15 @@ var docDefinition = {
 
 ##### Table-cell properties
 
+* `rowSpan: integer`: 
+* `colSpan: integer`:
+* `verticalAlignment: string`: vertical alignment (values: `top` (default), `middle`, `bottom`)  
+* `border: [boolean, boolean, boolean, boolean]`:
+* `borderColor: [string, string, string, string]`:
 * `fillColor: string`: the background color of a table cell
 * `fillOpacity: string`: the background opacity of a table cell
+* `overlayPattern: [string, string]`: overlay for a cell, painted over the contents
+* `overlayOpacity: number`: the opacity of the overlay
 
 
 ##### Table layouts
