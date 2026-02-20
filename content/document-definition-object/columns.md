@@ -50,3 +50,4 @@ Column content is not limited to a simple text. It can actually contain any vali
 ##### Properties
 
 * `columnGap: number` specify gap (space) between columns
+* `snakingColumns: boolean` snaking columns (newspaper-style columns) see this [article](/docs/0.3/document-definition-object/snaking-columns/) _(Minimal version: 0.3.5)_
