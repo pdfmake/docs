@@ -44,6 +44,8 @@
   </url><url>
     <loc>https://pdfmake.github.io/docs/0.3/document-definition-object/columns/</loc>
   </url><url>
+    <loc>https://pdfmake.github.io/docs/0.3/document-definition-object/snaking-columns/</loc>
+  </url><url>
     <loc>https://pdfmake.github.io/docs/0.3/document-definition-object/tables/</loc>
   </url><url>
     <loc>https://pdfmake.github.io/docs/0.3/document-definition-object/lists/</loc>
@@ -67,6 +69,8 @@
     <loc>https://pdfmake.github.io/docs/0.3/document-definition-object/qr/</loc>
   </url><url>
     <loc>https://pdfmake.github.io/docs/0.3/document-definition-object/toc/</loc>
+  </url><url>
+    <loc>https://pdfmake.github.io/docs/0.3/document-definition-object/outlines/</loc>
   </url><url>
     <loc>https://pdfmake.github.io/docs/0.3/document-definition-object/watermark/</loc>
   </url><url>

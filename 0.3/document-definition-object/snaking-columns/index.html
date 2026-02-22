@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2026-02-22T07:29:06 CET">
-<title>Supported browsers :: pdfmake</title>
+<title>Snaking columns :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
 <link href="/docs/0.3/css/font-awesome.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
 
     
   </head>
-  <body data-url="/docs/0.3/getting-started/client-side/supported-browsers/">
+  <body data-url="/docs/0.3/document-definition-object/snaking-columns/">
     
       <header>
   <div class="logo">
@@ -394,7 +394,7 @@
   - 
    Client-side</option> 
       <option value="/docs/0.3/getting-started/client-side/methods/" >-- Methods</option>
-      <option value="/docs/0.3/getting-started/client-side/supported-browsers/"  selected>-- Supported browsers</option>
+      <option value="/docs/0.3/getting-started/client-side/supported-browsers/" >-- Supported browsers</option>
       <option value="/docs/0.3/getting-started/client-side/examples/" >-- Examples</option>
   
     <option value="/docs/0.3/getting-started/server-side/" >
@@ -429,7 +429,7 @@
    Document-definition-object</option> 
       <option value="/docs/0.3/document-definition-object/styling/" >- Styling</option>
       <option value="/docs/0.3/document-definition-object/columns/" >- Columns</option>
-      <option value="/docs/0.3/document-definition-object/snaking-columns/" >- Snaking columns</option>
+      <option value="/docs/0.3/document-definition-object/snaking-columns/"  selected>- Snaking columns</option>
       <option value="/docs/0.3/document-definition-object/tables/" >- Tables</option>
       <option value="/docs/0.3/document-definition-object/lists/" >- Lists</option>
       <option value="/docs/0.3/document-definition-object/headers-footers/" >- Headers and footers</option>
@@ -463,44 +463,43 @@
     </div>
 
 
-    <h1>Supported browsers</h1>
+    <h1>Snaking columns</h1>
 
     
     
     
-    <ul>
-<li>Edge</li>
-<li>Firefox</li>
-<li>Chrome</li>
-<li>Chrome (Android)</li>
-<li>Opera</li>
-<li>Safari (iOS)</li>
-<li>Safari (iOS) iPhone</li>
-</ul>
+    
+<div class="alert alert-warning" role="alert">Minimal version: <strong>0.3.5</strong></div>
 
-<div class="panel panel-warning"><div class="panel-heading">Limitations</div><div class="panel-body"><p>Methods <strong><code>open()</code></strong> and <strong><code>print()</code></strong> are supported only in:</p>
+<p>Snaking columns (or newspaper-style columns) are a column layout mode where content flows vertically through the first column, then continues at the top of the next column, alternating direction as needed. Instead of always restarting at the top for each new row of columns, the layout &ldquo;snakes&rdquo; through the available columns in a continuous reading order.</p>
+<p>When <code>snakingColumns: true</code> is enabled, only the <strong>first column</strong> should contain content. Subsequent columns serve as empty placeholders for overflow.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+        <span style="color:#111">{</span>
+            <span style="color:#75af00">columns</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+                <span style="color:#111">{</span><span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#75af00">myLongContent</span><span style="color:#111">,</span> <span style="color:#75af00">width</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;*&#39;</span><span style="color:#111">},</span>  <span style="color:#75715e">// Content goes here
+</span><span style="color:#75715e"></span>                <span style="color:#111">{</span><span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">width</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;*&#39;</span><span style="color:#111">},</span>             <span style="color:#75715e">// Empty overflow target
+</span><span style="color:#75715e"></span>                <span style="color:#111">{</span><span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">width</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;*&#39;</span><span style="color:#111">}</span>              <span style="color:#75715e">// Empty overflow target
+</span><span style="color:#75715e"></span>            <span style="color:#111">],</span>
+            <span style="color:#75af00">snakingColumns</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span>
+        <span style="color:#111">}</span>
+    <span style="color:#111">]</span>
+<span style="color:#111">};</span>
+</code></pre></div><p>Nesting a &ldquo;snaking column&rdquo; directly inside another &ldquo;snaking column&rdquo; (a recursive snaking layout) is not supported.</p>
+<p><strong>Recommendation</strong>:</p>
 <ul>
-<li>Firefox</li>
-<li>Chrome</li>
-<li>Opera</li>
+<li>Avoid deep nesting of snaking columns within other snaking columns.</li>
+<li>Standard columns (non-snaking) <em>can</em> be safely nested inside snaking columns.</li>
+<li>Snaking columns <em>can</em> be safely nested inside standard columns.</li>
 </ul>
-</div></div>
-
-
-<div class="alert alert-warning" role="alert">Add-ons used in browsers can affect the functionality of pdfmake (especially for <code>open()</code> and <code>print()</code>). If pdfmake is not working try disable add-ons in browser.</div>
-
-
-<div class="panel panel-danger"><div class="panel-heading">Problematic add-ons</div><div class="panel-body">AdBlock</div></div>
-
-<p>Fully description is available in <a href="https://github.com/bpampuch/pdfmake/issues/800">issue</a>.</p>
 
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/docs/0.3/getting-started/client-side/methods/" title="Methods"> <i class="fa fa-chevron-left"></i><label>Methods</label></a>
-    <a class="nav nav-next" href="/docs/0.3/getting-started/client-side/examples/" title="Examples" style="margin-right: 0px;"><label>Examples</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/docs/0.3/document-definition-object/columns/" title="Columns"> <i class="fa fa-chevron-left"></i><label>Columns</label></a>
+    <a class="nav nav-next" href="/docs/0.3/document-definition-object/tables/" title="Tables" style="margin-right: 0px;"><label>Tables</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -517,7 +516,7 @@
 
     
     <div class="github-link">
-      <a href="https://github.com/pdfmake/docs/edit/master/content/getting-started/client-side/supported-browsers.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/pdfmake/docs/edit/master/content/document-definition-object/snaking-columns.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

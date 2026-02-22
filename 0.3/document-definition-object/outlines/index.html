@@ -5,8 +5,8 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2026-02-22T07:29:06 CET">
-<title>Supported browsers :: pdfmake</title>
+<meta name="revised" content="2026-02-22T07:29:05 CET">
+<title>Outlines / Bookmarks :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
 <link href="/docs/0.3/css/font-awesome.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
 
     
   </head>
-  <body data-url="/docs/0.3/getting-started/client-side/supported-browsers/">
+  <body data-url="/docs/0.3/document-definition-object/outlines/">
     
       <header>
   <div class="logo">
@@ -394,7 +394,7 @@
   - 
    Client-side</option> 
       <option value="/docs/0.3/getting-started/client-side/methods/" >-- Methods</option>
-      <option value="/docs/0.3/getting-started/client-side/supported-browsers/"  selected>-- Supported browsers</option>
+      <option value="/docs/0.3/getting-started/client-side/supported-browsers/" >-- Supported browsers</option>
       <option value="/docs/0.3/getting-started/client-side/examples/" >-- Examples</option>
   
     <option value="/docs/0.3/getting-started/server-side/" >
@@ -442,7 +442,7 @@
       <option value="/docs/0.3/document-definition-object/links/" >- Links</option>
       <option value="/docs/0.3/document-definition-object/qr/" >- QR code</option>
       <option value="/docs/0.3/document-definition-object/toc/" >- Table of contents</option>
-      <option value="/docs/0.3/document-definition-object/outlines/" >- Outlines / Bookmarks</option>
+      <option value="/docs/0.3/document-definition-object/outlines/"  selected>- Outlines / Bookmarks</option>
       <option value="/docs/0.3/document-definition-object/watermark/" >- Watermark</option>
       <option value="/docs/0.3/document-definition-object/page/" >- Page dimensions, orientation and margins</option>
       <option value="/docs/0.3/document-definition-object/document-medatadata/" >- Document Metadata</option>
@@ -463,44 +463,65 @@
     </div>
 
 
-    <h1>Supported browsers</h1>
+    <h1>Outlines / Bookmarks</h1>
 
     
     
     
-    <ul>
-<li>Edge</li>
-<li>Firefox</li>
-<li>Chrome</li>
-<li>Chrome (Android)</li>
-<li>Opera</li>
-<li>Safari (iOS)</li>
-<li>Safari (iOS) iPhone</li>
-</ul>
+    
+<div class="alert alert-warning" role="alert">Minimal version: <strong>0.3.5</strong></div>
 
-<div class="panel panel-warning"><div class="panel-heading">Limitations</div><div class="panel-body"><p>Methods <strong><code>open()</code></strong> and <strong><code>print()</code></strong> are supported only in:</p>
+<p>PDF Outlines (also called Bookmarks) are a hierarchical navigation structure embedded in a PDF document that allows users to quickly jump to specific pages. They function as an interactive table of contents, typically displayed in the PDF viewer’s navigation panel.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+    <span style="color:#111">{</span>
+      <span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;First header in bookmarks&#39;</span><span style="color:#111">,</span>
+      <span style="color:#75af00">outline</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+    <span style="color:#111">},</span>
+    <span style="color:#111">{</span>
+      <span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Second header with custom bookmark&#39;</span><span style="color:#111">,</span>
+      <span style="color:#75af00">outline</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+      <span style="color:#75af00">outlineText</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Custom bookmark text&#39;</span><span style="color:#111">,</span>
+    <span style="color:#111">},</span>
+    <span style="color:#111">{</span>
+      <span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Structured bookmarks&#39;</span><span style="color:#111">,</span>
+      <span style="color:#75af00">id</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;structured-bookmarks&#39;</span><span style="color:#111">,</span>
+      <span style="color:#75af00">outline</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+      <span style="color:#75af00">outlineExpanded</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span>
+    <span style="color:#111">},</span>
+    <span style="color:#111">{</span>
+      <span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;First subheader&#39;</span><span style="color:#111">,</span>
+      <span style="color:#75af00">outline</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+      <span style="color:#75af00">outlineParentId</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;structured-bookmarks&#39;</span>
+    <span style="color:#111">},</span>
+    <span style="color:#111">{</span>
+      <span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Second subheader&#39;</span><span style="color:#111">,</span>
+      <span style="color:#75af00">outline</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+      <span style="color:#75af00">outlineParentId</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;structured-bookmarks&#39;</span>
+    <span style="color:#111">},</span>
+    <span style="color:#111">{</span>
+      <span style="color:#75af00">text</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Third subheader&#39;</span><span style="color:#111">,</span>
+      <span style="color:#75af00">outline</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+      <span style="color:#75af00">outlineParentId</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;structured-bookmarks&#39;</span><span style="color:#111">,</span>
+      <span style="color:#75af00">id</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;third-subheader&#39;</span>
+    <span style="color:#111">}</span>
+  <span style="color:#111">]</span>
+<span style="color:#111">};</span>
+</code></pre></div><h4 id="properties">Properties</h4>
 <ul>
-<li>Firefox</li>
-<li>Chrome</li>
-<li>Opera</li>
+<li><code>outline: boolean</code> - set to <code>true</code> for add to bookmarks</li>
+<li><code>outlineText: string</code> (optional) - set custom bookmark text, otherwise text from node</li>
+<li><code>outlineExpanded: boolean</code> (optional) - set to <code>true</code> for expanded/opened bookmark</li>
+<li><code>outlineParentId: string</code> (optional) - parent bookmark <code>id</code></li>
 </ul>
-</div></div>
-
-
-<div class="alert alert-warning" role="alert">Add-ons used in browsers can affect the functionality of pdfmake (especially for <code>open()</code> and <code>print()</code>). If pdfmake is not working try disable add-ons in browser.</div>
-
-
-<div class="panel panel-danger"><div class="panel-heading">Problematic add-ons</div><div class="panel-body">AdBlock</div></div>
-
-<p>Fully description is available in <a href="https://github.com/bpampuch/pdfmake/issues/800">issue</a>.</p>
 
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/docs/0.3/getting-started/client-side/methods/" title="Methods"> <i class="fa fa-chevron-left"></i><label>Methods</label></a>
-    <a class="nav nav-next" href="/docs/0.3/getting-started/client-side/examples/" title="Examples" style="margin-right: 0px;"><label>Examples</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/docs/0.3/document-definition-object/toc/" title="Table of contents"> <i class="fa fa-chevron-left"></i><label>Table of contents</label></a>
+    <a class="nav nav-next" href="/docs/0.3/document-definition-object/watermark/" title="Watermark" style="margin-right: 0px;"><label>Watermark</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -517,7 +538,7 @@
 
     
     <div class="github-link">
-      <a href="https://github.com/pdfmake/docs/edit/master/content/getting-started/client-side/supported-browsers.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/pdfmake/docs/edit/master/content/document-definition-object/outlines.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

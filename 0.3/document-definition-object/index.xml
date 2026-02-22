@@ -27,13 +27,23 @@ var docDefinition = { content: [ &amp;#39;This paragraph fills full width, as th
     </item>
     
     <item>
+      <title>Snaking columns</title>
+      <link>https://pdfmake.github.io/docs/0.3/document-definition-object/snaking-columns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pdfmake.github.io/docs/0.3/document-definition-object/snaking-columns/</guid>
+      <description>Minimal version: 0.3.5Snaking columns (or newspaper-style columns) are a column layout mode where content flows vertically through the first column, then continues at the top of the next column, alternating direction as needed. Instead of always restarting at the top for each new row of columns, the layout &amp;ldquo;snakes&amp;rdquo; through the available columns in a continuous reading order.
+When snakingColumns: true is enabled, only the first column should contain content.</description>
+    </item>
+    
+    <item>
       <title>Tables</title>
       <link>https://pdfmake.github.io/docs/0.3/document-definition-object/tables/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pdfmake.github.io/docs/0.3/document-definition-object/tables/</guid>
       <description>Conceptually tables are similar to columns. They can however have headers, borders and cells spanning over multiple columns/rows.
-The table node expects a valid table value. If the value is invalid or empty, an error is thrown. This includes the table.body property as well.var docDefinition = { content: [ { layout: &amp;#39;lightHorizontalLines&amp;#39;, // optional  table: { // headers are automatically repeated if the table spans over multiple pages  // you can declare how many rows should be treated as headers  headerRows: 1, widths: [ &amp;#39;*&amp;#39;, &amp;#39;auto&amp;#39;, 100, &amp;#39;*&amp;#39; ], body: [ [ &amp;#39;First&amp;#39;, &amp;#39;Second&amp;#39;, &amp;#39;Third&amp;#39;, &amp;#39;The last one&amp;#39; ], [ &amp;#39;Value 1&amp;#39;, &amp;#39;Value 2&amp;#39;, &amp;#39;Value 3&amp;#39;, &amp;#39;Value 4&amp;#39; ], [ { text: &amp;#39;Bold value&amp;#39;, bold: true }, &amp;#39;Val 2&amp;#39;, &amp;#39;Val 3&amp;#39;, &amp;#39;Val 4&amp;#39; ] ] } } ] }; Table-cell properties  fillColor: string: the background color of a table cell fillOpacity: string: the background opacity of a table cell  Table layouts Can be used layout property for set table layout.</description>
+The table node expects a valid table value. If the value is invalid or empty, an error is thrown. This includes the table.body property as well.var docDefinition = { content: [ { layout: &amp;#39;lightHorizontalLines&amp;#39;, // optional  table: { // headers are automatically repeated if the table spans over multiple pages  // you can declare how many rows should be treated as headers  headerRows: 1, widths: [ &amp;#39;*&amp;#39;, &amp;#39;auto&amp;#39;, 100, &amp;#39;*&amp;#39; ], body: [ [ &amp;#39;First&amp;#39;, &amp;#39;Second&amp;#39;, &amp;#39;Third&amp;#39;, &amp;#39;The last one&amp;#39; ], [ &amp;#39;Value 1&amp;#39;, &amp;#39;Value 2&amp;#39;, &amp;#39;Value 3&amp;#39;, &amp;#39;Value 4&amp;#39; ], [ { text: &amp;#39;Bold value&amp;#39;, bold: true }, &amp;#39;Val 2&amp;#39;, &amp;#39;Val 3&amp;#39;, &amp;#39;Val 4&amp;#39; ] ] } } ] }; Table-cell properties  rowSpan: integer: colSpan: integer: verticalAlignment: string: vertical alignment (values: top (default), middle, bottom) border: [boolean, boolean, boolean, boolean]: borderColor: [string, string, string, string]: fillColor: string: the background color of a table cell fillOpacity: string: the background opacity of a table cell overlayPattern: [string, string]: overlay for a cell, painted over the contents overlayOpacity: number: the opacity of the overlay  Table layouts Can be used layout property for set table layout.</description>
     </item>
     
     <item>
@@ -155,6 +165,16 @@ var dd = { content: [ { text: &amp;#39;link&amp;#39;, link: &amp;#39;file:///c:/
       <description>The simplest example of a table of contents:
 var docDefinition = { content: [ { toc: { title: {text: &amp;#39;INDEX&amp;#39;, style: &amp;#39;header&amp;#39;} //textMargin: [0, 0, 0, 0],  //textStyle: {italics: true},  numberStyle: { bold: true }, } }, { text: &amp;#39;This is a header&amp;#39;, style: &amp;#39;header&amp;#39;, tocItem: true } ] } If id is used in toc, the tocItem can target that id:
 var docDefinition = { content: [ { toc: { id: &amp;#39;mainToc&amp;#39;, title: {text: &amp;#39;INDEX&amp;#39;, style: &amp;#39;header&amp;#39;} } }, { text: &amp;#39;This is a header&amp;#39;, style: &amp;#39;header&amp;#39;, tocItem: &amp;#39;mainToc&amp;#39; } ] } If multiple Table of Contents are used, tocItem can be used to place the text in the correct toc:</description>
+    </item>
+    
+    <item>
+      <title>Outlines / Bookmarks</title>
+      <link>https://pdfmake.github.io/docs/0.3/document-definition-object/outlines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pdfmake.github.io/docs/0.3/document-definition-object/outlines/</guid>
+      <description>Minimal version: 0.3.5PDF Outlines (also called Bookmarks) are a hierarchical navigation structure embedded in a PDF document that allows users to quickly jump to specific pages. They function as an interactive table of contents, typically displayed in the PDF viewer’s navigation panel.
+var docDefinition = { content: [ { text: &amp;#39;First header in bookmarks&amp;#39;, outline: true, }, { text: &amp;#39;Second header with custom bookmark&amp;#39;, outline: true, outlineText: &amp;#39;Custom bookmark text&amp;#39;, }, { text: &amp;#39;Structured bookmarks&amp;#39;, id: &amp;#39;structured-bookmarks&amp;#39;, outline: true, outlineExpanded: true }, { text: &amp;#39;First subheader&amp;#39;, outline: true, outlineParentId: &amp;#39;structured-bookmarks&amp;#39; }, { text: &amp;#39;Second subheader&amp;#39;, outline: true, outlineParentId: &amp;#39;structured-bookmarks&amp;#39; }, { text: &amp;#39;Third subheader&amp;#39;, outline: true, outlineParentId: &amp;#39;structured-bookmarks&amp;#39;, id: &amp;#39;third-subheader&amp;#39; } ] }; Properties  outline: boolean - set to true for add to bookmarks outlineText: string (optional) - set custom bookmark text, otherwise text from node outlineExpanded: boolean (optional) - set to true for expanded/opened bookmark outlineParentId: string (optional) - parent bookmark id  </description>
     </item>
     
     <item>
