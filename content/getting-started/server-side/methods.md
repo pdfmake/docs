@@ -69,3 +69,77 @@ pdfmake.createPdf(docDefinition).getStream().then((stream) => {
 	console.error(err);
 });
 ```
+
+#### URL Access Policy
+
+{{% alert theme="warning" %}}Minimal version: **0.3.6**{{% /alert %}}
+
+The `setUrlAccessPolicy()` method allows you to define a custom security policy for external URLs before they are downloaded.
+
+This can be used to restrict allowed domains, enforce HTTPS, or prevent SSRF attacks by blocking private or internal network addresses.
+
+Basic example:
+```js
+pdfmake.setUrlAccessPolicy((url) => {
+    // check allowed domain
+    return url.startsWith("https://example.com/");
+});
+```
+
+Allow only https urls:
+```js
+pdfmake.setUrlAccessPolicy((url) => {
+  const parsed = new URL(url);
+
+  if (parsed.protocol !== "https:") {
+    return false;
+  }
+
+  return true;
+});
+```
+
+Disallow localhost url:
+```js
+pdfmake.setUrlAccessPolicy(async (url) => {
+  const parsed = new URL(url);
+
+  if (parsed.hostname === "localhost") {
+    return false;
+  }
+
+  return true;
+});
+```
+
+Example with basic SSRF protection:
+```js
+import dns from 'dns/promises';
+
+pdfmake.setUrlAccessPolicy(async (url) => {
+  const parsed = new URL(url);
+
+  // Resolve hostname to IP address
+  const { address } = await dns.lookup(parsed.hostname);
+
+  // Block localhost
+  if (address === "127.0.0.1" || address === "::1") {
+    return false;
+  }
+
+  // Block private IPv4 ranges
+  if (
+    address.startsWith("10.") ||
+    address.startsWith("192.168.") ||
+    address.startsWith("172.16.") ||
+    address.startsWith("172.17.") ||
+    address.startsWith("172.18.") ||
+    address.startsWith("172.19.") ||
+    address.startsWith("172.2") // 172.20–29
+  ) {
+    return false;
+  }
+
+  return true;
+});
+```

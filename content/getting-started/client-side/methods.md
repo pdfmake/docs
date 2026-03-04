@@ -132,3 +132,13 @@ pdfMake.createPdf(docDefinition).getStream().then((stream) => {
 	console.error(err);
 });
 ```
+
+#### URL Access Policy
+
+{{% alert theme="warning" %}}Minimal version: **0.3.6**{{% /alert %}}
+
+The `setUrlAccessPolicy()` method allows you to define a custom security policy for external URLs before they are downloaded.
+
+This can be used to restrict allowed domains, enforce HTTPS, or prevent SSRF attacks by blocking private or internal network addresses.
+
+For details see [documentation](/docs/0.3/getting-started/server-side/methods/#url-access-policy).
