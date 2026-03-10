@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2026-02-22T07:29:06 CET">
+<meta name="revised" content="2026-03-10T08:14:25 CET">
 <title>Methods :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -555,7 +555,14 @@
 </span><span style="color:#75715e"></span><span style="color:#111">},</span> <span style="color:#75af00">err</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
 	<span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">error</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">);</span>
 <span style="color:#111">});</span>
-</code></pre></div>
+</code></pre></div><h4 id="url-access-policy">URL Access Policy</h4>
+
+<div class="alert alert-warning" role="alert">Minimal version: <strong>0.3.6</strong></div>
+
+<p>The <code>setUrlAccessPolicy()</code> method allows you to define a custom security policy for external URLs before they are downloaded.</p>
+<p>This can be used to restrict allowed domains, enforce HTTPS, or prevent SSRF attacks by blocking private or internal network addresses.</p>
+<p>For details see <a href="/docs/0.3/getting-started/server-side/methods/#url-access-policy">documentation</a>.</p>
+
 
     
     

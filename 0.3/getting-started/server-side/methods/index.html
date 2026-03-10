@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2026-02-22T07:29:06 CET">
+<meta name="revised" content="2026-03-10T08:14:25 CET">
 <title>Methods :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -511,6 +511,66 @@
 	<span style="color:#75715e">// ...
 </span><span style="color:#75715e"></span><span style="color:#111">},</span> <span style="color:#75af00">err</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
 	<span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">error</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">);</span>
+<span style="color:#111">});</span>
+</code></pre></div><h4 id="url-access-policy">URL Access Policy</h4>
+
+<div class="alert alert-warning" role="alert">Minimal version: <strong>0.3.6</strong></div>
+
+<p>The <code>setUrlAccessPolicy()</code> method allows you to define a custom security policy for external URLs before they are downloaded.</p>
+<p>This can be used to restrict allowed domains, enforce HTTPS, or prevent SSRF attacks by blocking private or internal network addresses.</p>
+<p>Basic example:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfmake</span><span style="color:#111">.</span><span style="color:#75af00">setUrlAccessPolicy</span><span style="color:#111">((</span><span style="color:#75af00">url</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+    <span style="color:#75715e">// check allowed domain
+</span><span style="color:#75715e"></span>    <span style="color:#00a8c8">return</span> <span style="color:#75af00">url</span><span style="color:#111">.</span><span style="color:#75af00">startsWith</span><span style="color:#111">(</span><span style="color:#d88200">&#34;https://example.com/&#34;</span><span style="color:#111">);</span>
+<span style="color:#111">});</span>
+</code></pre></div><p>Allow only https urls:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfmake</span><span style="color:#111">.</span><span style="color:#75af00">setUrlAccessPolicy</span><span style="color:#111">((</span><span style="color:#75af00">url</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+  <span style="color:#00a8c8">const</span> <span style="color:#75af00">parsed</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#75af00">URL</span><span style="color:#111">(</span><span style="color:#75af00">url</span><span style="color:#111">);</span>
+
+  <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#75af00">parsed</span><span style="color:#111">.</span><span style="color:#75af00">protocol</span> <span style="color:#f92672">!==</span> <span style="color:#d88200">&#34;https:&#34;</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">false</span><span style="color:#111">;</span>
+  <span style="color:#111">}</span>
+
+  <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">true</span><span style="color:#111">;</span>
+<span style="color:#111">});</span>
+</code></pre></div><p>Disallow localhost url:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfmake</span><span style="color:#111">.</span><span style="color:#75af00">setUrlAccessPolicy</span><span style="color:#111">(</span><span style="color:#00a8c8">async</span> <span style="color:#111">(</span><span style="color:#75af00">url</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+  <span style="color:#00a8c8">const</span> <span style="color:#75af00">parsed</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#75af00">URL</span><span style="color:#111">(</span><span style="color:#75af00">url</span><span style="color:#111">);</span>
+
+  <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#75af00">parsed</span><span style="color:#111">.</span><span style="color:#75af00">hostname</span> <span style="color:#f92672">===</span> <span style="color:#d88200">&#34;localhost&#34;</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">false</span><span style="color:#111">;</span>
+  <span style="color:#111">}</span>
+
+  <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">true</span><span style="color:#111">;</span>
+<span style="color:#111">});</span>
+</code></pre></div><p>Example with basic SSRF protection:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">import</span> <span style="color:#75af00">dns</span> <span style="color:#75af00">from</span> <span style="color:#d88200">&#39;dns/promises&#39;</span><span style="color:#111">;</span>
+
+<span style="color:#75af00">pdfmake</span><span style="color:#111">.</span><span style="color:#75af00">setUrlAccessPolicy</span><span style="color:#111">(</span><span style="color:#00a8c8">async</span> <span style="color:#111">(</span><span style="color:#75af00">url</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+  <span style="color:#00a8c8">const</span> <span style="color:#75af00">parsed</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#75af00">URL</span><span style="color:#111">(</span><span style="color:#75af00">url</span><span style="color:#111">);</span>
+
+  <span style="color:#75715e">// Resolve hostname to IP address
+</span><span style="color:#75715e"></span>  <span style="color:#00a8c8">const</span> <span style="color:#111">{</span> <span style="color:#75af00">address</span> <span style="color:#111">}</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">await</span> <span style="color:#75af00">dns</span><span style="color:#111">.</span><span style="color:#75af00">lookup</span><span style="color:#111">(</span><span style="color:#75af00">parsed</span><span style="color:#111">.</span><span style="color:#75af00">hostname</span><span style="color:#111">);</span>
+
+  <span style="color:#75715e">// Block localhost
+</span><span style="color:#75715e"></span>  <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#75af00">address</span> <span style="color:#f92672">===</span> <span style="color:#d88200">&#34;127.0.0.1&#34;</span> <span style="color:#f92672">||</span> <span style="color:#75af00">address</span> <span style="color:#f92672">===</span> <span style="color:#d88200">&#34;::1&#34;</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">false</span><span style="color:#111">;</span>
+  <span style="color:#111">}</span>
+
+  <span style="color:#75715e">// Block private IPv4 ranges
+</span><span style="color:#75715e"></span>  <span style="color:#00a8c8">if</span> <span style="color:#111">(</span>
+    <span style="color:#75af00">address</span><span style="color:#111">.</span><span style="color:#75af00">startsWith</span><span style="color:#111">(</span><span style="color:#d88200">&#34;10.&#34;</span><span style="color:#111">)</span> <span style="color:#f92672">||</span>
+    <span style="color:#75af00">address</span><span style="color:#111">.</span><span style="color:#75af00">startsWith</span><span style="color:#111">(</span><span style="color:#d88200">&#34;192.168.&#34;</span><span style="color:#111">)</span> <span style="color:#f92672">||</span>
+    <span style="color:#75af00">address</span><span style="color:#111">.</span><span style="color:#75af00">startsWith</span><span style="color:#111">(</span><span style="color:#d88200">&#34;172.16.&#34;</span><span style="color:#111">)</span> <span style="color:#f92672">||</span>
+    <span style="color:#75af00">address</span><span style="color:#111">.</span><span style="color:#75af00">startsWith</span><span style="color:#111">(</span><span style="color:#d88200">&#34;172.17.&#34;</span><span style="color:#111">)</span> <span style="color:#f92672">||</span>
+    <span style="color:#75af00">address</span><span style="color:#111">.</span><span style="color:#75af00">startsWith</span><span style="color:#111">(</span><span style="color:#d88200">&#34;172.18.&#34;</span><span style="color:#111">)</span> <span style="color:#f92672">||</span>
+    <span style="color:#75af00">address</span><span style="color:#111">.</span><span style="color:#75af00">startsWith</span><span style="color:#111">(</span><span style="color:#d88200">&#34;172.19.&#34;</span><span style="color:#111">)</span> <span style="color:#f92672">||</span>
+    <span style="color:#75af00">address</span><span style="color:#111">.</span><span style="color:#75af00">startsWith</span><span style="color:#111">(</span><span style="color:#d88200">&#34;172.2&#34;</span><span style="color:#111">)</span> <span style="color:#75715e">// 172.20–29
+</span><span style="color:#75715e"></span>  <span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">false</span><span style="color:#111">;</span>
+  <span style="color:#111">}</span>
+
+  <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">true</span><span style="color:#111">;</span>
 <span style="color:#111">});</span>
 </code></pre></div>
 
