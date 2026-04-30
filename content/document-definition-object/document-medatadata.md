@@ -44,7 +44,7 @@ PDF document can have custom language set via `language` property.
 Example:
 ```js
 var docDefinition = {
-  language: 'cs-CZ'
+  language: 'cs-CZ',
   content: 'Jednoduchý PDF dokument vytvoření pomocí pdfmake'
 }
 ```
