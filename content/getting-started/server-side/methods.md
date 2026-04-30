@@ -144,3 +144,19 @@ pdfmake.setUrlAccessPolicy(async (url) => {
   return true;
 });
 ```
+
+#### Local file Access Policy
+
+{{% alert theme="warning" %}}Minimal version: **0.3.8**{{% /alert %}}
+
+The `setLocalAccessPolicy()` method allows you to define a custom security policy for local files.
+
+This can be used to restrict allowed local paths.
+
+Basic example:
+```js
+pdfmake.setLocalAccessPolicy((path) => {
+    // check allowed local file path
+    return path.startsWith("fonts/");
+});
+```
