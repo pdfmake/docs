@@ -113,6 +113,7 @@ pdfmake.setUrlAccessPolicy(async (url) => {
 ```
 
 Example with basic SSRF protection:
+**Sample only - change it according to your own protection requirements.**
 ```js
 import dns from 'dns/promises';
 
