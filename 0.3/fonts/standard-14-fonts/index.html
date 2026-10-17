@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2026-05-06T12:14:03 CEST">
+<meta name="revised" content="2026-10-17T14:18:02 CEST">
 <title>Standard 14 fonts :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -470,7 +470,7 @@
     
     <p>PDF contains <a href="http://www.enfocus.com/manuals/ReferenceGuide/PS/18/enUS/en-us/common/pse/concept/c_aa1044513.html">standard 14 fonts</a>.</p>
 <p><strong>Attention!</strong> This fonts supports only <strong>ANSI</strong> code page (only english characters)!</p>
-<h2 id="use-in-pdfmake-on-server-side">Use in pdfmake on server-side</h2>
+<h2 id="use-in-pdfmake-on-the-server-side">Use in pdfmake on the server side</h2>
 <p><strong>Example of usage:</strong></p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">fonts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
   <span style="color:#75af00">Courier</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
@@ -503,69 +503,35 @@
 <span style="color:#75af00">pdfmake</span><span style="color:#111">.</span><span style="color:#75af00">addFonts</span><span style="color:#111">(</span><span style="color:#75af00">fonts</span><span style="color:#111">);</span>
 
 <span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
-    <span style="color:#d88200">&#39;First paragraph&#39;</span><span style="color:#111">,</span>
-    <span style="color:#d88200">&#39;Another paragraph, this time a little bit longer to make sure, this line will be divided into at least two lines&#39;</span><span style="color:#111">,</span>
-  <span style="color:#111">],</span>
+  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#d88200">&#39;First paragraph&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Another paragraph&#39;</span><span style="color:#111">],</span>
   <span style="color:#75af00">defaultStyle</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
     <span style="color:#75af00">font</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica&#39;</span>
   <span style="color:#111">}</span>
 <span style="color:#111">};</span>
 
 <span style="color:#00a8c8">var</span> <span style="color:#75af00">pdf</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pdfmake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">);</span>
-<span style="color:#75af00">pdf</span><span style="color:#111">.</span><span style="color:#75af00">write</span><span style="color:#111">(</span><span style="color:#d88200">&#39;pdfs/basics.pdf&#39;</span><span style="color:#111">).</span><span style="color:#75af00">then</span><span style="color:#111">(()</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
-	<span style="color:#75715e">// success event
+<span style="color:#75af00">pdf</span><span style="color:#111">.</span><span style="color:#75af00">write</span><span style="color:#111">(</span><span style="color:#d88200">&#39;test.pdf&#39;</span><span style="color:#111">).</span><span style="color:#75af00">then</span><span style="color:#111">(()</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+  <span style="color:#75715e">// success event
 </span><span style="color:#75715e"></span><span style="color:#111">},</span> <span style="color:#75af00">err</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
-	<span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">error</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">);</span>
+  <span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">error</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">);</span>
 <span style="color:#111">});</span>
-</code></pre></div><h2 id="use-in-pdfmake-on-client-side">Use in pdfmake on client-side</h2>
-<p>Is not supported by default, because this increase size of pdfmake library file about <strong>700 kB</strong>.</p>
-<p>If you really need it, you can build with standard fonts by <code>gulp buildWithStandardFonts</code> command.</p>
-<p><strong>Building with standard fonts from sources:</strong></p>
-<pre><code>git clone https://github.com/bpampuch/pdfmake.git
-cd pdfmake
-npm install
-gulp buildWithStandardFonts
-</code></pre><p><strong>Example of usage:</strong></p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">fonts</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-  <span style="color:#75af00">Courier</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier&#39;</span><span style="color:#111">,</span>
-    <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier-Bold&#39;</span><span style="color:#111">,</span>
-    <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier-Oblique&#39;</span><span style="color:#111">,</span>
-    <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Courier-BoldOblique&#39;</span>
-  <span style="color:#111">},</span>
-  <span style="color:#75af00">Helvetica</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica&#39;</span><span style="color:#111">,</span>
-    <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica-Bold&#39;</span><span style="color:#111">,</span>
-    <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica-Oblique&#39;</span><span style="color:#111">,</span>
-    <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica-BoldOblique&#39;</span>
-  <span style="color:#111">},</span>
-  <span style="color:#75af00">Times</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-Roman&#39;</span><span style="color:#111">,</span>
-    <span style="color:#75af00">bold</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-Bold&#39;</span><span style="color:#111">,</span>
-    <span style="color:#75af00">italics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-Italic&#39;</span><span style="color:#111">,</span>
-    <span style="color:#75af00">bolditalics</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Times-BoldItalic&#39;</span>
-  <span style="color:#111">},</span>
-  <span style="color:#75af00">Symbol</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Symbol&#39;</span>
-  <span style="color:#111">},</span>
-  <span style="color:#75af00">ZapfDingbats</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;ZapfDingbats&#39;</span>
-  <span style="color:#111">}</span>
-<span style="color:#111">};</span>
+</code></pre></div><h2 id="use-in-pdfmake-on-the-client-side">Use in pdfmake on the client side</h2>
+<p>Standard font bundles are available in the pdfmake package&rsquo;s <code>build/standard-fonts/</code> directory. Include the bundle for each font family you need <strong>after</strong> <code>pdfmake.min.js</code>. Each bundle automatically registers its fonts with <code>pdfMake</code>.</p>
+<p>For example, to use Helvetica:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#111">&lt;</span><span style="color:#f92672">script</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;https://unpkg.com/pdfmake@0.3/build/pdfmake.min.js&#34;</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
+<span style="color:#111">&lt;</span><span style="color:#f92672">script</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;https://unpkg.com/pdfmake@0.3/build/standard-fonts/Helvetica.js&#34;</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
+<span style="color:#111">&lt;</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
+  <span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#d88200">&#39;First paragraph&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Another paragraph&#39;</span><span style="color:#111">],</span>
+    <span style="color:#75af00">defaultStyle</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+      <span style="color:#75af00">font</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica&#39;</span>
+    <span style="color:#111">}</span>
+  <span style="color:#111">};</span>
 
-<span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
-  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
-    <span style="color:#d88200">&#39;First paragraph&#39;</span><span style="color:#111">,</span>
-    <span style="color:#d88200">&#39;Another paragraph, this time a little bit longer to make sure, this line will be divided into at least two lines&#39;</span><span style="color:#111">,</span>
-  <span style="color:#111">],</span>
-  <span style="color:#75af00">defaultStyle</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-    <span style="color:#75af00">font</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Helvetica&#39;</span>
-  <span style="color:#111">}</span>
-<span style="color:#111">};</span>
+  <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">download</span><span style="color:#111">(</span><span style="color:#d88200">&#39;document.pdf&#39;</span><span style="color:#111">);</span>
+<span style="color:#111">&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
+</code></pre></div><p>The available bundles are <code>Courier.js</code>, <code>Helvetica.js</code>, <code>Times.js</code>, <code>Symbol.js</code> and <code>ZapfDingbats.js</code>. Set <code>defaultStyle.font</code> to a registered font family, as shown above.</p>
 
-<span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">download</span><span style="color:#111">(</span><span style="color:#d88200">&#39;document.pdf&#39;</span><span style="color:#111">);</span>
-</code></pre></div>
 
     
     

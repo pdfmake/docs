@@ -27,7 +27,7 @@ pdfMake.fonts = { Fontello: { normal: &amp;#39;fontello.ttf&amp;#39;, bold: &amp
       <guid>https://pdfmake.github.io/docs/0.3/fonts/standard-14-fonts/</guid>
       <description>PDF contains standard 14 fonts.
 Attention! This fonts supports only ANSI code page (only english characters)!
-Use in pdfmake on server-side Example of usage:
+Use in pdfmake on the server side Example of usage:
 var fonts = { Courier: { normal: &amp;#39;Courier&amp;#39;, bold: &amp;#39;Courier-Bold&amp;#39;, italics: &amp;#39;Courier-Oblique&amp;#39;, bolditalics: &amp;#39;Courier-BoldOblique&amp;#39; }, Helvetica: { normal: &amp;#39;Helvetica&amp;#39;, bold: &amp;#39;Helvetica-Bold&amp;#39;, italics: &amp;#39;Helvetica-Oblique&amp;#39;, bolditalics: &amp;#39;Helvetica-BoldOblique&amp;#39; }, Times: { normal: &amp;#39;Times-Roman&amp;#39;, bold: &amp;#39;Times-Bold&amp;#39;, italics: &amp;#39;Times-Italic&amp;#39;, bolditalics: &amp;#39;Times-BoldItalic&amp;#39; }, Symbol: { normal: &amp;#39;Symbol&amp;#39; }, ZapfDingbats: { normal: &amp;#39;ZapfDingbats&amp;#39; } }; var pdfmake = require(&amp;#39;pdfmake&amp;#39;); pdfmake.</description>
     </item>
     
