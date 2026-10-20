@@ -1,164 +1,70 @@
 +++
-title = "Methods"
-description = ""
+title = "Node.js output methods"
+description = "Reference for createPdf, Buffer, base64, file output, streams and resource policies in pdfmake 0.3."
 weight = 12
-alwaysopen = true
 +++
 
-#### Base usage
-
-This call will generate a PDF document, methods to get document are described below.
+## Create a document
 
 ```js
-pdfmake.createPdf(docDefinition);
-pdfmake.createPdf(docDefinition, options);
+const output = pdfmake.createPdf(docDefinition, options);
 ```
 
-Parameters:
+`docDefinition` is a [document definition](/docs/0.3/document-definition-object/). `options` is an optional [options object](/docs/0.3/options/). `createPdf` returns an output wrapper immediately; generation errors reject the output method's Promise. Invalid argument types can throw synchronously.
 
-* `docDefinition` - object with document definition, see [chapter](/docs/0.3/document-definition-object/)
-* `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)
+## Output helpers
 
-#### Write the PDF document as file
-```js
-pdfmake.createPdf(docDefinition).write(filename).then(() => {
-	// finished
-}, err => {
-	console.error(err);
-});
-```
-Parameters:
-
-* `filename` - PDF document file name
-* `options` _(optional)_ - advanced options see [options chapter](/docs/0.3/options/)
-
-#### Get the PDF document as URL data
+| Method | Resolves to | Use |
+| --- | --- | --- |
+| `write(filename)` | `undefined` | Write a file and wait for it to close |
+| `getBuffer()` | `Buffer` | Return PDF bytes from an API |
+| `getBase64()` | `string` | Encode the bytes as base64 |
+| `getDataUrl()` | `string` | Prefix base64 with `data:application/pdf;base64,` |
+| `getStream()` | PDFKit document stream | Manage a stream directly |
 
 ```js
-pdfmake.createPdf(docDefinition).getDataUrl().then((dataUrl) => {
-	// ...
-}, err => {
-	console.error(err);
-});
+try {
+  const output = pdfmake.createPdf(docDefinition);
+  const bytes = await output.getBuffer();
+  // Send or store bytes here.
+} catch (error) {
+  // Report generation failure to your caller.
+}
 ```
 
-#### Get the PDF document as base64 data
+`getBuffer()` caches its Promise; `getBase64()` and `getDataUrl()` reuse those bytes. Create a new output wrapper for an independent render. Do not combine manual stream consumption with buffer/file helpers on the same wrapper.
+
+## Consume a stream
+
 ```js
-pdfmake.createPdf(docDefinition).getBase64().then((data) => {
-	console.log(data);
-}, err => {
-	console.error(err);
-});
+const stream = await pdfmake.createPdf(docDefinition).getStream();
+stream.on('error', error => { /* Handle generation errors. */ });
+destination.on('error', error => { /* Handle destination errors. */ });
+stream.pipe(destination);
+stream.end();
 ```
 
-#### Get the PDF document as buffer
-```js
-pdfmake.createPdf(docDefinition).getBuffer().then((buffer) => {
-	// ...
-}, err => {
-	console.error(err);
-});
-```
+`destination` must be a writable stream managed by your application. Attach listeners before calling `end()`. Prefer `write()` for a simple file. Streaming output does not make document layout incremental: pdfmake still lays out the document before returning this stream.
 
-#### Get the PDF document as stream
+## URL access policy
+
+Available since **0.3.6**. Configure it before creating documents:
 
 ```js
-pdfmake.createPdf(docDefinition).getStream().then((stream) => {
-	// ...
-}, err => {
-	console.error(err);
-});
-```
-
-#### URL Access Policy
-
-{{% alert theme="warning" %}}Minimal version: **0.3.6**{{% /alert %}}
-
-The `setUrlAccessPolicy()` method allows you to define a custom security policy for external URLs before they are downloaded.
-
-This can be used to restrict allowed domains, enforce HTTPS, or prevent SSRF attacks by blocking private or internal network addresses.
-
-Basic example:
-```js
-pdfmake.setUrlAccessPolicy((url) => {
-    // check allowed domain
-    return url.startsWith("https://example.com/");
-});
-```
-
-Allow only https urls:
-```js
-pdfmake.setUrlAccessPolicy((url) => {
+pdfmake.setUrlAccessPolicy(url => {
   const parsed = new URL(url);
-
-  if (parsed.protocol !== "https:") {
-    return false;
-  }
-
-  return true;
+  return parsed.protocol === 'https:' && parsed.hostname === 'assets.example.com';
 });
 ```
 
-Disallow localhost url:
-```js
-pdfmake.setUrlAccessPolicy(async (url) => {
-  const parsed = new URL(url);
+The callback must return the boolean `true` **synchronously** to allow a URL. An `async` function returns a Promise and is rejected by the current implementation. An allowlist is only one layer of SSRF protection; use network controls or supply validated bytes when processing untrusted input. See [resource security](/docs/0.3/guides/resource-security/).
 
-  if (parsed.hostname === "localhost") {
-    return false;
-  }
+## Local file access policy
 
-  return true;
-});
-```
-
-Example with basic SSRF protection:
-
-**Sample only - change it according to your own protection requirements.**
+Available since **0.3.8**. Deny local files when all resources are embedded:
 
 ```js
-import dns from 'dns/promises';
-
-pdfmake.setUrlAccessPolicy(async (url) => {
-  const parsed = new URL(url);
-
-  // Resolve hostname to IP address
-  const { address } = await dns.lookup(parsed.hostname);
-
-  // Block localhost
-  if (address === "127.0.0.1" || address === "::1") {
-    return false;
-  }
-
-  // Block private IPv4 ranges
-  if (
-    address.startsWith("10.") ||
-    address.startsWith("192.168.") ||
-    address.startsWith("172.16.") ||
-    address.startsWith("172.17.") ||
-    address.startsWith("172.18.") ||
-    address.startsWith("172.19.") ||
-    address.startsWith("172.2") // 172.20–29
-  ) {
-    return false;
-  }
-
-  return true;
-});
+pdfmake.setLocalAccessPolicy(() => false);
 ```
 
-#### Local file Access Policy
-
-{{% alert theme="warning" %}}Minimal version: **0.3.8**{{% /alert %}}
-
-The `setLocalAccessPolicy()` method allows you to define a custom security policy for local files.
-
-This can be used to restrict allowed local paths.
-
-Basic example:
-```js
-pdfmake.setLocalAccessPolicy((path) => {
-    // check allowed local file path
-    return path.startsWith("fonts/");
-});
-```
+For local fonts or images, allow exact resolved paths rather than a string prefix. See the [complete local font setup](/docs/0.3/fonts/). `undefined` clears a configured policy; an omitted policy is not a deny-all policy.

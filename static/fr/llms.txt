@@ -1,0 +1,79 @@
+# pdfmake 0.3 documentation · fr
+
+> Generate PDFs in Node.js and browsers from document definitions. This corpus targets 0.3.x only.
+
+Use only examples for 0.3.x; do not mix APIs from different version series.
+Use synchronous resource access policies. Never execute untrusted document callbacks.
+
+Translation coverage: 58 of 58 documentation pages.
+
+Full Markdown corpus: https://pdfmake.github.io/docs/0.3/fr/llms-full.txt
+
+## Languages
+
+- [en](https://pdfmake.github.io/docs/0.3/llms.txt)
+- [de](https://pdfmake.github.io/docs/0.3/de/llms.txt)
+- [fr](https://pdfmake.github.io/docs/0.3/fr/llms.txt)
+- [es](https://pdfmake.github.io/docs/0.3/es/llms.txt)
+- [pt-br](https://pdfmake.github.io/docs/0.3/pt-br/llms.txt)
+
+## Pages
+
+- [Vue d’ensemble](https://pdfmake.github.io/docs/0.3/markdown/fr/index.md): Créez des PDF avec pdfmake 0.3 : guides progressifs, exemples exécutables et référence pour JavaScript.
+- [Référence de la définition de document](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object.md): Décrivez le contenu, les styles, les pages et les métadonnées PDF avec l’objet déclaratif de définition de document pdfmake 0.3.
+- [Intégration des pièces jointes](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/attachments.md): Configurez les pièces jointes dans pdfmake 0.3 à l’aide d’exemples, d’options et de notes d’utilisation.
+- [Arrière-plan](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/background-layer.md): Ajoutez un arrière-plan à chaque page à l’aide d’un texte, d’un objet ou d’une fonction.
+- [Colonnes](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/columns.md): Répartissez l’espace disponible en colonnes de largeurs automatiques, proportionnelles, fixes ou en pourcentage.
+- [Compression](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/compression.md): Contrôlez la compression des flux PDF avec le champ `compress` de la définition du document, activé par défaut.
+- [Métadonnées du document](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/document-medatadata.md): Définissez le titre, l’auteur, le sujet, les mots-clés et les champs de métadonnées personnalisés du PDF.
+- [En-têtes et pieds de page](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/headers-footers.md): Ajoutez des en-têtes et pieds de page statiques ou dynamiques avec les numéros de page, le nombre total de pages et les marges réservées.
+- [Images](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/images.md): Intégrez des images PNG et JPEG depuis des URL de données, des ressources nommées, des fichiers ou des URL externes autorisées.
+- [Liens](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/links.md): Ajoutez des liens vers des pages externes, des pages du document, des destinations ou des fichiers locaux.
+- [Listes](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/lists.md): Créez des listes à puces ou numérotées et personnalisez la couleur du texte et des marqueurs.
+- [Marges](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/margins.md): Configurez les marges des éléments dans pdfmake 0.3 avec les quatre côtés, les valeurs horizontale et verticale ou une valeur unique.
+- [Plans du document et signets](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/outlines.md): Ajoutez au PDF des signets hiérarchiques pour accéder rapidement aux pages et sections.
+- [Dimensions, orientation et marges des pages](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/page.md): Définissez le format, l’orientation et les marges des pages, et contrôlez les sauts de page automatiques ou explicites.
+- [Motifs](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/patterns.md): Définissez des motifs répétitifs et utilisez-les comme arrière-plan du texte, remplissage vectoriel ou superposition de cellules de tableau.
+- [PDF/A](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/pdfa.md): Créez des documents PDF/A pour l’archivage et la conservation électronique à long terme.
+- [Code QR](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/qr.md): Ajoutez des codes QR et configurez leur couleur, leur taille, leur version, la correction d’erreurs et le mode d’encodage.
+- [Sections du document](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/sections.md): Divisez un document en sections dotées de paramètres de page, d’en-têtes, de pieds de page, de filigranes et d’arrière-plans distincts.
+- [Chiffrement et autorisations d’accès](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/security.md): Configurez les mots de passe PDF, les versions de chiffrement et les autorisations du document, distinctes des politiques d’accès aux ressources.
+- [Colonnes en serpentin](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/snaking-columns.md): Faites circuler le contenu verticalement d’une colonne à l’autre dans une mise en page en colonnes.
+- [Pile de paragraphes](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/stack.md): Utilisez des tableaux ou la propriété `stack` pour empiler des paragraphes et appliquer un style à l’ensemble.
+- [Styles et mise en forme](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/styling.md): Mettez en forme le texte avec des styles nommés, des variantes de police, l’alignement, les couleurs et l’héritage dans pdfmake 0.3.
+- [SVG](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/svgs.md): Configurez les SVG dans pdfmake 0.3 avec des exemples, des options et des notes d’utilisation.
+- [Tableaux](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/tables.md): Créez des tableaux avec des lignes cohérentes, des en-têtes répétés, des bordures personnalisées, des largeurs et des cellules fusionnées.
+- [Table des matières](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/toc.md): Générez une ou plusieurs tables des matières depuis des nœuds marqués, avec tri, styles et signets PDF facultatifs.
+- [Filigrane](https://pdfmake.github.io/docs/0.3/markdown/fr/document-definition-object/watermark.md): Configurez un filigrane dans pdfmake 0.3 avec ses propriétés et des exemples.
+- [Polices et couverture des caractères](https://pdfmake.github.io/docs/0.3/markdown/fr/fonts.md): Enregistrez des familles et variantes de polices dans Node.js ou le navigateur, et choisissez des polices adaptées aux langues de vos documents.
+- [Polices personnalisées côté client](https://pdfmake.github.io/docs/0.3/markdown/fr/fonts/custom-fonts-client-side.md): Configurez vos propres polices dans pdfmake 0.3 côté client, avec des exemples et des options.
+- [Par protocole URL](https://pdfmake.github.io/docs/0.3/markdown/fr/fonts/custom-fonts-client-side/url.md): Configurez l’utilisation des polices par protocole URL dans pdfmake 0.3 avec des exemples, des options et des notes d’utilisation.
+- [Polices personnalisées avec le VFS](https://pdfmake.github.io/docs/0.3/markdown/fr/fonts/custom-fonts-client-side/vfs.md): Créez un système de fichiers virtuel en dehors de node_modules, enregistrez des variantes de polices et utilisez une famille personnalisée dans les PDF du navigateur.
+- [Icônes](https://pdfmake.github.io/docs/0.3/markdown/fr/fonts/icons.md): Configurez des icônes dans pdfmake 0.3 à l’aide de polices personnalisées.
+- [Les 14 polices standard](https://pdfmake.github.io/docs/0.3/markdown/fr/fonts/standard-14-fonts.md): Utilisez les familles de polices PDF standard dans les bundles Node.js et navigateur, avec leurs encodages de caractères limités.
+- [Bien démarrer](https://pdfmake.github.io/docs/0.3/markdown/fr/getting-started.md): Choisissez Node.js ou le navigateur, enregistrez les polices et générez votre premier PDF avec pdfmake 0.3.
+- [Démarrage rapide dans le navigateur](https://pdfmake.github.io/docs/0.3/markdown/fr/getting-started/client-side.md): Chargez pdfmake 0.3 et son lot de polices, puis téléchargez un PDF à la suite d’une action de l’utilisateur.
+- [Exemples](https://pdfmake.github.io/docs/0.3/markdown/fr/getting-started/client-side/examples.md): Découvrez des exemples pour pdfmake 0.3 et essayez-les dans le playground.
+- [Méthodes de sortie du navigateur](https://pdfmake.github.io/docs/0.3/markdown/fr/getting-started/client-side/methods.md): Téléchargez, ouvrez ou imprimez des PDF et obtenez leurs octets ou Blob avec les méthodes Promise de pdfmake 0.3 pour navigateur.
+- [Navigateurs pris en charge](https://pdfmake.github.io/docs/0.3/markdown/fr/getting-started/client-side/supported-browsers.md): Vérifiez la compatibilité des navigateurs et les limites des fonctions d’ouverture, d’impression et de téléchargement.
+- [Exemples de la communauté](https://pdfmake.github.io/docs/0.3/markdown/fr/getting-started/examples-from-comunity.md): Configurez et explorez des exemples pdfmake 0.3 partagés par la communauté.
+- [Démarrage rapide avec Node.js](https://pdfmake.github.io/docs/0.3/markdown/fr/getting-started/server-side.md): Créez un fichier PDF complet avec pdfmake 0.3 dans Node.js, les polices standard et des sorties fondées sur des Promises.
+- [Exemples](https://pdfmake.github.io/docs/0.3/markdown/fr/getting-started/server-side/examples.md): Découvrez les exemples et le serveur de développement du playground pour pdfmake 0.3.
+- [Méthodes de sortie Node.js](https://pdfmake.github.io/docs/0.3/markdown/fr/getting-started/server-side/methods.md): Référence de createPdf, Buffer, base64, sortie fichier, flux et politiques de ressources dans pdfmake 0.3.
+- [Versions de Node.js prises en charge](https://pdfmake.github.io/docs/0.3/markdown/fr/getting-started/server-side/supported-nodejs-versions.md): Vérifiez la version minimale requise par le paquet et la matrice d’exécution d’intégration continue de pdfmake 0.3.
+- [Guides et recettes](https://pdfmake.github.io/docs/0.3/markdown/fr/guides.md): Des recettes pratiques pour pdfmake 0.3 : API, factures, sécurité, performances, dépannage et développement assisté par l’IA.
+- [API en bref](https://pdfmake.github.io/docs/0.3/markdown/fr/guides/api-reference.md): Retrouvez les méthodes de configuration, les options de rendu et les fonctions de sortie de l’API pdfmake 0.3 pour Node.js et le navigateur.
+- [Contribuer et architecture du code source](https://pdfmake.github.io/docs/0.3/markdown/fr/guides/contributing.md): Parcourez le pipeline de rendu pdfmake, ajoutez des tests de régression ciblés et validez localement vos contributions à la bibliothèque ou à la documentation.
+- [Erreurs et diagnostics](https://pdfmake.github.io/docs/0.3/markdown/fr/guides/errors.md): Repérez les erreurs de syntaxe JavaScript, les nœuds de document mal formés, les échecs de ressources et les sorties interrompues à l’aide de diagnostics exploitables.
+- [Recette de facture](https://pdfmake.github.io/docs/0.3/markdown/fr/guides/invoice.md): Générez un PDF de facture complet avec styles réutilisables, en-tête de tableau répété, totaux et numéros de page.
+- [Intégration LLM et MCP](https://pdfmake.github.io/docs/0.3/markdown/fr/guides/llm-and-mcp.md): Utilisez les ressources Markdown versionnées, llms.txt et un serveur MCP local en lecture seule pour la documentation pdfmake 0.3.
+- [Performances et mémoire](https://pdfmake.github.io/docs/0.3/markdown/fr/guides/performance.md): Mesurez le coût de mise en page et de sortie de pdfmake, réduisez les ressources répétées et maîtrisez la concurrence sans changer le comportement du document.
+- [Guide du playground](https://pdfmake.github.io/docs/0.3/markdown/fr/guides/playground.md): Explorez les exemples pdfmake avec un éditeur de code, un aperçu PDF direct, la navigation entre les pages et l’importation locale.
+- [Sécurité des ressources](https://pdfmake.github.io/docs/0.3/markdown/fr/guides/resource-security.md): Contrôlez les URL externes, les fichiers locaux et les définitions non fiables quand vous utilisez pdfmake dans des applications serveur.
+- [Dépannage](https://pdfmake.github.io/docs/0.3/markdown/fr/guides/troubleshooting.md): Diagnostiquez les problèmes fréquents de pdfmake 0.3 liés aux imports, polices, tableaux, Promises, fenêtres du navigateur et accès aux ressources.
+- [Commencer ici](https://pdfmake.github.io/docs/0.3/markdown/fr/learn.md): Un parcours d’apprentissage concis, du choix de l’environnement à la génération, la mise en forme et le dépannage de votre premier PDF.
+- [Le modèle de document](https://pdfmake.github.io/docs/0.3/markdown/fr/learn/document-model.md): Choisissez entre paragraphes, texte en ligne, piles, colonnes et tableaux, et comprenez où placer la configuration.
+- [Votre premier PDF](https://pdfmake.github.io/docs/0.3/markdown/fr/learn/first-pdf.md): Créez un document pdfmake 0.3 fonctionnel en cinq étapes simples, avec son code source et le PDF réellement généré.
+- [Migration depuis 0.1/0.2](https://pdfmake.github.io/docs/0.3/markdown/fr/migration-from-0.1.md): Migrez les anciennes intégrations pdfmake vers l’API singleton 0.3, les sorties par Promise, l’enregistrement des polices et les callbacks de saut de page.
+- [Options de rendu](https://pdfmake.github.io/docs/0.3/markdown/fr/options.md): Configurez le cache de mise en page des polices et la mise en mémoire tampon des pages PDFKit via le second argument de createPdf.
+- [Playground](https://pdfmake.github.io/docs/0.3/markdown/fr/playground.md): Modifiez votre définition et observez le résultat. Votre espace de travail vous accompagne pendant la navigation.

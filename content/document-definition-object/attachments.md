@@ -1,6 +1,6 @@
 +++
 title = "Attachments embedding"
-description = ""
+description = "Configure attachments embedding in pdfmake 0.3 with examples, options and usage notes."
 weight = 2300
 alwaysopen = true
 +++

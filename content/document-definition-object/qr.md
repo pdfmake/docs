@@ -1,6 +1,6 @@
 +++
 title = "QR code"
-description = ""
+description = "Configure qr code in pdfmake 0.3 with examples, options and usage notes."
 weight = 2220
 alwaysopen = true
 +++
@@ -15,7 +15,7 @@ var docDefinition = {
     { qr: 'text in QR', foreground: 'red', background: 'yellow' },
 
     // resized QR
-    { qr: 'text in QR', fit: '500' },
+    { qr: 'text in QR', fit: 500 },
   ]
 }
 ```

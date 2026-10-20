@@ -1,6 +1,6 @@
 +++
 title = "Outlines / Bookmarks"
-description = ""
+description = "Configure outlines / bookmarks in pdfmake 0.3 with examples, options and usage notes."
 weight = 2235
 alwaysopen = true
 +++
@@ -47,7 +47,7 @@ var docDefinition = {
 };
 ```
 
-#### Properties
+## Properties
 
 - `outline: boolean` - set to `true` for add to bookmarks
 - `outlineText: string` (optional) - set custom bookmark text, otherwise text from node

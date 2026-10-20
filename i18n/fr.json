@@ -1,0 +1,257 @@
+{
+  "docs": {
+    "other": "DOCUMENTATION"
+  },
+  "skip": {
+    "other": "Aller au contenu"
+  },
+  "appearance": {
+    "other": "Apparence"
+  },
+  "system": {
+    "other": "Système"
+  },
+  "light": {
+    "other": "Clair"
+  },
+  "dark": {
+    "other": "Sombre"
+  },
+  "language": {
+    "other": "Langue"
+  },
+  "homeLink": {
+    "other": "Page d’accueil"
+  },
+  "search": {
+    "other": "Rechercher dans la documentation"
+  },
+  "placeholder": {
+    "other": "Tableaux, polices, Node.js…"
+  },
+  "nojs": {
+    "other": "La recherche nécessite JavaScript. Les chapitres restent accessibles ci-dessous."
+  },
+  "chapters": {
+    "other": "Chapitres"
+  },
+  "overview": {
+    "other": "Vue d’ensemble"
+  },
+  "tools": {
+    "other": "MCP et outils IA"
+  },
+  "versionNote": {
+    "other": "Vous consultez <strong>l’API 0.3.x</strong>. Les exemples 0.1/0.2 peuvent utiliser des imports et des callbacks différents."
+  },
+  "onPage": {
+    "other": "Sur cette page"
+  },
+  "edit": {
+    "other": "Modifier cette page"
+  },
+  "markdown": {
+    "other": "Lire cette page en Markdown"
+  },
+  "corpus": {
+    "other": "Corpus Markdown complet"
+  },
+  "hero1": {
+    "other": "Votre premier PDF."
+  },
+  "hero2": {
+    "other": "Pas à pas."
+  },
+  "heroLead": {
+    "other": "Partez d’un exemple fonctionnel. Observez le résultat, découvrez les éléments de base, puis adaptez le document à votre application."
+  },
+  "copy": {
+    "other": "Copier"
+  },
+  "copied": {
+    "other": "Copié"
+  },
+  "copyFailed": {
+    "other": "Sélectionnez le code à copier"
+  },
+  "searchFailed": {
+    "other": "La recherche est indisponible. Parcourez les chapitres."
+  },
+  "noResults": {
+    "other": "Aucun résultat. Essayez un autre terme."
+  },
+  "results": {
+    "other": "{count} résultats"
+  },
+  "exampleEdit": {
+    "other": "Modifier dans le playground"
+  },
+  "exampleCode": {
+    "other": "JavaScript · définition du document"
+  },
+  "examplePdf": {
+    "other": "PDF généré · cette définition exacte"
+  },
+  "reference": {
+    "other": "Référence complète (anglais)"
+  },
+  "coverage": {
+    "other": "Tous les chapitres de la documentation sont disponibles dans cette langue."
+  },
+  "homeFallback": {
+    "other": "Accueil ; ce chapitre n’est pas traduit"
+  },
+  "navStart": {
+    "other": "Premiers pas"
+  },
+  "navContent": {
+    "other": "Contenu du document"
+  },
+  "navLayout": {
+    "other": "Mise en page"
+  },
+  "navAssets": {
+    "other": "Images et polices"
+  },
+  "navOutput": {
+    "other": "Sortie et API"
+  },
+  "navRecipes": {
+    "other": "Guides et exemples"
+  },
+  "navAdvanced": {
+    "other": "Avancé"
+  },
+  "navTools": {
+    "other": "Outils de développement"
+  },
+  "previous": {
+    "other": "Précédent"
+  },
+  "next": {
+    "other": "Suivant"
+  },
+  "menu": {
+    "other": "Navigation"
+  },
+  "closeMenu": {
+    "other": "Fermer la navigation"
+  },
+  "documentation": {
+    "other": "Documentation"
+  },
+  "playgroundTitle": {
+    "other": "Playground"
+  },
+  "playgroundLead": {
+    "other": "Modifiez la définition et observez le résultat. Votre espace de travail reste disponible pendant la lecture."
+  },
+  "openPlayground": {
+    "other": "Playground"
+  },
+  "workspaceBack": {
+    "other": "Retour à la documentation"
+  },
+  "runtimeNode": {
+    "other": "Node.js / API"
+  },
+  "runtimeBrowser": {
+    "other": "Navigateur"
+  },
+  "steps": {
+    "other": "Votre parcours vers le PDF"
+  },
+  "editHint": {
+    "other": "Essayez l’exemple, puis poursuivez votre lecture."
+  },
+  "navSetup": {
+    "other": "Configurer l’environnement"
+  },
+  "navLearning": {
+    "other": "Parcours guidé"
+  },
+  "navReference": {
+    "other": "Vue de la référence"
+  },
+  "navPageSettings": {
+    "other": "Format et marges"
+  },
+  "navParagraphs": {
+    "other": "Paragraphes et piles"
+  },
+  "versionLabel": {
+    "other": "Version de la documentation"
+  },
+  "versionHomeFallback": {
+    "other": "Accueil de la version (chapitre indisponible)"
+  },
+  "codeLanguage": {
+    "other": "Langage de l’exemple"
+  },
+  "editCode": {
+    "other": "Modifier l’exemple"
+  },
+  "codeUndo": {
+    "other": "Annuler"
+  },
+  "codeRedo": {
+    "other": "Rétablir"
+  },
+  "codeReset": {
+    "other": "Réinitialiser"
+  },
+  "codeRun": {
+    "other": "Exécuter"
+  },
+  "codeLive": {
+    "other": "Aperçu automatique"
+  },
+  "codePrevious": {
+    "other": "Page PDF précédente"
+  },
+  "codeNext": {
+    "other": "Page PDF suivante"
+  },
+  "codeDownload": {
+    "other": "Télécharger le PDF"
+  },
+  "codePdfText": {
+    "other": "Texte du PDF"
+  },
+  "codeNoJs": {
+    "other": "Les deux variantes sont lisibles sans JavaScript. Activez JavaScript pour modifier et prévisualiser."
+  },
+  "codeFailed": {
+    "other": "Le code contient des erreurs. Le dernier aperçu réussi est conservé."
+  },
+  "codeWaiting": {
+    "other": "En attente de la fin de saisie…"
+  },
+  "codeNodeContext": {
+    "other": "Exemple Node.js : modifiez et copiez le code ici ; exécutez-le dans votre projet Node.js."
+  },
+  "codeContext": {
+    "other": "Extrait de code : modifiez et copiez-le ici ; le contexte applicatif ou les ressources décrits sont nécessaires."
+  },
+  "codePdf": {
+    "other": "Aperçu PDF, page"
+  },
+  "codeReady": {
+    "other": "PDF mis à jour."
+  },
+  "codeTooLarge": {
+    "other": "Le code est limité à 500 Ko."
+  },
+  "codeRendering": {
+    "other": "Vérification du code et génération…"
+  },
+  "codeChecked": {
+    "other": "Syntaxe vérifiée. Exécutez cet extrait dans son environnement documenté."
+  },
+  "codeTimeout": {
+    "other": "Arrêt après 15 secondes. Vérifiez les boucles ou réduisez le document."
+  },
+  "codeCheck": {
+    "other": "Vérifier la syntaxe"
+  }
+}

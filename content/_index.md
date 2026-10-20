@@ -1,60 +1,69 @@
 +++
-title = "pdfmake"
-description = ""
+title = "pdfmake documentation"
+description = "Generate PDFs with pdfmake 0.3 in Node.js and browsers. Start with tested examples and explore the document reference."
+weight = 0
 +++
 
-# pdfmake
+Build a PDF in three steps: configure the runtime, describe the content, then request an output.
 
-PDF document generation library for server-side and client-side usage in pure JavaScript.
+## 1. Choose your runtime
 
-## Features
+<div class="runtime-picker" data-runtime-picker role="tablist" aria-label="Runtime"><button type="button" role="tab" id="runtime-node" aria-controls="panel-node" data-runtime="node" aria-selected="true">Node.js / API</button><button type="button" role="tab" id="runtime-browser" aria-controls="panel-browser" data-runtime="browser" aria-selected="false">Browser</button></div>
+<div data-runtime-panel="node" role="tabpanel" id="panel-node" aria-labelledby="runtime-node">
 
-##### basics
+Use Node.js 20 or later. Install the pinned version below, save the complete example as `first-pdf.cjs`, then run `node first-pdf.cjs`.
 
-* line-wrapping
-* text-alignments _(left, right, centered, justified)_
-* numbered and bulleted lists
-* margins
-* images and vector graphics
+```sh
+npm install pdfmake@0.3.12
+```
 
-##### styling
+```js
+const pdfmake = require('pdfmake');
 
-* convenient styling
-* style inheritance
-* custom style dictionaries
+const fonts = require('pdfmake/standard-fonts/Helvetica');
+pdfmake.addFonts(fonts);
+pdfmake.setUrlAccessPolicy(() => false);
+const standardNames = new Set(Object.values(fonts.Helvetica));
+pdfmake.setLocalAccessPolicy(name => standardNames.has(name));
 
-##### tables and columns
+async function main() {
+  const definition = {
+    defaultStyle: { font: 'Helvetica' },
+    content: [
+      { text: 'Hello, pdfmake!', fontSize: 24, bold: true },
+      'Your first PDF, generated in Node.js.'
+    ]
+  };
+  await pdfmake.createPdf(definition).write('document.pdf');
+}
 
-* auto/fixed/star-sized/percentage columns widths
-* col-spans and row-spans
-* headers _automatically repeated in case of a page-break_
-* non-breaking rows
-* non-breaking sections _keeping headers and rows together_
+main().catch(error => { console.error(error); process.exitCode = 1; });
+```
 
-##### page headers and footers
+[Node.js quickstart](/docs/0.3/getting-started/server-side/)
 
-* static or dynamic content
-* page numbers
-* page count
+</div>
+<div data-runtime-panel="browser" role="tabpanel" id="panel-browser" aria-labelledby="runtime-browser">
 
-##### other
+The browser needs the engine and fonts, loaded in that order. The complete quickstart includes a download button and error handling.
 
-* page dimensions and orientations
-* background-layer
-* custom page breaks
-* font embedding
-* support for complex, multi-level (nested) structures
-* table of contents
-* setting of PDF metadata _(e.g. author, subject)_
-* tiling patterns
+[Browser quickstart](/docs/0.3/getting-started/client-side/)
 
-##### client-side helper methods
+</div>
 
-* download _with the specified filename_
-* open _in another tab_
-* print _auto-triggering print_
+## 2. Understand the definition
 
+A definition is a JavaScript object, not HTML. `content` lists blocks in reading order. This example generates exactly the PDF shown. Open it in the playground to edit it, then return here without losing your workspace.
 
-## Examples
+{{< example id="welcome" >}}
 
-Check out [the playground](http://bpampuch.github.io/pdfmake/playground.html) and [examples](https://github.com/bpampuch/pdfmake/tree/master/examples).
+## 3. Continue with the right building block
+
+- [Your first PDF](/docs/0.3/learn/first-pdf/)
+- [The document model](/docs/0.3/learn/document-model/)
+- [Styling](/docs/0.3/document-definition-object/styling/)
+- [Tables](/docs/0.3/document-definition-object/tables/)
+- [Fonts and character coverage](/docs/0.3/fonts/)
+- [Errors and diagnostics](/docs/0.3/guides/errors/)
+
+Use a fresh definition for every generation; layout mutates the object. Output methods return Promises: await them and handle failures.

@@ -1,13 +1,15 @@
 baseURL = "https://pdfmake.github.io/docs/0.3/"
-languageCode = "en-us"
+locale = "en-US"
 title = "pdfmake"
-theme = "docdock"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "RSS"]
+# Local layouts own the documentation UI; the legacy theme is not loaded.
 pygmentsCodeFences = true
 pygmentsStyle = "monokailight"
 
 [params]
 editURL = "https://github.com/pdfmake/docs/edit/master/content/"
-disableSearch = true
+disableSearch = false
 
 [[menu.shortcuts]]
 pre = "<h3>More</h3>"
@@ -29,3 +31,35 @@ name = "<i class='fa fa-github'></i> <label>Github repo</label>"
 identifier = "github"
 url = "https://github.com/bpampuch/pdfmake"
 weight = 3
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.highlight]
+style = "github"
+
+[sitemap]
+changeFreq = "monthly"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+
+[languages.en]
+label = "English"
+locale = "en"
+weight = 1
+[languages.de]
+label = "Deutsch"
+locale = "de"
+weight = 2
+[languages.fr]
+label = "Français"
+locale = "fr"
+weight = 3
+[languages.es]
+label = "Español"
+locale = "es"
+weight = 4
+[languages.pt-br]
+label = "Português (Brasil)"
+locale = "pt-BR"
+weight = 5

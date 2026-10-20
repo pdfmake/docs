@@ -1,0 +1,133 @@
+name: Documentation checks and Pages
+
+on:
+  push:
+    branches-ignore: [gh-pages]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: Publish the tested snapshot and preserve historical versions
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: '24.x'
+          cache: npm
+      - run: npm ci
+      - run: npm audit --audit-level=low
+      - name: Install pinned Hugo
+        env:
+          HUGO_VERSION: '0.168.0'
+        run: |
+          archive="hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
+          curl --fail --location --output "$archive" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/$archive"
+          curl --fail --location --output checksums.txt "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_checksums.txt"
+          grep " hugo_${HUGO_VERSION}_linux-amd64.tar.gz$" checksums.txt | sha256sum --check
+          mkdir -p "$RUNNER_TEMP/hugo"
+          tar -xzf "$archive" -C "$RUNNER_TEMP/hugo" hugo
+          echo "$RUNNER_TEMP/hugo" >> "$GITHUB_PATH"
+          rm "$archive" checksums.txt
+      - name: Read snapshot version
+        id: snapshot
+        run: node --input-type=module -e "import fs from 'node:fs';import {activeVersion} from './scripts/versions.mjs';fs.appendFileSync(process.env.GITHUB_OUTPUT, 'version='+activeVersion.id+'\n')"
+      - run: npm test
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
+        env:
+          SCREENSHOT_DIR: test-results
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: browser-screenshots
+          path: test-results/
+          retention-days: 7
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: pdfmake-docs-${{ steps.snapshot.outputs.version }}-preview
+          path: public/
+          retention-days: 14
+          if-no-files-found: error
+
+  pages:
+    name: Publish verified documentation
+    needs: docs
+    if: github.event_name == 'workflow_dispatch' && inputs.deploy && github.ref == 'refs/heads/master' && github.repository == 'pdfmake/docs'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      # Retain the exact deployed site so future series preserve the latest snapshots.
+      contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: docs-pages-production
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: '24.x'
+      - name: Read snapshot version
+        id: snapshot
+        run: node --input-type=module -e "import fs from 'node:fs';import {activeVersion} from './scripts/versions.mjs';fs.appendFileSync(process.env.GITHUB_OUTPUT, 'version='+activeVersion.id+'\n')"
+      - name: Download the exact artifact that passed checks
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: pdfmake-docs-${{ steps.snapshot.outputs.version }}-preview
+          path: verified
+      - name: Preserve existing root and historical documentation
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: gh-pages
+          path: published
+          persist-credentials: true
+      - name: Configure project Pages
+        id: pages
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+      - name: Assemble the complete Pages site
+        run: node scripts/assemble-pages.mjs verified published pages-artifact
+        env:
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+      - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        with:
+          path: pages-artifact
+      - name: Deploy atomically
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
+      - name: Archive the successfully deployed snapshots
+        working-directory: published
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          # A regular fast-forward push rejects concurrent archive modifications.
+          # Pages must use Actions as its source, so this archive commit does not deploy a second time.
+          rsync -a --delete --exclude='.git/' ../pages-artifact/ ./
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --all
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive documentation from ${SOURCE_SHA}"
+            git push origin HEAD:gh-pages
+          fi
