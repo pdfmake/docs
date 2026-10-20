@@ -1,146 +1,118 @@
 +++
 title = "Tables"
-description = ""
+description = "Build tables with consistent rows, repeating headers, custom borders, widths and merged cells."
 weight = 2030
 alwaysopen = true
 +++
 
+## Start with rows and a repeating header
 
-Conceptually tables are similar to columns. They can however have headers, borders and cells spanning over multiple columns/rows.
+Use a table when cells in different rows need to align. `body` is an array of row
+arrays. Each row must have the same number of cells; cells can contain text or
+other pdfmake nodes. `headerRows: 1` repeats the first row when the table continues
+onto another page.
 
-{{% alert theme="warning" %}}The table node expects a valid table value. If the value is invalid or empty, an error is thrown. This includes the table.body property as well.{{% /alert %}}
+{{< example id="tables" >}}
 
-```js
-var docDefinition = {
-  content: [
-    {
-      layout: 'lightHorizontalLines', // optional
-      table: {
-        // headers are automatically repeated if the table spans over multiple pages
-        // you can declare how many rows should be treated as headers
-        headerRows: 1,
-        widths: [ '*', 'auto', 100, '*' ],
+## Choose widths
 
-        body: [
-          [ 'First', 'Second', 'Third', 'The last one' ],
-          [ 'Value 1', 'Value 2', 'Value 3', 'Value 4' ],
-          [ { text: 'Bold value', bold: true }, 'Val 2', 'Val 3', 'Val 4' ]
-        ]
-      }
-    }
-  ]
-};
-```
+| Width | Meaning | Useful when |
+| --- | --- | --- |
+| A number, for example `80` | Fixed points | Codes, counts or a predictable label column |
+| `'*'` | Share the remaining width | A description should fill the available space |
+| `'auto'` | Measure the content | Short labels should use only the width they need |
+| A percentage string | Percentage-based width | A proportional layout is required; test mixed widths carefully |
 
-##### Table-cell properties
+Borders, padding, page margins and other columns consume space too. Start with
+fixed and star widths, then use `auto` where content-based sizing is intentional.
+Avoid adding large fixed widths that exceed the content area.
 
-* `rowSpan: integer`: 
-* `colSpan: integer`:
-* `verticalAlignment: string`: vertical alignment (values: `top` (default), `middle`, `bottom`)  
-* `border: [boolean, boolean, boolean, boolean]`:
-* `borderColor: [string, string, string, string]`:
-* `fillColor: string`: the background color of a table cell
-* `fillOpacity: string`: the background opacity of a table cell
-* `overlayPattern: [string, string]`: overlay for a cell, painted over the contents
-* `overlayOpacity: number`: the opacity of the overlay
+## Table and cell fields
 
+| Field | Where | Type / purpose |
+| --- | --- | --- |
+| `body` | `table` | Nonempty row arrays |
+| `widths` | `table` | Width descriptors, one per column |
+| `headerRows` | `table` | Number of leading rows repeated as headers |
+| `dontBreakRows` | `table` | Keep an individual row from splitting across pages |
+| `keepWithHeaderRows` | `table` | Number of following rows to keep with the header |
+| `layout` | Node, beside `table` | Built-in layout name, registered custom name, or layout object |
+| `colSpan`, `rowSpan` | Cell | Positive number of columns/rows covered; placeholders are still required |
+| `verticalAlignment` | Cell | `'top'` (default), `'middle'` or `'bottom'` |
+| `border` | Cell | Four booleans: left, top, right, bottom |
+| `borderColor` | Cell | Four colors in the same order |
+| `fillColor` | Cell | Background color or a supported pattern tuple |
+| `fillOpacity` | Cell | Numeric background opacity |
+| `overlayPattern`, `overlayOpacity` | Cell | Pattern tuple and numeric opacity painted over the contents |
 
-##### Table layouts
+Keeping a row together cannot make an oversized row fit on a page. Test long
+descriptions and nested content with your actual page size and fonts.
 
-Can be used `layout` property for set table layout.
-
-Available table layouts:
-
-* `noBorders`
-* `headerLineOnly`
-* `lightHorizontalLines`
-
-##### Own table layouts
-
-Own table layouts must be defined before calling `pdfMake.createPdf(docDefinition)`.
-```js
-// define table layouts
-var tableLayouts = {
-  exampleLayout: {
-    hLineWidth: function (i, node) {
-      if (i === 0 || i === node.table.body.length) {
-        return 0;
-      }
-      return (i === node.table.headerRows) ? 2 : 1;
-    },
-    vLineWidth: function (i) {
-      return 0;
-    },
-    hLineColor: function (i) {
-      return i === 1 ? 'black' : '#aaa';
-    },
-    paddingLeft: function (i) {
-      return i === 0 ? 0 : 8;
-    },
-    paddingRight: function (i, node) {
-      return (i === node.table.widths.length - 1) ? 0 : 8;
-    }
-  }
-};
-
-// add table layouts
-pdfMake.addTableLayouts(tableLayouts);
-
-// download the PDF
-pdfMake.createPdf(docDefinition).download();
-```
-
-
-- On the server side:
-
-```js
-var pdfmake = require('pdfmake');
-pdfmake.addFonts(fonts);
-
-// Declaring your layout
-var myTableLayouts = {
-    exampleLayout: {
-        /*
-        Your layout here.
-        */
-    }
-};
-
-// Building the PDF
-var pdf = pdfmake.createPdf(docDefinition);
-
-// Writing it to disk
-pdf.write('document.pdf').then(() => {
-  // success event
-}, err => {
-  // error event
-  console.error(err);
-});
-```
-
-##### colSpan and rowSpan
-
-{{% alert theme="info" %}}If you use colSpan or rowSpan, don't forget to use an empty cell for the next columns or rows. See example below.{{% /alert %}}
+## Merge cells without changing the row length
 
 ```js
 var dd = {
-  content: [
-    {
-      table: {
-        body: [
-          [{text: 'Header with Colspan = 2', style: 'tableHeader', colSpan: 2, alignment: 'center'}, '', {text: 'Header 3', style: 'tableHeader', alignment: 'center'}],
-          [{text: 'Header 1', style: 'tableHeader', alignment: 'center'}, {text: 'Header 2', style: 'tableHeader', alignment: 'center'}, {text: 'Header 3', style: 'tableHeader', alignment: 'center'}],
-          ['Sample value 1', 'Sample value 2', 'Sample value 3'],
-          [{rowSpan: 3, text: 'rowSpan set to 3\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'}, 'Sample value 2', 'Sample value 3'],
-          ['', 'Sample value 2', 'Sample value 3'],
-          ['Sample value 1', 'Sample value 2', 'Sample value 3'],
-          ['Sample value 1', {colSpan: 2, rowSpan: 2, text: 'Both:\nrowSpan and colSpan\ncan be defined at the same time'}, ''],
-          ['Sample value 1', '', ''],
-        ]
-      }
+  content: [{
+    table: {
+      widths: ['*', '*', '*'],
+      body: [
+        [{ text: 'A heading across three columns', colSpan: 3, bold: true }, {}, {}],
+        [{ text: 'Two rows', rowSpan: 2 }, 'A', 'B'],
+        [{}, 'C', 'D']
+      ]
     }
-  ]
-}
+  }]
+};
 ```
 
-All concepts related to tables are covered by TABLES example in [playground](http://pdfmake.org/playground.html).
+The empty objects occupy the cells covered by a span. Leaving them out produces
+an inconsistent row. Do not use `undefined` as a placeholder. The
+[spans playground example](/docs/0.3/playground/?example=spans) shows this definition.
+
+## Use a built-in layout
+
+`noBorders`, `headerLineOnly` and `lightHorizontalLines` are available by name.
+Put `layout` beside `table`, not inside it:
+
+```js
+var dd = {
+  content: [{
+    layout: 'lightHorizontalLines',
+    table: { headerRows: 1, widths: ['*', 'auto'], body: [['Item', 'Qty'], ['Notebook', 3]] }
+  }]
+};
+```
+
+## Register a custom layout
+
+Register layouts before creating the document. In Node use your configured
+`pdfmake` singleton; in the browser use `pdfMake`.
+
+```js
+pdfMake.addTableLayouts({
+  compact: {
+    hLineWidth: function (index, node) {
+      return index === node.table.headerRows ? 1 : 0;
+    },
+    vLineWidth: function () { return 0; },
+    hLineColor: function () { return '#b7cfc4'; },
+    paddingLeft: function () { return 6; },
+    paddingRight: function () { return 6; }
+  }
+});
+
+var dd = {
+  content: [{ layout: 'compact', table: { headerRows: 1, body: [['Item', 'Qty'], ['Notebook', 3]] } }]
+};
+```
+
+The snippet assumes the browser engine and fonts are loaded. Defining a layout
+variable alone does not register it. Prefer deterministic callbacks; avoid
+mutating shared configuration during concurrent Node jobs.
+
+## Diagnose malformed tables
+
+Check `body` before changing borders or widths: it must contain row arrays with
+consistent lengths. Check span placeholders next. In the local improvement branch,
+diagnostics identify the offending definition path and expected number of cells.
+See [errors and diagnostics](/docs/0.3/guides/errors/).

@@ -1,0 +1,17 @@
+{
+  "current": "0.3",
+  "releases": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "status": "current",
+      "url": "https://pdfmake.github.io/docs/0.3/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "status": "legacy",
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ]
+}

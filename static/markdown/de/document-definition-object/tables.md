@@ -1,0 +1,205 @@
+# Tabellen
+
+Version: pdfmake 0.3.x
+Language: de
+Source: https://pdfmake.github.io/docs/0.3/de/document-definition-object/tables/
+
+## Mit Zeilen und wiederholter Kopfzeile beginnen
+
+Verwende eine Tabelle, wenn Zellen verschiedener Zeilen ausgerichtet werden sollen. `body` ist ein Array mit Zeilen-Arrays. Jede Zeile muss dieselbe Anzahl von Zellen enthalten; Zellen können Text oder andere pdfmake-Knoten enthalten. `headerRows: 1` wiederholt die erste Zeile, wenn die Tabelle auf einer neuen Seite fortgesetzt wird.
+
+
+
+### Runnable example: 03 · Tables & repeating headers
+
+**JavaScript**
+
+```js
+var rows = Array.from({ length: 65 }, (_, i) => [
+  'Item ' + (i + 1), 'A row that can continue across pages', String(i + 1)
+]);
+var dd = {
+  content: [
+    { text: 'A longer table', fontSize: 24, bold: true, margin: [0, 0, 0, 16] },
+    { layout: 'lightHorizontalLines', table: {
+      headerRows: 1, widths: [70, '*', 40],
+      body: [[{ text: 'Item', bold: true }, { text: 'Description', bold: true }, { text: 'Qty', bold: true }], ...rows]
+    } }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var rows = Array.from({ length: 65 }, (_, i) => [
+  'Item ' + (i + 1), 'A row that can continue across pages', String(i + 1)
+]);
+var dd: TDocumentDefinitions = {
+  content: [
+    { text: 'A longer table', fontSize: 24, bold: true, margin: [0, 0, 0, 16] },
+    { layout: 'lightHorizontalLines', table: {
+      headerRows: 1, widths: [70, '*', 40],
+      body: [[{ text: 'Item', bold: true }, { text: 'Description', bold: true }, { text: 'Qty', bold: true }], ...rows]
+    } }
+  ]
+};
+```
+
+[See the rendered PDF and edit this example](https://pdfmake.github.io/docs/0.3/de/playground/?example=tables)
+
+
+
+## Breiten auswählen
+
+| Breite | Bedeutung | Geeignet, wenn |
+| --- | --- | --- |
+| Eine Zahl, zum Beispiel `80` | Feste Punkte | Codes, Mengen oder eine Spalte mit vorhersehbaren Beschriftungen |
+| `'*'` | Verbleibende Breite teilen | Eine Beschreibung den verfügbaren Platz ausfüllen soll |
+| `'auto'` | Inhalt messen | Kurze Beschriftungen nur die benötigte Breite belegen sollen |
+| Prozentangabe als Zeichenfolge | Prozentuale Breite | Ein proportionales Layout erforderlich ist; gemischte Breiten sorgfältig prüfen |
+
+Rahmen, Innenabstände, Seitenränder und andere Spalten belegen ebenfalls Platz. Beginne mit festen Breiten und Sternbreiten und verwende `auto`, wenn eine inhaltsabhängige Größe beabsichtigt ist. Vermeide große feste Breiten, die den Inhaltsbereich überschreiten.
+
+## Tabellen- und Zellfelder
+
+| Feld | Ebene | Typ / Zweck |
+| --- | --- | --- |
+| `body` | `table` | Nichtleere Zeilen-Arrays |
+| `widths` | `table` | Breitenangaben, eine pro Spalte |
+| `headerRows` | `table` | Anzahl der ersten Zeilen, die als Kopfzeile wiederholt werden |
+| `dontBreakRows` | `table` | Verhindert, dass eine einzelne Zeile auf mehrere Seiten aufgeteilt wird |
+| `keepWithHeaderRows` | `table` | Anzahl der folgenden Zeilen, die zusammen mit der Kopfzeile gehalten werden |
+| `layout` | Knoten neben `table` | Name eines integrierten Layouts, registrierter eigener Name oder Layoutobjekt |
+| `colSpan`, `rowSpan` | Zelle | Positive Anzahl der überspannten Spalten/Zeilen; Platzhalter sind weiterhin erforderlich |
+| `verticalAlignment` | Zelle | `'top'` (Standard), `'middle'` oder `'bottom'` |
+| `border` | Zelle | Vier boolesche Werte: links, oben, rechts, unten |
+| `borderColor` | Zelle | Vier Farben in derselben Reihenfolge |
+| `fillColor` | Zelle | Hintergrundfarbe oder unterstütztes Mustertupel |
+| `fillOpacity` | Zelle | Numerische Deckkraft des Hintergrunds |
+| `overlayPattern`, `overlayOpacity` | Zelle | Mustertupel und numerische Deckkraft, die über den Inhalt gelegt werden |
+
+Eine Zeile zusammenzuhalten sorgt nicht dafür, dass eine übergroße Zeile auf eine Seite passt. Prüfe lange Beschreibungen und verschachtelten Inhalt mit deiner tatsächlichen Seitengröße und deinen Schriften.
+
+## Zellen verbinden, ohne die Zeilenlänge zu ändern
+
+**JavaScript**
+
+```js
+var dd = {
+  content: [{
+    table: {
+      widths: ['*', '*', '*'],
+      body: [
+        [{ text: 'A heading across three columns', colSpan: 3, bold: true }, {}, {}],
+        [{ text: 'Two rows', rowSpan: 2 }, 'A', 'B'],
+        [{}, 'C', 'D']
+      ]
+    }
+  }]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = {
+  content: [{
+    table: {
+      widths: ['*', '*', '*'],
+      body: [
+        [{ text: 'A heading across three columns', colSpan: 3, bold: true }, {}, {}],
+        [{ text: 'Two rows', rowSpan: 2 }, 'A', 'B'],
+        [{}, 'C', 'D']
+      ]
+    }
+  }]
+};
+```
+
+Die leeren Objekte belegen die von einer Zelle überspannten Plätze. Ohne sie ist eine Zeile nicht einheitlich. Verwende `undefined` nicht als Platzhalter. Das [Playground-Beispiel zu Zellüberspannungen](/docs/0.3/de/playground/?example=spans) zeigt diese Definition.
+
+## Integriertes Layout verwenden
+
+Die Layouts `noBorders`, `headerLineOnly` und `lightHorizontalLines` stehen unter ihrem Namen zur Verfügung. Setze `layout` neben `table`, nicht innerhalb davon:
+
+**JavaScript**
+
+```js
+var dd = {
+  content: [{
+    layout: 'lightHorizontalLines',
+    table: { headerRows: 1, widths: ['*', 'auto'], body: [['Item', 'Qty'], ['Notebook', 3]] }
+  }]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = {
+  content: [{
+    layout: 'lightHorizontalLines',
+    table: { headerRows: 1, widths: ['*', 'auto'], body: [['Item', 'Qty'], ['Notebook', 3]] }
+  }]
+};
+```
+
+## Eigenes Layout registrieren
+
+Registriere Layouts, bevor du das Dokument erstellst. Verwende in Node.js dein konfiguriertes `pdfmake`-Singleton und im Browser `pdfMake`.
+
+**JavaScript**
+
+```js
+pdfMake.addTableLayouts({
+  compact: {
+    hLineWidth: function (index, node) {
+      return index === node.table.headerRows ? 1 : 0;
+    },
+    vLineWidth: function () { return 0; },
+    hLineColor: function () { return '#b7cfc4'; },
+    paddingLeft: function () { return 6; },
+    paddingRight: function () { return 6; }
+  }
+});
+
+var dd = {
+  content: [{ layout: 'compact', table: { headerRows: 1, body: [['Item', 'Qty'], ['Notebook', 3]] } }]
+};
+```
+
+**TypeScript**
+
+```ts
+import pdfMake from "pdfmake/build/pdfmake.js";
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+pdfMake.addTableLayouts({
+  compact: {
+    hLineWidth: function (index, node) {
+      return index === node.table.headerRows ? 1 : 0;
+    },
+    vLineWidth: function () { return 0; },
+    hLineColor: function () { return '#b7cfc4'; },
+    paddingLeft: function () { return 6; },
+    paddingRight: function () { return 6; }
+  }
+});
+
+var dd: TDocumentDefinitions = {
+  content: [{ layout: 'compact', table: { headerRows: 1, body: [['Item', 'Qty'], ['Notebook', 3]] } }]
+};
+```
+
+Das Snippet setzt voraus, dass Browser-Engine und Schriften geladen sind. Eine Layoutvariable zu definieren, registriert sie noch nicht. Verwende möglichst deterministische Callbacks und ändere gemeinsam genutzte Konfiguration nicht während paralleler Node.js-Aufträge.
+
+## Fehlerhafte Tabellen diagnostizieren
+
+Prüfe `body`, bevor du Rahmen oder Breiten änderst: Es muss Zeilen-Arrays mit einheitlicher Länge enthalten. Prüfe anschließend die Platzhalter für überspannte Zellen. Im lokalen Verbesserungszweig nennen Diagnosen den fehlerhaften Definitionspfad und die erwartete Zellanzahl. Siehe [Fehler und Diagnose](/docs/0.3/de/guides/errors/).

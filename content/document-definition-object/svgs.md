@@ -1,6 +1,6 @@
 +++
 title = "SVGs"
-description = ""
+description = "Configure svgs in pdfmake 0.3 with examples, options and usage notes."
 weight = 2110
 alwaysopen = true
 +++
@@ -29,10 +29,10 @@ var docDefinition = {
     },
     {
       // if you specify height, svg will scale proportionally
-      // Minimal pdfmake version: 0.3.2  
+      // Minimal pdfmake version: 0.3.2
       svg: '<svg width="300" height="200" viewBox="0 0 300 200">...</svg>',
       height: 100
-    },      
+    },
     {
       // if you specify both width and height - svg will be stretched
       svg: '<svg width="300" height="200" viewBox="0 0 300 200">...</svg>',

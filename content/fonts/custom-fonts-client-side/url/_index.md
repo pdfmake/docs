@@ -1,6 +1,6 @@
 +++
 title = "via URL protocol"
-description = ""
+description = "Configure via url protocol in pdfmake 0.3 with examples, options and usage notes."
 weight = 16
 alwaysopen = true
 +++
@@ -23,15 +23,15 @@ var fonts = {
      bolditalics: 'https://example.com/fonts/fontFile4.ttf'
    },
    anotherFontName: {
-     (...)
+
    },
 
    // download default Roboto font from unpkg.com
    Roboto: {
-     normal: 'https://unpkg.com/pdfmake@0.3/build/fonts/Roboto/Roboto-Regular.ttf',
-     bold: 'https://unpkg.com/pdfmake@0.3/build/fonts/Roboto/Roboto-Medium.ttf',
-     italics: 'https://unpkg.com/pdfmake@0.3/build/fonts/Roboto/Roboto-Italic.ttf',
-     bolditalics: 'https://unpkg.com/pdfmake@0.3/build/fonts/Roboto/Roboto-MediumItalic.ttf'
+     normal: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-Regular.ttf',
+     bold: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-Medium.ttf',
+     italics: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-Italic.ttf',
+     bolditalics: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-MediumItalic.ttf'
    },
 
    // example of usage fonts in collection
@@ -52,7 +52,7 @@ The easiest way is to set it globally in the **defaultStyle**
 
 ```javascript
 var docDefinition = {
-  content: (...),
+  content: ['Example document content'],
   defaultStyle: {
     font: 'yourFontName'
   }

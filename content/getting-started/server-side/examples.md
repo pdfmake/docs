@@ -1,6 +1,6 @@
 +++
 title = "Examples"
-description = ""
+description = "Configure examples in pdfmake 0.3 with examples, options and usage notes."
 weight = 13
 alwaysopen = true
 +++

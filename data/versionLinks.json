@@ -1,0 +1,4642 @@
+{
+  "de/index": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/index": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/index": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "index": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/index": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/attachments": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/attachments/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/attachments": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/attachments/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/attachments": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/attachments/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/attachments": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/attachments/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/attachments": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/attachments/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/background-layer": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/background-layer/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/background-layer": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/background-layer/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/background-layer": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/background-layer/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/background-layer": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/background-layer/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/background-layer": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/background-layer/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/columns": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/columns/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/columns": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/columns/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/columns": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/columns/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/columns": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/columns/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/columns": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/columns/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/compression": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/compression/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/compression": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/compression/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/compression": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/compression/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/compression": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/compression/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/compression": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/compression/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/document-medatadata": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/document-medatadata/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/document-medatadata": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/document-medatadata/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/document-medatadata": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/document-medatadata/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/document-medatadata": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/document-medatadata/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/document-medatadata": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/document-medatadata/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/headers-footers": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/headers-footers/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/headers-footers": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/headers-footers/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/headers-footers": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/headers-footers/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/headers-footers": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/headers-footers/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/headers-footers": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/headers-footers/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/images": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/images/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/images": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/images/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/images": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/images/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/images": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/images/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/images": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/images/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/links": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/links/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/links": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/links/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/links": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/links/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/links": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/links/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/links": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/links/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/lists": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/lists/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/lists": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/lists/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/lists": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/lists/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/lists": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/lists/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/lists": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/lists/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/margins": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/margins/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/margins": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/margins/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/margins": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/margins/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/margins": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/margins/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/margins": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/margins/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/outlines": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/outlines/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/outlines": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/outlines/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/outlines": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/outlines/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/outlines": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/outlines/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/outlines": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/outlines/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/page": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/page/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/page": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/page/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/page": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/page/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/page": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/page/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/page": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/page/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/patterns": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/patterns/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/patterns": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/patterns/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/patterns": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/patterns/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/patterns": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/patterns/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/patterns": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/patterns/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/pdfa": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/pdfa/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/pdfa": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/pdfa/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/pdfa": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/pdfa/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/pdfa": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/pdfa/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/pdfa": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/pdfa/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/qr": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/qr/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/qr": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/qr/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/qr": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/qr/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/qr": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/qr/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/qr": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/qr/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/sections": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/sections/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/sections": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/sections/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/sections": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/sections/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/sections": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/sections/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/sections": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/sections/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/security": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/security/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/security": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/security/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/security": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/security/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/security": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/security/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/security": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/security/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/snaking-columns": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/snaking-columns/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/snaking-columns": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/snaking-columns/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/snaking-columns": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/snaking-columns/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/snaking-columns": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/snaking-columns/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/snaking-columns": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/snaking-columns/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/stack": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/stack/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/stack": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/stack/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/stack": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/stack/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/stack": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/stack/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/stack": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/stack/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/styling": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/styling/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/styling": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/styling/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/styling": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/styling/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/styling": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/styling/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/styling": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/styling/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/svgs": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/svgs/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/svgs": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/svgs/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/svgs": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/svgs/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/svgs": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/svgs/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/svgs": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/svgs/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/tables": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/tables/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/tables": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/tables/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/tables": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/tables/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/tables": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/tables/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/tables": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/tables/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/toc": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/toc/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/toc": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/toc/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/toc": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/toc/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/toc": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/toc/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/toc": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/toc/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/document-definition-object/watermark": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/document-definition-object/watermark/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/document-definition-object/watermark": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/document-definition-object/watermark/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/document-definition-object/watermark": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/document-definition-object/watermark/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "document-definition-object/watermark": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/document-definition-object/watermark/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/document-definition-object/watermark": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/document-definition-object/watermark/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/fonts": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/fonts/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/fonts": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/fonts/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/fonts": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/fonts/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fonts": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fonts/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/fonts": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/fonts/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/fonts/custom-fonts-client-side": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/fonts/custom-fonts-client-side/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/fonts/custom-fonts-client-side": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/fonts/custom-fonts-client-side/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/fonts/custom-fonts-client-side": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/fonts/custom-fonts-client-side/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fonts/custom-fonts-client-side": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fonts/custom-fonts-client-side/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/fonts/custom-fonts-client-side": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/fonts/custom-fonts-client-side/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/fonts/custom-fonts-client-side/url": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/fonts/custom-fonts-client-side/url/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/fonts/custom-fonts-client-side/url": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/fonts/custom-fonts-client-side/url/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/fonts/custom-fonts-client-side/url": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/fonts/custom-fonts-client-side/url/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fonts/custom-fonts-client-side/url": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fonts/custom-fonts-client-side/url/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/fonts/custom-fonts-client-side/url": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/fonts/custom-fonts-client-side/url/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/fonts/custom-fonts-client-side/vfs": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/fonts/custom-fonts-client-side/vfs/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/fonts/custom-fonts-client-side/vfs": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/fonts/custom-fonts-client-side/vfs/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/fonts/custom-fonts-client-side/vfs": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/fonts/custom-fonts-client-side/vfs/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fonts/custom-fonts-client-side/vfs": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fonts/custom-fonts-client-side/vfs/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/fonts/custom-fonts-client-side/vfs": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/fonts/custom-fonts-client-side/vfs/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/fonts/icons": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/fonts/icons/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/fonts/icons": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/fonts/icons/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/fonts/icons": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/fonts/icons/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fonts/icons": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fonts/icons/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/fonts/icons": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/fonts/icons/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/fonts/standard-14-fonts": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/fonts/standard-14-fonts/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/fonts/standard-14-fonts": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/fonts/standard-14-fonts/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/fonts/standard-14-fonts": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/fonts/standard-14-fonts/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fonts/standard-14-fonts": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fonts/standard-14-fonts/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/fonts/standard-14-fonts": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/fonts/standard-14-fonts/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/getting-started": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/getting-started/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/getting-started": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/getting-started/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/getting-started": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/getting-started/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "getting-started": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/getting-started/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/getting-started": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/getting-started/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/getting-started/client-side": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/getting-started/client-side/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/getting-started/client-side": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/getting-started/client-side/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/getting-started/client-side": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/getting-started/client-side/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "getting-started/client-side": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/getting-started/client-side/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/getting-started/client-side": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/getting-started/client-side/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/getting-started/client-side/examples": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/getting-started/client-side/examples/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/getting-started/client-side/examples": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/getting-started/client-side/examples/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/getting-started/client-side/examples": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/getting-started/client-side/examples/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "getting-started/client-side/examples": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/getting-started/client-side/examples/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/getting-started/client-side/examples": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/getting-started/client-side/examples/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/getting-started/client-side/methods": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/getting-started/client-side/methods/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/getting-started/client-side/methods": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/getting-started/client-side/methods/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/getting-started/client-side/methods": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/getting-started/client-side/methods/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "getting-started/client-side/methods": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/getting-started/client-side/methods/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/getting-started/client-side/methods": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/getting-started/client-side/methods/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/getting-started/client-side/supported-browsers": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/getting-started/client-side/supported-browsers/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/getting-started/client-side/supported-browsers": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/getting-started/client-side/supported-browsers/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/getting-started/client-side/supported-browsers": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/getting-started/client-side/supported-browsers/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "getting-started/client-side/supported-browsers": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/getting-started/client-side/supported-browsers/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/getting-started/client-side/supported-browsers": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/getting-started/client-side/supported-browsers/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/getting-started/examples-from-comunity": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/getting-started/examples-from-comunity/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/getting-started/examples-from-comunity": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/getting-started/examples-from-comunity/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/getting-started/examples-from-comunity": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/getting-started/examples-from-comunity/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "getting-started/examples-from-comunity": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/getting-started/examples-from-comunity/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/getting-started/examples-from-comunity": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/getting-started/examples-from-comunity/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/getting-started/server-side": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/getting-started/server-side/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/getting-started/server-side": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/getting-started/server-side/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/getting-started/server-side": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/getting-started/server-side/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "getting-started/server-side": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/getting-started/server-side/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/getting-started/server-side": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/getting-started/server-side/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/getting-started/server-side/examples": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/getting-started/server-side/examples/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/getting-started/server-side/examples": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/getting-started/server-side/examples/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/getting-started/server-side/examples": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/getting-started/server-side/examples/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "getting-started/server-side/examples": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/getting-started/server-side/examples/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/getting-started/server-side/examples": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/getting-started/server-side/examples/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/getting-started/server-side/methods": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/getting-started/server-side/methods/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/getting-started/server-side/methods": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/getting-started/server-side/methods/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/getting-started/server-side/methods": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/getting-started/server-side/methods/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "getting-started/server-side/methods": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/getting-started/server-side/methods/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/getting-started/server-side/methods": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/getting-started/server-side/methods/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/getting-started/server-side/supported-nodejs-versions": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/getting-started/server-side/supported-nodejs-versions/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/getting-started/server-side/supported-nodejs-versions": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/getting-started/server-side/supported-nodejs-versions/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/getting-started/server-side/supported-nodejs-versions": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/getting-started/server-side/supported-nodejs-versions/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "getting-started/server-side/supported-nodejs-versions": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/getting-started/server-side/supported-nodejs-versions/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/getting-started/server-side/supported-nodejs-versions": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/getting-started/server-side/supported-nodejs-versions/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/guides": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/guides/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/guides": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/guides/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/guides": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/guides/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "guides": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/guides/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/guides": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/guides/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/guides/api-reference": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/guides/api-reference/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/guides/api-reference": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/guides/api-reference/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/guides/api-reference": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/guides/api-reference/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "guides/api-reference": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/guides/api-reference/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/guides/api-reference": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/guides/api-reference/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/guides/contributing": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/guides/contributing/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/guides/contributing": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/guides/contributing/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/guides/contributing": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/guides/contributing/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "guides/contributing": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/guides/contributing/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/guides/contributing": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/guides/contributing/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/guides/errors": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/guides/errors/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/guides/errors": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/guides/errors/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/guides/errors": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/guides/errors/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "guides/errors": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/guides/errors/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/guides/errors": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/guides/errors/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/guides/invoice": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/guides/invoice/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/guides/invoice": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/guides/invoice/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/guides/invoice": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/guides/invoice/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "guides/invoice": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/guides/invoice/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/guides/invoice": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/guides/invoice/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/guides/llm-and-mcp": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/guides/llm-and-mcp/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/guides/llm-and-mcp": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/guides/llm-and-mcp/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/guides/llm-and-mcp": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/guides/llm-and-mcp/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "guides/llm-and-mcp": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/guides/llm-and-mcp/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/guides/llm-and-mcp": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/guides/llm-and-mcp/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/guides/performance": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/guides/performance/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/guides/performance": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/guides/performance/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/guides/performance": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/guides/performance/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "guides/performance": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/guides/performance/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/guides/performance": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/guides/performance/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/guides/playground": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/guides/playground/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/guides/playground": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/guides/playground/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/guides/playground": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/guides/playground/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "guides/playground": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/guides/playground/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/guides/playground": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/guides/playground/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/guides/resource-security": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/guides/resource-security/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/guides/resource-security": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/guides/resource-security/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/guides/resource-security": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/guides/resource-security/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "guides/resource-security": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/guides/resource-security/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/guides/resource-security": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/guides/resource-security/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/guides/troubleshooting": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/guides/troubleshooting/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/guides/troubleshooting": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/guides/troubleshooting/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/guides/troubleshooting": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/guides/troubleshooting/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "guides/troubleshooting": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/guides/troubleshooting/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/guides/troubleshooting": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/guides/troubleshooting/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/learn": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/learn/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/learn": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/learn/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/learn": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/learn/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "learn": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/learn/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/learn": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/learn/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/learn/document-model": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/learn/document-model/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/learn/document-model": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/learn/document-model/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/learn/document-model": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/learn/document-model/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "learn/document-model": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/learn/document-model/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/learn/document-model": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/learn/document-model/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/learn/first-pdf": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/learn/first-pdf/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/learn/first-pdf": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/learn/first-pdf/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/learn/first-pdf": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/learn/first-pdf/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "learn/first-pdf": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/learn/first-pdf/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/learn/first-pdf": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/learn/first-pdf/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/migration-from-0.1": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/migration-from-0.1/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/migration-from-0.1": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/migration-from-0.1/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/migration-from-0.1": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/migration-from-0.1/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "migration-from-0.1": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/migration-from-0.1/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/migration-from-0.1": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/migration-from-0.1/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/options": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/options/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/options": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/options/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/options": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/options/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "options": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/options/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/options": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/options/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "de/playground": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/de/playground/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "es/playground": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/es/playground/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "fr/playground": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/fr/playground/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "playground": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/playground/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ],
+  "pt-br/playground": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "current": true,
+      "sameChapter": true,
+      "url": "/docs/0.3/pt-br/playground/"
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "current": false,
+      "sameChapter": false,
+      "url": "https://pdfmake.github.io/docs/0.1/"
+    }
+  ]
+}

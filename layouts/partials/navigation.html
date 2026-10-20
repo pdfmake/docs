@@ -1,0 +1,9 @@
+{{ $current := . }}{{ $prefix := "" }}{{ if ne .Language.Lang "en" }}{{ $prefix = printf "%s/" .Language.Lang }}{{ end }}
+<a class="workspace-nav"{{ if eq .Layout "workspace" }} aria-current="page"{{ end }} href="{{ printf "%splayground/" $prefix | relURL }}">{{ i18n "openPlayground" }} <span>⌘</span></a>
+<nav aria-label="{{ i18n "chapters" }}">
+{{ range $index, $group := hugo.Data.navigation }}
+{{ $active := false }}{{ range $group.pages }}{{ $p := partial "resolve-page.html" (dict "site" $current.Site "id" .) }}{{ if eq $p.RelPermalink $current.RelPermalink }}{{ $active = true }}{{ end }}{{ end }}
+<details data-nav-group="{{ $group.title }}"{{ if $active }} open{{ end }}><summary>{{ i18n $group.title }}</summary><ul>
+{{ range $group.pages }}{{ $p := partial "resolve-page.html" (dict "site" $current.Site "id" .) }}
+<li><a href="{{ $p.RelPermalink }}"{{ if eq $p.RelPermalink $current.RelPermalink }} aria-current="page"{{ end }}>{{ partial "nav-title.html" (dict "id" . "page" $p) }}{{ if ne $p.Language.Lang $current.Language.Lang }} <span class="language-tag" lang="en">EN</span>{{ end }}</a></li>
+{{ end }}</ul></details>{{ end }}</nav>

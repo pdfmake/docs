@@ -1,6 +1,6 @@
 +++
 title = "Document Metadata"
-description = ""
+description = "Set PDF title, author, subject, keywords and custom metadata fields."
 weight = 2260
 alwaysopen = true
 +++
@@ -37,7 +37,7 @@ Custom properties:
 
 You can add custom properties. Key of property not contain spaces.
 
-#### Document language
+## Document language
 
 PDF document can have custom language set via `language` property.
 

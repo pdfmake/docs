@@ -1,6 +1,6 @@
 +++
 title = "Snaking columns"
-description = ""
+description = "Configure snaking columns in pdfmake 0.3 with examples, options and usage notes."
 weight = 2025
 alwaysopen = true
 +++
@@ -12,6 +12,7 @@ Snaking columns (or newspaper-style columns) are a column layout mode where cont
 When `snakingColumns: true` is enabled, only the **first column** should contain content. Subsequent columns serve as empty placeholders for overflow.
 
 ```js
+var myLongContent = 'A paragraph flowing through snaking columns. '.repeat(120);
 var docDefinition = {
     content: [
         {
