@@ -45,6 +45,36 @@ var docDefinition = {
 * `overlayOpacity: number`: the opacity of the overlay
 
 
+##### Table alignment
+
+{{% alert theme="warning" %}}Minimal version: **0.3.13**{{% /alert %}}
+
+Use `tableAlignment` on the table node, alongside `table`, to align the whole table horizontally within the available width. Supported values are `left` (default), `center` and `right`.
+
+This property does not change the alignment of text inside cells. Use `alignment` to control text alignment separately.
+
+```js
+var docDefinition = {
+  content: [
+    {
+      tableAlignment: 'center',
+      alignment: 'left',
+      table: {
+        widths: [ 'auto', 'auto' ],
+        body: [
+          [ 'Item', 'Quantity' ],
+          [ 'Example', '2' ]
+        ]
+      }
+    }
+  ]
+};
+```
+
+The example centers the table while keeping its cell text left-aligned. Use `tableAlignment: 'right'` to align the table to the right.
+
+Alignment is visible when the table is narrower than the available width, for example with `auto` or fixed column widths. Tables that fill or exceed the available width keep their left position. The available width respects margins and the containing column or table cell.
+
 ##### Table layouts
 
 Can be used `layout` property for set table layout.
