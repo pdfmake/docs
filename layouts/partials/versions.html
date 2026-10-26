@@ -1,0 +1,4 @@
+{{ $source := "_index.md" }}{{ with .File }}{{ $source = replace .Path "\\" "/" }}{{ end }}{{ $id := replaceRE "(^|/)_index(?:\\.[a-z-]+)?\\.md$|(?:\\.[a-z-]+)?\\.md$" "" $source }}{{ if not $id }}{{ $id = "index" }}{{ end }}{{ if ne .Language.Lang "en" }}{{ $id = printf "%s/%s" .Language.Lang $id }}{{ end }}
+<details class="version-menu"><summary aria-label="{{ i18n "versionLabel" }}">{{ .Site.Params.docsVersionLabel }}</summary><ul>
+{{ range index hugo.Data.versionLinks $id }}<li><a data-version="{{ .id }}" href="{{ .url }}"{{ if .current }} aria-current="true"{{ end }}>{{ .label }}{{ if not .sameChapter }}<small>{{ i18n "versionHomeFallback" }}</small>{{ end }}</a></li>{{ end }}
+</ul></details>

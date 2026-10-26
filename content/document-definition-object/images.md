@@ -1,85 +1,68 @@
 +++
 title = "Images"
-description = ""
+description = "Embed PNG and JPEG images from data URLs, named resources, files or approved external URLs."
 weight = 2100
 alwaysopen = true
 +++
 
+## Reuse embedded PNG or JPEG data
 
-This is simple. Just use the ```{ image: '...' }``` node type.
+An image node is `{ image: 'key' }`, where the key resolves through the document's
+`images` dictionary. Reuse a key when the same image appears more than once.
+PNG and JPEG are supported; use an [SVG node](/docs/0.3/document-definition-object/svgs/)
+for SVG content.
 
-JPEG and PNG formats are supported.
+{{< example id="images" >}}
 
-{{% alert theme="warning" %}}The image node expects a valid image value. If the value is invalid or empty, an error is thrown.{{% /alert %}}
+## Choose sizing behavior
+
+| Fields on the image node | Result |
+| --- | --- |
+| No width, height or fit | Use the image's natural dimensions |
+| `width: 150` | Scale proportionally to that width |
+| `height: 100` | Scale proportionally to that height; since 0.3.2 |
+| `width: 150, height: 100` | Force those dimensions, which can stretch the image |
+| `fit: [150, 100]` | Fit inside a rectangle while preserving aspect ratio |
+| `cover: { width: 150, height: 100, align: 'right', valign: 'bottom' }` | Fill a rectangle with cropping and alignment |
+
+Display dimensions do not reduce the original image payload. Resize oversized
+source images before embedding them when output size and memory matter.
+
+## Select a source for your runtime
+
+| Source | Setup |
+| --- | --- |
+| Data URL | Put a complete PNG/JPEG base64 data URL in `images` or directly on a node |
+| Local file | Node.js only, or a file already present in a browser VFS |
+| HTTP(S) URL | Use a named `images` entry and allow it through the resource policy |
+| URL with headers | Use `{ url, headers }` in the named `images` entry |
 
 ```js
-var docDefinition = {
-  content: [
-    {
-      // you'll most often use dataURI images on the browser side
-      // if no width/height/fit is provided, the original size will be used
-      image: 'data:image/jpeg;base64,...encodedContent...'
-    },
-    {
-      // if you specify width, image will scale proportionally
-      image: 'data:image/jpeg;base64,...encodedContent...',
-      width: 150
-    },
-    {
-      // if you specify height, image will scale proportionally
-      // Minimal pdfmake version: 0.3.2  
-      image: 'data:image/jpeg;base64,...encodedContent...', 
-      height: 100
-    },
-    {
-      // if you specify both width and height - image will be stretched
-      image: 'data:image/jpeg;base64,...encodedContent...',
-      width: 150,
-      height: 150
-    },
-    {
-      // you can also fit the image inside a rectangle
-      image: 'data:image/jpeg;base64,...encodedContent...',
-      fit: [100, 100]
-    },
-    {
-      // You can also cover the image inside a rectangle
-      image: 'data:image/jpeg;base64,...encodedContent...',
-      cover: { width: 100, height: 100, valign: "bottom", align: "right" },
-    },
-    {
-      // if you reuse the same image in multiple nodes,
-      // you should put it to to images dictionary and reference it by name
-      image: 'mySuperImage'
-    },
-    {
-      // under NodeJS (or in case you use virtual file system provided by pdfmake)
-      // you can also pass file names here
-      image: 'myImageDictionary/image1.jpg'
-    },
-    {
-      // is supported loading images via url from reference by name in images
-      image: 'snow'
-    },
-    {
-      image: 'strawberries'
-    },
-  ],
-
+var dd = {
   images: {
-    mySuperImage: 'data:image/jpeg;base64,...content...',
-
-    // is supported loading images via url (https or http protocol)
-    snow: 'https://picsum.photos/seed/picsum/200/300',
-
-    // is supported loading images via url with custom headers
-    strawberries: {
-      url: 'https://picsum.photos/id/1080/367/267',
-      headers: {
-        myheader: '123',
-        myotherheader: 'abc',
-      }
+    logo: '/application-owned/assets/logo.png',
+    remote: {
+      url: 'https://assets.example.com/photo.jpg',
+      headers: { 'X-Example-Header': 'value' }
     }
-  }
+  },
+  content: [
+    { image: 'logo', width: 120 },
+    { image: 'remote', fit: [200, 150] }
+  ]
 };
 ```
+
+This snippet describes source shapes, not a self-contained runnable download.
+Supply an existing application-owned file and a real approved URL. In a browser,
+the local filename must exist in the VFS; browser URLs also require CORS support.
+Do not place private credentials in client-side definitions. The embedded example
+above is self-contained and needs no network resource.
+
+## Diagnose missing images
+
+An empty or invalid image value is an error. Check the dictionary key, full data
+URL prefix and bytes, file existence, URL response and access policy. Configuring
+`setUrlAccessPolicy` does not bypass CORS. A local file policy must allow the actual
+resolved file path. See [resource security](/docs/0.3/guides/resource-security/)
+and [troubleshooting](/docs/0.3/guides/troubleshooting/).

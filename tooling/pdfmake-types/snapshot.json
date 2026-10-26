@@ -1,0 +1,14 @@
+{
+  "source": "pdfmake local improvement branch (unreleased)",
+  "files": {
+    "package.json": "ae65478fb1393270b05029596445e082830687b88f1da938c3b14a66e3dc0d68",
+    "interfaces.d.ts": "055a77510644239ca3aa71232fef925f9a1ceaecdadec3fe285513830b5a830b",
+    "types/interfaces.d.ts": "d6540d7f6c85620a8a10971abebedab666326210bab6a68a1b018f8d416c5f04",
+    "types/index.d.ts": "f5ae28cce8439b70edbcc9d0e2fbd9d360f58aaf52972a6115e37f53bd6c4639",
+    "types/browser.d.ts": "2cd220415c6eb927899dd4499824410eafdec36d67d01313f2ab878f59ea0f4f",
+    "types/LICENSE": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+    "build/pdfmake.d.ts": "2d78a48f6ec6dcd52f1c06d7ef7c5aab379ec11a7c1eb4b26cb2c49532e1afd8",
+    "build/pdfmake.min.d.ts": "2d78a48f6ec6dcd52f1c06d7ef7c5aab379ec11a7c1eb4b26cb2c49532e1afd8",
+    "build/vfs_fonts.d.ts": "dc30b34e4b25359d0cb9604492aa724cfca81d38de9d6fa060b2250a8fb87811"
+  }
+}

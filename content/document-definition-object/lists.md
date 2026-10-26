@@ -1,6 +1,6 @@
 +++
 title = "Lists"
-description = ""
+description = "Configure lists in pdfmake 0.3 with examples, options and usage notes."
 weight = 2040
 alwaysopen = true
 +++
@@ -31,7 +31,7 @@ var docDefinition = {
         'Item 3'
       ]
     },
-      
+
     'Colored unordered list:',
     {
       color: 'blue',
@@ -41,7 +41,7 @@ var docDefinition = {
           'item 3'
       ]
     },
-      
+
     'Colored unordered list with own marker color:',
     {
       color: 'blue',
@@ -52,7 +52,7 @@ var docDefinition = {
           { text: 'item 3 with custom marker color', markerColor: 'lime' } // Minimal pdfmake version: 0.3.2
       ]
     },
-      
+
     'Colored ordered list',
     {
       color: 'blue',
@@ -71,7 +71,7 @@ var docDefinition = {
           'item 2',
           { text: 'item 3 with custom marker color', markerColor: 'lime' } // Minimal pdfmake version: 0.3.2
       ]
-    },      
+    },
   ]
 };
 ```

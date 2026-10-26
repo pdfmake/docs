@@ -1,0 +1,1 @@
+<ul>{{ range .pages.ByWeight }}<li><a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.current.RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>{{ if .Pages }}{{ partial "nav.html" (dict "pages" .Pages "current" $.current) }}{{ end }}</li>{{ end }}</ul>

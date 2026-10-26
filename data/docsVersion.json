@@ -1,0 +1,28 @@
+{
+  "id": "0.3",
+  "label": "0.3.x",
+  "ref": "master",
+  "libraryVersion": "0.3.13",
+  "status": "current",
+  "managed": true,
+  "basePath": "/docs/0.3/",
+  "baseURL": "https://pdfmake.github.io/docs/0.3/",
+  "sourceBasePath": "/docs/0.3/",
+  "releases": [
+    {
+      "id": "0.3",
+      "label": "0.3.x",
+      "ref": "master",
+      "libraryVersion": "0.3.13",
+      "status": "current",
+      "managed": true
+    },
+    {
+      "id": "0.1",
+      "label": "0.1 / 0.2",
+      "ref": "0.1",
+      "status": "legacy",
+      "managed": false
+    }
+  ]
+}

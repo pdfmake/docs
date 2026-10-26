@@ -1,0 +1,3 @@
+{{ $prefix := "" }}{{ if ne .Page.Language.Lang "en" }}{{ $prefix = printf "%s/" .Page.Language.Lang }}{{ end }}
+{{ $id := .Get "id" }}{{ $matches := where hugo.Data.playground "id" $id }}{{ if not $matches }}{{ errorf "Unknown playground example %s" $id }}{{ end }}
+{{ range $matches }}<section class="worked-example" aria-label="Runnable example: {{ .title }}"><div class="example-heading"><strong>{{ .title }}</strong><a href="{{ printf "%splayground/?example=%s" $prefix .id | relURL }}">{{ i18n "openPlayground" }}</a></div>{{ partial "code-example.html" (dict "source" .source) }}</section>{{ end }}

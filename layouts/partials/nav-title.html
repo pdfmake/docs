@@ -1,0 +1,1 @@
+{{ $labels := dict "index" "overview" "getting-started" "navSetup" "learn" "navLearning" "document-definition-object" "navReference" "document-definition-object/page" "navPageSettings" "document-definition-object/stack" "navParagraphs" }}{{ $key := index $labels .id }}{{ if $key }}{{ return (i18n $key) }}{{ end }}{{ return .page.Title }}

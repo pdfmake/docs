@@ -1,0 +1,12 @@
+{{ $key := crypto.SHA256 (strings.TrimSpace (replace .source "\r\n" "\n")) }}{{ $example := index hugo.Data.codeExamples $key }}
+{{ if not $example }}{{ errorf "Missing JS/TS variants for code example %s: %q" $key .source }}{{ end }}
+<div class="code-block interactive-code" data-example-key="{{ $key }}" data-runnable="{{ $example.runnable }}" data-context="{{ $example.context }}">
+  <div class="code-meta"><div class="code-languages" role="group" aria-label="{{ i18n "codeLanguage" }}"><button type="button" disabled data-code-language="javascript" aria-pressed="true">JavaScript</button><button type="button" disabled data-code-language="typescript" aria-pressed="false">TypeScript</button></div><button type="button" class="edit-code" disabled>{{ i18n "editCode" }}</button><button type="button" class="copy-example" disabled>{{ i18n "copy" }}</button></div>
+  <div class="code-variant" data-code-pane="javascript"><span class="sr-only">JavaScript</span>{{ transform.Highlight $example.javascript "javascript" (dict "style" "github-dark") }}</div>
+  <div class="code-variant" data-code-pane="typescript"><span class="sr-only">TypeScript</span>{{ transform.Highlight $example.typescript "typescript" (dict "style" "github-dark") }}</div>
+  <div class="inline-editor" hidden></div>
+  <div class="inline-actions" hidden><button type="button" data-code-action="undo">{{ i18n "codeUndo" }}</button><button type="button" data-code-action="redo">{{ i18n "codeRedo" }}</button><button type="button" data-code-action="reset">{{ i18n "codeReset" }}</button><button type="button" data-code-action="run">{{ if $example.runnable }}{{ i18n "codeRun" }}{{ else }}{{ i18n "codeCheck" }}{{ end }}</button>{{ if $example.runnable }}<label><input type="checkbox" data-code-live checked> {{ i18n "codeLive" }}</label>{{ end }}</div>
+  <p class="inline-status" role="status" aria-live="polite" hidden></p><pre class="inline-error" hidden></pre>
+  {{ if $example.runnable }}<div class="inline-preview" hidden><div class="inline-preview-toolbar"><button type="button" data-code-action="previous" aria-label="{{ i18n "codePrevious" }}">←</button><span class="inline-page-count"></span><button type="button" data-code-action="next" aria-label="{{ i18n "codeNext" }}">→</button><a class="inline-download" download="example.pdf">{{ i18n "codeDownload" }}</a></div><div class="inline-canvas"></div><details class="inline-text"><summary>{{ i18n "codePdfText" }}</summary><p></p></details></div>{{ end }}
+  <noscript><p>{{ i18n "codeNoJs" }}</p></noscript>
+</div>

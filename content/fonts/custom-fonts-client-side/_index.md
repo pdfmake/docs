@@ -1,6 +1,6 @@
 +++
 title = "Custom fonts (client-side)"
-description = ""
+description = "Configure custom fonts (client-side) in pdfmake 0.3 with examples, options and usage notes."
 weight = 15
 alwaysopen = true
 +++

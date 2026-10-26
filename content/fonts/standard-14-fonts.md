@@ -1,13 +1,13 @@
 +++
 title = "Standard 14 fonts"
-description = ""
+description = "Use standard PDF font families in Node.js and browser bundles, with limited character encodings."
 weight = 15
 alwaysopen = true
 +++
 
 PDF contains [standard 14 fonts](http://www.enfocus.com/manuals/ReferenceGuide/PS/18/enUS/en-us/common/pse/concept/c_aa1044513.html).
 
-**Attention!** This fonts supports only **ANSI** code page (only english characters)!
+**Character coverage:** Standard fonts use limited encodings and do not support arbitrary Unicode. Use embedded fonts for multilingual documents and test the glyphs you need.
 
 ## Use in pdfmake on the server side
 
@@ -66,8 +66,8 @@ Standard font bundles are available in the pdfmake package's `build/standard-fon
 For example, to use Helvetica:
 
 ```html
-<script src="https://unpkg.com/pdfmake@0.3/build/pdfmake.min.js"></script>
-<script src="https://unpkg.com/pdfmake@0.3/build/standard-fonts/Helvetica.js"></script>
+<script src="https://unpkg.com/pdfmake@0.3.13/build/pdfmake.min.js"></script>
+<script src="https://unpkg.com/pdfmake@0.3.13/build/standard-fonts/Helvetica.js"></script>
 <script>
   var docDefinition = {
     content: ['First paragraph', 'Another paragraph'],

@@ -1,0 +1,99 @@
+[
+  {
+    "title": "navStart",
+    "pages": [
+      "index",
+      "learn/first-pdf",
+      "getting-started/server-side",
+      "getting-started/client-side",
+      "learn/document-model",
+      "fonts",
+      "getting-started",
+      "learn"
+    ]
+  },
+  {
+    "title": "navContent",
+    "pages": [
+      "document-definition-object",
+      "document-definition-object/styling",
+      "document-definition-object/stack",
+      "document-definition-object/columns",
+      "document-definition-object/tables",
+      "document-definition-object/lists",
+      "document-definition-object/links"
+    ]
+  },
+  {
+    "title": "navLayout",
+    "pages": [
+      "document-definition-object/page",
+      "document-definition-object/margins",
+      "document-definition-object/headers-footers",
+      "document-definition-object/sections",
+      "document-definition-object/background-layer",
+      "document-definition-object/watermark",
+      "document-definition-object/toc",
+      "document-definition-object/outlines",
+      "document-definition-object/snaking-columns"
+    ]
+  },
+  {
+    "title": "navAssets",
+    "pages": [
+      "document-definition-object/images",
+      "document-definition-object/svgs",
+      "document-definition-object/qr",
+      "fonts/custom-fonts-client-side",
+      "fonts/custom-fonts-client-side/vfs",
+      "fonts/custom-fonts-client-side/url",
+      "fonts/standard-14-fonts",
+      "fonts/icons"
+    ]
+  },
+  {
+    "title": "navOutput",
+    "pages": [
+      "guides/api-reference",
+      "getting-started/server-side/methods",
+      "getting-started/client-side/methods",
+      "options",
+      "getting-started/server-side/supported-nodejs-versions",
+      "getting-started/client-side/supported-browsers"
+    ]
+  },
+  {
+    "title": "navRecipes",
+    "pages": [
+      "guides",
+      "guides/invoice",
+      "guides/errors",
+      "guides/troubleshooting",
+      "guides/playground",
+      "getting-started/server-side/examples",
+      "getting-started/client-side/examples",
+      "getting-started/examples-from-comunity"
+    ]
+  },
+  {
+    "title": "navAdvanced",
+    "pages": [
+      "guides/resource-security",
+      "guides/performance",
+      "document-definition-object/security",
+      "document-definition-object/pdfa",
+      "document-definition-object/compression",
+      "document-definition-object/patterns",
+      "document-definition-object/attachments",
+      "document-definition-object/document-medatadata",
+      "migration-from-0.1"
+    ]
+  },
+  {
+    "title": "navTools",
+    "pages": [
+      "guides/llm-and-mcp",
+      "guides/contributing"
+    ]
+  }
+]

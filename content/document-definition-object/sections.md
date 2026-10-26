@@ -1,6 +1,6 @@
 +++
 title = "Document sections"
-description = ""
+description = "Configure document sections in pdfmake 0.3 with examples, options and usage notes."
 weight = 2090
 alwaysopen = true
 +++

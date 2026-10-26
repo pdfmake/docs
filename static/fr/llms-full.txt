@@ -1,0 +1,4959 @@
+# Vue d’ensemble
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/
+
+Créez un PDF en trois étapes : configurez l’environnement, décrivez le contenu, puis demandez une sortie.
+
+## 1. Choisir votre environnement
+
+
+
+
+Utilisez Node.js 20 ou ultérieur. Installez la version fixe ci-dessous, enregistrez cet exemple complet dans `first-pdf.cjs`, puis lancez `node first-pdf.cjs`.
+
+```sh
+npm install pdfmake@0.3.13
+```
+
+**JavaScript**
+
+```js
+const pdfmake = require('pdfmake');
+
+const fonts = require('pdfmake/standard-fonts/Helvetica');
+pdfmake.addFonts(fonts);
+pdfmake.setUrlAccessPolicy(() => false);
+const standardNames = new Set(Object.values(fonts.Helvetica));
+pdfmake.setLocalAccessPolicy(name => standardNames.has(name));
+
+async function main() {
+  const definition = {
+    defaultStyle: { font: 'Helvetica' },
+    content: [
+      { text: 'Hello, pdfmake!', fontSize: 24, bold: true },
+      'Your first PDF, generated in Node.js.'
+    ]
+  };
+  await pdfmake.createPdf(definition).write('document.pdf');
+}
+
+main().catch(error => { console.error(error); process.exitCode = 1; });
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+import pdfmake from "pdfmake";
+
+const fonts = require('pdfmake/standard-fonts/Helvetica');
+pdfmake.addFonts(fonts);
+pdfmake.setUrlAccessPolicy(() => false);
+const standardNames = new Set(Object.values(fonts.Helvetica));
+pdfmake.setLocalAccessPolicy(name => standardNames.has(name));
+
+async function main() {
+  const definition: TDocumentDefinitions = {
+    defaultStyle: { font: 'Helvetica' },
+    content: [
+      { text: 'Hello, pdfmake!', fontSize: 24, bold: true },
+      'Your first PDF, generated in Node.js.'
+    ]
+  };
+  await pdfmake.createPdf(definition).write('document.pdf');
+}
+
+main().catch(error => { console.error(error); process.exitCode = 1; });
+```
+
+[Démarrage avec Node.js](/docs/0.3/fr/getting-started/server-side/)
+
+
+
+
+Le navigateur a besoin du moteur puis des polices. Le guide complet inclut un bouton de téléchargement et la gestion des erreurs.
+
+[Démarrage dans le navigateur](/docs/0.3/fr/getting-started/client-side/)
+
+
+
+## 2. Comprendre la définition
+
+Une définition est un objet JavaScript, pas du HTML. `content` énumère les blocs dans l’ordre de lecture. Cet exemple génère exactement le PDF affiché. Modifiez-le dans le playground, puis revenez ici sans perdre votre espace de travail.
+
+
+
+### Runnable example: 01 · First document
+
+**JavaScript**
+
+```js
+// Define a fresh document in dd. Ctrl/⌘ + Enter to run.
+var dd = {
+  content: [
+    { text: 'Make something clear.', fontSize: 30, bold: true, color: '#08786b', margin: [0, 0, 0, 16] },
+    'A paragraph, a table, a report. Start here and make it yours.',
+    { text: 'Built with pdfmake', italics: true, color: '#667d73', margin: [0, 20, 0, 0] }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+// Define a fresh document in dd. Ctrl/⌘ + Enter to run.
+var dd: TDocumentDefinitions = {
+  content: [
+    { text: 'Make something clear.', fontSize: 30, bold: true, color: '#08786b', margin: [0, 0, 0, 16] },
+    'A paragraph, a table, a report. Start here and make it yours.',
+    { text: 'Built with pdfmake', italics: true, color: '#667d73', margin: [0, 20, 0, 0] }
+  ]
+};
+```
+
+[See the rendered PDF and edit this example](https://pdfmake.github.io/docs/0.3/fr/playground/?example=welcome)
+
+
+
+## 3. Choisir le prochain élément
+
+- [Votre premier PDF](/docs/0.3/fr/learn/first-pdf/)
+- [Le modèle de document](/docs/0.3/fr/learn/document-model/)
+- [Styles et mise en forme](/docs/0.3/fr/document-definition-object/styling/)
+- [Tableaux](/docs/0.3/fr/document-definition-object/tables/)
+- [Polices et caractères](/docs/0.3/fr/fonts/)
+- [Comprendre et gérer les erreurs](/docs/0.3/fr/guides/errors/)
+
+Utilisez une définition neuve à chaque génération, car la mise en page modifie l’objet. Les sorties renvoient des Promises : attendez-les avec `await` et gérez les erreurs.
+
+---
+
+# Référence de la définition de document
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/
+
+## Structure d’une définition
+
+**JavaScript**
+
+```js
+const docDefinition = {
+  pageSize: 'A4',
+  pageOrientation: 'portrait',
+  pageMargins: [40, 50, 40, 50],
+  defaultStyle: { fontSize: 12 },
+  styles: { heading: { fontSize: 20, bold: true } },
+  info: { title: 'Example document', author: 'Example author' },
+  content: [
+    { text: 'Document heading', style: 'heading' },
+    'A plain string becomes a paragraph.',
+    { ul: ['First item', 'Second item'] }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+const docDefinition: TDocumentDefinitions = {
+  pageSize: 'A4',
+  pageOrientation: 'portrait',
+  pageMargins: [40, 50, 40, 50],
+  defaultStyle: { fontSize: 12 },
+  styles: { heading: { fontSize: 20, bold: true } },
+  info: { title: 'Example document', author: 'Example author' },
+  content: [
+    { text: 'Document heading', style: 'heading' },
+    'A plain string becomes a paragraph.',
+    { ul: ['First item', 'Second item'] }
+  ]
+};
+```
+
+Transmettez la définition à la méthode `createPdf` de votre environnement après avoir configuré les polices. Toutes les dimensions numériques sont exprimées en **points** (72 points par pouce). Les marges suivent l’ordre **gauche, haut, droite, bas**. Le tableau `content` forme une pile verticale. Créez un nouvel objet pour chaque rendu : le processus de mise en page y ajoute des mesures internes et des positions.
+
+## Nœuds de contenu
+
+| Nœud | Rôle | Référence |
+| --- | --- | --- |
+| `{ text: '...' }` | Paragraphe ou séquences de texte en ligne | [Styles](/docs/0.3/fr/document-definition-object/styling/) |
+| `{ stack: [...] }` | Regroupe des blocs et leur applique un style commun | [Piles](/docs/0.3/fr/document-definition-object/stack/) |
+| `{ columns: [...] }` | Contenu côte à côte | [Colonnes](/docs/0.3/fr/document-definition-object/columns/) |
+| `{ table: { body: [...] } }` | Lignes, cellules et en-têtes répétés | [Tableaux](/docs/0.3/fr/document-definition-object/tables/) |
+| `{ ul: [...] }`, `{ ol: [...] }` | Listes à puces ou numérotées | [Listes](/docs/0.3/fr/document-definition-object/lists/) |
+| `{ image: 'key' }` | PNG ou JPEG | [Images](/docs/0.3/fr/document-definition-object/images/) |
+| `{ svg: '<svg>...</svg>' }` | Contenu vectoriel SVG | [SVG](/docs/0.3/fr/document-definition-object/svgs/) |
+| `{ qr: '...' }` | Code QR | [QR](/docs/0.3/fr/document-definition-object/qr/) |
+
+## Paramètres du document
+
+- [Format, orientation et sauts de page](/docs/0.3/fr/document-definition-object/page/), [marges](/docs/0.3/fr/document-definition-object/margins/) et [sections](/docs/0.3/fr/document-definition-object/sections/).
+- [En-têtes et pieds de page](/docs/0.3/fr/document-definition-object/headers-footers/), [arrière-plans](/docs/0.3/fr/document-definition-object/background-layer/) et [filigranes](/docs/0.3/fr/document-definition-object/watermark/).
+- [Métadonnées](/docs/0.3/fr/document-definition-object/document-medatadata/), [liens](/docs/0.3/fr/document-definition-object/links/), [table des matières](/docs/0.3/fr/document-definition-object/toc/) et [plans](/docs/0.3/fr/document-definition-object/outlines/).
+- [Pièces jointes](/docs/0.3/fr/document-definition-object/attachments/), [chiffrement](/docs/0.3/fr/document-definition-object/security/), [PDF/A](/docs/0.3/fr/document-definition-object/pdfa/) et [compression](/docs/0.3/fr/document-definition-object/compression/).
+
+## Définition et options de rendu
+
+Le contenu et les paramètres visuels appartiennent à la définition. `fontLayoutCache` et `bufferPages` se placent dans le deuxième argument de `createPdf`. Les polices, les mises en page de tableau et les politiques de ressources se configurent sur l’API pdfmake. Consultez la [référence de l’API](/docs/0.3/fr/guides/api-reference/).
+
+---
+
+# Intégration des pièces jointes
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/attachments/
+
+pdfmake permet de joindre des fichiers sous forme d’annotations ou de fichiers incorporés.
+Les fichiers incorporés sont ajoutés au dictionnaire « files » et apparaissent dans le panneau des pièces jointes des lecteurs PDF compatibles.
+Les pièces jointes sont des annotations qui renvoient vers un fichier.
+Toute pièce jointe ou tout fichier incorporé doit fournir au minimum un « src » ; il est vivement recommandé d’indiquer un nom de fichier avec « name ».
+Le « src » d’une pièce jointe peut être fourni au format dataURL (comme la pièce jointe suivante, provenant de http://www.clipartbest.com/clipart-dT7zx5rT9), mais les fichiers locaux sont également autorisés.
+
+**JavaScript**
+
+```js
+var dd = {
+	content: [
+		'Any attachment or embedded file must provide at least a "src", providing a filename through "name" is highly recommended.',
+		'The "src" of any attachment can be provided in dataURL format (like the following attachment, taken from http://www.clipartbest.com/clipart-dT7zx5rT9), but local files are allowed as well.',
+		{
+			attachment: {
+				src: 'data:image/png;base64,iVBOR....',
+				name: 'testImage.png'
+			}
+		},
+		'You can also define an attachment in the "attachments" dictionary and reference it by name.',
+		{
+			attachment: 'sampleImage'
+		},
+		'And there are three different standard icons for attachments, "GraphPush", "Paperclip", and "Push" (the default value). Set them with the "icon" option.',
+		{
+			attachment: 'sampleImage',
+			icon: 'GraphPush'
+		},
+		{
+			attachment: 'sampleImage',
+			icon: 'Paperclip'
+		},
+		{
+			attachment: 'sampleImage',
+			icon: 'Push'
+		},
+		'For better customization, add an image and attach a file to it with linkToFile:',
+		{
+			image: 'fonts/sampleImage.jpg',
+			width: 150,
+			linkToFile: 'sampleImage'
+		},
+		"You can add a description, which will show in your pdf viewer's attachments panel and as a tooltip when hovering over the attachment.",
+		{
+			attachment: {
+				src: 'data:image/png;base64,iVBOR....',
+				name: 'withDescription.png',
+				description: 'file description'
+			}
+		},
+		'You can also define the "src" of an attachment or embedded file in the "attachments" and "files" dictionary via URL address.',
+	],
+	attachments: {
+		sampleImage: {
+			src: 'fonts/sampleImage.jpg',
+			name: 'sampleImage.png'
+		}
+	},
+	files: {
+		README: {
+			src: 'https://raw.githubusercontent.com/bpampuch/pdfmake/master/README.md',
+			name: 'pdfmake README.md'
+		}
+	}
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = {
+	content: [
+		'Any attachment or embedded file must provide at least a "src", providing a filename through "name" is highly recommended.',
+		'The "src" of any attachment can be provided in dataURL format (like the following attachment, taken from http://www.clipartbest.com/clipart-dT7zx5rT9), but local files are allowed as well.',
+		{
+			attachment: {
+				src: 'data:image/png;base64,iVBOR....',
+				name: 'testImage.png'
+			}
+		},
+		'You can also define an attachment in the "attachments" dictionary and reference it by name.',
+		{
+			attachment: 'sampleImage'
+		},
+		'And there are three different standard icons for attachments, "GraphPush", "Paperclip", and "Push" (the default value). Set them with the "icon" option.',
+		{
+			attachment: 'sampleImage',
+			icon: 'GraphPush'
+		},
+		{
+			attachment: 'sampleImage',
+			icon: 'Paperclip'
+		},
+		{
+			attachment: 'sampleImage',
+			icon: 'Push'
+		},
+		'For better customization, add an image and attach a file to it with linkToFile:',
+		{
+			image: 'fonts/sampleImage.jpg',
+			width: 150,
+			linkToFile: 'sampleImage'
+		},
+		"You can add a description, which will show in your pdf viewer's attachments panel and as a tooltip when hovering over the attachment.",
+		{
+			attachment: {
+				src: 'data:image/png;base64,iVBOR....',
+				name: 'withDescription.png',
+				description: 'file description'
+			}
+		},
+		'You can also define the "src" of an attachment or embedded file in the "attachments" and "files" dictionary via URL address.',
+	],
+	attachments: {
+		sampleImage: {
+			src: 'fonts/sampleImage.jpg',
+			name: 'sampleImage.png'
+		}
+	},
+	files: {
+		README: {
+			src: 'https://raw.githubusercontent.com/bpampuch/pdfmake/master/README.md',
+			name: 'pdfmake README.md'
+		}
+	}
+};
+```
+
+sourceDigest = "fa2ac7caf1087dd025de26934674d3e7f4d0c75f51fbfb900170400b914fb224"
+
+---
+
+# Arrière-plan
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/background-layer/
+
+L’arrière-plan est ajouté à chaque page.
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  background: 'simple text',
+
+  content: ['Example document content']
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  background: 'simple text',
+
+  content: ['Example document content']
+};
+```
+
+Il peut également contenir n’importe quel autre objet (images, tableaux, etc.) ou être généré dynamiquement :
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  background: function(currentPage, pageSize) {
+    return `page ${currentPage} with size ${pageSize.width} x ${pageSize.height}`
+  },
+
+  content: ['Example document content']
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  background: function(currentPage, pageSize) {
+    return `page ${currentPage} with size ${pageSize.width} x ${pageSize.height}`
+  },
+
+  content: ['Example document content']
+};
+```
+
+---
+
+# Colonnes
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/columns/
+
+Par défaut, les paragraphes sont rendus sous forme d’une pile verticale d’éléments, les uns sous les autres. Il est toutefois possible de répartir l’espace disponible en colonnes.
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [
+    'This paragraph fills full width, as there are no columns. Next paragraph however consists of three columns',
+    {
+      columns: [
+        {
+          // auto-sized columns have their widths based on their content
+          width: 'auto',
+          text: 'First column'
+        },
+        {
+          // star-sized columns fill the remaining space
+          // if there's more than one star-column, available width is divided equally
+          width: '*',
+          text: 'Second column'
+        },
+        {
+          // fixed width
+          width: 100,
+          text: 'Third column'
+        },
+        {
+          // % width
+          width: '20%',
+          text: 'Fourth column'
+        }
+      ],
+      // optional space between columns
+      columnGap: 10
+    },
+    'This paragraph goes below all columns and has full width'
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [
+    'This paragraph fills full width, as there are no columns. Next paragraph however consists of three columns',
+    {
+      columns: [
+        {
+          // auto-sized columns have their widths based on their content
+          width: 'auto',
+          text: 'First column'
+        },
+        {
+          // star-sized columns fill the remaining space
+          // if there's more than one star-column, available width is divided equally
+          width: '*',
+          text: 'Second column'
+        },
+        {
+          // fixed width
+          width: 100,
+          text: 'Third column'
+        },
+        {
+          // % width
+          width: '20%',
+          text: 'Fourth column'
+        }
+      ],
+      // optional space between columns
+      columnGap: 10
+    },
+    'This paragraph goes below all columns and has full width'
+  ]
+};
+```
+
+Le contenu des colonnes ne se limite pas à du texte simple. Il peut contenir n’importe quel élément pdfmake valide. Consultez l’exemple COLUMNS dans le [playground](/docs/0.3/fr/playground/).
+
+## Propriétés
+
+* `columnGap: number` définit l’espace entre les colonnes
+* `snakingColumns: boolean` active les colonnes en serpentin (style journal) ; consultez cet [article](/docs/0.3/fr/document-definition-object/snaking-columns/) _(version minimale : 0.3.5)_
+
+---
+
+# Compression
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/compression/
+
+## Comportement par défaut
+
+La compression des flux PDF est activée par défaut. Pour la désactiver lors d’une inspection :
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  compress: false,
+  content: ['An uncompressed example document.']
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  compress: false,
+  content: ['An uncompressed example document.']
+};
+```
+
+`compress` est un booléen de la définition du document, pas de l’objet d’options de `createPdf`. La désactivation augmente généralement la taille du fichier. Elle ne supprime ni l’incorporation des polices ni les données d’image et ne réduit pas la mémoire utilisée pour la mise en page. Consultez [les performances](/docs/0.3/fr/guides/performance/) pour savoir comment mesurer les résultats.
+
+---
+
+# Métadonnées du document
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/document-medatadata/
+
+Les documents PDF peuvent être associés à différentes métadonnées, comme leur titre ou leur auteur. Ajoutez ces informations dans la définition du document :
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  info: {
+	title: 'awesome Document',
+	author: 'john doe',
+	subject: 'subject of document',
+	keywords: 'keywords for document',
+  },
+  content:  'This is an sample PDF printed with pdfMake'
+}
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  info: {
+	title: 'awesome Document',
+	author: 'john doe',
+	subject: 'subject of document',
+	keywords: 'keywords for document',
+  },
+  content:  'This is an sample PDF printed with pdfMake'
+}
+```
+
+Propriétés standard :
+
+* `title` - titre du document
+* `author` - nom de l’auteur
+* `subject` - sujet du document
+* `keywords` - mots-clés associés au document
+* `creator` - créateur du document (par défaut, 'pdfmake')
+* `producer` - producteur du document (par défaut, 'pdfmake')
+* `creationDate` - date de création du document (ajoutée automatiquement par pdfmake)
+* `modDate` - date de dernière modification du document
+* `trapped` - indicateur précisant si le document PDF a été « piégé », c’est-à-dire corrigé pour compenser de légers défauts de repérage des couleurs
+
+Propriétés personnalisées :
+
+Vous pouvez ajouter des propriétés personnalisées. La clé d’une propriété ne doit pas contenir d’espaces.
+
+## Langue du document
+
+La propriété `language` permet de définir une langue pour le document PDF.
+
+Exemple :
+**JavaScript**
+
+```js
+var docDefinition = {
+  language: 'cs-CZ',
+  content: 'Jednoduchý PDF dokument vytvoření pomocí pdfmake'
+}
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  language: 'cs-CZ',
+  content: 'Jednoduchý PDF dokument vytvoření pomocí pdfmake'
+}
+```
+
+---
+
+# En-têtes et pieds de page
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/headers-footers/
+
+## Ajouter un en-tête statique
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  pageMargins: [40, 65, 40, 55],
+  header: { text: 'Example report', margin: [40, 20, 40, 0] },
+  footer: { text: 'Example Studio', alignment: 'center', fontSize: 9 },
+  content: ['Document content']
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  pageMargins: [40, 65, 40, 55],
+  header: { text: 'Example report', margin: [40, 20, 40, 0] },
+  footer: { text: 'Example Studio', alignment: 'center', fontSize: 9 },
+  content: ['Document content']
+};
+```
+
+Les en-têtes et pieds de page sont répétés sur toutes les pages. Réservez une marge supérieure et inférieure suffisante pour leur contenu : ils n’agrandissent pas automatiquement les marges du corps. Le contenu renvoyé utilise les nœuds pdfmake habituels.
+
+## Ajouter les numéros de page
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  pageMargins: [40, 65, 40, 55],
+  header: function (currentPage, pageCount, pageSize) {
+    return {
+      text: 'Report · ' + pageSize.width + ' pt wide',
+      alignment: currentPage % 2 ? 'left' : 'right',
+      margin: [40, 20, 40, 0],
+      fontSize: 9
+    };
+  },
+  footer: function (currentPage, pageCount) {
+    return { text: currentPage + ' of ' + pageCount, alignment: 'center', fontSize: 9 };
+  },
+  content: ['First page', { text: 'Second page', pageBreak: 'before' }]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  pageMargins: [40, 65, 40, 55],
+  header: function (currentPage, pageCount, pageSize) {
+    return {
+      text: 'Report · ' + pageSize.width + ' pt wide',
+      alignment: currentPage % 2 ? 'left' : 'right',
+      margin: [40, 20, 40, 0],
+      fontSize: 9
+    };
+  },
+  footer: function (currentPage, pageCount) {
+    return { text: currentPage + ' of ' + pageCount, alignment: 'center', fontSize: 9 };
+  },
+  content: ['First page', { text: 'Second page', pageBreak: 'before' }]
+};
+```
+
+Les fonctions de rappel reçoivent le numéro de la page courante (à partir de 1), le nombre total de pages et le format de page. Renvoyez un nouveau nœud à chaque appel. Gardez ces fonctions déterministes et évitez de modifier des données partagées de l’application.
+
+---
+
+# Images
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/images/
+
+## Réutiliser des données PNG ou JPEG intégrées
+
+Un nœud d’image s’écrit `{ image: 'key' }` : la clé correspond à une entrée du dictionnaire `images` du document. Réutilisez une même clé lorsqu’une image apparaît plusieurs fois. Les formats PNG et JPEG sont pris en charge ; pour du SVG, utilisez un [nœud SVG](/docs/0.3/fr/document-definition-object/svgs/).
+
+
+
+### Runnable example: 09 · Embedded images
+
+**JavaScript**
+
+```js
+var dd = {
+  images: { pixel: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAF0lEQVR4nGPgqMgmCTGMahjVkD1sNQAAjRnrAVbW+rcAAAAASUVORK5CYII=' },
+  content: [
+    { text: 'One resource, several uses', fontSize: 24, bold: true, margin: [0, 0, 0, 18] },
+    'Use the images dictionary to reuse embedded PNG or JPEG data.',
+    { image: 'pixel', width: 30, margin: [0, 15, 0, 15] },
+    { image: 'pixel', fit: [60, 60] }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = {
+  images: { pixel: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAF0lEQVR4nGPgqMgmCTGMahjVkD1sNQAAjRnrAVbW+rcAAAAASUVORK5CYII=' },
+  content: [
+    { text: 'One resource, several uses', fontSize: 24, bold: true, margin: [0, 0, 0, 18] },
+    'Use the images dictionary to reuse embedded PNG or JPEG data.',
+    { image: 'pixel', width: 30, margin: [0, 15, 0, 15] },
+    { image: 'pixel', fit: [60, 60] }
+  ]
+};
+```
+
+[See the rendered PDF and edit this example](https://pdfmake.github.io/docs/0.3/fr/playground/?example=images)
+
+
+
+## Choisir le comportement de dimensionnement
+
+| Champs du nœud d’image | Résultat |
+| --- | --- |
+| Aucun `width`, `height` ni `fit` | Utilise les dimensions naturelles de l’image |
+| `width: 150` | Met l’image à l’échelle proportionnellement à cette largeur |
+| `height: 100` | Met l’image à l’échelle proportionnellement à cette hauteur ; depuis la version 0.3.2 |
+| `width: 150, height: 100` | Impose ces dimensions, ce qui peut étirer l’image |
+| `fit: [150, 100]` | Ajuste l’image dans un rectangle en préservant son rapport hauteur/largeur |
+| `cover: { width: 150, height: 100, align: 'right', valign: 'bottom' }` | Remplit un rectangle en recadrant et en alignant l’image |
+
+Les dimensions d’affichage ne réduisent pas la charge utile de l’image originale. Redimensionnez les images sources trop grandes avant de les intégrer lorsque la taille de sortie et la mémoire sont importantes.
+
+## Choisir une source adaptée à l’environnement d’exécution
+
+| Source | Configuration |
+| --- | --- |
+| URL de données | Placez une URL complète de données PNG/JPEG en base64 dans `images` ou directement sur un nœud |
+| Fichier local | Node.js uniquement, ou fichier déjà présent dans un VFS de navigateur |
+| URL HTTP(S) | Utilisez une entrée nommée dans `images` et autorisez-la via la politique de ressources |
+| URL avec en-têtes | Utilisez `{ url, headers }` dans l’entrée nommée de `images` |
+
+**JavaScript**
+
+```js
+var dd = {
+  images: {
+    logo: '/application-owned/assets/logo.png',
+    remote: {
+      url: 'https://assets.example.com/photo.jpg',
+      headers: { 'X-Example-Header': 'value' }
+    }
+  },
+  content: [
+    { image: 'logo', width: 120 },
+    { image: 'remote', fit: [200, 150] }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = {
+  images: {
+    logo: '/application-owned/assets/logo.png',
+    remote: {
+      url: 'https://assets.example.com/photo.jpg',
+      headers: { 'X-Example-Header': 'value' }
+    }
+  },
+  content: [
+    { image: 'logo', width: 120 },
+    { image: 'remote', fit: [200, 150] }
+  ]
+};
+```
+
+Cet extrait décrit les formes des sources ; il ne constitue pas un exemple autonome de téléchargement. Fournissez un fichier existant appartenant à l’application et une URL réelle autorisée. Dans un navigateur, le nom de fichier local doit exister dans le VFS ; les URL utilisées dans le navigateur nécessitent également la prise en charge de CORS. Ne placez pas d’identifiants privés dans les définitions côté client. L’exemple intégré ci-dessus est autonome et ne nécessite aucune ressource réseau.
+
+## Diagnostiquer les images manquantes
+
+Une valeur d’image vide ou invalide provoque une erreur. Vérifiez la clé du dictionnaire, le préfixe complet de l’URL de données et ses octets, l’existence du fichier, la réponse URL et la politique d’accès. La configuration de `setUrlAccessPolicy` ne contourne pas CORS. Une politique de fichiers locaux doit autoriser le chemin de fichier effectivement résolu. Consultez la [sécurité des ressources](/docs/0.3/fr/guides/resource-security/) et le [guide de dépannage](/docs/0.3/fr/guides/troubleshooting/).
+
+---
+
+# Liens
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/links/
+
+Pour ajouter des liens externes ou internes, utilisez la syntaxe suivante :
+**JavaScript**
+
+```js
+var dd = { content: [
+{ text: 'google', link: 'http://google.com' },
+{ text: 'Go to page 2', linkToPage: 2 },
+{ text: 'Go to Header', linkToDestination: 'header' },
+{ text: 'Header content', id: 'header' },
+] };
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = { content: [
+{ text: 'google', link: 'http://google.com' },
+{ text: 'Go to page 2', linkToPage: 2 },
+{ text: 'Go to Header', linkToDestination: 'header' },
+{ text: 'Header content', id: 'header' },
+] };
+```
+Vous pouvez aussi créer un lien vers un fichier de l’ordinateur local :
+**JavaScript**
+
+```js
+var dd = {
+	content: [
+		{
+		    text: 'link',
+		    link: 'file:///c:/testFile.txt'
+		}
+	]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = {
+	content: [
+		{
+		    text: 'link',
+		    link: 'file:///c:/testFile.txt'
+		}
+	]
+};
+```
+
+## Propriétés
+
+- `link` (`string`) - URL d’un site externe
+- `linkToPage` (`number`) - lien vers un numéro de page
+- `linkToDestination` (`string`) - lien vers une destination du document
+
+---
+
+# Listes
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/lists/
+
+pdfmake prend en charge les listes numérotées et à puces :
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [
+    'Bulleted list example:',
+    {
+      // to treat a paragraph as a bulleted list, set an array of items under the ul key
+      ul: [
+        'Item 1',
+        'Item 2',
+        'Item 3',
+        { text: 'Item 4', bold: true },
+      ]
+    },
+
+    'Numbered list example:',
+    {
+      // for numbered lists set the ol key
+      ol: [
+        'Item 1',
+        'Item 2',
+        'Item 3'
+      ]
+    },
+
+    'Colored unordered list:',
+    {
+      color: 'blue',
+      ul: [
+          'item 1',
+          'item 2',
+          'item 3'
+      ]
+    },
+
+    'Colored unordered list with own marker color:',
+    {
+      color: 'blue',
+      markerColor: 'red',
+      ul: [
+          'item 1',
+          'item 2',
+          { text: 'item 3 with custom marker color', markerColor: 'lime' } // Minimal pdfmake version: 0.3.2
+      ]
+    },
+
+    'Colored ordered list',
+    {
+      color: 'blue',
+      ol: [
+          'item 1',
+          'item 2',
+          'item 3'
+      ]
+    },
+    'Colored ordered list with own marker color:',
+    {
+      color: 'blue',
+      markerColor: 'red',
+      ol: [
+          'item 1',
+          'item 2',
+          { text: 'item 3 with custom marker color', markerColor: 'lime' } // Minimal pdfmake version: 0.3.2
+      ]
+    },
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [
+    'Bulleted list example:',
+    {
+      // to treat a paragraph as a bulleted list, set an array of items under the ul key
+      ul: [
+        'Item 1',
+        'Item 2',
+        'Item 3',
+        { text: 'Item 4', bold: true },
+      ]
+    },
+
+    'Numbered list example:',
+    {
+      // for numbered lists set the ol key
+      ol: [
+        'Item 1',
+        'Item 2',
+        'Item 3'
+      ]
+    },
+
+    'Colored unordered list:',
+    {
+      color: 'blue',
+      ul: [
+          'item 1',
+          'item 2',
+          'item 3'
+      ]
+    },
+
+    'Colored unordered list with own marker color:',
+    {
+      color: 'blue',
+      markerColor: 'red',
+      ul: [
+          'item 1',
+          'item 2',
+          { text: 'item 3 with custom marker color', markerColor: 'lime' } // Minimal pdfmake version: 0.3.2
+      ]
+    },
+
+    'Colored ordered list',
+    {
+      color: 'blue',
+      ol: [
+          'item 1',
+          'item 2',
+          'item 3'
+      ]
+    },
+    'Colored ordered list with own marker color:',
+    {
+      color: 'blue',
+      markerColor: 'red',
+      ol: [
+          'item 1',
+          'item 2',
+          { text: 'item 3 with custom marker color', markerColor: 'lime' } // Minimal pdfmake version: 0.3.2
+      ]
+    },
+  ]
+};
+```
+
+---
+
+# Marges
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/margins/
+
+Chaque élément de pdfmake peut avoir une marge :
+
+**JavaScript**
+
+```js
+var dd = { content: [
+// margin: [left, top, right, bottom]
+{ text: 'sample', margin: [ 5, 2, 10, 20 ] },
+
+// margin: [horizontal, vertical]
+{ text: 'another text', margin: [5, 2] },
+
+// margin: equalLeftTopRightBottom
+{ text: 'last one', margin: 5 },
+
+// single-side margins
+{ text: 'sample', marginLeft: 5, marginTop: 2, marginRight: 10, marginBottom: 2 },
+] };
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = { content: [
+// margin: [left, top, right, bottom]
+{ text: 'sample', margin: [ 5, 2, 10, 20 ] },
+
+// margin: [horizontal, vertical]
+{ text: 'another text', margin: [5, 2] },
+
+// margin: equalLeftTopRightBottom
+{ text: 'last one', margin: 5 },
+
+// single-side margins
+{ text: 'sample', marginLeft: 5, marginTop: 2, marginRight: 10, marginBottom: 2 },
+] };
+```
+
+---
+
+# Plans du document et signets
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/outlines/
+
+> **Note:** Version minimale : **0.3.5**
+
+
+Les plans de document PDF (également appelés signets) sont une structure de navigation hiérarchique intégrée au PDF, qui permet d’accéder rapidement à des pages précises. Ils fonctionnent comme une table des matières interactive, généralement affichée dans le panneau de navigation du lecteur PDF.
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [
+    {
+      text: 'First header in bookmarks',
+      outline: true,
+    },
+    {
+      text: 'Second header with custom bookmark',
+      outline: true,
+      outlineText: 'Custom bookmark text',
+    },
+    {
+      text: 'Structured bookmarks',
+      id: 'structured-bookmarks',
+      outline: true,
+      outlineExpanded: true
+    },
+    {
+      text: 'First subheader',
+      outline: true,
+      outlineParentId: 'structured-bookmarks'
+    },
+    {
+      text: 'Second subheader',
+      outline: true,
+      outlineParentId: 'structured-bookmarks'
+    },
+    {
+      text: 'Third subheader',
+      outline: true,
+      outlineParentId: 'structured-bookmarks',
+      id: 'third-subheader'
+    }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [
+    {
+      text: 'First header in bookmarks',
+      outline: true,
+    },
+    {
+      text: 'Second header with custom bookmark',
+      outline: true,
+      outlineText: 'Custom bookmark text',
+    },
+    {
+      text: 'Structured bookmarks',
+      id: 'structured-bookmarks',
+      outline: true,
+      outlineExpanded: true
+    },
+    {
+      text: 'First subheader',
+      outline: true,
+      outlineParentId: 'structured-bookmarks'
+    },
+    {
+      text: 'Second subheader',
+      outline: true,
+      outlineParentId: 'structured-bookmarks'
+    },
+    {
+      text: 'Third subheader',
+      outline: true,
+      outlineParentId: 'structured-bookmarks',
+      id: 'third-subheader'
+    }
+  ]
+};
+```
+
+## Propriétés
+
+- `outline: boolean` - indiquez `true` pour ajouter un signet
+- `outlineText: string` (facultatif) - texte personnalisé du signet ; sinon, le texte du nœud est utilisé
+- `outlineExpanded: boolean` (facultatif) - indiquez `true` pour que le signet soit développé à l’ouverture
+- `outlineParentId: string` (facultatif) - `id` du signet parent
+
+---
+
+# Dimensions, orientation et marges des pages
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/page/
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  // a string or { width: number, height: number }
+  pageSize: 'A5',
+
+  // by default we use portrait, you can change it to landscape if you wish
+  pageOrientation: 'landscape',
+
+  // [left, top, right, bottom] or [horizontal, vertical] or just a number for equal margins
+  pageMargins: [ 40, 60, 40, 60 ],
+  content: ['Page size, orientation and margins.']
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  // a string or { width: number, height: number }
+  pageSize: 'A5',
+
+  // by default we use portrait, you can change it to landscape if you wish
+  pageOrientation: 'landscape',
+
+  // [left, top, right, bottom] or [horizontal, vertical] or just a number for equal margins
+  pageMargins: [ 40, 60, 40, 60 ],
+  content: ['Page size, orientation and margins.']
+};
+```
+
+Si vous définissez `pageSize` sous forme de chaîne, vous pouvez utiliser l’une des valeurs suivantes :
+
+* `'4A0'`, `'2A0'`, `'A0'`, `'A1'`, `'A2'`, `'A3'`, `'A4'`, `'A5'`, `'A6'`, `'A7'`, `'A8'`, `'A9'`, `'A10'`,
+* `'B0'`, `'B1'`, `'B2'`, `'B3'`, `'B4'`, `'B5'`, `'B6'`, `'B7'`, `'B8'`, `'B9'`, `'B10'`,
+* `'C0'`, `'C1'`, `'C2'`, `'C3'`, `'C4'`, `'C5'`, `'C6'`, `'C7'`, `'C8'`, `'C9'`, `'C10'`,
+* `'RA0'`, `'RA1'`, `'RA2'`, `'RA3'`, `'RA4'`,
+* `'SRA0'`, `'SRA1'`, `'SRA2'`, `'SRA3'`, `'SRA4'`,
+* `'EXECUTIVE'`, `'FOLIO'`, `'LEGAL'`, `'LETTER'`, `'TABLOID'`
+
+Pour changer l’orientation au sein d’un document, insérez un saut de page avec la nouvelle orientation.
+
+**JavaScript**
+
+```js
+var dd = {
+  pageOrientation: 'portrait',
+  content: [
+    {text: 'Text on Portrait'},
+    {text: 'Text on Landscape', pageOrientation: 'landscape', pageBreak: 'before'},
+    {text: 'Text on Landscape 2', pageOrientation: 'portrait', pageBreak: 'after'},
+    {text: 'Text on Portrait 2'},
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = {
+  pageOrientation: 'portrait',
+  content: [
+    {text: 'Text on Portrait'},
+    {text: 'Text on Landscape', pageOrientation: 'landscape', pageBreak: 'before'},
+    {text: 'Text on Landscape 2', pageOrientation: 'portrait', pageBreak: 'after'},
+    {text: 'Text on Portrait 2'},
+  ]
+};
+```
+
+Hauteur de page automatique :
+
+**JavaScript**
+
+```js
+var dd = {
+  pageSize: {
+    width: 595.28,
+    height: 'auto'
+  },
+  content: [
+    // ...
+  ]
+}
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = {
+  pageSize: {
+    width: 595.28,
+    height: 'auto'
+  },
+  content: [
+    // ...
+  ]
+}
+```
+
+## Contrôler dynamiquement les sauts de page, par exemple pour éviter les titres orphelins
+
+Vous pouvez spécifier une fonction `pageBreakBefore` qui détermine si un saut de page doit être inséré avant un nœud. Pour appliquer une règle « pas de titre orphelin », utilisez une définition comme celle-ci :
+
+**JavaScript**
+
+```js
+var dd = {
+    content: [
+       {text: '1 Headline', headlineLevel: 1},
+       'Some long text of variable length ...',
+       {text: '2 Headline', headlineLevel: 1},
+       'Some long text of variable length ...',
+       {text: '3 Headline', headlineLevel: 1},
+       'Some long text of variable length ...',
+    ],
+  pageBreakBefore: function(currentNode, nodeContainer) {
+    // nodeContainer.getFollowingNodesOnPage();
+    // nodeContainer.getNodesOnNextPage();
+    // nodeContainer.getPreviousNodesOnPage();
+
+    return currentNode.headlineLevel === 1 && nodeContainer.getFollowingNodesOnPage().length === 0;
+  }
+}
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = {
+    content: [
+       {text: '1 Headline', headlineLevel: 1},
+       'Some long text of variable length ...',
+       {text: '2 Headline', headlineLevel: 1},
+       'Some long text of variable length ...',
+       {text: '3 Headline', headlineLevel: 1},
+       'Some long text of variable length ...',
+    ],
+  pageBreakBefore: function(currentNode, nodeContainer) {
+    // nodeContainer.getFollowingNodesOnPage();
+    // nodeContainer.getNodesOnNextPage();
+    // nodeContainer.getPreviousNodesOnPage();
+
+    return currentNode.headlineLevel === 1 && nodeContainer.getFollowingNodesOnPage().length === 0;
+  }
+}
+```
+
+Si `pageBreakBefore` renvoie `true`, un saut de page est ajouté avant `currentNode`. Les informations suivantes sont attachées au nœud courant :
+
+**JavaScript**
+
+```js
+const currentNode = {
+   id: '<as specified in doc definition>',
+   headlineLevel: '<as specified in doc definition>',
+   text: '<as specified in doc definition>',
+   ul: '<as specified in doc definition>',
+   ol: '<as specified in doc definition>',
+   table: '<as specified in doc definition>',
+   image: '<as specified in doc definition>',
+   qr: '<as specified in doc definition>',
+   canvas: '<as specified in doc definition>',
+   columns: '<as specified in doc definition>',
+   style: '<as specified in doc definition>',
+   pageOrientation: '<as specified in doc definition>',
+   pageNumbers: [2, 3], // The pages this element is visible on (e.g. multi-line text could be on more than one page)
+   pages: 6, // the total number of pages of this document
+   stack: false, // if this is an element which encapsulates multiple sub-objects
+   startPosition: {
+     pageNumber: 2, // the page this node starts on
+     pageOrientation: 'landscape', // the orientation of this page
+     left: 60, // the left position
+     right: 60, // the right position
+     verticalRatio: 0.2, // the ratio of space used vertically in this document (excluding margins)
+     horizontalRatio: 0.0  // the ratio of space used horizontally in this document (excluding margins)
+   }
+};
+```
+
+**TypeScript**
+
+```ts
+const currentNode = {
+   id: '<as specified in doc definition>',
+   headlineLevel: '<as specified in doc definition>',
+   text: '<as specified in doc definition>',
+   ul: '<as specified in doc definition>',
+   ol: '<as specified in doc definition>',
+   table: '<as specified in doc definition>',
+   image: '<as specified in doc definition>',
+   qr: '<as specified in doc definition>',
+   canvas: '<as specified in doc definition>',
+   columns: '<as specified in doc definition>',
+   style: '<as specified in doc definition>',
+   pageOrientation: '<as specified in doc definition>',
+   pageNumbers: [2, 3], // The pages this element is visible on (e.g. multi-line text could be on more than one page)
+   pages: 6, // the total number of pages of this document
+   stack: false, // if this is an element which encapsulates multiple sub-objects
+   startPosition: {
+     pageNumber: 2, // the page this node starts on
+     pageOrientation: 'landscape', // the orientation of this page
+     left: 60, // the left position
+     right: 60, // the right position
+     verticalRatio: 0.2, // the ratio of space used vertically in this document (excluding margins)
+     horizontalRatio: 0.0  // the ratio of space used horizontally in this document (excluding margins)
+   }
+};
+```
+
+---
+
+# Motifs
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/patterns/
+
+Les motifs peuvent être définis sous forme de dictionnaire de motifs prédéfinis dans la définition du document.
+
+Seuls les motifs de pavage sont pris en charge.
+
+## Définition d’un motif
+
+Chaque motif est défini à l’aide des propriétés suivantes :
+
+- `boundingBox` - boîte de délimitation servant à découper la cellule du motif
+- `xStep` - espacement horizontal entre les cellules
+- `yStep` - espacement vertical entre les cellules
+- `pattern` - flux d’opérations PDF qui dessinent les éléments graphiques et le texte de la cellule
+
+Pour en savoir plus sur chaque propriété et les motifs en général, consultez la [référence PDF](https://www.adobe.com/content/dam/acom/en/devnet/pdf/pdfs/pdf_reference_archives/PDFReference.pdf), en particulier les sections 4.6 et 4.6.2 sur les motifs de pavage.
+
+## Exemple de définition d’un motif
+
+Motif de base produisant des rayures à 45° :
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: ["..."],
+  patterns: {
+    stripe45d: {
+      boundingBox: [1, 1, 4, 4],
+      xStep: 3,
+      yStep: 3,
+      pattern: "1 w 0 1 m 4 5 l s 2 0 m 5 3 l s",
+    },
+  },
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: ["..."],
+  patterns: {
+    stripe45d: {
+      boundingBox: [1, 1, 4, 4],
+      xStep: 3,
+      yStep: 3,
+      pattern: "1 w 0 1 m 4 5 l s 2 0 m 5 3 l s",
+    },
+  },
+};
+```
+
+Le résultat est visible dans l’exemple vectoriel.
+
+## Utilisation dans les vecteurs, tableaux et textes
+
+Les propriétés suivantes sont disponibles.
+
+Pour le texte :
+
+- `background` - définit l’arrière-plan du texte (voir l’exemple `styling_properties`)
+
+Pour les vecteurs :
+
+- `color` - définit la couleur de remplissage d’un vecteur (voir le rectangle dans l’exemple vectoriel)
+
+Pour les cellules de tableau :
+
+- `fillColor` - couleur de remplissage de la cellule (arrière-plan)
+- `overlayPattern` - motif superposé à la cellule, dessiné par-dessus le contenu
+- `overlayOpacity` - opacité de la superposition
+
+Chacune de ces propriétés est définie par un tuple `[string, string]`. Le premier élément est la clé du motif dans le dictionnaire et le second est la couleur utilisée pour dessiner le motif.
+
+## Exemples
+
+Texte :
+
+**JavaScript**
+
+```js
+var dd = { content: [
+{ text: 'Insert lorem. And ipsum', background: ['stripe45d', 'gray'] }
+] };
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = { content: [
+{ text: 'Insert lorem. And ipsum', background: ['stripe45d', 'gray'] }
+] };
+```
+
+Vecteur :
+
+**JavaScript**
+
+```js
+var dd = { content: [{ canvas: [
+{
+  type: 'rect',
+  x: 10, y: 250, w: 50, h: 30,
+  color: ['stripe45d', 'blue'],
+}
+] }] };
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = { content: [{ canvas: [
+{
+  type: 'rect',
+  x: 10, y: 250, w: 50, h: 30,
+  color: ['stripe45d', 'blue'],
+}
+] }] };
+```
+
+Tableau (dans les cellules) :
+
+**JavaScript**
+
+```js
+var dd = { content: [
+{
+  text: 'Sample value',
+  fillOpacity: 0.85,
+  fillColor: ['stripe45d', 'blue']
+}
+] };
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = { content: [
+{
+  text: 'Sample value',
+  fillOpacity: 0.85,
+  fillColor: ['stripe45d', 'blue']
+}
+] };
+```
+
+**JavaScript**
+
+```js
+var dd = { content: [
+{
+  text: 'Sample value',
+  fillOpacity: 0.15,
+  fillColor: 'blue',
+  overlayPattern: ['stripe45d', 'gray'],
+  overlayOpacity: 0.15
+}
+] };
+```
+
+**TypeScript**
+
+```ts
+import type { ContentText } from "pdfmake/interfaces";
+
+// Cell properties are included in the bundled pdfmake declarations.
+const cell = {
+  text: 'Sample value',
+  fillOpacity: 0.15,
+  fillColor: 'blue',
+  overlayPattern: ['stripe45d', 'gray'],
+  overlayOpacity: 0.15
+} satisfies ContentText;
+
+```
+
+---
+
+# PDF/A
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/pdfa/
+
+PDF/A est un format spécialisé dans l’archivage et la conservation à long terme des documents électroniques.
+
+La version PDF 1.4 ou ultérieure est requise.
+
+**JavaScript**
+
+```js
+var docDefinition = {
+    version: '1.5',
+    subset: 'PDF/A-3a',
+    tagged: true,
+    displayTitle: true,
+    info: {
+        title: 'Awesome PDF document from pdfmake'
+    },
+    content: [
+        'PDF/A document for archive'
+    ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+    version: '1.5',
+    subset: 'PDF/A-3a',
+    tagged: true,
+    displayTitle: true,
+    info: {
+        title: 'Awesome PDF document from pdfmake'
+    },
+    content: [
+        'PDF/A document for archive'
+    ]
+};
+```
+
+Versions PDF prises en charge (propriété `version`) :
+- `1.3` - version PDF 1.3 (par défaut), **PDF/A non pris en charge**
+- `1.4` - version PDF 1.4
+- `1.5` - version PDF 1.5
+- `1.6` - version PDF 1.6
+- `1.7` - version PDF 1.7
+- `1.7ext3` - version PDF 1.7 ExtensionLevel 3
+
+Sous-ensemble du document (propriété `subset`) :
+- `PDF/A-1` (raccourci pour PDF/A-1b)
+- `PDF/A-1a`
+- `PDF/A-1b`
+- `PDF/A-2` (raccourci pour PDF/A-2b)
+- `PDF/A-2a`
+- `PDF/A-2b`
+- `PDF/A-3` (raccourci pour PDF/A-3b)
+- `PDF/A-3a`
+- `PDF/A-3b`
+- `PDF/UA`
+
+Marquer le document comme PDF balisé (propriété `tagged`) :
+- `true` - activer
+- `false` - désactiver
+
+Afficher le titre du document dans la barre de titre de la fenêtre (propriété `displayTitle`) :
+- `true` - activer
+- `false` - désactiver
+
+---
+
+# Code QR
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/qr/
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [
+    // basic usage
+    { qr: 'text in QR' },
+
+    // colored QR
+    { qr: 'text in QR', foreground: 'red', background: 'yellow' },
+
+    // resized QR
+    { qr: 'text in QR', fit: 500 },
+  ]
+}
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [
+    // basic usage
+    { qr: 'text in QR' },
+
+    // colored QR
+    { qr: 'text in QR', foreground: 'red', background: 'yellow' },
+
+    // resized QR
+    { qr: 'text in QR', fit: 500 },
+  ]
+}
+```
+
+Propriétés :
+
+* `qr` : `string` - texte du code QR
+* `foreground` : `string` (facultatif, noir par défaut) - couleur de premier plan
+* `background` : `string` (facultatif, blanc par défaut) - couleur d’arrière-plan
+* `fit` : `integer` (facultatif) - ajuste la taille de l’image QR générée
+* `version` : `integer` (facultatif) - version QR, de 1 à 40 (voir [Wikipédia](https://en.wikipedia.org/wiki/QR_code#Storage))
+* `eccLevel` : `string` (facultatif, L par défaut) - capacité de correction d’erreurs (voir [Wikipédia](https://en.wikipedia.org/wiki/QR_code#Error_correction)), valeurs possibles :
+  * _L_ - niveau L (faible), environ 7 % des mots de code peuvent être restaurés
+  * _M_ - niveau M (moyen), environ 15 % des mots de code peuvent être restaurés
+  * _Q_ - niveau Q (quartile), environ 25 % des mots de code peuvent être restaurés
+  * _H_ - niveau H (élevé), environ 30 % des mots de code peuvent être restaurés
+* `mode` : `string` (facultatif) - mode d’encodage ; valeurs possibles : _numeric_, _alphanumeric_, _octet_ (voir [Wikipédia](https://en.wikipedia.org/wiki/QR_code#Storage))
+* `mask` : `integer` (facultatif) - motif de masque, de 0 à 7 (voir [Wikipédia](https://en.wikipedia.org/wiki/QR_code#Encoding))
+
+---
+
+# Sections du document
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/sections/
+
+Les sections de document permettent de diviser un document en plusieurs parties, chacune avec ses propres paramètres de page.
+
+Chaque section prend en charge :
+- un format et une orientation de page personnalisés
+- des marges de page personnalisées
+- un en-tête et un pied de page personnalisés
+- un filigrane personnalisé
+- un arrière-plan personnalisé
+
+Définition incluant toutes les propriétés :
+**JavaScript**
+
+```js
+var docDefinition = {
+    content: [
+        {
+            header: function (currentPage, pageCount) {
+                return currentPage.toString() + ' of ' + pageCount;
+            },
+            footer: function (currentPage, pageCount) {
+                return currentPage.toString() + ' of ' + pageCount;
+            },
+            background: function () {
+                return {text: 'background', alignment: 'right'};
+            },
+            watermark: 'watermark',
+            pageSize: 'A4',
+            pageOrientation: 'landscape',
+            pageMargins: 5,
+            section: [
+                'Text in section.'
+            ]
+        }
+    ]
+}
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+    content: [
+        {
+            header: function (currentPage, pageCount) {
+                return currentPage.toString() + ' of ' + pageCount;
+            },
+            footer: function (currentPage, pageCount) {
+                return currentPage.toString() + ' of ' + pageCount;
+            },
+            background: function () {
+                return {text: 'background', alignment: 'right'};
+            },
+            watermark: 'watermark',
+            pageSize: 'A4',
+            pageOrientation: 'landscape',
+            pageMargins: 5,
+            section: [
+                'Text in section.'
+            ]
+        }
+    ]
+}
+```
+
+Dans la section suivante, les propriétés peuvent être héritées de la section précédente :
+**JavaScript**
+
+```js
+var docDefinition = {
+    content: [
+        {
+            header: 'inherit',
+            footer: 'inherit',
+            background: 'inherit',
+            watermark: 'inherit',
+            pageSize: 'inherit',
+            pageOrientation: 'inherit',
+            pageMargins: 'inherit',
+            section: [
+                'Text in section.'
+            ]
+        }
+    ]
+}
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+    content: [
+        {
+            header: 'inherit',
+            footer: 'inherit',
+            background: 'inherit',
+            watermark: 'inherit',
+            pageSize: 'inherit',
+            pageOrientation: 'inherit',
+            pageMargins: 'inherit',
+            section: [
+                'Text in section.'
+            ]
+        }
+    ]
+}
+```
+
+Un [exemple complet](https://github.com/bpampuch/pdfmake/blob/master/examples/sections.js) est disponible.
+
+---
+
+# Chiffrement et autorisations d’accès
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/security/
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  userPassword: '123',
+  ownerPassword: '123456',
+  permissions: {
+    printing: 'highResolution', //'lowResolution'
+    modifying: false,
+    copying: false,
+    annotating: true,
+    fillingForms: true,
+    contentAccessibility: true,
+    documentAssembly: true
+  },
+  content: [
+    '...'
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  userPassword: '123',
+  ownerPassword: '123456',
+  permissions: {
+    printing: 'highResolution', //'lowResolution'
+    modifying: false,
+    copying: false,
+    annotating: true,
+    fillingForms: true,
+    contentAccessibility: true,
+    documentAssembly: true
+  },
+  content: [
+    '...'
+  ]
+};
+```
+
+Les documents PDF peuvent être chiffrés et exiger un mot de passe à l’ouverture ; ils peuvent aussi définir les opérations autorisées aux utilisateurs.
+
+Pour activer le chiffrement, définissez un mot de passe utilisateur dans `userPassword` (valeur de type chaîne). Le fichier PDF est chiffré dès qu’un mot de passe utilisateur est fourni, et les utilisateurs sont invités à saisir ce mot de passe pour le déchiffrer à l’ouverture.
+
+Pour définir les autorisations d’accès au fichier PDF, fournissez un mot de passe propriétaire dans `ownerPassword` (valeur de type chaîne) et un objet `permissions` contenant les autorisations. Par défaut, toutes les opérations sont interdites. Vous devez autoriser explicitement les opérations voulues.
+
+Les paramètres suivants sont pris en charge dans l’objet `permissions` :
+
+- `printing` : indique si l’impression est autorisée. La valeur `"lowResolution"` autorise une impression de qualité réduite ; `"highResolution"` autorise une impression haute résolution.
+- `modifying` : indique si la modification du fichier est autorisée. Définissez `true` pour autoriser la modification du contenu du document.
+- `copying` : indique si la copie de texte ou de graphiques est autorisée. Définissez `true` pour autoriser la copie.
+- `annotating` : indique si l’annotation et le remplissage de formulaires sont autorisés. Définissez `true` pour les autoriser.
+- `fillingForms` : indique si le remplissage et la signature de formulaires sont autorisés. Définissez `true` pour autoriser le remplissage des champs et la signature.
+- `contentAccessibility` : indique si la copie de texte à des fins d’accessibilité est autorisée. Définissez `true` pour l’autoriser.
+- `documentAssembly` : indique si l’assemblage du document est autorisé. Définissez `true` pour l’autoriser.
+
+Vous pouvez fournir le mot de passe utilisateur, le mot de passe propriétaire ou les deux. Le comportement dépend des mots de passe fournis :
+
+- Avec uniquement le mot de passe utilisateur, les utilisateurs qui le connaissent peuvent déchiffrer le fichier et disposent d’un accès complet au document.
+- Avec uniquement le mot de passe propriétaire, les utilisateurs peuvent déchiffrer et ouvrir le document sans mot de passe, mais leur accès est limité aux opérations explicitement autorisées. Les utilisateurs qui connaissent le mot de passe propriétaire disposent d’un accès complet.
+- Avec les deux mots de passe, les utilisateurs qui connaissent le mot de passe utilisateur peuvent déchiffrer le fichier, mais leur accès est limité conformément aux autorisations. Ceux qui connaissent le mot de passe propriétaire disposent d’un accès complet.
+
+Notez que le fichier PDF ne peut pas faire respecter lui-même les autorisations. Une fois le fichier déchiffré, les applications de lecture PDF ont pleinement accès à son contenu ; il appartient à ces applications de respecter les autorisations définies.
+
+Pour choisir la méthode de chiffrement, spécifiez la version PDF avec `version`. La meilleure méthode de chiffrement compatible avec cette version est utilisée.
+
+
+> **Note:** La version PDF ne sert qu’à déterminer la méthode de chiffrement ; tous les autres éléments du PDF sont en version 1.3.
+
+
+Versions disponibles :
+
+- `1.3` : PDF version 1.3 (par défaut), chiffrement RC4 40 bits
+- `1.4` : PDF version 1.4, chiffrement RC4 128 bits
+- `1.5` : PDF version 1.5, chiffrement RC4 128 bits
+- `1.6` : PDF version 1.6, chiffrement AES 128 bits
+- `1.7` : PDF version 1.7, chiffrement AES 128 bits
+- `1.7ext3` : PDF version 1.7 ExtensionLevel 3, chiffrement AES 256 bits
+
+Avec la version PDF 1.7 ExtensionLevel 3, le mot de passe est tronqué à 127 octets de sa représentation UTF-8. Dans les versions antérieures, il est tronqué à 32 octets et seuls les caractères Latin-1 sont autorisés.
+
+---
+
+# Colonnes en serpentin
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/snaking-columns/
+
+> **Note:** Version minimale : **0.3.5**
+
+
+Les colonnes en serpentin (ou colonnes de style journal) sont un mode de mise en page où le contenu descend dans la première colonne, puis continue en haut de la colonne suivante, en alternant si nécessaire. Au lieu de recommencer en haut à chaque nouvelle rangée de colonnes, le contenu suit les colonnes disponibles dans un ordre de lecture continu.
+
+Lorsque `snakingColumns: true` est activé, seul le contenu de la **première colonne** doit être renseigné. Les colonnes suivantes servent de cibles de débordement vides.
+
+**JavaScript**
+
+```js
+var myLongContent = 'A paragraph flowing through snaking columns. '.repeat(120);
+var docDefinition = {
+    content: [
+        {
+            columns: [
+                {text: myLongContent, width: '*'},  // Content goes here
+                {text: '', width: '*'},             // Empty overflow target
+                {text: '', width: '*'}              // Empty overflow target
+            ],
+            snakingColumns: true
+        }
+    ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var myLongContent = 'A paragraph flowing through snaking columns. '.repeat(120);
+var docDefinition: TDocumentDefinitions = {
+    content: [
+        {
+            columns: [
+                {text: myLongContent, width: '*'},  // Content goes here
+                {text: '', width: '*'},             // Empty overflow target
+                {text: '', width: '*'}              // Empty overflow target
+            ],
+            snakingColumns: true
+        }
+    ]
+};
+```
+
+L’imbrication directe d’une colonne en serpentin dans une autre colonne en serpentin (mise en page récursive en serpentin) n’est pas prise en charge.
+
+**Recommandations :**
+- Évitez d’imbriquer profondément des colonnes en serpentin les unes dans les autres.
+- Les colonnes standard (sans serpentin) peuvent être imbriquées sans risque dans des colonnes en serpentin.
+- Les colonnes en serpentin peuvent être imbriquées sans risque dans des colonnes standard.
+
+---
+
+# Pile de paragraphes
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/stack/
+
+Vous avez pu constater dans les exemples que si vous définissez la clé `content` comme un tableau, le document devient une pile de paragraphes.
+
+Vous réutiliserez souvent cette structure dans un élément imbriqué, comme dans l’exemple suivant :
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [
+    'paragraph 1',
+    'paragraph 2',
+    {
+      columns: [
+        'first column is a simple text',
+        [
+          // second column consists of paragraphs
+          'paragraph A',
+          'paragraph B',
+          'these paragraphs will be rendered one below another inside the column'
+        ]
+      ]
+    }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [
+    'paragraph 1',
+    'paragraph 2',
+    {
+      columns: [
+        'first column is a simple text',
+        [
+          // second column consists of paragraphs
+          'paragraph A',
+          'paragraph B',
+          'these paragraphs will be rendered one below another inside the column'
+        ]
+      ]
+    }
+  ]
+};
+```
+
+Avec un tableau, vous ne pouvez pas ajouter de propriétés de style (pour modifier `fontSize`, par exemple).
+
+Heureusement, un tableau est simplement un raccourci pdfMake pour `{ stack: [] }`. Pour appliquer un nouveau style à toute la pile, utilisez la définition développée :
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [
+    'paragraph 1',
+    'paragraph 2',
+    {
+      columns: [
+        'first column is a simple text',
+        {
+          stack: [
+            // second column consists of paragraphs
+            'paragraph A',
+            'paragraph B',
+            'these paragraphs will be rendered one below another inside the column'
+          ],
+          fontSize: 15
+        }
+      ]
+    }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [
+    'paragraph 1',
+    'paragraph 2',
+    {
+      columns: [
+        'first column is a simple text',
+        {
+          stack: [
+            // second column consists of paragraphs
+            'paragraph A',
+            'paragraph B',
+            'these paragraphs will be rendered one below another inside the column'
+          ],
+          fontSize: 15
+        }
+      ]
+    }
+  ]
+};
+```
+
+---
+
+# Styles et mise en forme
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/styling/
+
+## Mettre en forme un bloc ou un segment en ligne
+
+Une chaîne est un paragraphe simple. Utilisez un nœud de texte pour lui ajouter des propriétés. Un tableau `text` permet de définir des segments de styles différents au sein du **même paragraphe** ; un tableau `content` ou une pile crée des blocs distincts.
+
+
+
+### Runnable example: 04 · Text & named styles
+
+**JavaScript**
+
+```js
+var dd = {
+  content: [
+    { text: 'Style with intent', style: 'heading' },
+    { text: ['One paragraph with ', { text: 'bold', bold: true }, ' and ', { text: 'italic', italics: true }, ' inline text.'] },
+    { text: 'A reusable note style.', style: 'note' },
+    { ul: ['Readable defaults', 'Small style dictionaries', 'Consistent spacing'], margin: [0, 12, 0, 0] }
+  ],
+  defaultStyle: { fontSize: 12, lineHeight: 1.3 },
+  styles: {
+    heading: { fontSize: 26, bold: true, color: '#08786b', margin: [0, 0, 0, 18] },
+    note: { fontSize: 10, color: '#536771', margin: [0, 12, 0, 0] }
+  }
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = {
+  content: [
+    { text: 'Style with intent', style: 'heading' },
+    { text: ['One paragraph with ', { text: 'bold', bold: true }, ' and ', { text: 'italic', italics: true }, ' inline text.'] },
+    { text: 'A reusable note style.', style: 'note' },
+    { ul: ['Readable defaults', 'Small style dictionaries', 'Consistent spacing'], margin: [0, 12, 0, 0] }
+  ],
+  defaultStyle: { fontSize: 12, lineHeight: 1.3 },
+  styles: {
+    heading: { fontSize: 26, bold: true, color: '#08786b', margin: [0, 0, 0, 18] },
+    note: { fontSize: 10, color: '#536771', margin: [0, 12, 0, 0] }
+  }
+};
+```
+
+[See the rendered PDF and edit this example](https://pdfmake.github.io/docs/0.3/fr/playground/?example=styles)
+
+
+
+## Réutiliser des styles nommés
+
+**JavaScript**
+
+```js
+var dd = {
+  defaultStyle: { fontSize: 11, lineHeight: 1.2 },
+  styles: {
+    heading: { fontSize: 24, bold: true },
+    muted: { color: '#536771' },
+    subheading: { extends: 'heading', fontSize: 16 }
+  },
+  content: [
+    { text: 'A heading', style: 'heading' },
+    { text: 'A muted heading', style: ['heading', 'muted'] },
+    { text: 'An explicit override', style: 'heading', fontSize: 18 },
+    { text: 'A subheading', style: 'subheading' }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = {
+  defaultStyle: { fontSize: 11, lineHeight: 1.2 },
+  styles: {
+    heading: { fontSize: 24, bold: true },
+    muted: { color: '#536771' },
+    subheading: { extends: 'heading', fontSize: 16 }
+  },
+  content: [
+    { text: 'A heading', style: 'heading' },
+    { text: 'A muted heading', style: ['heading', 'muted'] },
+    { text: 'An explicit override', style: 'heading', fontSize: 18 },
+    { text: 'A subheading', style: 'subheading' }
+  ]
+};
+```
+
+`style` fait référence aux entrées de `styles`. Lorsqu’elles définissent la même propriété, les styles placés plus tard dans un tableau sont prioritaires. Les propriétés explicites du nœud priment sur ses styles nommés. `defaultStyle` fournit les valeurs par défaut du document. Les styles des conteneurs peuvent être hérités par leurs enfants ; les propriétés explicites d’un enfant les remplacent.
+
+L’héritage des styles nommés avec `extends` est disponible depuis **0.3.3**. Il accepte le nom d’un parent ou un tableau de noms. Les propriétés propres au style priment sur celles de ses parents ; si plusieurs parents définissent la même propriété, celles du parent placé plus tard sont prioritaires. Gardez une hiérarchie courte et sans cycle pour qu’elle reste facile à comprendre.
+
+## Propriétés de texte courantes
+
+| Propriété | Type / valeurs | Signification |
+| --- | --- | --- |
+| `font` | Nom de famille enregistrée | Doit correspondre à votre configuration de polices |
+| `fontSize` | Nombre, en points | Taille du texte |
+| `bold`, `italics` | Booléen, `false` par défaut | Sélectionne la variante de police correspondante |
+| `alignment` | `'left'`, `'center'`, `'right'`, `'justify'` | Alignement du paragraphe |
+| `lineHeight` | Nombre, 1 par défaut | Multiplicateur de hauteur de ligne |
+| `color`, `background` | Nom de couleur ou chaîne hexadécimale | Couleur du texte et arrière-plan du texte |
+| `characterSpacing` | Nombre, en points | Espacement supplémentaire entre les caractères |
+| `wordBreak` | `'normal'` (par défaut), `'break-all'` | Comportement du retour à la ligne |
+| `fontFeatures` | Tableau de chaînes | Fonctionnalités typographiques propres à la police |
+| `style` | Chaîne ou tableau de chaînes | Styles nommés à appliquer |
+| `markerColor` | Couleur | Couleur de la puce |
+
+Les noms de couleurs et les valeurs hexadécimales comme `'#08786b'` sont pris en charge. Les fonctionnalités typographiques dépendent de la police sélectionnée. Pour utiliser `bold` ou `italics`, la variante correspondante doit être enregistrée ; activer l’option ne fournit pas le fichier de police manquant.
+
+## Décorations
+
+| Propriété | Type / valeurs |
+| --- | --- |
+| `decoration` | `'underline'`, `'lineThrough'`, `'overline'` ou un tableau |
+| `decorationStyle` | `'solid'`, `'dashed'`, `'dotted'`, `'double'`, `'wavy'` |
+| `decorationColor` | Couleur |
+| `decorationThickness` | Épaisseur numérique ; depuis 0.3.3 |
+
+**JavaScript**
+
+```js
+var dd = {
+  content: [{ text: 'A marked passage', decoration: 'underline', decorationStyle: 'wavy', decorationColor: '#08786b' }]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = {
+  content: [{ text: 'A marked passage', decoration: 'underline', decorationStyle: 'wavy', decorationColor: '#08786b' }]
+};
+```
+
+## Les styles ne sont pas du CSS
+
+Utilisez les noms de champs documentés par pdfmake. Il n’existe ni cascade CSS, ni sélecteur DOM, ni modèle de boîte du navigateur. Les marges sont exprimées en points et suivent l’ordre `[gauche, haut, droite, bas]`. Pour mettre en forme plusieurs blocs ensemble, utilisez une [pile](/docs/0.3/fr/document-definition-object/stack/). Consultez [Polices](/docs/0.3/fr/fonts/) pour l’enregistrement des variantes et la couverture des caractères.
+
+---
+
+# SVG
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/svgs/
+
+Les SVG ressemblent beaucoup aux [images](/docs/0.3/fr/document-definition-object/images/), mais il n’est actuellement pas possible de les référencer par fichier ni de les réutiliser depuis un dictionnaire.
+
+
+> **Note:** Le nœud SVG exige une valeur SVG valide. Une valeur invalide ou vide provoque une erreur.
+
+
+La bibliothèque [SVG-to-PDFKit](https://github.com/alafr/SVG-to-PDFKit) est utilisée pour convertir les SVG en documents PDF.
+
+La valeur du nœud `svg` peut être une chaîne ou un objet `SVGElement` (disponible uniquement dans le navigateur).
+
+
+> **Note:** La prise en charge de l’objet `SVGElement` nécessite la version **0.3.1** ou ultérieure.
+
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [
+    {
+      // If no width/height/fit is used, then dimensions from the svg element is used.
+      svg: '<svg width="300" height="200" viewBox="0 0 300 200">...</svg>'
+    },
+    {
+      // if you specify width, svg will scale proportionally
+      svg: '<svg width="300" height="200" viewBox="0 0 300 200">...</svg>',
+      width: 150
+    },
+    {
+      // if you specify height, svg will scale proportionally
+      // Minimal pdfmake version: 0.3.2
+      svg: '<svg width="300" height="200" viewBox="0 0 300 200">...</svg>',
+      height: 100
+    },
+    {
+      // if you specify both width and height - svg will be stretched
+      svg: '<svg width="300" height="200" viewBox="0 0 300 200">...</svg>',
+      width: 600,
+      height: 400
+    },
+    {
+      // you can also fit the svg inside a rectangle
+      svg: '<svg width="300" height="200" viewBox="0 0 300 200">...</svg>',
+      fit: [150, 100]
+    },
+    {
+      // if no width/height is specified in SVG element, you must set width and height for node
+      svg: '<svg>...</svg>',
+      width: 300,
+      height: 200
+    },
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [
+    {
+      // If no width/height/fit is used, then dimensions from the svg element is used.
+      svg: '<svg width="300" height="200" viewBox="0 0 300 200">...</svg>'
+    },
+    {
+      // if you specify width, svg will scale proportionally
+      svg: '<svg width="300" height="200" viewBox="0 0 300 200">...</svg>',
+      width: 150
+    },
+    {
+      // if you specify height, svg will scale proportionally
+      // Minimal pdfmake version: 0.3.2
+      svg: '<svg width="300" height="200" viewBox="0 0 300 200">...</svg>',
+      height: 100
+    },
+    {
+      // if you specify both width and height - svg will be stretched
+      svg: '<svg width="300" height="200" viewBox="0 0 300 200">...</svg>',
+      width: 600,
+      height: 400
+    },
+    {
+      // you can also fit the svg inside a rectangle
+      svg: '<svg width="300" height="200" viewBox="0 0 300 200">...</svg>',
+      fit: [150, 100]
+    },
+    {
+      // if no width/height is specified in SVG element, you must set width and height for node
+      svg: '<svg>...</svg>',
+      width: 300,
+      height: 200
+    },
+  ]
+};
+```
+
+---
+
+# Tableaux
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/tables/
+
+## Commencer par des lignes et un en-tête répété
+
+Utilisez un tableau lorsque les cellules de différentes lignes doivent s’aligner. `body` est un tableau de lignes, elles-mêmes représentées par des tableaux. Chaque ligne doit contenir le même nombre de cellules ; une cellule peut contenir du texte ou d’autres nœuds pdfmake. `headerRows: 1` répète la première ligne si le tableau se poursuit sur une autre page.
+
+
+
+### Runnable example: 03 · Tables & repeating headers
+
+**JavaScript**
+
+```js
+var rows = Array.from({ length: 65 }, (_, i) => [
+  'Item ' + (i + 1), 'A row that can continue across pages', String(i + 1)
+]);
+var dd = {
+  content: [
+    { text: 'A longer table', fontSize: 24, bold: true, margin: [0, 0, 0, 16] },
+    { layout: 'lightHorizontalLines', table: {
+      headerRows: 1, widths: [70, '*', 40],
+      body: [[{ text: 'Item', bold: true }, { text: 'Description', bold: true }, { text: 'Qty', bold: true }], ...rows]
+    } }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var rows = Array.from({ length: 65 }, (_, i) => [
+  'Item ' + (i + 1), 'A row that can continue across pages', String(i + 1)
+]);
+var dd: TDocumentDefinitions = {
+  content: [
+    { text: 'A longer table', fontSize: 24, bold: true, margin: [0, 0, 0, 16] },
+    { layout: 'lightHorizontalLines', table: {
+      headerRows: 1, widths: [70, '*', 40],
+      body: [[{ text: 'Item', bold: true }, { text: 'Description', bold: true }, { text: 'Qty', bold: true }], ...rows]
+    } }
+  ]
+};
+```
+
+[See the rendered PDF and edit this example](https://pdfmake.github.io/docs/0.3/fr/playground/?example=tables)
+
+
+
+## Choisir les largeurs
+
+| Largeur | Signification | Utile lorsque |
+| --- | --- | --- |
+| Un nombre, par exemple `80` | Largeur fixe en points | Pour des codes, des quantités ou une colonne d’intitulés de largeur prévisible |
+| `'*'` | Partage la largeur restante | Pour qu’une description occupe l’espace disponible |
+| `'auto'` | Mesure le contenu | Pour que des intitulés courts n’occupent que la largeur nécessaire |
+| Une chaîne en pourcentage | Largeur proportionnelle | Pour une mise en page proportionnelle ; testez soigneusement les largeurs mixtes |
+
+Les bordures, le remplissage, les marges de page et les autres colonnes consomment aussi de l’espace. Commencez par des largeurs fixes et étoilées, puis utilisez `auto` lorsque le dimensionnement selon le contenu est voulu. Évitez les grandes largeurs fixes qui dépassent la zone de contenu.
+
+## Propriétés des tableaux et des cellules
+
+| Propriété | Emplacement | Type / rôle |
+| --- | --- | --- |
+| `body` | `table` | Tableaux non vides représentant les lignes |
+| `widths` | `table` | Descripteurs de largeur, un par colonne |
+| `headerRows` | `table` | Nombre de lignes initiales répétées comme en-têtes |
+| `dontBreakRows` | `table` | Empêche une ligne individuelle de se couper entre deux pages |
+| `keepWithHeaderRows` | `table` | Nombre de lignes suivantes à garder avec l’en-tête |
+| `layout` | Nœud, à côté de `table` | Nom de disposition intégrée, nom personnalisé enregistré ou objet de disposition |
+| `tableAlignment` | Nœud à côté de `table` | Alignement horizontal du tableau entier : `left`, `center`, `right` ; depuis 0.3.13 |
+| `colSpan`, `rowSpan` | Cellule | Nombre positif de colonnes ou lignes couvertes ; les cellules de remplacement restent nécessaires |
+| `verticalAlignment` | Cellule | `'top'` (par défaut), `'middle'` ou `'bottom'` |
+| `border` | Cellule | Quatre booléens : gauche, haut, droite, bas |
+| `borderColor` | Cellule | Quatre couleurs dans le même ordre |
+| `fillColor` | Cellule | Couleur d’arrière-plan ou tuple de motif pris en charge |
+| `fillOpacity` | Cellule | Opacité numérique de l’arrière-plan |
+| `overlayPattern`, `overlayOpacity` | Cellule | Tuple de motif et opacité numérique appliqués par-dessus le contenu |
+
+Garder une ligne entière ne permet pas de faire tenir une ligne trop grande sur une page. Testez les descriptions longues et les contenus imbriqués avec le format de page et les polices réellement utilisés.
+
+## Aligner le tableau entier
+
+**Depuis 0.3.13.** Placez `tableAlignment` sur le nœud à côté de `table`. Les valeurs possibles sont `left` (par défaut), `center` et `right`. Cette propriété positionne le tableau entier dans la largeur disponible ; utilisez séparément `alignment` pour le texte des cellules.
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [{
+    tableAlignment: 'center',
+    alignment: 'left',
+    table: {
+      widths: ['auto', 'auto'],
+      body: [['Item', 'Quantity'], ['Example', '2']]
+    }
+  }]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [{
+    tableAlignment: 'center',
+    alignment: 'left',
+    table: {
+      widths: ['auto', 'auto'],
+      body: [['Item', 'Quantity'], ['Example', '2']]
+    }
+  }]
+};
+```
+
+L’exemple centre le tableau tout en gardant son texte aligné à gauche. Utilisez `tableAlignment: 'right'` pour un tableau aligné à droite. L’alignement est visible si le tableau est plus étroit que la largeur disponible, par exemple avec `auto` ou des largeurs de colonnes fixes. Les tableaux qui remplissent ou dépassent cette largeur restent à gauche. Les marges et la colonne ou cellule qui contient le tableau déterminent la largeur disponible.
+
+## Fusionner des cellules sans modifier la longueur des lignes
+
+**JavaScript**
+
+```js
+var dd = {
+  content: [{
+    table: {
+      widths: ['*', '*', '*'],
+      body: [
+        [{ text: 'A heading across three columns', colSpan: 3, bold: true }, {}, {}],
+        [{ text: 'Two rows', rowSpan: 2 }, 'A', 'B'],
+        [{}, 'C', 'D']
+      ]
+    }
+  }]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = {
+  content: [{
+    table: {
+      widths: ['*', '*', '*'],
+      body: [
+        [{ text: 'A heading across three columns', colSpan: 3, bold: true }, {}, {}],
+        [{ text: 'Two rows', rowSpan: 2 }, 'A', 'B'],
+        [{}, 'C', 'D']
+      ]
+    }
+  }]
+};
+```
+
+Les objets vides occupent les cellules couvertes par une fusion. Les omettre rend la ligne incohérente. N’utilisez pas `undefined` comme valeur de remplacement. L’[exemple de fusion dans le playground](/docs/0.3/fr/playground/?example=spans) présente cette définition.
+
+## Utiliser une disposition intégrée
+
+Les dispositions `noBorders`, `headerLineOnly` et `lightHorizontalLines` sont disponibles par leur nom. Placez `layout` à côté de `table`, et non à l’intérieur :
+
+**JavaScript**
+
+```js
+var dd = {
+  content: [{
+    layout: 'lightHorizontalLines',
+    table: { headerRows: 1, widths: ['*', 'auto'], body: [['Item', 'Qty'], ['Notebook', 3]] }
+  }]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = {
+  content: [{
+    layout: 'lightHorizontalLines',
+    table: { headerRows: 1, widths: ['*', 'auto'], body: [['Item', 'Qty'], ['Notebook', 3]] }
+  }]
+};
+```
+
+## Enregistrer une disposition personnalisée
+
+Enregistrez les dispositions avant de créer le document. Dans Node, utilisez votre instance `pdfmake` configurée ; dans le navigateur, utilisez `pdfMake`.
+
+**JavaScript**
+
+```js
+pdfMake.addTableLayouts({
+  compact: {
+    hLineWidth: function (index, node) {
+      return index === node.table.headerRows ? 1 : 0;
+    },
+    vLineWidth: function () { return 0; },
+    hLineColor: function () { return '#b7cfc4'; },
+    paddingLeft: function () { return 6; },
+    paddingRight: function () { return 6; }
+  }
+});
+
+var dd = {
+  content: [{ layout: 'compact', table: { headerRows: 1, body: [['Item', 'Qty'], ['Notebook', 3]] } }]
+};
+```
+
+**TypeScript**
+
+```ts
+import pdfMake from "pdfmake/build/pdfmake.js";
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+pdfMake.addTableLayouts({
+  compact: {
+    hLineWidth: function (index, node) {
+      return index === node.table.headerRows ? 1 : 0;
+    },
+    vLineWidth: function () { return 0; },
+    hLineColor: function () { return '#b7cfc4'; },
+    paddingLeft: function () { return 6; },
+    paddingRight: function () { return 6; }
+  }
+});
+
+var dd: TDocumentDefinitions = {
+  content: [{ layout: 'compact', table: { headerRows: 1, body: [['Item', 'Qty'], ['Notebook', 3]] } }]
+};
+```
+
+Cet extrait suppose que le moteur du navigateur et les polices sont chargés. Déclarer une variable de disposition ne suffit pas à l’enregistrer. Préférez des fonctions de rappel déterministes ; évitez de modifier une configuration partagée pendant des tâches Node concurrentes.
+
+## Diagnostiquer les tableaux mal formés
+
+Vérifiez `body` avant de modifier les bordures ou les largeurs : il doit contenir des tableaux de lignes dont les longueurs concordent. Vérifiez ensuite les cellules de remplacement des fusions. Dans la branche locale d’amélioration, les diagnostics indiquent le chemin de définition fautif et le nombre de cellules attendu. Consultez [Erreurs et diagnostics](/docs/0.3/fr/guides/errors/).
+
+---
+
+# Table des matières
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/toc/
+
+## Marquer les titres à inclure
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [
+    { toc: { title: { text: 'Contents', fontSize: 20, bold: true }, numberStyle: { bold: true } } },
+    { text: 'Introduction', tocItem: true, fontSize: 18, margin: [0, 20, 0, 10] },
+    'Document body',
+    { text: 'Details', tocItem: true, pageBreak: 'before', fontSize: 18 }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [
+    { toc: { title: { text: 'Contents', fontSize: 20, bold: true }, numberStyle: { bold: true } } },
+    { text: 'Introduction', tocItem: true, fontSize: 18, margin: [0, 20, 0, 10] },
+    'Document body',
+    { text: 'Details', tocItem: true, pageBreak: 'before', fontSize: 18 }
+  ]
+};
+```
+
+Le nœud `toc` insère la liste générée ; `tocItem` marque les nœuds texte à inclure. Les numéros de page sont calculés pendant la mise en page.
+
+## Plusieurs tables des matières
+
+Chaque ToC est un nœud de contenu distinct. Utilisez des identifiants pour sélectionner la liste à laquelle chaque élément appartient :
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [
+    { toc: { id: 'main', title: 'All sections' } },
+    { toc: { id: 'details', title: 'Detailed sections' } },
+    { text: 'Overview', tocItem: 'main' },
+    { text: 'Technical details', tocItem: ['main', 'details'], pageBreak: 'before' }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [
+    { toc: { id: 'main', title: 'All sections' } },
+    { toc: { id: 'details', title: 'Detailed sections' } },
+    { text: 'Overview', tocItem: 'main' },
+    { text: 'Technical details', tocItem: ['main', 'details'], pageBreak: 'before' }
+  ]
+};
+```
+
+Ne placez pas deux clés `toc` dans le même objet : JavaScript ne conserve que la dernière valeur.
+
+## Options de la table des matières
+
+| Champ | Type | Signification |
+| --- | --- | --- |
+| `id` | string | Identifiant de la ToC nommée |
+| `title` | string ou nœud texte | Titre facultatif |
+| `textStyle`, `numberStyle` | objet de style | Style du texte et des numéros de page des entrées |
+| `textMargin` | marge | Espacement des entrées |
+| `hideEmpty` | boolean | Masque une ToC vide ; false par défaut, depuis 0.3.3 |
+| `sortBy` | `'page'` ou `'title'` | Ordre ; page par défaut, depuis 0.3.3 |
+| `sortLocale` | string | Paramètre régional de tri ; celui de l’environnement par défaut, depuis 0.3.3 |
+| `outlines` | boolean | Inclut les entrées dans les signets PDF ; depuis 0.3.5 |
+
+Sur un nœud texte marqué, `tocItem` accepte `true`, un identifiant ou un tableau d’identifiants. Les propriétés `textStyle`, `numberStyle` et `textMargin` du nœud peuvent personnaliser son entrée. Consultez les [plans de document](/docs/0.3/fr/document-definition-object/outlines/) pour les options de signets.
+
+---
+
+# Filigrane
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/document-definition-object/watermark/
+
+## Propriétés
+
+* `text` - texte du filigrane
+* `color` - couleur du texte
+* `opacity` - opacité du texte
+* `bold` - style gras du texte
+* `italics` - style italique du texte
+* `fontSize` - taille de police personnalisée du texte (la taille idéale est calculée automatiquement)
+* `angle` - angle de rotation du texte
+
+## Exemples
+
+Exemple d’utilisation simple :
+**JavaScript**
+
+```js
+var docDefinition = {
+  watermark: 'test watermark',
+  content: [
+    '...'
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  watermark: 'test watermark',
+  content: [
+    '...'
+  ]
+};
+```
+
+Exemple de style de police :
+**JavaScript**
+
+```js
+var docDefinition = {
+  watermark: { text: 'test watermark', color: 'blue', opacity: 0.3, bold: true, italics: false },
+  content: [
+    '...'
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  watermark: { text: 'test watermark', color: 'blue', opacity: 0.3, bold: true, italics: false },
+  content: [
+    '...'
+  ]
+};
+```
+
+Exemple avec une taille de police personnalisée :
+**JavaScript**
+
+```js
+var docDefinition = {
+  watermark: { text: 'test watermark', fontSize: 20 },
+  content: [
+    '...'
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  watermark: { text: 'test watermark', fontSize: 20 },
+  content: [
+    '...'
+  ]
+};
+```
+
+Exemple d’angle de rotation du filigrane :
+**JavaScript**
+
+```js
+var docDefinition = {
+  watermark: { text: 'test watermark', angle: 70 },
+  content: [
+    '...'
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  watermark: { text: 'test watermark', angle: 70 },
+  content: [
+    '...'
+  ]
+};
+```
+
+---
+
+# Polices et couverture des caractères
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/fonts/
+
+## Choisir une stratégie de polices
+
+| Environnement | Source de polices | Configuration |
+| --- | --- | --- |
+| Node.js | Fichiers de police réels | `addFonts` avec des chemins absolus |
+| Node.js | Polices PDF standard | `require('pdfmake/standard-fonts/Helvetica')` |
+| Navigateur | VFS Roboto intégré | Charger `build/vfs_fonts.js` |
+| Navigateur | VFS personnalisé ou URL | [Polices personnalisées dans le navigateur](/docs/0.3/fr/fonts/custom-fonts-client-side/) |
+
+La famille par défaut est `Roboto`. Node.js n’enregistre pas automatiquement ses fichiers. Pour chaque famille, associez `normal`, `bold`, `italics` et `bolditalics` aux données de police appropriées. Un style qui sélectionne une variante manquante peut échouer même si le texte normal s’affiche.
+
+## Enregistrer des polices locales dans Node.js
+
+Cet exemple suppose que vous possédez les fichiers de police sous licence dans un dossier `fonts` à côté de votre script CommonJS :
+
+**JavaScript**
+
+```js
+const path = require('node:path');
+const pdfmake = require('pdfmake');
+const fonts = {
+  Roboto: {
+    normal: path.join(__dirname, 'fonts/Roboto-Regular.ttf'),
+    bold: path.join(__dirname, 'fonts/Roboto-Medium.ttf'),
+    italics: path.join(__dirname, 'fonts/Roboto-Italic.ttf'),
+    bolditalics: path.join(__dirname, 'fonts/Roboto-MediumItalic.ttf')
+  }
+};
+const allowed = new Set(Object.values(fonts.Roboto));
+pdfmake.addFonts(fonts);
+pdfmake.setLocalAccessPolicy(file => allowed.has(path.resolve(file)));
+pdfmake.setUrlAccessPolicy(() => false);
+```
+
+**TypeScript**
+
+```ts
+const path = require('node:path');
+import pdfmake from "pdfmake";
+const fonts = {
+  Roboto: {
+    normal: path.join(__dirname, 'fonts/Roboto-Regular.ttf'),
+    bold: path.join(__dirname, 'fonts/Roboto-Medium.ttf'),
+    italics: path.join(__dirname, 'fonts/Roboto-Italic.ttf'),
+    bolditalics: path.join(__dirname, 'fonts/Roboto-MediumItalic.ttf')
+  }
+};
+const allowed = new Set(Object.values(fonts.Roboto));
+pdfmake.addFonts(fonts);
+pdfmake.setLocalAccessPolicy(file => allowed.has(path.resolve(file)));
+pdfmake.setUrlAccessPolicy(() => false);
+```
+
+Cette liste d’autorisation convient aux fichiers immuables gérés par l’application. Si les chemins proviennent d’utilisateurs non fiables, tenez également compte des liens symboliques et des permissions du système de fichiers. Une simple vérification de préfixe telle que `fonts/` ne constitue pas une limite de sécurité.
+
+## Faire correspondre le texte aux glyphes disponibles
+
+Les polices standard ont des encodages limités et ne couvrent pas n’importe quel caractère Unicode. Choisissez des polices incorporées qui contiennent les glyphes nécessaires aux langues de vos documents. Une chaîne Unicode ne garantit pas à elle seule que la police choisie saura l’afficher. Vérifiez des caractères représentatifs ainsi que toutes les variantes grasses et italiques dans les PDF générés.
+
+pdfmake incorpore les polices au moyen de PDFKit. Dans le navigateur, n’incluez que les familles nécessaires : les données VFS augmentent les coûts de téléchargement et d’analyse. Respectez les licences de redistribution et d’incorporation de chaque police.
+
+## Guides associés
+
+[Les 14 polices standard](/docs/0.3/fr/fonts/standard-14-fonts/) · [VFS du navigateur](/docs/0.3/fr/fonts/custom-fonts-client-side/vfs/) · [URL de polices](/docs/0.3/fr/fonts/custom-fonts-client-side/url/) · [Dépannage](/docs/0.3/fr/guides/troubleshooting/)
+
+---
+
+# Polices personnalisées côté client
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/fonts/custom-fonts-client-side/
+
+pdfmake utilise Roboto par défaut. Ce guide explique comment utiliser vos propres polices avec pdfmake dans du code exécuté côté client.
+
+## Deux méthodes sont possibles
+
+- [Utiliser le système de fichiers virtuel](/docs/0.3/fr/fonts/custom-fonts-client-side/vfs/)
+- [Utiliser un fichier de police via une URL (protocole https:// ou http://)](/docs/0.3/fr/fonts/custom-fonts-client-side/url/)
+
+---
+
+# Par protocole URL
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/fonts/custom-fonts-client-side/url/
+
+L’utilisation de polices personnalisées nécessite deux étapes :
+
+1. Transmettez à `pdfMake.addFonts(...)` les fichiers de polices accessibles par URL depuis votre JavaScript.
+2. Spécifiez la police dans la définition du document.
+
+## 1. Transmettre les fichiers de polices à `pdfMake.addFonts(...)` dans votre JavaScript
+
+Les fichiers de polices doivent être accessibles par URL (protocole https:// ou http://). Dans votre code, avant d’appeler `pdfMake.createPdf(docDefinition)`, configurez `pdfMake.addFonts(...)` comme dans l’exemple ci-dessous :
+
+**JavaScript**
+
+```js
+var fonts = {
+   yourFontName: {
+     normal: 'https://example.com/fonts/fontFile.ttf',
+     bold: 'https://example.com/fonts/fontFile2.ttf',
+     italics: 'https://example.com/fonts/fontFile3.ttf',
+     bolditalics: 'https://example.com/fonts/fontFile4.ttf'
+   },
+   anotherFontName: {
+
+   },
+
+   // download default Roboto font from unpkg.com
+   Roboto: {
+     normal: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Regular.ttf',
+     bold: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Medium.ttf',
+     italics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Italic.ttf',
+     bolditalics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-MediumItalic.ttf'
+   },
+
+   // example of usage fonts in collection
+   PingFangSC: {
+     normal: ['https://example.com/fonts/pingfang.ttc', 'PingFangSC-Regular'],
+     bold: ['https://example.com/fonts/pingfang.ttc', 'PingFangSC-Semibold'],
+   }
+};
+
+pdfMake.addFonts(fonts);
+```
+
+**TypeScript**
+
+```ts
+var fonts = {
+   yourFontName: {
+     normal: 'https://example.com/fonts/fontFile.ttf',
+     bold: 'https://example.com/fonts/fontFile2.ttf',
+     italics: 'https://example.com/fonts/fontFile3.ttf',
+     bolditalics: 'https://example.com/fonts/fontFile4.ttf'
+   },
+   anotherFontName: {
+
+   },
+
+   // download default Roboto font from unpkg.com
+   Roboto: {
+     normal: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Regular.ttf',
+     bold: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Medium.ttf',
+     italics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Italic.ttf',
+     bolditalics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-MediumItalic.ttf'
+   },
+
+   // example of usage fonts in collection
+   PingFangSC: {
+     normal: ['https://example.com/fonts/pingfang.ttc', 'PingFangSC-Regular'],
+     bold: ['https://example.com/fonts/pingfang.ttc', 'PingFangSC-Semibold'],
+   }
+};
+
+pdfMake.addFonts(fonts);
+```
+
+## 2. Spécifier la police dans la définition du document
+
+pdfMake utilise « Roboto » par défaut. Pour employer une autre police, spécifiez-la dans l’objet de définition du document.
+
+Le plus simple consiste à la définir globalement dans **defaultStyle** :
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: ['Example document content'],
+  defaultStyle: {
+    font: 'yourFontName'
+  }
+}
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: ['Example document content'],
+  defaultStyle: {
+    font: 'yourFontName'
+  }
+}
+```
+
+---
+
+# Polices personnalisées avec le VFS
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/fonts/custom-fonts-client-side/vfs/
+
+## Créer le conteneur de polices
+
+Utilisez des fichiers de polices sous licence qui couvrent les langues visées. Placez-les dans le répertoire `fonts/` de votre application et générez un fichier VFS depuis la racine du projet :
+
+```sh
+node node_modules/pdfmake/build-vfs.js ./fonts ./vfs_fonts.js
+```
+
+Tous les fichiers du répertoire fourni sont intégrés sous forme d’entrées base64. Gardez les ressources générées de l’application en dehors de `node_modules` afin qu’une installation ne remplace pas vos polices personnalisées. Régénérez le VFS chaque fois que les fichiers de polices changent. Le VFS du navigateur n’est pas nécessaire pour les [chemins de polices Node.js](/docs/0.3/fr/fonts/).
+
+## Charger et enregistrer les polices
+
+Chargez le moteur avant le script VFS généré. Le script généré enregistre ses fichiers si `pdfMake` est déjà disponible. Avec un bundler, importez l’objet VFS et appelez explicitement `addVirtualFileSystem` :
+
+**JavaScript**
+
+```js
+import pdfMake from 'pdfmake/build/pdfmake';
+import customVfs from './vfs_fonts';
+
+pdfMake.addVirtualFileSystem(customVfs);
+pdfMake.addFonts({
+  MyFont: {
+    normal: 'MyFont-Regular.ttf',
+    bold: 'MyFont-Bold.ttf',
+    italics: 'MyFont-Italic.ttf',
+    bolditalics: 'MyFont-BoldItalic.ttf'
+  }
+});
+
+await pdfMake.createPdf({
+  defaultStyle: { font: 'MyFont' },
+  content: ['A document using my font.']
+}).download('document.pdf');
+```
+
+**TypeScript**
+
+```ts
+import pdfMake from 'pdfmake/build/pdfmake';
+import customVfs from './vfs_fonts';
+
+pdfMake.addVirtualFileSystem(customVfs);
+pdfMake.addFonts({
+  MyFont: {
+    normal: 'MyFont-Regular.ttf',
+    bold: 'MyFont-Bold.ttf',
+    italics: 'MyFont-Italic.ttf',
+    bolditalics: 'MyFont-BoldItalic.ttf'
+  }
+});
+
+await pdfMake.createPdf({
+  defaultStyle: { font: 'MyFont' },
+  content: ['A document using my font.']
+}).download('document.pdf');
+```
+
+Remplacez ces noms par les clés exactes du VFS généré. Les noms de famille, comme `MyFont`, sont utilisés dans les styles ; les clés de fichier désignent les fichiers incorporés. Définissez chaque variante que vous utilisez. Vous pouvez associer plusieurs variantes à un seul fichier si c’est intentionnel, mais cela ne crée pas de véritable graisse ou style italique.
+
+## Collections de polices
+
+Pour une collection TrueType prise en charge, un descripteur peut être un tableau `[filename, faceName]` :
+
+**JavaScript**
+
+```js
+pdfMake.addFonts({
+  PingFangSC: {
+    normal: ['pingfang.ttc', 'PingFangSC-Regular'],
+    bold: ['pingfang.ttc', 'PingFangSC-Semibold']
+  }
+});
+```
+
+**TypeScript**
+
+```ts
+pdfMake.addFonts({
+  PingFangSC: {
+    normal: ['pingfang.ttc', 'PingFangSC-Regular'],
+    bold: ['pingfang.ttc', 'PingFangSC-Semibold']
+  }
+});
+```
+
+Incorporez la collection et utilisez des noms de faces valides. Cet exemple n’enregistre que les variantes normale et grasse ; ajoutez les variantes italiques avant de les utiliser.
+
+## Erreurs fréquentes
+
+Si un fichier est introuvable, comparez le nom de fichier du descripteur aux clés du VFS généré. Si une police n’est pas définie, comparez `defaultStyle.font` à la famille dans le mappage. Si des caractères manquent, vérifiez la couverture des glyphes de la police. Si le bundle du navigateur est volumineux, retirez du répertoire d’entrée VFS les familles et fichiers inutilisés.
+
+---
+
+# Icônes
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/fonts/icons/
+
+- Créez une police sur http://fontello.com/ ou un site similaire, puis téléchargez-la.
+
+- À partir du fichier de police (par exemple `.ttf`), créez un fichier `vfs_fonts.js` (voir [comment utiliser des polices personnalisées](/docs/0.3/fr/fonts/custom-fonts-client-side/vfs/)).
+
+- Déclarez la police en JavaScript (il peut suffire de définir `normal`) :
+**JavaScript**
+
+```js
+pdfMake.fonts = {
+    Fontello: {
+        normal: 'fontello.ttf',
+        bold: 'fontello.ttf',
+        italics: 'fontello.ttf',
+        bolditalics: 'fontello.ttf'
+    }
+}
+```
+
+**TypeScript**
+
+```ts
+pdfMake.fonts = {
+    Fontello: {
+        normal: 'fontello.ttf',
+        bold: 'fontello.ttf',
+        italics: 'fontello.ttf',
+        bolditalics: 'fontello.ttf'
+    }
+}
+```
+
+- Ajoutez un style pour les icônes :
+`            icon: {
+                font: 'Fontello'
+            }`
+- Créez un paragraphe de texte :
+`
+            { text: '', style: 'icon' }, //icon wifi`
+- Copiez le caractère indiqué dans les commentaires de `fontello-codes.css` (et non sa valeur échappée).
+
+---
+
+Pour insérer une icône au sein d’un texte, imbriquez des objets de texte :
+
+**JavaScript**
+
+```js
+var dd = { content: [{
+text: [
+        { text: '', style: 'icon' }, //icon gift
+        " my present"
+    ]
+}] };
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = { content: [{
+text: [
+        { text: '', style: 'icon' }, //icon gift
+        " my present"
+    ]
+}] };
+```
+Cela affiche « [icône cadeau] my present ».
+
+---
+
+# Les 14 polices standard
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/fonts/standard-14-fonts/
+
+Les PDF contiennent [14 polices standard](http://www.enfocus.com/manuals/ReferenceGuide/PS/18/enUS/en-us/common/pse/concept/c_aa1044513.html).
+
+**Couverture des caractères :** les polices standard utilisent des encodages limités et ne prennent pas en charge l’ensemble des caractères Unicode. Pour les documents multilingues, utilisez des polices incorporées et testez les glyphes nécessaires.
+
+## Utiliser pdfmake côté serveur
+
+**Exemple d’utilisation :**
+**JavaScript**
+
+```js
+var fonts = {
+  Courier: {
+    normal: 'Courier',
+    bold: 'Courier-Bold',
+    italics: 'Courier-Oblique',
+    bolditalics: 'Courier-BoldOblique'
+  },
+  Helvetica: {
+    normal: 'Helvetica',
+    bold: 'Helvetica-Bold',
+    italics: 'Helvetica-Oblique',
+    bolditalics: 'Helvetica-BoldOblique'
+  },
+  Times: {
+    normal: 'Times-Roman',
+    bold: 'Times-Bold',
+    italics: 'Times-Italic',
+    bolditalics: 'Times-BoldItalic'
+  },
+  Symbol: {
+    normal: 'Symbol'
+  },
+  ZapfDingbats: {
+    normal: 'ZapfDingbats'
+  }
+};
+
+var pdfmake = require('pdfmake');
+pdfmake.addFonts(fonts);
+
+var docDefinition = {
+  content: ['First paragraph', 'Another paragraph'],
+  defaultStyle: {
+    font: 'Helvetica'
+  }
+};
+
+var pdf = pdfmake.createPdf(docDefinition);
+pdf.write('test.pdf').then(() => {
+  // success event
+}, err => {
+  console.error(err);
+});
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var fonts = {
+  Courier: {
+    normal: 'Courier',
+    bold: 'Courier-Bold',
+    italics: 'Courier-Oblique',
+    bolditalics: 'Courier-BoldOblique'
+  },
+  Helvetica: {
+    normal: 'Helvetica',
+    bold: 'Helvetica-Bold',
+    italics: 'Helvetica-Oblique',
+    bolditalics: 'Helvetica-BoldOblique'
+  },
+  Times: {
+    normal: 'Times-Roman',
+    bold: 'Times-Bold',
+    italics: 'Times-Italic',
+    bolditalics: 'Times-BoldItalic'
+  },
+  Symbol: {
+    normal: 'Symbol'
+  },
+  ZapfDingbats: {
+    normal: 'ZapfDingbats'
+  }
+};
+
+var pdfmake = require('pdfmake');
+pdfmake.addFonts(fonts);
+
+var docDefinition: TDocumentDefinitions = {
+  content: ['First paragraph', 'Another paragraph'],
+  defaultStyle: {
+    font: 'Helvetica'
+  }
+};
+
+var pdf = pdfmake.createPdf(docDefinition);
+pdf.write('test.pdf').then(() => {
+  // success event
+}, err => {
+  console.error(err);
+});
+```
+
+
+## Utiliser pdfmake côté client
+
+Les bundles des polices standard sont disponibles dans le répertoire `build/standard-fonts/` du package pdfmake. Incluez le bundle de chaque famille dont vous avez besoin **après** `pdfmake.min.js`. Chaque bundle enregistre automatiquement ses polices auprès de `pdfMake`.
+
+Par exemple, pour utiliser Helvetica :
+
+```html
+<script src="https://unpkg.com/pdfmake@0.3.13/build/pdfmake.min.js"></script>
+<script src="https://unpkg.com/pdfmake@0.3.13/build/standard-fonts/Helvetica.js"></script>
+<script>
+  var docDefinition = {
+    content: ['First paragraph', 'Another paragraph'],
+    defaultStyle: {
+      font: 'Helvetica'
+    }
+  };
+
+  pdfMake.createPdf(docDefinition).download('document.pdf');
+</script>
+```
+
+Les bundles disponibles sont `Courier.js`, `Helvetica.js`, `Times.js`, `Symbol.js` et `ZapfDingbats.js`. Définissez `defaultStyle.font` avec le nom d’une famille enregistrée, comme dans l’exemple ci-dessus.
+
+---
+
+# Bien dÃ©marrer
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/getting-started/
+
+## Choisir votre environnement
+
+- [Node.js](/docs/0.3/fr/getting-started/server-side/) : Ã©crire un fichier, renvoyer un Buffer depuis une API ou consommer un flux.
+- [Navigateur](/docs/0.3/fr/getting-started/client-side/) : tÃ©lÃ©charger, ouvrir, imprimer ou obtenir un Blob.
+
+Les deux environnements utilisent la mÃªme [dÃ©finition de document](/docs/0.3/fr/document-definition-object/). Les mÃ©thodes de sortie renvoient des Promises. Le chargement des polices diffÃ¨re entre les fichiers Node et les conteneurs de polices du navigateur.
+
+## Avant de commencer
+
+Consultez la documentation correspondant Ã  la version installÃ©e (`npm ls pdfmake`). Commencez par un exemple minimal avant dâ€™ajouter des polices personnalisÃ©es, des images distantes ou des dispositions de tableau. Pour les applications 0.1/0.2, suivez le [guide de migration](/docs/0.3/fr/migration-from-0.1/).
+
+## JavaScript et TypeScript
+
+Cette branche de développement fournit ses propres déclarations TypeScript avec la bibliothèque et sépare les API Node et navigateur. Pour le paquet construit localement, installez TypeScript sans `@types/pdfmake`. Le paquet npm publié 0.3.13 nécessite encore les types communautaires correspondants ; les déclarations natives et la validation préalable présentées ici ne sont pas encore publiées. Le compilateur vérifié est TypeScript 5.9.3.
+
+```sh
+npm install pdfmake@0.3.13
+npm install --save-dev typescript@~5.9.3
+```
+
+Node.js : enregistrez cet exemple dans `document.mts`. `NodeNext` permet au compilateur de suivre la rÃ©solution rÃ©elle de Node. Un fichier CommonJS `.cts` peut commencer par `import pdfmake = require("pdfmake")`. Ã‰vitez les imports nommÃ©s Ã  lâ€™exÃ©cution.
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "esModuleInterop": true
+  }
+}
+```
+
+**JavaScript**
+
+```js
+import pdfmake from 'pdfmake';
+import { strict as assert } from 'node:assert';
+pdfmake.addFonts({ Helvetica: { normal: 'Helvetica', bold: 'Helvetica-Bold', italics: 'Helvetica-Oblique', bolditalics: 'Helvetica-BoldOblique' } });
+pdfmake.setUrlAccessPolicy(() => false);
+pdfmake.setLocalAccessPolicy(name => name.startsWith('Helvetica'));
+const definition = { content: [{ table: { body: [['ESM', 'TypeScript'], ['Promise', 'Output']] } }], defaultStyle: { font: 'Helvetica' } };
+const buffer = await pdfmake.createPdf(definition).getBuffer();
+assert.equal(buffer.subarray(0, 5).toString(), '%PDF-');
+```
+
+**TypeScript**
+
+```ts
+import pdfmake from 'pdfmake';
+import type { TDocumentDefinitions } from 'pdfmake/interfaces.js';
+import { strict as assert } from 'node:assert';
+
+pdfmake.addFonts({ Helvetica: { normal: 'Helvetica', bold: 'Helvetica-Bold', italics: 'Helvetica-Oblique', bolditalics: 'Helvetica-BoldOblique' } });
+pdfmake.setUrlAccessPolicy(() => false);
+pdfmake.setLocalAccessPolicy(name => name.startsWith('Helvetica'));
+const definition: TDocumentDefinitions = { content: [{ table: { body: [['ESM', 'TypeScript'], ['Promise', 'Output']] } }], defaultStyle: { font: 'Helvetica' } };
+const buffer: Buffer = await pdfmake.createPdf(definition).getBuffer();
+assert.equal(buffer.subarray(0, 5).toString(), '%PDF-');
+```
+
+Avec un bundler pour navigateur, importez le point dâ€™entrÃ©e prÃ©compilÃ© et enregistrez directement le VFS. Utilisez `module: "ESNext"` et `moduleResolution: "Bundler"` ; ces options nÃ©cessitent un bundler et ne conviennent pas Ã  une sortie exÃ©cutÃ©e directement par Node.
+
+**JavaScript**
+
+```js
+import pdfmake from 'pdfmake/build/pdfmake.js';
+import vfs from 'pdfmake/build/vfs_fonts.js';
+pdfmake.addVirtualFileSystem(vfs);
+const definition = { content: [{ text: 'TypeScript browser bundler', bold: true }] };
+export async function render() {
+    return pdfmake.createPdf(definition).getBlob();
+}
+```
+
+**TypeScript**
+
+```ts
+import pdfmake from 'pdfmake/build/pdfmake.js';
+import vfs from 'pdfmake/build/vfs_fonts.js';
+import type { TDocumentDefinitions } from 'pdfmake/interfaces';
+
+pdfmake.addVirtualFileSystem(vfs);
+const definition = { content: [{ text: 'TypeScript browser bundler', bold: true }] } satisfies TDocumentDefinitions;
+export async function render(): Promise<Blob> {
+  return pdfmake.createPdf(definition).getBlob();
+}
+```
+
+Les types apportent la complétion et les vérifications à la compilation. Ils ne valident pas le JSON externe et ne garantissent pas la mise en page. Les déclarations fournies distinguent `write` dans Node de `getBlob`, `download`, `open` et `print` dans le navigateur. Utilisez les imports explicites du navigateur pour les bundlers. Le playground et les exemples intégrés vérifient TypeScript localement avant le rendu. Consultez la [validation des documents](/docs/0.3/fr/guides/errors/) pour les contrôles à l’exécution.
+
+---
+
+# Démarrage rapide dans le navigateur
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/getting-started/client-side/
+
+## Installer et copier les ressources du navigateur
+
+```sh
+npm install pdfmake@0.3.13
+```
+
+Copiez `node_modules/pdfmake/build/pdfmake.min.js` et `node_modules/pdfmake/build/vfs_fonts.js` à côté de ce fichier HTML. Servez le dossier avec votre serveur de développement local.
+
+## Générer un PDF
+
+```html
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>My first PDF</title></head>
+<body>
+  <button id="download" type="button">Download PDF</button>
+  <p id="status" role="status"></p>
+  <script src="./pdfmake.min.js"></script>
+  <script src="./vfs_fonts.js"></script>
+  <script>
+    document.querySelector('#download').addEventListener('click', async () => {
+      try {
+        await pdfMake.createPdf({ content: ['Hello from the browser!'] }).download('hello.pdf');
+        document.querySelector('#status').textContent = 'PDF prepared';
+      } catch (error) {
+        document.querySelector('#status').textContent = 'PDF generation failed';
+        console.error(error);
+      }
+    });
+  </script>
+</body>
+</html>
+```
+
+Chargez le moteur **avant** son lot de polices. `vfs_fonts.js` fournit les fichiers Roboto par défaut. Cet exemple ne nécessite pas d’API de rendu côté serveur. La résolution de `download()` signifie que le téléchargement a été lancé ; elle ne confirme pas que l’utilisateur a enregistré le fichier.
+
+## Utiliser un bundler
+
+**JavaScript**
+
+```js
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+
+pdfMake.addVirtualFileSystem(pdfFonts);
+await pdfMake.createPdf({ content: ['Bundled application'] }).download('document.pdf');
+```
+
+**TypeScript**
+
+```ts
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+
+pdfMake.addVirtualFileSystem(pdfFonts);
+await pdfMake.createPdf({ content: ['Bundled application'] }).download('document.pdf');
+```
+
+Ce code s’exécute dans le module de votre application ou dans un gestionnaire d’événement asynchrone. Avec un framework SSR, ne chargez pas ces imports côté serveur. Pour TypeScript, utilisez des déclarations compatibles avec la version pdfmake installée ; les types ne permettent pas à une ancienne version d’exécuter l’API 0.3.
+
+## Ouvrir et imprimer
+
+Appelez `open()` ou `print()` à la suite d’une action de l’utilisateur pour éviter le blocage des fenêtres surgissantes. Si vous récupérez d’abord des données, ouvrez une fenêtre de façon synchrone, puis transmettez-la à la méthode de sortie. Consultez [Méthodes du navigateur](/docs/0.3/fr/getting-started/client-side/methods/).
+
+## Étapes suivantes
+
+[Polices personnalisées](/docs/0.3/fr/fonts/custom-fonts-client-side/) · [Méthodes du navigateur](/docs/0.3/fr/getting-started/client-side/methods/) · [Dépannage](/docs/0.3/fr/guides/troubleshooting/)
+
+---
+
+# Exemples
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/getting-started/client-side/examples/
+
+Consultez [le playground](/docs/0.3/fr/playground/) et les [exemples](https://github.com/bpampuch/pdfmake/tree/master/examples).
+
+---
+
+# Méthodes de sortie du navigateur
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/getting-started/client-side/methods/
+
+## Créer un document
+
+Après avoir [chargé le moteur et les polices](/docs/0.3/fr/getting-started/client-side/) :
+
+**JavaScript**
+
+```js
+const output = pdfMake.createPdf(docDefinition, options);
+```
+
+**TypeScript**
+
+```ts
+const output = pdfMake.createPdf(docDefinition, options);
+```
+
+Le deuxième argument facultatif contient les [options de rendu](/docs/0.3/fr/options/). `createPdf` renvoie immédiatement un objet de sortie. Les méthodes de sortie renvoient des Promises ; gérez leurs rejets.
+
+## Choisir une sortie
+
+| Méthode | Valeur résolue | Comportement |
+| --- | --- | --- |
+| `download(filename?)` | `undefined` | Lance un téléchargement ; le nom de fichier par défaut est `file.pdf` |
+| `open(window?)` | `undefined` | Navigue vers le PDF généré dans une nouvelle fenêtre ou une fenêtre fournie |
+| `print(window?)` | `undefined` | Ouvre un PDF avec une action d’impression ; le comportement varie selon le lecteur |
+| `getBlob()` | `Blob` | Données binaires avec le type MIME `application/pdf` |
+| `getBuffer()` | Octets compatibles avec Buffer | Octets PDF bruts |
+| `getBase64()` | `string` | PDF encodé en base64 |
+| `getDataUrl()` | `string` | URL de données base64 |
+| `getStream()` | Flux PDFKit | Sortie de bas niveau ; préférez généralement Blob ou les octets |
+
+**JavaScript**
+
+```js
+try {
+  await pdfMake.createPdf(docDefinition).download('report.pdf');
+} catch (error) {
+  console.error('PDF generation failed', error);
+}
+```
+
+**TypeScript**
+
+```ts
+try {
+  await pdfMake.createPdf(docDefinition).download('report.pdf');
+} catch (error) {
+  console.error('PDF generation failed', error);
+}
+```
+
+La résolution de la Promise de téléchargement ne confirme pas que l’utilisateur a enregistré le fichier. L’impression dépend du navigateur et du lecteur PDF ; ne vous fiez pas à l’impression silencieuse.
+
+## Ouvrir après une opération asynchrone
+
+Ouvrez la fenêtre directement dans le gestionnaire de clic de l’utilisateur, avant d’attendre les données. Sinon, le bloqueur de fenêtres surgissantes peut refuser l’ouverture.
+
+**JavaScript**
+
+```js
+async function openReport() {
+  const win = window.open('', '_blank');
+  if (!win) throw new Error('Allow popups to open the PDF');
+  try {
+    const response = await fetch('/report-data');
+    if (!response.ok) throw new Error('Could not load report data');
+    const data = await response.json();
+    const definition = { content: [String(data.title)] };
+    await pdfMake.createPdf(definition).open(win);
+  } catch (error) {
+    win.close();
+    throw error;
+  }
+}
+```
+
+**TypeScript**
+
+```ts
+async function openReport() {
+  const win = window.open('', '_blank');
+  if (!win) throw new Error('Allow popups to open the PDF');
+  try {
+    const response = await fetch('/report-data');
+    if (!response.ok) throw new Error('Could not load report data');
+    const data = await response.json();
+    const definition = { content: [String(data.title)] };
+    await pdfMake.createPdf(definition).open(win);
+  } catch (error) {
+    win.close();
+    throw error;
+  }
+}
+```
+
+Appelez `openReport` depuis le gestionnaire de clic de votre application et gérez le rejet de sa Promise. Pour imprimer, remplacez `.open(win)` par `.print(win)`. Le passage de `window` navigue dans l’onglet actuel. Définissez le [titre des métadonnées](/docs/0.3/fr/document-definition-object/document-medatadata/) du document pour identifier le PDF ; le nom de fichier et le titre affichés par le lecteur dépendent du navigateur.
+
+## Gérer les URL Blob
+
+**JavaScript**
+
+```js
+const blob = await pdfMake.createPdf(docDefinition).getBlob();
+const url = URL.createObjectURL(blob);
+document.querySelector('#preview').src = url;
+// Revoke url when replacing the preview or removing it, after it is no longer needed.
+```
+
+**TypeScript**
+
+```ts
+const blob = await pdfMake.createPdf(docDefinition).getBlob();
+const url = URL.createObjectURL(blob);
+document.querySelector('#preview').src = url;
+// Revoke url when replacing the preview or removing it, after it is no longer needed.
+```
+
+Conservez l’URL tant que le lecteur l’utilise. Appelez `URL.revokeObjectURL(url)` lors du nettoyage. Utilisez un nouvel objet de sortie pour chaque rendu. Évitez de mélanger la lecture manuelle d’un flux avec les méthodes buffer ou Blob sur la même sortie.
+
+## Politique d’accès aux URL
+
+Depuis la version **0.3.6**, `setUrlAccessPolicy(callback)` accepte une fonction synchrone qui renvoie un booléen. Elle ne constitue pas un bac à sable réseau complet, et les redirections du navigateur peuvent avoir lieu avant la vérification de l’URL finale. Consultez la [sécurité des ressources](/docs/0.3/fr/guides/resource-security/).
+
+---
+
+# Navigateurs pris en charge
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/getting-started/client-side/supported-browsers/
+
+* Edge
+* Firefox
+* Chrome
+* Chrome (Android)
+* Opera
+* Safari (iOS)
+* Safari (iOS) iPhone
+
+
+> **Note:** Les méthodes **`open()`** et **`print()`** ne sont prises en charge que dans :
+
+* Firefox
+* Chrome
+* Opera
+
+
+
+> **Note:** Les extensions de navigateur peuvent affecter le fonctionnement de pdfmake (en particulier `open()` et `print()`). Si pdfmake ne fonctionne pas, essayez de désactiver les extensions du navigateur.
+
+
+
+> **Note:** AdBlock
+
+
+La description complète est disponible dans cette [issue](https://github.com/bpampuch/pdfmake/issues/800).
+
+---
+
+# Exemples de la communauté
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/getting-started/examples-from-comunity/
+
+- [Exemple avec Vue.js](https://github.com/bpampuch/pdfmake/issues/2498)
+- [Exemple avec React Native](https://github.com/ieschalier/rn-pdfmake)
+
+---
+
+# Démarrage rapide avec Node.js
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/getting-started/server-side/
+
+## Installer
+
+Utilisez Node.js **20 ou ultérieur**. Créez une application et installez pdfmake :
+
+```sh
+npm init -y
+npm install pdfmake@0.3.13
+```
+
+La version exacte rend cet exemple reproductible. Consultez les notes de version et effectuez des tests avant de choisir un correctif plus récent.
+
+## Écrire votre premier PDF
+
+Enregistrez cet exemple complet sous `first-pdf.cjs`, puis exécutez `node first-pdf.cjs`.
+
+**JavaScript**
+
+```js
+// docs-test: node-quickstart
+const pdfmake = require('pdfmake');
+
+const fonts = require('pdfmake/standard-fonts/Helvetica');
+pdfmake.addFonts(fonts);
+pdfmake.setUrlAccessPolicy(() => false);
+const standardNames = new Set(Object.values(fonts.Helvetica));
+pdfmake.setLocalAccessPolicy(name => standardNames.has(name));
+
+async function main() {
+  const definition = {
+    defaultStyle: { font: 'Helvetica' },
+    content: [
+      { text: 'Hello, pdfmake!', fontSize: 24, bold: true },
+      'Your first PDF, generated in Node.js.'
+    ]
+  };
+  await pdfmake.createPdf(definition).write('document.pdf');
+}
+
+main().catch(error => { console.error(error); process.exitCode = 1; });
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+// docs-test: node-quickstart
+import pdfmake from "pdfmake";
+
+const fonts = require('pdfmake/standard-fonts/Helvetica');
+pdfmake.addFonts(fonts);
+pdfmake.setUrlAccessPolicy(() => false);
+const standardNames = new Set(Object.values(fonts.Helvetica));
+pdfmake.setLocalAccessPolicy(name => standardNames.has(name));
+
+async function main() {
+  const definition: TDocumentDefinitions = {
+    defaultStyle: { font: 'Helvetica' },
+    content: [
+      { text: 'Hello, pdfmake!', fontSize: 24, bold: true },
+      'Your first PDF, generated in Node.js.'
+    ]
+  };
+  await pdfmake.createPdf(definition).write('document.pdf');
+}
+
+main().catch(error => { console.error(error); process.exitCode = 1; });
+```
+
+`write()` se résout lorsque le fichier de sortie est fermé. Gérez le rejet des Promises afin qu’un échec de génération ne produise pas silencieusement une réponse API présentée comme réussie.
+
+Helvetica ne nécessite aucun fichier de police local ; l’exemple bloque donc les URL externes et n’autorise, via la stratégie locale, que les identifiants de polices standard. L’implémentation actuelle vérifie ces identifiants même s’il ne s’agit pas de chemins de fichiers. Les polices standard couvrent un nombre limité de caractères. Pour les documents multilingues, [enregistrez des fichiers de police adaptés](/docs/0.3/fr/fonts/) et autorisez explicitement leurs chemins résolus.
+
+## Renvoyer les octets PDF depuis une API
+
+**JavaScript**
+
+```js
+const buffer = await pdfmake.createPdf({
+  defaultStyle: { font: 'Helvetica' },
+  content: ['API document']
+}).getBuffer();
+
+// Adapt these lines to your HTTP framework:
+response.setHeader('Content-Type', 'application/pdf');
+response.setHeader('Content-Disposition', 'attachment; filename="document.pdf"');
+response.end(buffer);
+```
+
+**TypeScript**
+
+```ts
+const buffer = await pdfmake.createPdf({
+  defaultStyle: { font: 'Helvetica' },
+  content: ['API document']
+}).getBuffer();
+
+// Adapt these lines to your HTTP framework:
+response.setHeader('Content-Type', 'application/pdf');
+response.setHeader('Content-Disposition', 'attachment; filename="document.pdf"');
+response.end(buffer);
+```
+
+Cet extrait suppose que `pdfmake` est configuré comme ci-dessus et que `response` est l’objet de réponse de votre framework. Validez les données reçues avant de construire une définition. Créez une définition neuve pour chaque requête : la mise en page la modifie.
+
+## Applications ESM
+
+Le paquet Node exporte une instance configurée. Dans une application ESM, utilisez `import pdfmake from 'pdfmake'` ; ne créez pas d’instance avec `new PdfPrinter(...)` comme dans les anciens exemples. Enregistrez les polices et les stratégies une seule fois au démarrage de l’application. Évitez de modifier la configuration de l’instance partagée pendant des requêtes concurrentes.
+
+## Étapes suivantes
+
+[Méthodes de sortie](/docs/0.3/fr/getting-started/server-side/methods/) · [Accès aux ressources](/docs/0.3/fr/guides/resource-security/) · [Recette de facture](/docs/0.3/fr/guides/invoice/)
+
+---
+
+# Exemples
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/getting-started/server-side/examples/
+
+Consultez les [exemples](https://github.com/bpampuch/pdfmake/tree/master/examples) et le [script du serveur dev-playground](https://github.com/bpampuch/pdfmake/blob/master/dev-playground/server.js).
+
+---
+
+# Méthodes de sortie Node.js
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/getting-started/server-side/methods/
+
+## Créer un document
+
+**JavaScript**
+
+```js
+const output = pdfmake.createPdf(docDefinition, options);
+```
+
+**TypeScript**
+
+```ts
+const output = pdfmake.createPdf(docDefinition, options);
+```
+
+`docDefinition` est une [définition de document](/docs/0.3/fr/document-definition-object/). `options` est un [objet d’options](/docs/0.3/fr/options/) facultatif. `createPdf` renvoie immédiatement un objet de sortie ; les erreurs de génération rejettent la Promise de la méthode de sortie. Des types d’arguments invalides peuvent provoquer une exception synchrone.
+
+## Méthodes de sortie
+
+| Méthode | Valeur résolue | Utilisation |
+| --- | --- | --- |
+| `write(filename)` | `undefined` | Écrit un fichier et attend sa fermeture |
+| `getBuffer()` | `Buffer` | Renvoie les octets PDF depuis une API |
+| `getBase64()` | `string` | Encode les octets en base64 |
+| `getDataUrl()` | `string` | Préfixe le base64 avec `data:application/pdf;base64,` |
+| `getStream()` | Flux de document PDFKit | Gère directement un flux |
+
+**JavaScript**
+
+```js
+try {
+  const output = pdfmake.createPdf(docDefinition);
+  const bytes = await output.getBuffer();
+  // Send or store bytes here.
+} catch (error) {
+  // Report generation failure to your caller.
+}
+```
+
+**TypeScript**
+
+```ts
+try {
+  const output = pdfmake.createPdf(docDefinition);
+  const bytes = await output.getBuffer();
+  // Send or store bytes here.
+} catch (error) {
+  // Report generation failure to your caller.
+}
+```
+
+`getBuffer()` met sa Promise en cache ; `getBase64()` et `getDataUrl()` réutilisent ces octets. Créez un nouvel objet de sortie pour chaque rendu indépendant. Ne combinez pas la lecture manuelle d’un flux avec les méthodes de sortie buffer ou fichier sur le même objet.
+
+## Consommer un flux
+
+**JavaScript**
+
+```js
+const stream = await pdfmake.createPdf(docDefinition).getStream();
+stream.on('error', error => { /* Handle generation errors. */ });
+destination.on('error', error => { /* Handle destination errors. */ });
+stream.pipe(destination);
+stream.end();
+```
+
+**TypeScript**
+
+```ts
+const stream = await pdfmake.createPdf(docDefinition).getStream();
+stream.on('error', error => { /* Handle generation errors. */ });
+destination.on('error', error => { /* Handle destination errors. */ });
+stream.pipe(destination);
+stream.end();
+```
+
+`destination` doit être un flux inscriptible géré par votre application. Ajoutez les écouteurs avant d’appeler `end()`. Pour écrire simplement un fichier, préférez `write()`. La sortie en flux ne rend pas la mise en page incrémentale : pdfmake compose le document avant de renvoyer ce flux.
+
+## Politique d’accès aux URL
+
+Disponible depuis la version **0.3.6**. Configurez cette politique avant de créer les documents :
+
+**JavaScript**
+
+```js
+pdfmake.setUrlAccessPolicy(url => {
+  const parsed = new URL(url);
+  return parsed.protocol === 'https:' && parsed.hostname === 'assets.example.com';
+});
+```
+
+**TypeScript**
+
+```ts
+pdfmake.setUrlAccessPolicy(url => {
+  const parsed = new URL(url);
+  return parsed.protocol === 'https:' && parsed.hostname === 'assets.example.com';
+});
+```
+
+La fonction de rappel doit renvoyer **synchroniquement** la valeur booléenne `true` pour autoriser une URL. Une fonction `async` renvoie une Promise et est rejetée par l’implémentation actuelle. Une liste d’autorisation n’est qu’une couche de protection contre les SSRF ; utilisez des contrôles réseau ou fournissez des octets validés si vous traitez des entrées non fiables. Consultez la [sécurité des ressources](/docs/0.3/fr/guides/resource-security/).
+
+## Politique d’accès aux fichiers locaux
+
+Disponible depuis la version **0.3.8**. Refusez l’accès aux fichiers locaux lorsque toutes les ressources sont intégrées :
+
+**JavaScript**
+
+```js
+pdfmake.setLocalAccessPolicy(() => false);
+```
+
+**TypeScript**
+
+```ts
+pdfmake.setLocalAccessPolicy(() => false);
+```
+
+Pour les polices ou images locales, autorisez des chemins résolus exacts plutôt qu’un préfixe de chaîne. Consultez la [configuration complète des polices locales](/docs/0.3/fr/fonts/). `undefined` efface une politique configurée ; l’absence de politique ne signifie pas que tout accès est refusé.
+
+---
+
+# Versions de Node.js prises en charge
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/getting-started/server-side/supported-nodejs-versions/
+
+## Version minimale requise
+
+Le paquet 0.3.13 déclare **Node.js >=20** dans `package.json`. La matrice CI proposée couvre Node.js 20, 22 et 24 sous Linux, Windows et macOS. La couverture de compatibilité est distincte de la prise en charge de sécurité de Node.js en amont.
+
+En production, utilisez une version de Node.js encore maintenue. Consultez le [calendrier officiel des versions de Node.js](https://github.com/nodejs/Release#release-schedule) avant de choisir votre environnement. Testez vos polices, vos ressources et votre charge de génération sur la version exacte que vous déployez.
+
+---
+
+# Guides et recettes
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/guides/
+
+## Créer et gérer des documents
+
+- [Guide du playground](/docs/0.3/fr/guides/playground/) : modifiez les exemples, examinez les pages et conservez les fichiers source en local.
+- [Recette de facture](/docs/0.3/fr/guides/invoice/) : un document complet et exécutable avec tableau, totaux et numéros de page.
+- [Référence de l’API](/docs/0.3/fr/guides/api-reference/) : où placer la configuration, les définitions et les méthodes de sortie.
+- [Sécurité des ressources](/docs/0.3/fr/guides/resource-security/) : gérer les URL, les fichiers et les entrées non fiables en toute sécurité.
+- [Performances](/docs/0.3/fr/guides/performance/) : mesurer séparément la mise en page, la sortie, la mémoire et la concurrence.
+- [Dépannage](/docs/0.3/fr/guides/troubleshooting/) : diagnostiquer les problèmes de polices, d’imports, de tableaux et de génération.
+- [Intégration LLM et MCP](/docs/0.3/fr/guides/llm-and-mcp/) : documentation versionnée pour les outils d’IA, en ligne et hors ligne.
+- [Contribuer](/docs/0.3/fr/guides/contributing/) : explorer les sources et exécuter les tests de non-régression.
+
+---
+
+# API en bref
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/guides/api-reference/
+
+## Configurer une fois, générer plusieurs fois
+
+Les deux points d’entrée exposent un singleton. Configurez les polices, les règles d’accès et les mises en page au démarrage de l’application. Ne remplacez pas la configuration partagée pendant le rendu de requêtes concurrentes.
+
+| Méthode | Environnement | Comportement |
+| --- | --- | --- |
+| `addFonts(fonts)` | Les deux | Fusionne les familles de polices ; une famille fournie remplace le mappage précédent de cette famille |
+| `setFonts(fonts)` | Les deux | Remplace l’ensemble de la table de polices |
+| `clearFonts()` | Les deux | Efface les polices enregistrées |
+| `addTableLayouts(layouts)` | Les deux | Fusionne les fonctions de mise en page nommées |
+| `setTableLayouts(layouts)` | Les deux | Remplace les mises en page nommées |
+| `clearTableLayouts()` | Les deux | Efface les mises en page personnalisées |
+| `setProgressCallback(callback)` | Les deux | Reçoit la progression du rendu ; ce n’est pas un profileur de mise en page |
+| `setUrlAccessPolicy(callback)` | Les deux, depuis 0.3.6 | Autorise les URL de ressources uniquement si la fonction renvoie `true` de façon synchrone |
+| `setLocalAccessPolicy(callback)` | Node, depuis 0.3.8 | Autorise les ressources locales uniquement si la fonction renvoie `true` de façon synchrone |
+| `addVirtualFileSystem(vfs)` | Navigateur | Ajoute des données de police ou de ressource encodées en base64 au système de fichiers virtuel |
+| `addFontContainer(container)` | Navigateur | Enregistre un conteneur de polices empaqueté |
+
+## Générer
+
+`createPdf(docDefinition, options?)` accepte des objets et renvoie un conteneur de sortie. Utilisez les [champs de document](/docs/0.3/fr/document-definition-object/) dans le premier argument et les [options de rendu](/docs/0.3/fr/options/) dans le second.
+
+| Sortie | Node | Navigateur |
+| --- | --- | --- |
+| `getBuffer()`, `getBase64()`, `getDataUrl()`, `getStream()` | Oui | Oui |
+| `write(filename)` | Oui | Non |
+| `download(filename?)`, `open(window?)`, `print(window?)`, `getBlob()` | Non | Oui |
+
+Toutes les fonctions de sortie renvoient des Promises. Gérez toujours leur rejet. Le conteneur renvoyé par `createPdf` n’est pas une Promise. Consultez les détails du cycle de vie pour les [méthodes Node](/docs/0.3/fr/getting-started/server-side/methods/) et les [méthodes navigateur](/docs/0.3/fr/getting-started/client-side/methods/).
+
+---
+
+# Contribuer et architecture du code source
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/guides/contributing/
+
+## Plan du code source
+
+La bibliothèque et ce site sont hébergés dans des dépôts distincts :
+
+- [bpampuch/pdfmake](https://github.com/bpampuch/pdfmake) : moteur, bundles, tests et exemples.
+- [pdfmake/docs](https://github.com/pdfmake/docs) : ce site de documentation versionné et ses outils.
+
+Le point d’entrée Node de la bibliothèque est `src/index.js` ; la configuration commune se trouve dans `src/base.js`. L’intégration navigateur se trouve dans `src/browser-extensions/`. `Printer` prépare les ressources et crée la sortie PDFKit. `DocPreprocessor` normalise les nœuds, `DocMeasure` et `TextInlines` les mesurent, `LayoutBuilder` et `TableProcessor` gèrent la pagination, et `Renderer` écrit les instructions de dessin PDFKit.
+
+## Valider les changements du moteur
+
+```sh
+npm ci
+npm test
+npm run build:examples
+npm run test:package
+```
+
+`npm test` construit les artefacts Node et navigateur générés, puis exécute Mocha et ESLint. Les tests unitaires importent le dossier compilé `js/` : reconstruisez-le après toute modification de `src/`. Ne modifiez pas directement `js/` ou `build/`. Le nouveau test de fumée du paquet installe l’archive réelle dans un consommateur temporaire avec les dépendances de production, puis teste la sortie Node et les deux bundles navigateur. Il ne remplace pas les tests dans de vrais navigateurs.
+
+Lors d’une optimisation, préservez le texte, les métriques de police, l’héritage des styles et la pagination. Ajoutez un test de régression pour le cas limite et, si possible, une comparaison avec le comportement précédent. Gardez les benchmarks de performance séparés des contrôles de correction.
+
+## Valider les changements de documentation
+
+Utilisez Node >=24.11 et Hugo **0.168.0**. Depuis ce dépôt :
+
+```sh
+npm ci
+npm run docs:generate
+npm test
+npm run build
+npm run dev
+```
+
+Ouvrez l’adresse affichée par Hugo. La génération produit l’index de recherche du site, les exports Markdown et le corpus MCP depuis `content/`. Les tests vérifient les métadonnées, les exemples et le comportement MCP. La compilation vérifie les liens internes générés et les fragments de destination. Commitez les sorties régénérées avec les modifications sources afin que les clients puissent utiliser le corpus sans installer Hugo.
+
+## Versions
+
+La bibliothèque conserve son déclencheur GitHub Release en amont. Le workflow proposé vérifie la correspondance entre l’étiquette et la version, construit, teste, génère les exemples, teste un consommateur du paquet puis publie cette même archive avec provenance. Les tests locaux ne publient rien dans le registre.
+
+Le workflow de documentation construit et téléverse un artefact de revue pour les pushes et les demandes de fusion ; il ne remplace pas le site de production versionné. Toute modification du mécanisme existant de publication multi-version du site doit être coordonnée avec les responsables du dépôt.
+
+---
+
+# Erreurs et diagnostics
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/guides/errors/
+
+## Identifier dâ€™abord lâ€™Ã©tape en Ã©chec
+
+Une dÃ©finition non valide doit provoquer une erreur, plutÃ´t que dâ€™omettre du contenu sans avertissement. Il faut dÃ©terminer oÃ¹ lâ€™Ã©chec sâ€™est produit et comment cette erreur remonte dans votre application.
+
+| Ã‰tape | Ã‰chec courant | OÃ¹ le corriger |
+| --- | --- | --- |
+| Analyse JavaScript | Virgule, guillemet ou accolade fermante manquante | Ã‰diteur de code ; la bibliothÃ¨que nâ€™a pas encore Ã©tÃ© appelÃ©e |
+| ExÃ©cution de la dÃ©finition | `ReferenceError` ou Ã©chec dâ€™une fonction de rappel | Code de lâ€™application qui construit la dÃ©finition |
+| Structure du document | Type de nÅ“ud mal orthographiÃ©, lignes de tableau ou liste non valides | Chemin de dÃ©finition signalÃ© |
+| Chargement des ressources | Police manquante, URL refusÃ©e, image illisible | Enregistrement des polices/ressources et rÃ¨gles dâ€™accÃ¨s |
+| Mise en page/rendu | Contenu trop volumineux, dimensions non valides ou fonction de rappel en Ã©chec | Plus petite dÃ©finition permettant de reproduire le problÃ¨me |
+| Sortie | Flux fermÃ©, droits dâ€™Ã©criture ou Ã©chec de destination | Gestion des erreurs de buffer, flux ou fichier |
+
+## Toujours attendre la sortie
+
+**JavaScript**
+
+```js
+async function generateReport(pdfmake, definition) {
+  try {
+    return await pdfmake.createPdf(definition).getBuffer();
+  } catch (error) {
+    console.error('PDF generation failed', {
+      message: error.message,
+      code: error.code,
+      phase: error.phase,
+      path: error.path
+    });
+    throw error;
+  }
+}
+```
+
+**TypeScript**
+
+```ts
+async function generateReport(pdfmake, definition) {
+  try {
+    return await pdfmake.createPdf(definition).getBuffer();
+  } catch (error) {
+    console.error('PDF generation failed', {
+      message: error.message,
+      code: error.code,
+      phase: error.phase,
+      path: error.path
+    });
+    throw error;
+  }
+}
+```
+
+Renvoyez lâ€™erreur Ã  lâ€™appelant de lâ€™API ou affichez `error.message` dans lâ€™interface. Ne rÃ©pondez pas avec un PDF vide et nâ€™annoncez pas un succÃ¨s aprÃ¨s avoir ignorÃ© le rejet. Ã‰vitez de journaliser le contenu du document ou les identifiants privÃ©s des ressources.
+
+Depuis 0.3.13, `getStream()` rejette l’accès à un flux déjà consommé. Les méthodes basées sur un buffer réutilisent les octets mis en cache ; `write()` dans Node accepte aussi une sortie déjà lue avec `getBuffer()`, `getBase64()` ou `getDataUrl()`. Créez une nouvelle instance de sortie pour obtenir un nouveau flux brut.
+
+## Lire le chemin dans le document
+
+La branche locale dâ€™amÃ©lioration de la bibliothÃ¨que ajoute des diagnostics `PDFMAKE_INVALID_DOCUMENT` avec `phase: 'preprocess'` et une propriÃ©tÃ© `path`. Par exemple :
+
+```text
+Unrecognized document structure: ...
+Document path: content[0].columns[0].ul[1]
+```
+
+Ce chemin dÃ©signe le deuxiÃ¨me Ã©lÃ©ment de liste dans la premiÃ¨re colonne du premier nÅ“ud du corps. Cherchez une faute telle que `{ txt: 'Hello' }` Ã  la place de `{ text: 'Hello' }`. Pour des lignes de tableau mal formÃ©es, le diagnostic indique la ligne et le nombre de cellules attendu. Les tableaux vides prÃ©cisent que `table.body` doit contenir des tableaux de lignes non vides. Conservez les objets `{}` de remplacement pour les cellules fusionnÃ©es. Le texte dâ€™erreur existant est maintenu ; lorsque les champs de diagnostic sont disponibles, les appelants doivent les utiliser au lieu dâ€™analyser les chaÃ®nes de message.
+
+Ces diagnostics structurÃ©s sont **nouveaux dans la branche locale dâ€™amÃ©lioration** ; le paquet publiÃ© 0.3.13 ne les contient pas encore. Les erreurs gÃ©nÃ©riques comportent toujours un message. La branche rejette Ã©galement les flux de buffer fermÃ©s prÃ©maturÃ©ment au lieu de laisser leur Promise en attente.
+
+## Erreurs de syntaxe dans le playground
+
+Lâ€™Ã©diteur analyse la dÃ©finition avant son exÃ©cution, marque lâ€™emplacement fautif et affiche la ligne et la colonne. **Aller Ã  lâ€™erreur dans lâ€™Ã©diteur** place le curseur Ã  cet endroit. Lâ€™annulation/restauration et le panneau dâ€™erreurs permettent de corriger le problÃ¨me sans perdre le travail. Avec lâ€™aperÃ§u en direct, le dernier PDF gÃ©nÃ©rÃ© avec succÃ¨s reste visible pendant les modifications et les Ã©checs, mais son tÃ©lÃ©chargement est dÃ©sactivÃ© sâ€™il ne correspond plus au code actuel.
+
+## RÃ©duire les Ã©checs difficiles Ã  diagnostiquer
+
+Conservez les mÃªmes polices et le mÃªme environnement dâ€™exÃ©cution. Remplacez le corps par un seul paragraphe, puis rÃ©ajoutez les blocs jusquâ€™Ã  ce que le problÃ¨me rÃ©apparaisse. Pour les tableaux, vÃ©rifiez les longueurs des lignes et les fusions avant dâ€™ajuster les largeurs. En cas dâ€™Ã©chec liÃ© aux ressources, commencez par une police locale connue et une image intÃ©grÃ©e. Consultez [DÃ©pannage](/docs/0.3/fr/guides/troubleshooting/) pour dÃ©couvrir dâ€™autres symptÃ´mes.
+
+## Valider la définition complète avant le rendu
+
+L’API locale non publiée `validateDocument(input, options)` vérifie toutes les propriétés déclarées du document et rassemble plusieurs erreurs avec leurs chemins. Elle contrôle aussi les tableaux, les cellules fusionnées, les références, les plages numériques et les cycles. Elle ne modifie pas l’entrée, n’exécute aucun callback et n’accède à aucune ressource. Les propriétés inconnues produisent des avertissements ; `strict: true` les transforme en erreurs.
+
+**JavaScript**
+
+```js
+const input = { content: [{ text: 'Report', fontSize: 'large' }] };
+const report = pdfMake.validateDocument(input, { strict: true });
+for (const issue of report.errors) {
+  console.error(issue.path, issue.code, issue.message);
+}
+```
+
+**TypeScript**
+
+```ts
+const input = { content: [{ text: 'Report', fontSize: 'large' }] };
+const report = pdfMake.validateDocument(input, { strict: true });
+for (const issue of report.errors) {
+  console.error(issue.path, issue.code, issue.message);
+}
+```
+
+Le résultat contient `valid`, `errors`, `warnings`, `deferred` et `truncated`. Chaque diagnostic contient `path`, `code`, `severity` et `message`. Limites par défaut : 100 diagnostics, 100 niveaux et 50 000 valeurs inspectées. Une limite atteinte ne donne jamais un résultat valide. Les résultats des callbacks, la disponibilité et le décodage des ressources ainsi que la mise en page finale restent vérifiés pendant le rendu. Le code JavaScript doit déjà être syntaxiquement valide pour appeler cette API objet.
+
+Passez `{ validation: true }` comme deuxième argument à `createPdf` pour rejeter une définition incorrecte avant de charger les ressources. Le document invalide lève un `DocumentValidationError` avec `code: "PDFMAKE_VALIDATION_ERROR"`, `phase: "validation"` et un tableau `diagnostics`. Les appels existants restent compatibles ; cette vérification préalable est facultative. Le playground local l’exécute automatiquement avec la bibliothèque améliorée.
+
+---
+
+# Recette de facture
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/guides/invoice/
+
+## Exécuter l’exemple
+
+Installez `pdfmake@0.3.13`, enregistrez ce fichier sous `invoice.cjs` et lancez `node invoice.cjs`. L’exemple utilise Helvetica standard et du contenu ASCII afin d’éviter les ressources externes. Pour une couverture linguistique plus large, utilisez des polices incorporées.
+
+**JavaScript**
+
+```js
+// docs-test: invoice
+const pdfmake = require('pdfmake');
+const fonts = require('pdfmake/standard-fonts/Helvetica');
+pdfmake.addFonts(fonts);
+pdfmake.setUrlAccessPolicy(() => false);
+const standardNames = new Set(Object.values(fonts.Helvetica));
+pdfmake.setLocalAccessPolicy(name => standardNames.has(name));
+
+async function main() {
+  const items = [
+    { description: 'Design services', quantity: 2, unitPriceCents: 12500 },
+    { description: 'Document review', quantity: 1, unitPriceCents: 7500 }
+  ];
+  const money = cents => (cents / 100).toFixed(2) + ' EUR';
+  const total = items.reduce((sum, item) => sum + item.quantity * item.unitPriceCents, 0);
+  const definition = {
+    defaultStyle: { font: 'Helvetica', fontSize: 10 },
+    pageMargins: [40, 50, 40, 50],
+    info: { title: 'Invoice INV-001', author: 'Example Studio' },
+    footer: (page, pages) => ({ text: `Page ${page} of ${pages}`, alignment: 'center', fontSize: 9 }),
+    content: [
+      { text: 'INVOICE', style: 'title' },
+      { columns: ['Example Studio', { text: 'INV-001', alignment: 'right' }], margin: [0, 0, 0, 20] },
+      { layout: 'lightHorizontalLines', table: {
+        headerRows: 1,
+        widths: ['*', 'auto', 'auto', 'auto'],
+        body: [
+          ['Description', 'Qty', 'Unit price', 'Amount'].map(text => ({ text, bold: true })),
+          ...items.map(item => [item.description, item.quantity, money(item.unitPriceCents),
+            { text: money(item.quantity * item.unitPriceCents), alignment: 'right' }])
+        ]
+      } },
+      { text: 'Total: ' + money(total), alignment: 'right', bold: true, margin: [0, 16, 0, 0] }
+    ],
+    styles: { title: { fontSize: 28, bold: true, margin: [0, 0, 0, 16] } }
+  };
+  await pdfmake.createPdf(definition).write('invoice.pdf');
+}
+
+main().catch(error => { console.error(error); process.exitCode = 1; });
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+// docs-test: invoice
+import pdfmake from "pdfmake";
+const fonts = require('pdfmake/standard-fonts/Helvetica');
+pdfmake.addFonts(fonts);
+pdfmake.setUrlAccessPolicy(() => false);
+const standardNames = new Set(Object.values(fonts.Helvetica));
+pdfmake.setLocalAccessPolicy(name => standardNames.has(name));
+
+async function main() {
+  const items = [
+    { description: 'Design services', quantity: 2, unitPriceCents: 12500 },
+    { description: 'Document review', quantity: 1, unitPriceCents: 7500 }
+  ];
+  const money = (cents: number) => (cents / 100).toFixed(2) + ' EUR';
+  const total = items.reduce((sum, item) => sum + item.quantity * item.unitPriceCents, 0);
+  const definition: TDocumentDefinitions = {
+    defaultStyle: { font: 'Helvetica', fontSize: 10 },
+    pageMargins: [40, 50, 40, 50],
+    info: { title: 'Invoice INV-001', author: 'Example Studio' },
+    footer: (page, pages) => ({ text: `Page ${page} of ${pages}`, alignment: 'center', fontSize: 9 }),
+    content: [
+      { text: 'INVOICE', style: 'title' },
+      { columns: ['Example Studio', { text: 'INV-001', alignment: 'right' }], margin: [0, 0, 0, 20] },
+      { layout: 'lightHorizontalLines', table: {
+        headerRows: 1,
+        widths: ['*', 'auto', 'auto', 'auto'],
+        body: [
+          ['Description', 'Qty', 'Unit price', 'Amount'].map(text => ({ text, bold: true })),
+          ...items.map(item => [item.description, item.quantity, money(item.unitPriceCents),
+            { text: money(item.quantity * item.unitPriceCents), alignment: 'right' }])
+        ]
+      } },
+      { text: 'Total: ' + money(total), alignment: 'right', bold: true, margin: [0, 16, 0, 0] }
+    ],
+    styles: { title: { fontSize: 28, bold: true, margin: [0, 0, 0, 16] } }
+  };
+  await pdfmake.createPdf(definition).write('invoice.pdf');
+}
+
+main().catch(error => { console.error(error); process.exitCode = 1; });
+```
+
+## Adapter l’exemple à votre application
+
+Il s’agit d’un exemple de mise en page, pas d’une implémentation fiscale ou comptable. Validez les quantités et les prix avant de générer la définition. Cet exemple utilise des centimes entiers pour éviter l’accumulation d’erreurs décimales ; appliquez séparément les règles d’arrondi de votre domaine. Pour une réponse HTTP, remplacez `write()` par `getBuffer()`, comme dans le [démarrage rapide Node.js](/docs/0.3/fr/getting-started/server-side/).
+
+`headerRows: 1` répète l’en-tête du tableau lorsque les lignes se poursuivent sur une nouvelle page. Chaque ligne doit avoir la même longueur que `widths`. Créez une nouvelle définition pour chaque facture.
+
+---
+
+# Intégration LLM et MCP
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/guides/llm-and-mcp/
+
+## Utiliser la documentation sans MCP
+
+Chaque page est disponible en Markdown généré. La même source produit :
+
+- [llms.txt](/docs/0.3/fr/llms.txt) : index des pages avec descriptions et liens Markdown.
+- [llms-full.txt](/docs/0.3/fr/llms-full.txt) : corpus Markdown versionné complet.
+- [docs-index.json](/docs/0.3/fr/docs-index.json) : identifiants, titres, descriptions, URL sources et Markdown complet des pages.
+
+Ces fichiers facilitent la découverte ; ils ne garantissent ni l’indexation par un moteur de recherche ni celle par un modèle. Indiquez dans votre prompt la version de la bibliothèque installée. Demandez au modèle de citer la page et d’utiliser les méthodes de sortie basées sur Promise. Le fichier `AGENTS.md` de la bibliothèque explique le pipeline source et les commandes de test destinées aux agents de programmation.
+
+## Exécuter le serveur MCP local
+
+Clonez le dépôt de documentation, installez ses dépendances, générez le corpus et démarrez le serveur :
+
+```sh
+git clone https://github.com/pdfmake/docs.git
+cd docs
+npm ci
+npm run docs:generate
+node mcp/server.mjs
+```
+
+Ce serveur fait partie de la branche d’amélioration locale jusqu’à son acceptation en amont. Démarrez-le au moyen de la configuration stdio de votre client MCP, en utilisant des chemins absolus :
+
+```json
+{
+  "mcpServers": {
+    "pdfmake-docs": {
+      "command": "node",
+      "args": ["/absolute/path/to/docs/mcp/server.mjs"]
+    }
+  }
+}
+```
+
+Remplacez le chemin d’exemple par celui de votre clone. Dans un JSON Windows, utilisez `/` ou échappez les antislashs avec `\\`. L’emplacement de la configuration dépend du client. Le serveur écrit les messages du protocole sur stdout et les erreurs sur stderr. Après l’installation des dépendances, aucune clé API, aucun compte de modèle ni connexion réseau n’est nécessaire.
+
+## Outils et ressources
+
+| Capacité | Entrée | Résultat |
+| --- | --- | --- |
+| `search_docs` | `query`, `limit` facultatif (1–10), `language` facultatif | Pages classées avec identifiants exacts, langue, version, URL sources et extraits |
+| `get_doc` | `id` exact issu de la recherche | Page Markdown complète |
+| Ressources MCP | `pdfmake://docs/0.3/<id>` | Même page Markdown versionnée |
+
+Le serveur ne peut lire que son corpus de documentation intégré. Il ne peut pas générer de PDF, exécuter du code d’exemple, lire des chemins du système de fichiers choisis par l’appelant ni parcourir des URL distantes. Régénérez le corpus et redémarrez le serveur après toute modification de la documentation.
+
+`language` accepte `en` (par défaut), `de`, `fr`, `es` et `pt-br`. Chaque langue prise en charge contient le même ensemble complet de pages de documentation. La recherche ne mélange jamais silencieusement les langues. Un identifiant traduit, tel que `de/learn/first-pdf`, peut être lu avec `get_doc` ou la ressource `pdfmake://docs/0.3/de/learn/first-pdf`. Chaque langue possède également ses propres fichiers de découverte, par exemple `/docs/0.3/de/llms.txt` et `/docs/0.3/de/llms-full.txt`.
+
+## Exemple de prompt
+
+> J’utilise pdfmake 0.3.x dans Node.js. Consulte la documentation correspondant à cette version avant de générer du code. Utilise l’API singleton Node, enregistre les polices, configure des politiques de ressources synchrones, attends la sortie et cite les identifiants des pages utilisées. Crée une nouvelle définition de document pour chaque requête.
+
+---
+
+# Performances et mémoire
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/guides/performance/
+
+## Mesurer votre charge de travail
+
+Évaluez des documents représentatifs avec la même version de Node, les mêmes polices et les mêmes données d’entrée. Notez la latence médiane et de queue, la mémoire maximale, le nombre de pages et la taille de sortie. Séparez le démarrage à froid et le chargement des polices des rendus répétés. Comparez distinctement les documents contenant de nombreux tableaux, de longs textes ou beaucoup d’images.
+
+**JavaScript**
+
+```js
+const start = performance.now();
+const bytes = await pdfmake.createPdf(makeFreshDefinition()).getBuffer();
+console.log({ milliseconds: performance.now() - start, bytes: bytes.length });
+```
+
+**TypeScript**
+
+```ts
+const start = performance.now();
+const bytes = await pdfmake.createPdf(makeFreshDefinition()).getBuffer();
+console.log({ milliseconds: performance.now() - start, bytes: bytes.length });
+```
+
+`makeFreshDefinition()` est votre propre fonction de création. Ne réutilisez pas une définition déjà modifiée par la mise en page. Vérifiez aussi le texte, le nombre de pages et des pages rendues représentatives, pas seulement la vitesse.
+
+## Réduire le travail évitable
+
+- Placez les images répétées dans le dictionnaire `images` et référencez-les par leur clé. Redimensionnez les sources volumineuses avant de les intégrer ; les dimensions d’affichage ne réduisent pas leur charge utile.
+- Préférez des largeurs fixes si votre mise en page le permet. Les largeurs `auto` calculées selon le contenu nécessitent la mesure du texte ; mesurez les performances avant de remanier les tableaux.
+- Enregistrez les polices une fois. Dans les applications navigateur, ne livrez que les familles et variantes nécessaires.
+- Laissez `fontLayoutCache` activé sauf si un problème de compatibilité constaté impose de le désactiver. Consultez les [options de rendu](/docs/0.3/fr/options/).
+- Évitez base64 si votre API peut renvoyer les octets PDF binaires. Base64 représente trois octets par quatre caractères et alloue également une chaîne.
+- Utilisez `write()` ou consommez directement le flux pour éviter le Buffer concaténé supplémentaire créé par `getBuffer()` si vous avez uniquement besoin d’un fichier ou d’un flux. La mise en page a toutefois lieu avant la consommation de la sortie.
+
+## Maîtriser la concurrence
+
+Un plus grand nombre de tâches PDF simultanées peut augmenter la mémoire utilisée et le délai de la boucle d’événements. Limitez les rendus concurrents et testez le débit au lieu de mesurer seulement une requête. Utilisez des threads worker ou des processus séparés si le travail bloquant affecte la réactivité de l’API. Gardez la configuration mutable du singleton hors du code exécuté pour chaque requête.
+
+## Benchmark de développement de la bibliothèque
+
+La branche d’amélioration de la bibliothèque comprend `npm run benchmark:text`, à exécuter après `npm run build:node`. Le benchmark compare l’aplatissement de tableaux de texte à l’algorithme précédent avec des entrées mixtes déterministes et vérifie l’équivalence des résultats. La boucle optimisée évite de recopier les préfixes à répétition. Son gain de vitesse concerne uniquement cet utilitaire ; il ne porte pas sur la durée totale de génération PDF.
+
+Les seuils de temps sont volontairement exclus de l’intégration continue, car les exécuteurs partagés produisent des mesures variables. Utilisez les tests de correction comme critères de validation et conservez les résultats du benchmark avec les détails de l’environnement pour la revue.
+
+---
+
+# Guide du playground
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/guides/playground/
+
+## Apprendre en modifiant le code
+
+Ouvrez le [playground](/docs/0.3/fr/playground/), choisissez un exemple et modifiez la définition dans le panneau de gauche. Le panneau de droite affiche un véritable PDF rendu avec PDF.js. Lorsque l’aperçu en direct est activé, le PDF se met automatiquement à jour après vos modifications. Sélectionnez **Run** ou appuyez sur **Ctrl/Commande + Entrée** pour lancer immédiatement le rendu.
+
+L’éditeur CodeMirror 6 propose la coloration syntaxique, les numéros de ligne, l’appariement des parenthèses, l’indentation, les boutons Undo/Redo, un historique d’annulation conservé et des diagnostics de syntaxe indiquant la ligne et la colonne. **Go to error** place le curseur sur l’emplacement fautif. L’éditeur propose aussi des complétions. Utilisez **Ctrl + Espace** pour les afficher. Les noms de champs suggérés sont des indications ; la référence du document définit leur contexte, leur type et leurs valeurs valides.
+
+## Exemples
+
+| Exemple | Découverte |
+| --- | --- |
+| [Premier document](/docs/0.3/fr/playground/?example=welcome) | Texte, espacements et styles de police |
+| [Facture](/docs/0.3/fr/playground/?example=invoice) | Tableau, totaux et pied de page avec numéro de page |
+| [Tableaux](/docs/0.3/fr/playground/?example=tables) | En-têtes répétés sur plusieurs pages |
+| [Styles de texte](/docs/0.3/fr/playground/?example=styles) | Styles nommés et remplacements en ligne |
+| [Colonnes](/docs/0.3/fr/playground/?example=columns) | Blocs côte à côte et piles |
+| [Fusions](/docs/0.3/fr/playground/?example=spans) | Fusions de lignes et colonnes avec cellules de remplacement |
+| [Pages](/docs/0.3/fr/playground/?example=pages) | Sauts de page, en-têtes et pieds de page |
+| [Vecteurs](/docs/0.3/fr/playground/?example=vectors) | SVG intégrés et codes QR |
+| [Images](/docs/0.3/fr/playground/?example=images) | Données PNG intégrées réutilisées par nom |
+| [Listes](/docs/0.3/fr/playground/?example=lists) | Éléments numérotés, puces et liens |
+
+Le paramètre d’URL `example` sélectionne un exemple connu ; il n’accepte pas de JavaScript. L’aperçu en direct met aussi à jour les espaces de travail restaurés, les documents enregistrés et les fichiers importés. Désactivez **Live preview** avant d’importer du code que vous voulez examiner au préalable.
+
+## Aperçu et sortie
+
+Utilisez les flèches pour changer de page et le menu de zoom pour modifier l’échelle. **Page text** expose le texte extrait de la page PDF actuelle pour inspection et pour les technologies d’assistance. **Open PDF** ouvre le fichier généré séparément ; **Download PDF** enregistre les mêmes octets PDF. Le pied de page indique la durée de génération et la taille de sortie. La durée n’inclut pas le rendu de l’aperçu par PDF.js.
+
+L’aperçu en direct attend 650 ms après la dernière modification, puis effectue le rendu dans un nouveau worker. L’ancien PDF reste visible jusqu’à ce que la page suivante ait fini son rendu hors écran ; le canevas est alors remplacé en une seule opération. La page PDF sélectionnée et le zoom sont conservés lorsque c’est possible. Le téléchargement est désactivé tant que le PDF visible ne correspond pas au code actuel. En cas d’erreur, le dernier aperçu réussi reste affiché au lieu d’être remplacé par un panneau vide.
+
+## Conserver votre travail
+
+**Export code** télécharge la définition actuelle au format JavaScript. **Import .js** lit un fichier local. Les fichiers sont limités à 500 Ko. Désactivez **Live preview** avant d’importer du code que vous souhaitez examiner avant son exécution. Une réinitialisation ou un changement d’exemple demande confirmation avant de remplacer vos modifications.
+
+**L’espace de travail actuel est enregistré automatiquement en local**, avec la définition, la sélection de l’éditeur, l’historique d’annulation, l’exemple, la page et le zoom. Après rechargement, l’éditeur, son historique Undo/Redo et la préférence d’aperçu en direct sont restaurés. Si l’aperçu est activé, le PDF restauré est généré automatiquement et les modifications suivantes le mettent à jour sans cliquer sur Run. S’il est désactivé, le rendu reste manuel, même après rechargement.
+
+Donnez un nom au document et choisissez **Save document** pour conserver une copie locale distincte. Un nouveau nom crée un autre document enregistré ; enregistrer sous le nom sélectionné le met à jour. Le menu des documents enregistrés restaure un document et son historique. Delete supprime cette copie nommée tout en conservant le contenu actuel de l’éditeur. Vous pouvez conserver jusqu’à 30 documents nommés. Les limites de stockage du navigateur s’appliquent toujours.
+
+**Save draft locally** reste un instantané rapide distinct avec les commandes Restore/Clear. **Clear workspace autosave** supprime l’enregistrement automatique actuel et le suspend jusqu’à la prochaine saisie. Les documents nommés et les brouillons rapides sont distincts. Si le stockage du navigateur est désactivé ou plein, l’éditeur continue de fonctionner et l’export du code reste disponible. Cette application ne téléverse ni le code source ni les PDF.
+
+## Limites du rendu
+
+Chaque rendu démarre un nouveau worker de navigateur. **Cancel** l’arrête, y compris s’il est bloqué dans une boucle JavaScript. Une limite de dix secondes interrompt les traitements anormalement coûteux. Simplifiez les documents volumineux ou testez-les dans une application contrôlée lorsqu’ils dépassent la limite du playground. Ici, l’API PDF refuse l’accès aux ressources par URL distante ; utilisez des images intégrées et les polices Roboto fournies.
+
+Le JavaScript personnalisé est du code utilisateur considéré comme fiable, et non une sandbox de sécurité. N’exécutez pas de code provenant d’une source inconnue. Un worker évite que l’interface ne se bloque, mais ne constitue pas une frontière d’isolation pour du code hostile. Consultez [Sécurité des ressources](/docs/0.3/fr/guides/resource-security/) pour les recommandations applicables aux API de production.
+
+## Lancer l’outil autonome de développement
+
+Depuis une copie de travail de la bibliothèque pdfmake déjà compilée, exécutez `npm run playground`. L’outil sert la même interface avec le moteur de cette copie à `http://127.0.0.1:1234/playground/`. Il requiert Node >=22.13 pour ses outils spécifiques. La version publiée de la bibliothèque continue d’exiger Node >=20 à l’exécution. Le site de documentation peut également prévisualiser un moteur local avec `PDFMAKE_SOURCE` ; consultez le README du dépôt de documentation.
+
+---
+
+# Sécurité des ressources
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/guides/resource-security/
+
+## Traiter les définitions comme du code applicatif
+
+Une définition peut contenir des fonctions de rappel pour les en-têtes, les pieds de page, les mises en page de tableaux et les sauts de page. N’exécutez jamais le JavaScript fourni par un appelant non fiable. Acceptez des données d’application validées et construisez vous-même les définitions. Avant le rendu, limitez la taille des entrées, leur profondeur d’imbrication, les dimensions des tableaux et la taille des images.
+
+## Refuser les ressources inutiles
+
+Si toutes les ressources sont fournies sous forme de données en mémoire, refusez les chemins de ressources sous forme de chaînes :
+
+**JavaScript**
+
+```js
+pdfmake.setUrlAccessPolicy(() => false);
+pdfmake.setLocalAccessPolicy(() => false);
+```
+
+**TypeScript**
+
+```ts
+pdfmake.setUrlAccessPolicy(() => false);
+pdfmake.setLocalAccessPolicy(() => false);
+```
+
+L’implémentation actuelle transmet également les identifiants des polices standard (par exemple `Helvetica-Bold`) à la règle locale. Si vous utilisez les polices standard, autorisez leurs identifiants exacts enregistrés ; le [guide de démarrage Node](/docs/0.3/fr/getting-started/server-side/) montre cette configuration.
+
+Les règles d’accès URL nécessitent **0.3.6+** et les règles locales **0.3.8+**. Configurez-les avant d’accepter des tâches. Une règle non définie autorise le chargement de ressources ; elle ne signifie pas « tout refuser ».
+
+## Utiliser des règles synchrones
+
+L’implémentation vérifie `callback(value) === true`. N’utilisez pas de fonctions de rappel `async`, de requêtes DNS ou de Promises dans ces règles. Si la validation exige un traitement asynchrone, récupérez les ressources approuvées dans votre application, puis transmettez les données intégrées ou un fichier géré par l’application.
+
+**JavaScript**
+
+```js
+pdfmake.setUrlAccessPolicy(value => {
+  const url = new URL(value);
+  return url.protocol === 'https:' && url.hostname === 'assets.example.com' && !url.username && !url.password;
+});
+```
+
+**TypeScript**
+
+```ts
+pdfmake.setUrlAccessPolicy(value => {
+  const url = new URL(value);
+  return url.protocol === 'https:' && url.hostname === 'assets.example.com' && !url.username && !url.password;
+});
+```
+
+Cet exemple de nom d’hôte ne constitue pas une protection complète contre les attaques SSRF. Les changements DNS, les redirections, les plages d’adresses internes et les autorisations réseau du déploiement comptent également. Appliquez des contrôles réseau sortants. Sous Node.js, le résolveur vérifie chaque étape des redirections manuelles. Les navigateurs peuvent suivre des redirections avant de vérifier la règle sur l’URL finale ; les règles du navigateur ne peuvent pas contrôler chaque étape réseau.
+
+## Fichiers locaux
+
+Autorisez des chemins résolus exacts appartenant à l’application. Consultez la [configuration des polices](/docs/0.3/fr/fonts/) pour un exemple de liste d’autorisation fonctionnelle. Évitez `startsWith('fonts/')`, qui ne résout ni les traversées de répertoires ni les alias du système de fichiers. Protégez les fichiers autorisés contre le remplacement et tenez compte des liens symboliques. Ne laissez pas un appelant choisir des chemins arbitraires du serveur.
+
+## Limiter la charge
+
+La mise en page et le traitement des polices peuvent consommer processeur et mémoire avant qu’un flux de sortie soit disponible. Utilisez des files d’attente limitées et des workers isolés pour les documents volumineux ou non fiables. Un délai sur une Promise n’interrompt pas à lui seul la mise en page synchrone. Ajoutez des limites au niveau du processus si une annulation ferme est nécessaire.
+
+## Le chiffrement PDF est distinct
+
+Les [mots de passe et autorisations PDF](/docs/0.3/fr/document-definition-object/security/) s’appliquent au document produit. Ils ne sécurisent ni le réseau ni le système de fichiers de votre serveur, et n’encadrent pas l’exécution des fonctions de rappel.
+
+---
+
+# Dépannage
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/guides/troubleshooting/
+
+## Vérifier la version et l’environnement d’exécution
+
+Exécutez `npm ls pdfmake` et comparez votre import au guide de démarrage adapté. Un bundle de navigateur et le point d’entrée Node proposent des fonctions de sortie différentes. Les exemples 0.1/0.2 utilisant `new PdfPrinter(...)` ou des callbacks ne décrivent pas l’API 0.3.
+
+| Symptôme | Vérification | Correction |
+| --- | --- | --- |
+| Famille ou variante de police non définie | Nom de la famille, correspondance gras/italique, police par défaut | Enregistrez toutes les variantes utilisées et sélectionnez la famille dans `defaultStyle` |
+| Fichier introuvable ou accès refusé | Chemin réel de la police ou de l’image et règle d’accès | Utilisez des chemins existants gérés par l’application et une règle synchrone correspondante |
+| Glyphes manquants ou incorrects | Couverture de glyphes de la police sélectionnée | Incorporez une police couvrant la langue ; testez aussi le gras et l’italique |
+| Tableau vide ou mal formé | `body`, longueurs des lignes et cellules fusionnées | Fournissez des lignes non vides de longueur cohérente et des espaces réservés pour les cellules fusionnées |
+| `download` n’est pas une fonction dans Node | Environnement importé | Utilisez `write` ou `getBuffer` avec le point d’entrée Node |
+| Aucune fenêtre ne s’ouvre dans le navigateur | Geste utilisateur et bloqueur de fenêtres contextuelles | Ouvrez une fenêtre directement au clic, avant le chargement asynchrone des données |
+| URL refusée malgré une fonction d’autorisation | Type de valeur de retour | Renvoyez le booléen littéral `true` de manière synchrone ; supprimez `async` |
+| Échec de la requête HTTP d’une image | URL, règle, CORS, statut et redirections | Vérifiez l’accès dans l’environnement cible ; les navigateurs appliquent CORS |
+| Fichier incomplet ou manquant | Promise rejetée et erreurs d’écriture | Attendez `write()` et gérez son rejet avant d’annoncer la réussite |
+| La sortie change après une mise à niveau | Version, polices, entrées et valeurs par défaut | Reproduisez avec une version épinglée et comparez le texte extrait, le nombre de pages et les pages rendues |
+
+## Réduire la définition
+
+Commencez par un paragraphe simple et des polices connues comme fonctionnelles. Ajoutez les styles, les lignes de tableau et les ressources un par un. Créez une définition neuve à chaque tentative. Distinguez les erreurs de requête et de ressource des erreurs de mise en page.
+
+## Signaler un bogue utile
+
+Indiquez les versions exactes de pdfmake et de Node ou du navigateur, le système d’exploitation, une définition minimale exécutable, la configuration des polices, le comportement attendu et le comportement observé, ainsi que la trace complète pertinente. Supprimez le contenu privé et les secrets. Pour les défauts de pagination, fournissez le plus petit exemple qui reproduit encore le saut de page.
+
+---
+
+# Commencer ici
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/learn/
+
+## Commencer par un document fonctionnel
+
+Vous n’avez pas besoin de connaître toute la référence du document dès le départ. Suivez ces trois étapes :
+
+
+
+- [1. Créer votre premier PDF](/docs/0.3/fr/learn/first-pdf/): Comprenez la définition, chargez les polices et exécutez un exemple complet.
+
+
+- [2. Comprendre le modèle de document](/docs/0.3/fr/learn/document-model/): Apprenez quand utiliser un paragraphe, du texte en ligne, une pile, des colonnes ou un tableau.
+
+
+- [3. Lire les erreurs et corriger le bon élément](/docs/0.3/fr/guides/errors/): Distinguez la syntaxe JavaScript, la structure du document, les ressources et la sortie.
+
+
+
+## De quel environnement ai-je besoin ?
+
+| Choisir | Quand | Sortie |
+| --- | --- | --- |
+| [Node.js](/docs/0.3/fr/getting-started/server-side/) | Votre API ou tâche en arrière-plan crée le fichier | `write()` pour les fichiers ; `getBuffer()` pour les réponses HTTP |
+| [Navigateur](/docs/0.3/fr/getting-started/client-side/) | L’utilisateur crée le document sur son appareil | `download()`, `open()`, `print()` ou `getBlob()` |
+
+La définition de document est commune. Le chargement des polices et les méthodes de sortie dépendent de l’environnement d’exécution. Ces pages concernent **0.3.x** ; les anciens exemples utilisant `new PdfPrinter(...)` et des sorties par callback se rapportent à [0.1/0.2](/docs/0.3/fr/migration-from-0.1/).
+
+## Apprendre en observant le résultat
+
+Les exemples de ce parcours montrent la définition JavaScript exacte à côté d’un PDF réellement généré. Ouvrez-les dans le playground pour les modifier. Leur source complète figure également dans le [corpus Markdown](/docs/0.3/fr/llms-full.txt), y compris le code qui serait autrement généré par les composants d’exemples interactifs.
+
+---
+
+# Le modèle de document
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/learn/document-model/
+
+## Partir du contenu
+
+`content` décrit le corps du PDF. Une chaîne simple est un paragraphe. Un tableau `content` est une séquence verticale de blocs. Un objet décrit un nœud avec des propriétés supplémentaires. pdfmake calcule les positions ; en général, vous n’avez pas à indiquer de coordonnées.
+
+**JavaScript**
+
+```js
+const dd = {
+  content: [
+    'One paragraph.',
+    { text: 'Another paragraph.', bold: true },
+    { text: ['One paragraph with ', { text: 'an emphasized part', italics: true }] }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+const dd: TDocumentDefinitions = {
+  content: [
+    'One paragraph.',
+    { text: 'Another paragraph.', bold: true },
+    { text: ['One paragraph with ', { text: 'an emphasized part', italics: true }] }
+  ]
+};
+```
+
+Le tableau `text` imbriqué crée des **segments en ligne dans le même paragraphe**. Un tableau `content` ou une `stack` crée des **blocs distincts**. Cette différence explique de nombreux retours à la ligne surprenants lorsque l’on commence à construire des définitions.
+
+## Choisir un conteneur
+
+| Besoin | Nœud | Erreur courante |
+| --- | --- | --- |
+| Plusieurs paragraphes partageant un style | `{ stack: [...] }` | Essayer d’affecter directement des propriétés de style à un tableau |
+| Blocs indépendants côte à côte | `{ columns: [...] }` | S’attendre à l’alignement des lignes d’un tableau |
+| Lignes et cellules alignées | `{ table: { body: [...] } }` | Omettre les cellules de remplacement après `colSpan` ou `rowSpan` |
+| Éléments à puces ou numérotés | `{ ul: [...] }` ou `{ ol: [...] }` | Fournir une chaîne là où un tableau d’éléments est attendu |
+| Styles mélangés sur une même ligne | `{ text: [...] }` | Utiliser une pile, qui crée des blocs distincts |
+
+
+
+### Runnable example: 05 · Columns & stacks
+
+**JavaScript**
+
+```js
+var dd = {
+  content: [
+    { text: 'Two perspectives', fontSize: 26, bold: true, margin: [0, 0, 0, 20] },
+    { columnGap: 24, columns: [
+      { width: '*', stack: [{ text: 'The essentials', bold: true }, 'This column takes an equal share of the available width.', { ul: ['Text', 'Lists', 'Nested blocks'] }] },
+      { width: '*', stack: [{ text: 'The details', bold: true }, 'Use fixed widths, auto widths or star widths to describe your layout.'] }
+    ] }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = {
+  content: [
+    { text: 'Two perspectives', fontSize: 26, bold: true, margin: [0, 0, 0, 20] },
+    { columnGap: 24, columns: [
+      { width: '*', stack: [{ text: 'The essentials', bold: true }, 'This column takes an equal share of the available width.', { ul: ['Text', 'Lists', 'Nested blocks'] }] },
+      { width: '*', stack: [{ text: 'The details', bold: true }, 'Use fixed widths, auto widths or star widths to describe your layout.'] }
+    ] }
+  ]
+};
+```
+
+[See the rendered PDF and edit this example](https://pdfmake.github.io/docs/0.3/fr/playground/?example=columns)
+
+
+
+## Placer les paramètres au bon niveau
+
+| Niveau | Exemples | Rôle |
+| --- | --- | --- |
+| Configuration de l’application | `addFonts`, `addTableLayouts`, règles d’accès aux ressources | Enregistrer des ressources réutilisables avant le démarrage des tâches |
+| Définition du document | `content`, `styles`, `defaultStyle`, `pageMargins`, `footer` | Décrire un PDF |
+| Nœud individuel | `text`, `fontSize`, `bold`, `margin`, `pageBreak` | Décrire un élément de contenu |
+| Deuxième argument de `createPdf` | `fontLayoutCache`, `bufferPages` | Régler les options du moteur |
+
+Dans un service Node, enregistrez une fois les polices et règles partagées. Construisez une définition neuve pour chaque tâche : la mise en page ajoute des mesures et positions aux nœuds. Évitez de modifier la configuration de l’instance pdfmake partagée pendant des requêtes concurrentes.
+
+## Comprendre unités et largeurs
+
+Les dimensions sont exprimées en points. Une marge à quatre valeurs suit l’ordre `[gauche, haut, droite, bas]`. Une valeur numérique de largeur est fixe et exprimée en points ; `'auto'` suit le contenu ; `'*'` partage l’espace restant avec les autres colonnes étoilées. Commencez par des largeurs fixes ou étoilées, puis utilisez le dimensionnement selon le contenu lorsqu’il répond à un besoin réel.
+
+## Poursuivre avec la référence
+
+[Styles](/docs/0.3/fr/document-definition-object/styling/) · [Tableaux](/docs/0.3/fr/document-definition-object/tables/) · [Images](/docs/0.3/fr/document-definition-object/images/) · [Mise en page](/docs/0.3/fr/document-definition-object/page/)
+
+---
+
+# Votre premier PDF
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/learn/first-pdf/
+
+## 1. Comprendre les deux éléments nécessaires
+
+pdfmake a besoin d’un **moteur avec des polices** et d’une **définition de document**. Cette définition est un objet JavaScript qui décrit ce qu’il faut imprimer. Ce n’est pas du HTML et elle ne dessine rien tant que vous ne la transmettez pas à `createPdf` et ne demandez pas une sortie.
+
+Pour votre premier essai, utilisez dans le navigateur l’exemple ci-dessous. Le moteur et la police Roboto y sont déjà configurés. Suivez ensuite à l’étape 3 les instructions de configuration de votre environnement.
+
+## 2. Examiner une définition complète
+
+Le résultat ci-dessous est généré exactement à partir de ce code. Les trois éléments `content` deviennent trois blocs verticaux. Le texte revient automatiquement à la ligne ; les marges et tailles de police sont mesurées en points PDF (72 points = 1 pouce).
+
+
+
+### Runnable example: 01 · First document
+
+**JavaScript**
+
+```js
+// Define a fresh document in dd. Ctrl/⌘ + Enter to run.
+var dd = {
+  content: [
+    { text: 'Make something clear.', fontSize: 30, bold: true, color: '#08786b', margin: [0, 0, 0, 16] },
+    'A paragraph, a table, a report. Start here and make it yours.',
+    { text: 'Built with pdfmake', italics: true, color: '#667d73', margin: [0, 20, 0, 0] }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+// Define a fresh document in dd. Ctrl/⌘ + Enter to run.
+var dd: TDocumentDefinitions = {
+  content: [
+    { text: 'Make something clear.', fontSize: 30, bold: true, color: '#08786b', margin: [0, 0, 0, 16] },
+    'A paragraph, a table, a report. Start here and make it yours.',
+    { text: 'Built with pdfmake', italics: true, color: '#667d73', margin: [0, 20, 0, 0] }
+  ]
+};
+```
+
+[See the rendered PDF and edit this example](https://pdfmake.github.io/docs/0.3/fr/playground/?example=welcome)
+
+
+
+Modifiez le titre ou la taille de police dans le playground. Si l’aperçu en direct est activé, le PDF apparaît après une pause de saisie. Vous pouvez annuler des modifications, enregistrer des documents nommés dans le navigateur ou exporter un fichier JavaScript.
+
+## 3. Configurer votre application
+
+Choisissez **une** configuration. Ne combinez pas l’entrée Node avec des méthodes de sortie réservées au navigateur.
+
+| Environnement | Configuration | Pourquoi les polices comptent |
+| --- | --- | --- |
+| API Node.js | [Démarrage rapide complet avec Node](/docs/0.3/fr/getting-started/server-side/) | Enregistrez des fichiers de police réels ou une famille standard avant le rendu |
+| Application navigateur | [Démarrage rapide complet dans le navigateur](/docs/0.3/fr/getting-started/client-side/) | Chargez `pdfmake.min.js`, puis un VFS de polices, ou enregistrez-le dans votre bundler |
+
+L’exemple utilise `Roboto`, la police par défaut du navigateur. Si vous l’utilisez avec la configuration Helvetica standard du guide Node, ajoutez `defaultStyle: { font: 'Helvetica' }` à la définition ou enregistrez les fichiers Roboto. Le texte Unicode exige également une police couvrant les caractères utilisés ; une chaîne valide ne fournit pas les glyphes manquants.
+
+## 4. Demander une sortie et gérer les erreurs
+
+Dans une application navigateur configurée :
+
+**JavaScript**
+
+```js
+try {
+  await pdfMake.createPdf(dd).download('first-document.pdf');
+} catch (error) {
+  document.querySelector('#status').textContent = error.message;
+}
+```
+
+**TypeScript**
+
+```ts
+try {
+  await pdfMake.createPdf(dd).download('first-document.pdf');
+} catch (error) {
+  document.querySelector('#status').textContent = error.message;
+}
+```
+
+Ici, `dd` est la définition ci-dessus et `#status` est un élément de votre application. Dans Node.js, utilisez plutôt `await pdfmake.createPdf(dd).write('first-document.pdf')`. `createPdf` renvoie un objet de sortie ; la méthode de sortie renvoie la Promise à attendre. Sans `await` ou `.catch(...)`, un échec de génération peut ne jamais remonter jusqu’à votre interface.
+
+## 5. Ajouter les notions une à une
+
+Conservez le premier document fonctionnel. Ajoutez ensuite des [styles nommés](/docs/0.3/fr/document-definition-object/styling/), puis des [tableaux](/docs/0.3/fr/document-definition-object/tables/) lorsque vous avez besoin de lignes. Utilisez le [modèle de document](/docs/0.3/fr/learn/document-model/) pour choisir un type de nœud. En cas d’échec, [classez l’erreur](/docs/0.3/fr/guides/errors/) avant de modifier en même temps les polices, la mise en page et les ressources.
+
+---
+
+# Migration depuis 0.1/0.2
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/migration-from-0.1/
+
+## Mettre à niveau avec précaution
+
+Épinglez la version que vous évaluez. Conservez des PDF représentatifs et les entrées et polices qui les génèrent. Avant une mise à niveau en production, comparez le texte extrait, le nombre de pages et les pages rendues. Une égalité octet par octet est souvent inadaptée, car les métadonnées et identifiants PDF peuvent varier.
+
+## Remplacer l’API de constructeur Node
+
+Les anciens exemples Node instancient `PdfPrinter` et appellent `createPdfKitDocument`. Dans 0.3, utilisez le singleton :
+
+**JavaScript**
+
+```js
+const pdfmake = require('pdfmake');
+pdfmake.addFonts(fonts);
+await pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+**TypeScript**
+
+```ts
+import pdfmake from "pdfmake";
+pdfmake.addFonts(fonts);
+await pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+`fonts` doit être une table de familles valide, comme dans le [démarrage Node](/docs/0.3/fr/getting-started/server-side/) et le [guide des polices](/docs/0.3/fr/fonts/). Configurez les règles d’accès et les mises en page au démarrage ; évitez de modifier l’état partagé du singleton à chaque requête.
+
+## Attendre les fonctions de sortie
+
+Remplacez les sorties navigateur basées sur des callbacks par des Promises :
+
+**JavaScript**
+
+```js
+const data = await pdfMake.createPdf(docDefinition).getBase64();
+```
+
+**TypeScript**
+
+```ts
+const data = await pdfMake.createPdf(docDefinition).getBase64();
+```
+
+Gérez les rejets des fonctions de sortie. Consultez les [méthodes Node](/docs/0.3/fr/getting-started/server-side/methods/) ou les [méthodes navigateur](/docs/0.3/fr/getting-started/client-side/methods/) selon l’environnement visé.
+
+## Régénérer le stockage des polices du navigateur
+
+Régénérez les fichiers VFS personnalisés et utilisez `addVirtualFileSystem` pour les enregistrer. Ne supposez pas qu’un ancien fichier de polices généré a la même structure que le bundle actuel. Consultez les [polices VFS](/docs/0.3/fr/fonts/custom-fonts-client-side/vfs/).
+
+## Mettre à jour pageBreakBefore
+
+La version 0.1/0.2 transmettait des tableaux de nœuds distincts. La version 0.3 transmet un conteneur de nœuds :
+
+**JavaScript**
+
+```js
+var dd = { content: ['Example document'],
+pageBreakBefore: function (currentNode, nodeContainer) {
+  return currentNode.headlineLevel === 1 &&
+    nodeContainer.getFollowingNodesOnPage().length === 0;
+}
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var dd: TDocumentDefinitions = { content: ['Example document'],
+pageBreakBefore: function (currentNode, nodeContainer) {
+  return currentNode.headlineLevel === 1 &&
+    nodeContainer.getFollowingNodesOnPage().length === 0;
+}
+};
+```
+
+Le conteneur propose aussi `getNodesOnNextPage()` et `getPreviousNodesOnPage()`. Cet extrait est une propriété d’une définition, pas du JavaScript autonome. Voir les [sauts de page](/docs/0.3/fr/document-definition-object/page/).
+
+## Configurer l’accès aux ressources
+
+À partir de **0.3.6**, configurez une règle d’accès URL synchrone ; à partir de **0.3.8**, configurez une règle pour les fichiers locaux. Testez les ressources autorisées et refusées. Voir la [sécurité des ressources](/docs/0.3/fr/guides/resource-security/).
+
+---
+
+# Options de rendu
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/options/
+
+## Transmettre des options à createPdf
+
+**JavaScript**
+
+```js
+const output = pdfmake.createPdf(docDefinition, {
+  fontLayoutCache: true,
+  bufferPages: false
+});
+```
+
+**TypeScript**
+
+```ts
+const output = pdfmake.createPdf(docDefinition, {
+  fontLayoutCache: true,
+  bufferPages: false
+});
+```
+
+L’objet d’options est distinct de la [définition du document](/docs/0.3/fr/document-definition-object/).
+
+| Option | Type | Valeur par défaut | Signification |
+| --- | --- | --- | --- |
+| `fontLayoutCache` | boolean | `true` | Active le cache de mise en page des polices de PDFKit |
+| `bufferPages` | boolean | `false` | Conserve les pages de PDFKit en mémoire tampon au lieu de les vider immédiatement |
+
+Conservez les valeurs par défaut sauf si votre cas d’usage exige un changement. La mise en mémoire tampon des pages peut augmenter l’utilisation de la mémoire. Elle ne rend pas la mise en page propre à pdfmake différée ou incrémentale. Consultez [les performances](/docs/0.3/fr/guides/performance/) et [la documentation de PDFKit sur la mise en mémoire tampon des pages](https://pdfkit.org/docs/getting_started.html).
+
+Les polices, les mises en page de tableaux nommées et les règles d’accès aux ressources se configurent via l’[API publique](/docs/0.3/fr/guides/api-reference/). Le format du papier, les marges et le contenu appartiennent à la définition.
+
+---
+
+# Playground
+
+Version: pdfmake 0.3.x
+Language: fr
+Source: https://pdfmake.github.io/docs/0.3/fr/playground/
+
+Essayez l’exemple, puis poursuivez votre lecture.
