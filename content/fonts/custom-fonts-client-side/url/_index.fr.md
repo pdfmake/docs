@@ -3,7 +3,7 @@ title = "Par protocole URL"
 description = "Configurez l’utilisation des polices par protocole URL dans pdfmake 0.3 avec des exemples, des options et des notes d’utilisation."
 weight = 16
 alwaysopen = true
-sourceDigest = "bf188fde3eaf272b9276ccee602251c8d4292f0f32bc556e0350e2555a41e3ed"
+sourceDigest = "7a21062929c7b5e61fa55fb47082995e80a6dab97f654ad3fa35ab0370e6ceef"
 +++
 
 L’utilisation de polices personnalisées nécessite deux étapes :
@@ -29,10 +29,10 @@ var fonts = {
 
    // download default Roboto font from unpkg.com
    Roboto: {
-     normal: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-Regular.ttf',
-     bold: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-Medium.ttf',
-     italics: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-Italic.ttf',
-     bolditalics: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-MediumItalic.ttf'
+     normal: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Regular.ttf',
+     bold: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Medium.ttf',
+     italics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Italic.ttf',
+     bolditalics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-MediumItalic.ttf'
    },
 
    // example of usage fonts in collection

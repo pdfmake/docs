@@ -3,7 +3,7 @@ title = "Tableaux"
 description = "Créez des tableaux avec des lignes cohérentes, des en-têtes répétés, des bordures personnalisées, des largeurs et des cellules fusionnées."
 weight = 2030
 alwaysopen = true
-sourceDigest = "48bc3047dc6a23638e82fe81a22c544d203aad3bebf645cdee21772c669cefae"
+sourceDigest = "c80db33fd2025ca3fdc93880f47e52e7b8169c0b5a2901a4156cd2d208073487"
 +++
 
 ## Commencer par des lignes et un en-tête répété
@@ -33,6 +33,7 @@ Les bordures, le remplissage, les marges de page et les autres colonnes consomme
 | `dontBreakRows` | `table` | Empêche une ligne individuelle de se couper entre deux pages |
 | `keepWithHeaderRows` | `table` | Nombre de lignes suivantes à garder avec l’en-tête |
 | `layout` | Nœud, à côté de `table` | Nom de disposition intégrée, nom personnalisé enregistré ou objet de disposition |
+| `tableAlignment` | Nœud à côté de `table` | Alignement horizontal du tableau entier : `left`, `center`, `right` ; depuis 0.3.13 |
 | `colSpan`, `rowSpan` | Cellule | Nombre positif de colonnes ou lignes couvertes ; les cellules de remplacement restent nécessaires |
 | `verticalAlignment` | Cellule | `'top'` (par défaut), `'middle'` ou `'bottom'` |
 | `border` | Cellule | Quatre booléens : gauche, haut, droite, bas |
@@ -42,6 +43,25 @@ Les bordures, le remplissage, les marges de page et les autres colonnes consomme
 | `overlayPattern`, `overlayOpacity` | Cellule | Tuple de motif et opacité numérique appliqués par-dessus le contenu |
 
 Garder une ligne entière ne permet pas de faire tenir une ligne trop grande sur une page. Testez les descriptions longues et les contenus imbriqués avec le format de page et les polices réellement utilisés.
+
+## Aligner le tableau entier
+
+**Depuis 0.3.13.** Placez `tableAlignment` sur le nœud à côté de `table`. Les valeurs possibles sont `left` (par défaut), `center` et `right`. Cette propriété positionne le tableau entier dans la largeur disponible ; utilisez séparément `alignment` pour le texte des cellules.
+
+```js
+var docDefinition = {
+  content: [{
+    tableAlignment: 'center',
+    alignment: 'left',
+    table: {
+      widths: ['auto', 'auto'],
+      body: [['Item', 'Quantity'], ['Example', '2']]
+    }
+  }]
+};
+```
+
+L’exemple centre le tableau tout en gardant son texte aligné à gauche. Utilisez `tableAlignment: 'right'` pour un tableau aligné à droite. L’alignement est visible si le tableau est plus étroit que la largeur disponible, par exemple avec `auto` ou des largeurs de colonnes fixes. Les tableaux qui remplissent ou dépassent cette largeur restent à gauche. Les marges et la colonne ou cellule qui contient le tableau déterminent la largeur disponible.
 
 ## Fusionner des cellules sans modifier la longueur des lignes
 

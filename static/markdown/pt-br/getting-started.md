@@ -4,27 +4,27 @@ Version: pdfmake 0.3.x
 Language: pt-br
 Source: https://pdfmake.github.io/docs/0.3/pt-br/getting-started/
 
-## Escolha o ambiente de execução
+## Escolha o ambiente de execuÃ§Ã£o
 
 - [Node.js](/docs/0.3/pt-br/getting-started/server-side/): grave um arquivo, retorne um Buffer de uma API ou consuma um stream.
 - [Navegador](/docs/0.3/pt-br/getting-started/client-side/): baixe, abra, imprima ou obtenha um Blob.
 
-Os dois ambientes usam a mesma [definição de documento](/docs/0.3/pt-br/document-definition-object/). Os métodos de saída retornam Promises. O carregamento de fontes é diferente entre arquivos no Node.js e contêineres de fontes no navegador.
+Os dois ambientes usam a mesma [definiÃ§Ã£o de documento](/docs/0.3/pt-br/document-definition-object/). Os mÃ©todos de saÃ­da retornam Promises. O carregamento de fontes Ã© diferente entre arquivos no Node.js e contÃªineres de fontes no navegador.
 
-## Antes de começar
+## Antes de comeÃ§ar
 
-Consulte a documentação da versão instalada (`npm ls pdfmake`). Comece com um exemplo mínimo antes de adicionar fontes personalizadas, imagens remotas ou layouts de tabela. Em aplicações 0.1/0.2, siga o [guia de migração](/docs/0.3/pt-br/migration-from-0.1/).
+Consulte a documentaÃ§Ã£o da versÃ£o instalada (`npm ls pdfmake`). Comece com um exemplo mÃ­nimo antes de adicionar fontes personalizadas, imagens remotas ou layouts de tabela. Em aplicaÃ§Ãµes 0.1/0.2, siga o [guia de migraÃ§Ã£o](/docs/0.3/pt-br/migration-from-0.1/).
 
 ## JavaScript e TypeScript
 
-Esta branch de desenvolvimento inclui declara��es TypeScript pr�prias na biblioteca e separa as APIs do Node e do navegador. Para o pacote gerado localmente, instale TypeScript sem `@types/pdfmake`. O pacote npm publicado 0.3.12 ainda exige os tipos comunit�rios correspondentes; as declara��es nativas e a valida��o pr�via descritas aqui ainda n�o foram publicadas. O compilador verificado � TypeScript 5.9.3.
+Esta branch de desenvolvimento inclui declarações TypeScript próprias na biblioteca e separa as APIs do Node e do navegador. Para o pacote gerado localmente, instale TypeScript sem `@types/pdfmake`. O pacote npm publicado 0.3.13 ainda exige os tipos comunitários correspondentes; as declarações nativas e a validação prévia descritas aqui ainda não foram publicadas. O compilador verificado é TypeScript 5.9.3.
 
 ```sh
-npm install pdfmake@0.3.12
+npm install pdfmake@0.3.13
 npm install --save-dev typescript@~5.9.3
 ```
 
-Node.js: salve este exemplo como `document.mts`. `NodeNext` permite ao compilador seguir a resolução real do Node. Um arquivo CommonJS `.cts` pode começar com `import pdfmake = require("pdfmake")`. Evite depender de imports nomeados em tempo de execução.
+Node.js: salve este exemplo como `document.mts`. `NodeNext` permite ao compilador seguir a resoluÃ§Ã£o real do Node. Um arquivo CommonJS `.cts` pode comeÃ§ar com `import pdfmake = require("pdfmake")`. Evite depender de imports nomeados em tempo de execuÃ§Ã£o.
 
 ```json
 {
@@ -66,7 +66,7 @@ const buffer: Buffer = await pdfmake.createPdf(definition).getBuffer();
 assert.equal(buffer.subarray(0, 5).toString(), '%PDF-');
 ```
 
-Com um bundler para navegador, importe a entrada pré-compilada e registre o VFS diretamente. Use `module: "ESNext"` e `moduleResolution: "Bundler"`; essas opções exigem um bundler e não servem para executar a saída diretamente no Node.
+Com um bundler para navegador, importe a entrada prÃ©-compilada e registre o VFS diretamente. Use `module: "ESNext"` e `moduleResolution: "Bundler"`; essas opÃ§Ãµes exigem um bundler e nÃ£o servem para executar a saÃ­da diretamente no Node.
 
 **JavaScript**
 
@@ -94,4 +94,4 @@ export async function render(): Promise<Blob> {
 }
 ```
 
-Os tipos oferecem preenchimento autom�tico e verifica��es na compila��o. Eles n�o validam JSON externo nem garantem o layout. As declara��es inclu�das distinguem `write` no Node de `getBlob`, `download`, `open` e `print` no navegador. Use imports expl�citos do navegador com bundlers. O playground e os exemplos integrados verificam TypeScript localmente antes da renderiza��o. Consulte a [valida��o de documentos](/docs/0.3/pt-br/guides/errors/) para verifica��es em tempo de execu��o.
+Os tipos oferecem preenchimento automático e verificações na compilação. Eles não validam JSON externo nem garantem o layout. As declarações incluídas distinguem `write` no Node de `getBlob`, `download`, `open` e `print` no navegador. Use imports explícitos do navegador com bundlers. O playground e os exemplos integrados verificam TypeScript localmente antes da renderização. Consulte a [validação de documentos](/docs/0.3/pt-br/guides/errors/) para verificações em tempo de execução.

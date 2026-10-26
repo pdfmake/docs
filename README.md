@@ -87,7 +87,7 @@ npm run build
 ```
 
 The selected package version must match `versions.json`. Without the override,
-PDF generation uses the pinned published runtime. **The published 0.3.12 runtime
+PDF generation uses the pinned published runtime. **The published 0.3.13 runtime
 has no bundled declarations or preflight API.** This development branch retains
 an explicitly attributed, declaration-only snapshot from the improved library so
 docs TypeScript examples are reproducible before its release. Native package

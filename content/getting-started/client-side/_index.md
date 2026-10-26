@@ -7,7 +7,7 @@ weight = 11
 ## Install and copy the browser assets
 
 ```sh
-npm install pdfmake@0.3.12
+npm install pdfmake@0.3.13
 ```
 
 Copy `node_modules/pdfmake/build/pdfmake.min.js` and `node_modules/pdfmake/build/vfs_fonts.js` next to this HTML file. Serve the directory with your local development server.

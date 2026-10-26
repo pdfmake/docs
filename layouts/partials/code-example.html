@@ -1,7 +1,7 @@
 {{ $key := crypto.SHA256 (strings.TrimSpace (replace .source "\r\n" "\n")) }}{{ $example := index hugo.Data.codeExamples $key }}
 {{ if not $example }}{{ errorf "Missing JS/TS variants for code example %s: %q" $key .source }}{{ end }}
 <div class="code-block interactive-code" data-example-key="{{ $key }}" data-runnable="{{ $example.runnable }}" data-context="{{ $example.context }}">
-  <div class="code-meta"><div class="code-languages" role="group" aria-label="{{ i18n "codeLanguage" }}"><button type="button" data-code-language="javascript" aria-pressed="true">JavaScript</button><button type="button" data-code-language="typescript" aria-pressed="false">TypeScript</button></div><button type="button" class="edit-code">{{ i18n "editCode" }}</button><button type="button" class="copy-example">{{ i18n "copy" }}</button></div>
+  <div class="code-meta"><div class="code-languages" role="group" aria-label="{{ i18n "codeLanguage" }}"><button type="button" disabled data-code-language="javascript" aria-pressed="true">JavaScript</button><button type="button" disabled data-code-language="typescript" aria-pressed="false">TypeScript</button></div><button type="button" class="edit-code" disabled>{{ i18n "editCode" }}</button><button type="button" class="copy-example" disabled>{{ i18n "copy" }}</button></div>
   <div class="code-variant" data-code-pane="javascript"><span class="sr-only">JavaScript</span>{{ transform.Highlight $example.javascript "javascript" (dict "style" "github-dark") }}</div>
   <div class="code-variant" data-code-pane="typescript"><span class="sr-only">TypeScript</span>{{ transform.Highlight $example.typescript "typescript" (dict "style" "github-dark") }}</div>
   <div class="inline-editor" hidden></div>

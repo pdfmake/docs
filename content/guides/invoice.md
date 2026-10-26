@@ -6,7 +6,7 @@ weight = 1
 
 ## Run the example
 
-Install `pdfmake@0.3.12`, save this as `invoice.cjs`, and run `node invoice.cjs`. It uses standard Helvetica with ASCII content to avoid external resources. Use embedded fonts for wider language coverage.
+Install `pdfmake@0.3.13`, save this as `invoice.cjs`, and run `node invoice.cjs`. It uses standard Helvetica with ASCII content to avoid external resources. Use embedded fonts for wider language coverage.
 
 ```js
 // docs-test: invoice

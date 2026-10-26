@@ -6,7 +6,7 @@ Source: https://pdfmake.github.io/docs/0.3/es/guides/invoice/
 
 ## Ejecutar el ejemplo
 
-Instala `pdfmake@0.3.12`, guarda el siguiente código como `invoice.cjs` y ejecútalo con `node invoice.cjs`. Usa Helvetica estándar con contenido ASCII para evitar recursos externos. Para una cobertura más amplia de idiomas, usa fuentes incrustadas.
+Instala `pdfmake@0.3.13`, guarda el siguiente código como `invoice.cjs` y ejecútalo con `node invoice.cjs`. Usa Helvetica estándar con contenido ASCII para evitar recursos externos. Para una cobertura más amplia de idiomas, usa fuentes incrustadas.
 
 **JavaScript**
 

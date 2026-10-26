@@ -3,7 +3,7 @@ title = "Tabellen"
 description = "Erstelle Tabellen mit einheitlichen Zeilen, wiederholten Kopfzeilen, benutzerdefinierten Rahmen, Breiten und verbundenen Zellen."
 weight = 2030
 alwaysopen = true
-sourceDigest = "48bc3047dc6a23638e82fe81a22c544d203aad3bebf645cdee21772c669cefae"
+sourceDigest = "c80db33fd2025ca3fdc93880f47e52e7b8169c0b5a2901a4156cd2d208073487"
 +++
 
 ## Mit Zeilen und wiederholter Kopfzeile beginnen
@@ -33,6 +33,7 @@ Rahmen, Innenabstände, Seitenränder und andere Spalten belegen ebenfalls Platz
 | `dontBreakRows` | `table` | Verhindert, dass eine einzelne Zeile auf mehrere Seiten aufgeteilt wird |
 | `keepWithHeaderRows` | `table` | Anzahl der folgenden Zeilen, die zusammen mit der Kopfzeile gehalten werden |
 | `layout` | Knoten neben `table` | Name eines integrierten Layouts, registrierter eigener Name oder Layoutobjekt |
+| `tableAlignment` | Knoten neben `table` | Horizontale Ausrichtung der gesamten Tabelle: `left`, `center`, `right`; seit 0.3.13 |
 | `colSpan`, `rowSpan` | Zelle | Positive Anzahl der überspannten Spalten/Zeilen; Platzhalter sind weiterhin erforderlich |
 | `verticalAlignment` | Zelle | `'top'` (Standard), `'middle'` oder `'bottom'` |
 | `border` | Zelle | Vier boolesche Werte: links, oben, rechts, unten |
@@ -42,6 +43,25 @@ Rahmen, Innenabstände, Seitenränder und andere Spalten belegen ebenfalls Platz
 | `overlayPattern`, `overlayOpacity` | Zelle | Mustertupel und numerische Deckkraft, die über den Inhalt gelegt werden |
 
 Eine Zeile zusammenzuhalten sorgt nicht dafür, dass eine übergroße Zeile auf eine Seite passt. Prüfe lange Beschreibungen und verschachtelten Inhalt mit deiner tatsächlichen Seitengröße und deinen Schriften.
+
+## Die gesamte Tabelle ausrichten
+
+**Seit 0.3.13.** Setze `tableAlignment` am Knoten neben `table`. Unterstützt werden `left` (Standard), `center` und `right`. Damit wird die gesamte Tabelle innerhalb der verfügbaren Breite positioniert; `alignment` steuert unabhängig davon den Text in den Zellen.
+
+```js
+var docDefinition = {
+  content: [{
+    tableAlignment: 'center',
+    alignment: 'left',
+    table: {
+      widths: ['auto', 'auto'],
+      body: [['Item', 'Quantity'], ['Example', '2']]
+    }
+  }]
+};
+```
+
+Das Beispiel zentriert die Tabelle und lässt den Text linksbündig. Mit `tableAlignment: 'right'` wird die Tabelle rechts ausgerichtet. Die Ausrichtung ist sichtbar, wenn die Tabelle schmaler als ihre verfügbare Breite ist, beispielsweise mit `auto` oder festen Spaltenbreiten. Tabellen, die diese Breite ausfüllen oder überschreiten, bleiben links. Seitenränder sowie die umgebende Spalte oder Tabellenzelle bestimmen die verfügbare Breite.
 
 ## Zellen verbinden, ohne die Zeilenlänge zu ändern
 

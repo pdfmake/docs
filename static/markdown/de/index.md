@@ -14,7 +14,7 @@ Erstelle eine PDF in drei Schritten: Laufzeit einrichten, Inhalt beschreiben und
 Verwende Node.js 20 oder neuer. Installiere die folgende feste Version, speichere das vollständige Beispiel als `first-pdf.cjs` und starte `node first-pdf.cjs`.
 
 ```sh
-npm install pdfmake@0.3.12
+npm install pdfmake@0.3.13
 ```
 
 **JavaScript**

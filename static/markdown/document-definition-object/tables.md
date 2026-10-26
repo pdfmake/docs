@@ -78,6 +78,7 @@ Avoid adding large fixed widths that exceed the content area.
 | `dontBreakRows` | `table` | Keep an individual row from splitting across pages |
 | `keepWithHeaderRows` | `table` | Number of following rows to keep with the header |
 | `layout` | Node, beside `table` | Built-in layout name, registered custom name, or layout object |
+| `tableAlignment` | Node, beside `table` | Whole-table horizontal alignment: `left`, `center`, `right`; since 0.3.13 |
 | `colSpan`, `rowSpan` | Cell | Positive number of columns/rows covered; placeholders are still required |
 | `verticalAlignment` | Cell | `'top'` (default), `'middle'` or `'bottom'` |
 | `border` | Cell | Four booleans: left, top, right, bottom |
@@ -88,6 +89,44 @@ Avoid adding large fixed widths that exceed the content area.
 
 Keeping a row together cannot make an oversized row fit on a page. Test long
 descriptions and nested content with your actual page size and fonts.
+
+## Align the whole table
+
+**Since 0.3.13.** Put `tableAlignment` on the node beside `table`. Supported values are `left` (default), `center` and `right`. This positions the whole table within the available width; use `alignment` separately for the text inside cells.
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [{
+    tableAlignment: 'center',
+    alignment: 'left',
+    table: {
+      widths: ['auto', 'auto'],
+      body: [['Item', 'Quantity'], ['Example', '2']]
+    }
+  }]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [{
+    tableAlignment: 'center',
+    alignment: 'left',
+    table: {
+      widths: ['auto', 'auto'],
+      body: [['Item', 'Quantity'], ['Example', '2']]
+    }
+  }]
+};
+```
+
+The example centers the table while keeping its text left-aligned. Use `tableAlignment: 'right'` for a right-aligned table. Alignment is visible with a table narrower than its available width, for example with `auto` or fixed column widths. Tables filling or exceeding that width stay at the left position. Page margins and the containing column or table cell determine the available width.
 
 ## Merge cells without changing the row length
 

@@ -59,9 +59,18 @@ try {
   await node.locator('.edit-code').click(); await node.locator('[data-code-language="typescript"]').click();
   assert.match(await node.locator('.inline-status').textContent(), /Node\.js/);
   assert.equal(await node.locator('[data-code-action="run"]').textContent(), 'Check syntax', 'Node examples must not pretend to execute in a browser');
+  // A user must not be able to click Edit before the lazy editor module is ready.
+  let releaseEditor;
+  const editorGate = new Promise(resolve => { releaseEditor = resolve; });
+  await page.route('**/assets/inline-examples.js', async route => { await editorGate; await route.continue(); });
+  const editorRequest = page.waitForRequest('**/assets/inline-examples.js');
   await page.goto(base + 'document-definition-object/headers-footers/', { waitUntil: 'domcontentloaded' });
+  await editorRequest;
   const definition = page.locator('.interactive-code[data-runnable="true"]').first();
+  try { assert.equal(await definition.locator('.edit-code').isDisabled(), true, 'Edit waits for its event handlers'); }
+  finally { releaseEditor(); }
   await definition.locator('.edit-code').click(); await ready(definition);
+  await page.unroute('**/assets/inline-examples.js');
   assert.ok((await definition.locator('.inline-text p').textContent()).length > 5, 'Ordinary reference blocks also render inline');
   await page.setViewportSize({ width: 390, height: 844 });
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
@@ -71,6 +80,13 @@ try {
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.screenshot({ path: process.env.SCREENSHOT_DIR + '/inline-example-desktop.png', fullPage: true });
   }
+  await page.goto(base + 'document-definition-object/tables/', { waitUntil: 'domcontentloaded' });
+  const aligned = page.locator('.interactive-code').filter({ hasText: 'tableAlignment' }).first();
+  await aligned.locator('.edit-code').click(); await ready(aligned);
+  assert.match(await aligned.locator('.inline-text p').textContent(), /Item.*Quantity.*Example/);
+  await aligned.locator('[data-code-language="typescript"]').click(); await ready(aligned);
+  assert.match(await aligned.locator('.inline-text p').textContent(), /Item.*Quantity.*Example/);
+  console.log('Delayed editor initialization and the 0.3.13 tableAlignment example passed in JavaScript and TypeScript');
   await page.goto(base + 'playground/', { waitUntil: 'domcontentloaded' });
   const mainReady = async () => { await page.locator('#status').filter({ hasText: /^PDF ready/ }).waitFor({ timeout: 30000 }); assert.equal(await page.locator('#error').isVisible(), false); };
   await mainReady(); await page.locator('#code-language').selectOption('typescript'); await mainReady();

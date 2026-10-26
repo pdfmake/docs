@@ -17,10 +17,10 @@ Use the docs for your installed version (`npm ls pdfmake`). Start with a minimal
 
 ## JavaScript and TypeScript
 
-This development branch bundles native TypeScript declarations with the library, with separate Node and browser APIs. Install TypeScript without `@types/pdfmake` when using the locally packed branch. The published npm package 0.3.12 still needs its matching community types; the native declarations and preflight API described here are unreleased. The tested compiler is TypeScript 5.9.3.
+This development branch bundles native TypeScript declarations with the library, with separate Node and browser APIs. Install TypeScript without `@types/pdfmake` when using the locally packed branch. The published npm package 0.3.13 still needs its matching community types; the native declarations and preflight API described here are unreleased. The tested compiler is TypeScript 5.9.3.
 
 ```sh
-npm install pdfmake@0.3.12
+npm install pdfmake@0.3.13
 npm install --save-dev typescript@~5.9.3
 ```
 

@@ -117,8 +117,8 @@ Les bundles des polices standard sont disponibles dans le répertoire `build/sta
 Par exemple, pour utiliser Helvetica :
 
 ```html
-<script src="https://unpkg.com/pdfmake@0.3.12/build/pdfmake.min.js"></script>
-<script src="https://unpkg.com/pdfmake@0.3.12/build/standard-fonts/Helvetica.js"></script>
+<script src="https://unpkg.com/pdfmake@0.3.13/build/pdfmake.min.js"></script>
+<script src="https://unpkg.com/pdfmake@0.3.13/build/standard-fonts/Helvetica.js"></script>
 <script>
   var docDefinition = {
     content: ['First paragraph', 'Another paragraph'],

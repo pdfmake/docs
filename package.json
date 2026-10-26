@@ -20,7 +20,7 @@
   "dependencies": {
     "@iarna/toml": "^2.2.5",
     "@modelcontextprotocol/sdk": "^1.29.0",
-    "zod": "^3.25.76"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@babel/parser": "^8.0.7",
@@ -36,7 +36,7 @@
     "esbuild": "^0.28.2",
     "parse5": "^8.0.1",
     "pdfjs-dist": "6.4.299",
-    "pdfmake": "0.3.12",
+    "pdfmake": "0.3.13",
     "playwright": "^1.64.1",
     "typescript": "~5.9.3"
   }

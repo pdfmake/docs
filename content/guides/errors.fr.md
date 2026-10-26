@@ -1,22 +1,22 @@
 +++
 title = "Erreurs et diagnostics"
-description = "Repérez les erreurs de syntaxe JavaScript, les nœuds de document mal formés, les échecs de ressources et les sorties interrompues à l’aide de diagnostics exploitables."
+description = "RepÃ©rez les erreurs de syntaxe JavaScript, les nÅ“uds de document mal formÃ©s, les Ã©checs de ressources et les sorties interrompues Ã  lâ€™aide de diagnostics exploitables."
 weight = 2
-sourceDigest = "e4dda1a91f9ef3e34e7b45d6b46a0bc638ea75a858d155ea73e148259ff35728"
+sourceDigest = "ff68daa138b7259216d53546c431739a03360e22b4e9749840a4eba20c38c633"
 +++
 
-## Identifier d’abord l’étape en échec
+## Identifier dâ€™abord lâ€™Ã©tape en Ã©chec
 
-Une définition non valide doit provoquer une erreur, plutôt que d’omettre du contenu sans avertissement. Il faut déterminer où l’échec s’est produit et comment cette erreur remonte dans votre application.
+Une dÃ©finition non valide doit provoquer une erreur, plutÃ´t que dâ€™omettre du contenu sans avertissement. Il faut dÃ©terminer oÃ¹ lâ€™Ã©chec sâ€™est produit et comment cette erreur remonte dans votre application.
 
-| Étape | Échec courant | Où le corriger |
+| Ã‰tape | Ã‰chec courant | OÃ¹ le corriger |
 | --- | --- | --- |
-| Analyse JavaScript | Virgule, guillemet ou accolade fermante manquante | Éditeur de code ; la bibliothèque n’a pas encore été appelée |
-| Exécution de la définition | `ReferenceError` ou échec d’une fonction de rappel | Code de l’application qui construit la définition |
-| Structure du document | Type de nœud mal orthographié, lignes de tableau ou liste non valides | Chemin de définition signalé |
-| Chargement des ressources | Police manquante, URL refusée, image illisible | Enregistrement des polices/ressources et règles d’accès |
-| Mise en page/rendu | Contenu trop volumineux, dimensions non valides ou fonction de rappel en échec | Plus petite définition permettant de reproduire le problème |
-| Sortie | Flux fermé, droits d’écriture ou échec de destination | Gestion des erreurs de buffer, flux ou fichier |
+| Analyse JavaScript | Virgule, guillemet ou accolade fermante manquante | Ã‰diteur de code ; la bibliothÃ¨que nâ€™a pas encore Ã©tÃ© appelÃ©e |
+| ExÃ©cution de la dÃ©finition | `ReferenceError` ou Ã©chec dâ€™une fonction de rappel | Code de lâ€™application qui construit la dÃ©finition |
+| Structure du document | Type de nÅ“ud mal orthographiÃ©, lignes de tableau ou liste non valides | Chemin de dÃ©finition signalÃ© |
+| Chargement des ressources | Police manquante, URL refusÃ©e, image illisible | Enregistrement des polices/ressources et rÃ¨gles dâ€™accÃ¨s |
+| Mise en page/rendu | Contenu trop volumineux, dimensions non valides ou fonction de rappel en Ã©chec | Plus petite dÃ©finition permettant de reproduire le problÃ¨me |
+| Sortie | Flux fermÃ©, droits dâ€™Ã©criture ou Ã©chec de destination | Gestion des erreurs de buffer, flux ou fichier |
 
 ## Toujours attendre la sortie
 
@@ -36,32 +36,34 @@ async function generateReport(pdfmake, definition) {
 }
 ```
 
-Renvoyez l’erreur à l’appelant de l’API ou affichez `error.message` dans l’interface. Ne répondez pas avec un PDF vide et n’annoncez pas un succès après avoir ignoré le rejet. Évitez de journaliser le contenu du document ou les identifiants privés des ressources.
+Renvoyez lâ€™erreur Ã  lâ€™appelant de lâ€™API ou affichez `error.message` dans lâ€™interface. Ne rÃ©pondez pas avec un PDF vide et nâ€™annoncez pas un succÃ¨s aprÃ¨s avoir ignorÃ© le rejet. Ã‰vitez de journaliser le contenu du document ou les identifiants privÃ©s des ressources.
+
+Depuis 0.3.13, `getStream()` rejette l’accès à un flux déjà consommé. Les méthodes basées sur un buffer réutilisent les octets mis en cache ; `write()` dans Node accepte aussi une sortie déjà lue avec `getBuffer()`, `getBase64()` ou `getDataUrl()`. Créez une nouvelle instance de sortie pour obtenir un nouveau flux brut.
 
 ## Lire le chemin dans le document
 
-La branche locale d’amélioration de la bibliothèque ajoute des diagnostics `PDFMAKE_INVALID_DOCUMENT` avec `phase: 'preprocess'` et une propriété `path`. Par exemple :
+La branche locale dâ€™amÃ©lioration de la bibliothÃ¨que ajoute des diagnostics `PDFMAKE_INVALID_DOCUMENT` avec `phase: 'preprocess'` et une propriÃ©tÃ© `path`. Par exemple :
 
 ```text
 Unrecognized document structure: ...
 Document path: content[0].columns[0].ul[1]
 ```
 
-Ce chemin désigne le deuxième élément de liste dans la première colonne du premier nœud du corps. Cherchez une faute telle que `{ txt: 'Hello' }` à la place de `{ text: 'Hello' }`. Pour des lignes de tableau mal formées, le diagnostic indique la ligne et le nombre de cellules attendu. Les tableaux vides précisent que `table.body` doit contenir des tableaux de lignes non vides. Conservez les objets `{}` de remplacement pour les cellules fusionnées. Le texte d’erreur existant est maintenu ; lorsque les champs de diagnostic sont disponibles, les appelants doivent les utiliser au lieu d’analyser les chaînes de message.
+Ce chemin dÃ©signe le deuxiÃ¨me Ã©lÃ©ment de liste dans la premiÃ¨re colonne du premier nÅ“ud du corps. Cherchez une faute telle que `{ txt: 'Hello' }` Ã  la place de `{ text: 'Hello' }`. Pour des lignes de tableau mal formÃ©es, le diagnostic indique la ligne et le nombre de cellules attendu. Les tableaux vides prÃ©cisent que `table.body` doit contenir des tableaux de lignes non vides. Conservez les objets `{}` de remplacement pour les cellules fusionnÃ©es. Le texte dâ€™erreur existant est maintenu ; lorsque les champs de diagnostic sont disponibles, les appelants doivent les utiliser au lieu dâ€™analyser les chaÃ®nes de message.
 
-Ces diagnostics structurés sont **nouveaux dans la branche locale d’amélioration** ; le paquet publié 0.3.12 ne les contient pas encore. Les erreurs génériques comportent toujours un message. La branche rejette également les flux de buffer fermés prématurément au lieu de laisser leur Promise en attente.
+Ces diagnostics structurÃ©s sont **nouveaux dans la branche locale dâ€™amÃ©lioration** ; le paquet publiÃ© 0.3.13 ne les contient pas encore. Les erreurs gÃ©nÃ©riques comportent toujours un message. La branche rejette Ã©galement les flux de buffer fermÃ©s prÃ©maturÃ©ment au lieu de laisser leur Promise en attente.
 
 ## Erreurs de syntaxe dans le playground
 
-L’éditeur analyse la définition avant son exécution, marque l’emplacement fautif et affiche la ligne et la colonne. **Aller à l’erreur dans l’éditeur** place le curseur à cet endroit. L’annulation/restauration et le panneau d’erreurs permettent de corriger le problème sans perdre le travail. Avec l’aperçu en direct, le dernier PDF généré avec succès reste visible pendant les modifications et les échecs, mais son téléchargement est désactivé s’il ne correspond plus au code actuel.
+Lâ€™Ã©diteur analyse la dÃ©finition avant son exÃ©cution, marque lâ€™emplacement fautif et affiche la ligne et la colonne. **Aller Ã  lâ€™erreur dans lâ€™Ã©diteur** place le curseur Ã  cet endroit. Lâ€™annulation/restauration et le panneau dâ€™erreurs permettent de corriger le problÃ¨me sans perdre le travail. Avec lâ€™aperÃ§u en direct, le dernier PDF gÃ©nÃ©rÃ© avec succÃ¨s reste visible pendant les modifications et les Ã©checs, mais son tÃ©lÃ©chargement est dÃ©sactivÃ© sâ€™il ne correspond plus au code actuel.
 
-## Réduire les échecs difficiles à diagnostiquer
+## RÃ©duire les Ã©checs difficiles Ã  diagnostiquer
 
-Conservez les mêmes polices et le même environnement d’exécution. Remplacez le corps par un seul paragraphe, puis réajoutez les blocs jusqu’à ce que le problème réapparaisse. Pour les tableaux, vérifiez les longueurs des lignes et les fusions avant d’ajuster les largeurs. En cas d’échec lié aux ressources, commencez par une police locale connue et une image intégrée. Consultez [Dépannage](/docs/0.3/fr/guides/troubleshooting/) pour découvrir d’autres symptômes.
+Conservez les mÃªmes polices et le mÃªme environnement dâ€™exÃ©cution. Remplacez le corps par un seul paragraphe, puis rÃ©ajoutez les blocs jusquâ€™Ã  ce que le problÃ¨me rÃ©apparaisse. Pour les tableaux, vÃ©rifiez les longueurs des lignes et les fusions avant dâ€™ajuster les largeurs. En cas dâ€™Ã©chec liÃ© aux ressources, commencez par une police locale connue et une image intÃ©grÃ©e. Consultez [DÃ©pannage](/docs/0.3/fr/guides/troubleshooting/) pour dÃ©couvrir dâ€™autres symptÃ´mes.
 
-## Valider la d�finition compl�te avant le rendu
+## Valider la définition complète avant le rendu
 
-L�API locale non publi�e `validateDocument(input, options)` v�rifie toutes les propri�t�s d�clar�es du document et rassemble plusieurs erreurs avec leurs chemins. Elle contr�le aussi les tableaux, les cellules fusionn�es, les r�f�rences, les plages num�riques et les cycles. Elle ne modifie pas l�entr�e, n�ex�cute aucun callback et n�acc�de � aucune ressource. Les propri�t�s inconnues produisent des avertissements ; `strict: true` les transforme en erreurs.
+L’API locale non publiée `validateDocument(input, options)` vérifie toutes les propriétés déclarées du document et rassemble plusieurs erreurs avec leurs chemins. Elle contrôle aussi les tableaux, les cellules fusionnées, les références, les plages numériques et les cycles. Elle ne modifie pas l’entrée, n’exécute aucun callback et n’accède à aucune ressource. Les propriétés inconnues produisent des avertissements ; `strict: true` les transforme en erreurs.
 
 ```js
 const input = { content: [{ text: 'Report', fontSize: 'large' }] };
@@ -71,6 +73,6 @@ for (const issue of report.errors) {
 }
 ```
 
-Le r�sultat contient `valid`, `errors`, `warnings`, `deferred` et `truncated`. Chaque diagnostic contient `path`, `code`, `severity` et `message`. Limites par d�faut : 100 diagnostics, 100 niveaux et 50 000 valeurs inspect�es. Une limite atteinte ne donne jamais un r�sultat valide. Les r�sultats des callbacks, la disponibilit� et le d�codage des ressources ainsi que la mise en page finale restent v�rifi�s pendant le rendu. Le code JavaScript doit d�j� �tre syntaxiquement valide pour appeler cette API objet.
+Le résultat contient `valid`, `errors`, `warnings`, `deferred` et `truncated`. Chaque diagnostic contient `path`, `code`, `severity` et `message`. Limites par défaut : 100 diagnostics, 100 niveaux et 50 000 valeurs inspectées. Une limite atteinte ne donne jamais un résultat valide. Les résultats des callbacks, la disponibilité et le décodage des ressources ainsi que la mise en page finale restent vérifiés pendant le rendu. Le code JavaScript doit déjà être syntaxiquement valide pour appeler cette API objet.
 
-Passez `{ validation: true }` comme deuxi�me argument � `createPdf` pour rejeter une d�finition incorrecte avant de charger les ressources. Le document invalide l�ve un `DocumentValidationError` avec `code: "PDFMAKE_VALIDATION_ERROR"`, `phase: "validation"` et un tableau `diagnostics`. Les appels existants restent compatibles ; cette v�rification pr�alable est facultative. Le playground local l�ex�cute automatiquement avec la biblioth�que am�lior�e.
+Passez `{ validation: true }` comme deuxième argument à `createPdf` pour rejeter une définition incorrecte avant de charger les ressources. Le document invalide lève un `DocumentValidationError` avec `code: "PDFMAKE_VALIDATION_ERROR"`, `phase: "validation"` et un tableau `diagnostics`. Les appels existants restent compatibles ; cette vérification préalable est facultative. Le playground local l’exécute automatiquement avec la bibliothèque améliorée.

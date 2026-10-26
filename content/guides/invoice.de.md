@@ -2,12 +2,12 @@
 title = "Rezept: Rechnung"
 description = "Erzeuge eine vollständige Rechnungs-PDF mit wiederverwendbaren Stilen, wiederholter Tabellenkopfzeile, Summen und Seitenzahlen."
 weight = 1
-sourceDigest = "834285f04d4a3a792e6f17f99a72113c67334451ebcb39a498d27c528c9f8cc4"
+sourceDigest = "b5cda8b991f77dbe11893d23edc93a699f221ce0a046d02d8964c10f0290b842"
 +++
 
 ## Beispiel ausführen
 
-Installiere `pdfmake@0.3.12`, speichere den folgenden Inhalt als `invoice.cjs` und führe `node invoice.cjs` aus. Das Beispiel verwendet die Standardschrift Helvetica mit ASCII-Inhalt, um externe Ressourcen zu vermeiden. Für eine größere Sprachenabdeckung solltest du eingebettete Schriften verwenden.
+Installiere `pdfmake@0.3.13`, speichere den folgenden Inhalt als `invoice.cjs` und führe `node invoice.cjs` aus. Das Beispiel verwendet die Standardschrift Helvetica mit ASCII-Inhalt, um externe Ressourcen zu vermeiden. Für eine größere Sprachenabdeckung solltest du eingebettete Schriften verwenden.
 
 ```js
 // docs-test: invoice

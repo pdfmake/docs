@@ -14,7 +14,7 @@ Build a PDF in three steps: configure the runtime, describe the content, then re
 Use Node.js 20 or later. Install the pinned version below, save the complete example as `first-pdf.cjs`, then run `node first-pdf.cjs`.
 
 ```sh
-npm install pdfmake@0.3.12
+npm install pdfmake@0.3.13
 ```
 
 **JavaScript**
@@ -2504,6 +2504,7 @@ Avoid adding large fixed widths that exceed the content area.
 | `dontBreakRows` | `table` | Keep an individual row from splitting across pages |
 | `keepWithHeaderRows` | `table` | Number of following rows to keep with the header |
 | `layout` | Node, beside `table` | Built-in layout name, registered custom name, or layout object |
+| `tableAlignment` | Node, beside `table` | Whole-table horizontal alignment: `left`, `center`, `right`; since 0.3.13 |
 | `colSpan`, `rowSpan` | Cell | Positive number of columns/rows covered; placeholders are still required |
 | `verticalAlignment` | Cell | `'top'` (default), `'middle'` or `'bottom'` |
 | `border` | Cell | Four booleans: left, top, right, bottom |
@@ -2514,6 +2515,44 @@ Avoid adding large fixed widths that exceed the content area.
 
 Keeping a row together cannot make an oversized row fit on a page. Test long
 descriptions and nested content with your actual page size and fonts.
+
+## Align the whole table
+
+**Since 0.3.13.** Put `tableAlignment` on the node beside `table`. Supported values are `left` (default), `center` and `right`. This positions the whole table within the available width; use `alignment` separately for the text inside cells.
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [{
+    tableAlignment: 'center',
+    alignment: 'left',
+    table: {
+      widths: ['auto', 'auto'],
+      body: [['Item', 'Quantity'], ['Example', '2']]
+    }
+  }]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [{
+    tableAlignment: 'center',
+    alignment: 'left',
+    table: {
+      widths: ['auto', 'auto'],
+      body: [['Item', 'Quantity'], ['Example', '2']]
+    }
+  }]
+};
+```
+
+The example centers the table while keeping its text left-aligned. Use `tableAlignment: 'right'` for a right-aligned table. Alignment is visible with a table narrower than its available width, for example with `auto` or fixed column widths. Tables filling or exceeding that width stay at the left position. Page margins and the containing column or table cell determine the available width.
 
 ## Merge cells without changing the row length
 
@@ -2974,10 +3013,10 @@ var fonts = {
 
    // download default Roboto font from unpkg.com
    Roboto: {
-     normal: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-Regular.ttf',
-     bold: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-Medium.ttf',
-     italics: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-Italic.ttf',
-     bolditalics: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-MediumItalic.ttf'
+     normal: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Regular.ttf',
+     bold: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Medium.ttf',
+     italics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Italic.ttf',
+     bolditalics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-MediumItalic.ttf'
    },
 
    // example of usage fonts in collection
@@ -3006,10 +3045,10 @@ var fonts = {
 
    // download default Roboto font from unpkg.com
    Roboto: {
-     normal: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-Regular.ttf',
-     bold: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-Medium.ttf',
-     italics: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-Italic.ttf',
-     bolditalics: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-MediumItalic.ttf'
+     normal: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Regular.ttf',
+     bold: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Medium.ttf',
+     italics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Italic.ttf',
+     bolditalics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-MediumItalic.ttf'
    },
 
    // example of usage fonts in collection
@@ -3350,8 +3389,8 @@ Standard font bundles are available in the pdfmake package's `build/standard-fon
 For example, to use Helvetica:
 
 ```html
-<script src="https://unpkg.com/pdfmake@0.3.12/build/pdfmake.min.js"></script>
-<script src="https://unpkg.com/pdfmake@0.3.12/build/standard-fonts/Helvetica.js"></script>
+<script src="https://unpkg.com/pdfmake@0.3.13/build/pdfmake.min.js"></script>
+<script src="https://unpkg.com/pdfmake@0.3.13/build/standard-fonts/Helvetica.js"></script>
 <script>
   var docDefinition = {
     content: ['First paragraph', 'Another paragraph'],
@@ -3387,10 +3426,10 @@ Use the docs for your installed version (`npm ls pdfmake`). Start with a minimal
 
 ## JavaScript and TypeScript
 
-This development branch bundles native TypeScript declarations with the library, with separate Node and browser APIs. Install TypeScript without `@types/pdfmake` when using the locally packed branch. The published npm package 0.3.12 still needs its matching community types; the native declarations and preflight API described here are unreleased. The tested compiler is TypeScript 5.9.3.
+This development branch bundles native TypeScript declarations with the library, with separate Node and browser APIs. Install TypeScript without `@types/pdfmake` when using the locally packed branch. The published npm package 0.3.13 still needs its matching community types; the native declarations and preflight API described here are unreleased. The tested compiler is TypeScript 5.9.3.
 
 ```sh
-npm install pdfmake@0.3.12
+npm install pdfmake@0.3.13
 npm install --save-dev typescript@~5.9.3
 ```
 
@@ -3477,7 +3516,7 @@ Source: https://pdfmake.github.io/docs/0.3/getting-started/client-side/
 ## Install and copy the browser assets
 
 ```sh
-npm install pdfmake@0.3.12
+npm install pdfmake@0.3.13
 ```
 
 Copy `node_modules/pdfmake/build/pdfmake.min.js` and `node_modules/pdfmake/build/vfs_fonts.js` next to this HTML file. Serve the directory with your local development server.
@@ -3742,7 +3781,7 @@ Use Node.js **20 or later**. Create an application and install pdfmake:
 
 ```sh
 npm init -y
-npm install pdfmake@0.3.12
+npm install pdfmake@0.3.13
 ```
 
 The exact version makes this example reproducible. Check release notes and test before choosing a newer patch.
@@ -3994,7 +4033,7 @@ Source: https://pdfmake.github.io/docs/0.3/getting-started/server-side/supported
 
 ## Engine requirement
 
-The 0.3.12 package declares **Node.js >=20** in `package.json`. The proposed CI matrix covers Node.js 20, 22 and 24 on Linux, Windows and macOS. Compatibility coverage is separate from upstream Node.js security support.
+The 0.3.13 package declares **Node.js >=20** in `package.json`. The proposed CI matrix covers Node.js 20, 22 and 24 on Linux, Windows and macOS. Compatibility coverage is separate from upstream Node.js security support.
 
 Use a Node.js release that is still maintained for production. Consult the [official Node.js release schedule](https://github.com/nodejs/Release#release-schedule) before choosing a runtime. Test your own fonts, resources and document workload on the exact version you deploy.
 
@@ -4170,6 +4209,8 @@ Return an error to the API caller or display `error.message` in the UI. Do not
 respond with an empty PDF or report success after swallowing the rejection.
 Avoid logging document contents or private resource credentials.
 
+In 0.3.13, `getStream()` rejects after the stream has been consumed. Buffer-based helpers reuse their cached bytes; Node `write()` also supports output already read through `getBuffer()`, `getBase64()` or `getDataUrl()`. Use a fresh output instance when you need a new raw stream.
+
 ## Read a document path
 
 The local library improvement branch adds `PDFMAKE_INVALID_DOCUMENT` diagnostics
@@ -4188,7 +4229,7 @@ spanned cells. Existing error text is retained; callers should use the diagnosti
 fields when present instead of parsing message strings.
 
 These structured diagnostics are **new in the local improvement branch**; the
-published 0.3.12 package does not yet contain them. Generic errors still have a
+published 0.3.13 package does not yet contain them. Generic errors still have a
 message. The branch also rejects prematurely closed buffer streams instead of
 leaving their Promise pending.
 
@@ -4245,7 +4286,7 @@ Source: https://pdfmake.github.io/docs/0.3/guides/invoice/
 
 ## Run the example
 
-Install `pdfmake@0.3.12`, save this as `invoice.cjs`, and run `node invoice.cjs`. It uses standard Helvetica with ASCII content to avoid external resources. Use embedded fonts for wider language coverage.
+Install `pdfmake@0.3.13`, save this as `invoice.cjs`, and run `node invoice.cjs`. It uses standard Helvetica with ASCII content to avoid external resources. Use embedded fonts for wider language coverage.
 
 **JavaScript**
 

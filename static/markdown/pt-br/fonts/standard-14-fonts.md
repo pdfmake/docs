@@ -117,8 +117,8 @@ Os bundles de fontes padrão estão disponíveis no diretório `build/standard-f
 Por exemplo, para usar Helvetica:
 
 ```html
-<script src="https://unpkg.com/pdfmake@0.3.12/build/pdfmake.min.js"></script>
-<script src="https://unpkg.com/pdfmake@0.3.12/build/standard-fonts/Helvetica.js"></script>
+<script src="https://unpkg.com/pdfmake@0.3.13/build/pdfmake.min.js"></script>
+<script src="https://unpkg.com/pdfmake@0.3.13/build/standard-fonts/Helvetica.js"></script>
 <script>
   var docDefinition = {
     content: ['First paragraph', 'Another paragraph'],

@@ -10,7 +10,7 @@ Verwende **Node.js 20 oder neuer**. Erstelle eine Anwendung und installiere pdfm
 
 ```sh
 npm init -y
-npm install pdfmake@0.3.12
+npm install pdfmake@0.3.13
 ```
 
 Die genaue Version macht das Beispiel reproduzierbar. Prüfe die Versionshinweise und teste, bevor du ein neueres Patch-Release auswählst.

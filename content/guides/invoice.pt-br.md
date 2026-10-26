@@ -2,12 +2,12 @@
 title = "Exemplo de fatura"
 description = "Gere um PDF de fatura completo com estilos reutilizáveis, cabeçalho de tabela repetido, totais e numeração de páginas."
 weight = 1
-sourceDigest = "834285f04d4a3a792e6f17f99a72113c67334451ebcb39a498d27c528c9f8cc4"
+sourceDigest = "b5cda8b991f77dbe11893d23edc93a699f221ce0a046d02d8964c10f0290b842"
 +++
 
 ## Execute o exemplo
 
-Instale `pdfmake@0.3.12`, salve este código como `invoice.cjs` e execute `node invoice.cjs`. Ele usa Helvetica padrão com conteúdo ASCII para evitar recursos externos. Para maior cobertura de idiomas, use fontes incorporadas.
+Instale `pdfmake@0.3.13`, salve este código como `invoice.cjs` e execute `node invoice.cjs`. Ele usa Helvetica padrão com conteúdo ASCII para evitar recursos externos. Para maior cobertura de idiomas, use fontes incorporadas.
 
 ```js
 // docs-test: invoice

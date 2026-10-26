@@ -14,7 +14,7 @@ Build a PDF in three steps: configure the runtime, describe the content, then re
 Use Node.js 20 or later. Install the pinned version below, save the complete example as `first-pdf.cjs`, then run `node first-pdf.cjs`.
 
 ```sh
-npm install pdfmake@0.3.12
+npm install pdfmake@0.3.13
 ```
 
 ```js

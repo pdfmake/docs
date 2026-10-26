@@ -6,16 +6,16 @@ Source: https://pdfmake.github.io/docs/0.3/de/guides/errors/
 
 ## Zuerst die fehlerhafte Phase bestimmen
 
-Eine ungültige Definition sollte einen Fehler auslösen und Inhalte nicht stillschweigend auslassen. Entscheidend ist, an welcher Stelle der Fehler auftritt und wie er an deine Anwendung weitergegeben wird.
+Eine ungÃ¼ltige Definition sollte einen Fehler auslÃ¶sen und Inhalte nicht stillschweigend auslassen. Entscheidend ist, an welcher Stelle der Fehler auftritt und wie er an deine Anwendung weitergegeben wird.
 
 | Phase | Typischer Fehler | Wo beheben? |
 | --- | --- | --- |
-| JavaScript-Parsing | Fehlendes Komma, Anführungszeichen oder schließende Klammer | Quellcode-Editor; die Bibliothek wurde noch nicht aufgerufen |
-| Ausführung der Definition | `ReferenceError` oder fehlschlagender Callback | Anwendungscode, der die Definition erstellt |
-| Dokumentstruktur | Falscher Knotentyp, ungültige Tabellenzeilen oder Liste | Angegebener Pfad in der Definition |
+| JavaScript-Parsing | Fehlendes Komma, AnfÃ¼hrungszeichen oder schlieÃŸende Klammer | Quellcode-Editor; die Bibliothek wurde noch nicht aufgerufen |
+| AusfÃ¼hrung der Definition | `ReferenceError` oder fehlschlagender Callback | Anwendungscode, der die Definition erstellt |
+| Dokumentstruktur | Falscher Knotentyp, ungÃ¼ltige Tabellenzeilen oder Liste | Angegebener Pfad in der Definition |
 | Ressourcenladen | Fehlende Schrift, abgelehnte URL, nicht lesbares Bild | Schrift-/Ressourcenregistrierung und Zugriffsrichtlinien |
-| Layout/Rendering | Zu großer Inhalt, ungültige Abmessungen oder Callback-Fehler | Kleinste Definition, die den Fehler reproduziert |
-| Ausgabe | Geschlossener Stream, Schreibrechte oder Fehler des Ziels | Fehlerbehandlung für Buffer, Stream oder Datei |
+| Layout/Rendering | Zu groÃŸer Inhalt, ungÃ¼ltige Abmessungen oder Callback-Fehler | Kleinste Definition, die den Fehler reproduziert |
+| Ausgabe | Geschlossener Stream, Schreibrechte oder Fehler des Ziels | Fehlerbehandlung fÃ¼r Buffer, Stream oder Datei |
 
 ## Immer auf die Ausgabe warten
 
@@ -55,32 +55,34 @@ async function generateReport(pdfmake, definition) {
 }
 ```
 
-Gib einen Fehler an den API-Aufrufer zurück oder zeige `error.message` in der Benutzeroberfläche an. Gib keine leere PDF zurück und melde keinen Erfolg, nachdem die Ablehnung verschluckt wurde. Vermeide es, Dokumentinhalte oder geheime Zugangsdaten für Ressourcen zu protokollieren.
+Gib einen Fehler an den API-Aufrufer zurÃ¼ck oder zeige `error.message` in der BenutzeroberflÃ¤che an. Gib keine leere PDF zurÃ¼ck und melde keinen Erfolg, nachdem die Ablehnung verschluckt wurde. Vermeide es, Dokumentinhalte oder geheime Zugangsdaten fÃ¼r Ressourcen zu protokollieren.
+
+Ab 0.3.13 lehnt `getStream()` den Zugriff ab, wenn der Stream bereits verbraucht wurde. Buffer-basierte Methoden verwenden ihre zwischengespeicherten Bytes erneut; Node-`write()` unterstützt auch Ausgaben, die bereits mit `getBuffer()`, `getBase64()` oder `getDataUrl()` gelesen wurden. Erzeuge für einen neuen Rohdatenstream eine neue Ausgabeinstanz.
 
 ## Dokumentpfad lesen
 
-Der lokale Verbesserungszweig der Bibliothek ergänzt `PDFMAKE_INVALID_DOCUMENT`-Diagnosen mit `phase: 'preprocess'` und einer Eigenschaft `path`. Ein Beispiel:
+Der lokale Verbesserungszweig der Bibliothek ergÃ¤nzt `PDFMAKE_INVALID_DOCUMENT`-Diagnosen mit `phase: 'preprocess'` und einer Eigenschaft `path`. Ein Beispiel:
 
 ```text
 Unrecognized document structure: ...
 Document path: content[0].columns[0].ul[1]
 ```
 
-Der Pfad verweist auf den zweiten Listeneintrag in der ersten Spalte des ersten Hauptinhaltsknotens. Prüfe auf Tippfehler wie `{ txt: 'Hello' }` statt `{ text: 'Hello' }`. Bei fehlerhaften Tabellenzeilen werden die Zeile und die erwartete Anzahl an Zellen angegeben. Leere Tabellen melden, dass `table.body` nichtleere Zeilen-Arrays enthalten muss. Behalte `{}`-Platzhalter für überspannte Zellen bei. Vorhandener Fehlertext bleibt bestehen; verwende nach Möglichkeit die Diagnosefelder statt Zeichenfolgen aus der Meldung zu parsen.
+Der Pfad verweist auf den zweiten Listeneintrag in der ersten Spalte des ersten Hauptinhaltsknotens. PrÃ¼fe auf Tippfehler wie `{ txt: 'Hello' }` statt `{ text: 'Hello' }`. Bei fehlerhaften Tabellenzeilen werden die Zeile und die erwartete Anzahl an Zellen angegeben. Leere Tabellen melden, dass `table.body` nichtleere Zeilen-Arrays enthalten muss. Behalte `{}`-Platzhalter fÃ¼r Ã¼berspannte Zellen bei. Vorhandener Fehlertext bleibt bestehen; verwende nach MÃ¶glichkeit die Diagnosefelder statt Zeichenfolgen aus der Meldung zu parsen.
 
-Diese strukturierten Diagnosen sind **neu im lokalen Verbesserungszweig**; das veröffentlichte Paket 0.3.12 enthält sie noch nicht. Allgemeine Fehler liefern weiterhin eine Meldung. Der Zweig lehnt außerdem vorzeitig geschlossene Buffer-Streams ab, statt deren Promise unerfüllt zu lassen.
+Diese strukturierten Diagnosen sind **neu im lokalen Verbesserungszweig**; das verÃ¶ffentlichte Paket 0.3.13 enthÃ¤lt sie noch nicht. Allgemeine Fehler liefern weiterhin eine Meldung. Der Zweig lehnt auÃŸerdem vorzeitig geschlossene Buffer-Streams ab, statt deren Promise unerfÃ¼llt zu lassen.
 
 ## Syntaxfehler im Playground
 
-Der Editor parst die Definition, bevor er sie ausführt, markiert die fehlerhafte Stelle und zeigt Zeile und Spalte an. **Im Editor zum Fehler springen** fokussiert die Stelle. Undo/Redo und das Fehlerfeld ermöglichen Korrekturen, ohne deine Arbeit zu verlieren. Bei Live-Vorschau bleibt die letzte erfolgreiche PDF während der Bearbeitung und nach Fehlern sichtbar; der Download ist deaktiviert, wenn die Vorschau nicht mehr zum aktuellen Quelltext passt.
+Der Editor parst die Definition, bevor er sie ausfÃ¼hrt, markiert die fehlerhafte Stelle und zeigt Zeile und Spalte an. **Im Editor zum Fehler springen** fokussiert die Stelle. Undo/Redo und das Fehlerfeld ermÃ¶glichen Korrekturen, ohne deine Arbeit zu verlieren. Bei Live-Vorschau bleibt die letzte erfolgreiche PDF wÃ¤hrend der Bearbeitung und nach Fehlern sichtbar; der Download ist deaktiviert, wenn die Vorschau nicht mehr zum aktuellen Quelltext passt.
 
 ## Schwierige Fehler eingrenzen
 
-Verwende dieselben Schriften und dieselbe Laufzeit. Ersetze den Inhalt durch einen einzelnen Absatz und füge die Blöcke schrittweise wieder hinzu, bis das Problem erneut auftritt. Prüfe bei Tabellen zuerst Zeilenlängen und Zellüberspannungen, bevor du Breiten anpasst. Verwende bei Ressourcenfehlern zunächst eine bekannte lokale Schrift und ein eingebettetes Bild. Weitere Symptome findest du unter [Fehlerbehebung](/docs/0.3/de/guides/troubleshooting/).
+Verwende dieselben Schriften und dieselbe Laufzeit. Ersetze den Inhalt durch einen einzelnen Absatz und fÃ¼ge die BlÃ¶cke schrittweise wieder hinzu, bis das Problem erneut auftritt. PrÃ¼fe bei Tabellen zuerst ZeilenlÃ¤ngen und ZellÃ¼berspannungen, bevor du Breiten anpasst. Verwende bei Ressourcenfehlern zunÃ¤chst eine bekannte lokale Schrift und ein eingebettetes Bild. Weitere Symptome findest du unter [Fehlerbehebung](/docs/0.3/de/guides/troubleshooting/).
 
-## Die vollst�ndige Definition vor dem Rendern pr�fen
+## Die vollständige Definition vor dem Rendern prüfen
 
-Die lokale, unver�ffentlichte API `validateDocument(input, options)` pr�ft alle deklarierten Dokumenteigenschaften und sammelt mehrere Fehler mit Pfaden. Zus�tzlich pr�ft sie Tabellen, Spans, Referenzen, Zahlenbereiche und Zyklen. Sie ver�ndert keine Eingabe, f�hrt keine Callbacks aus und greift auf keine Ressourcen zu. Unbekannte Eigenschaften sind standardm��ig Warnungen; mit `strict: true` werden sie zu Fehlern.
+Die lokale, unveröffentlichte API `validateDocument(input, options)` prüft alle deklarierten Dokumenteigenschaften und sammelt mehrere Fehler mit Pfaden. Zusätzlich prüft sie Tabellen, Spans, Referenzen, Zahlenbereiche und Zyklen. Sie verändert keine Eingabe, führt keine Callbacks aus und greift auf keine Ressourcen zu. Unbekannte Eigenschaften sind standardmäßig Warnungen; mit `strict: true` werden sie zu Fehlern.
 
 **JavaScript**
 
@@ -102,6 +104,6 @@ for (const issue of report.errors) {
 }
 ```
 
-Das Ergebnis enth�lt `valid`, `errors`, `warnings`, `deferred` und `truncated`. Jeder Befund enth�lt `path`, `code`, `severity` und `message`. Standardgrenzen: 100 Befunde, 100 Verschachtelungsebenen und 50.000 untersuchte Werte. Ein ausgesch�pftes Limit meldet niemals Erfolg. Callback-Ergebnisse, Ressourcenverf�gbarkeit und -dekodierung sowie das endg�ltige Layout werden weiterhin beim Rendern gepr�ft. JavaScript muss bereits syntaktisch g�ltig sein, bevor diese Objekt-API aufgerufen werden kann.
+Das Ergebnis enthält `valid`, `errors`, `warnings`, `deferred` und `truncated`. Jeder Befund enthält `path`, `code`, `severity` und `message`. Standardgrenzen: 100 Befunde, 100 Verschachtelungsebenen und 50.000 untersuchte Werte. Ein ausgeschöpftes Limit meldet niemals Erfolg. Callback-Ergebnisse, Ressourcenverfügbarkeit und -dekodierung sowie das endgültige Layout werden weiterhin beim Rendern geprüft. JavaScript muss bereits syntaktisch gültig sein, bevor diese Objekt-API aufgerufen werden kann.
 
-�bergebe `{ validation: true }` als zweites Argument an `createPdf`, um ung�ltige Definitionen vor dem Laden von Ressourcen abzulehnen. Ein ung�ltiges Dokument wirft einen `DocumentValidationError` mit `code: "PDFMAKE_VALIDATION_ERROR"`, `phase: "validation"` und einem `diagnostics`-Array. Bestehende Aufrufe bleiben kompatibel; die automatische Vorabpr�fung ist optional. Der lokale Playground f�hrt sie mit der verbesserten Library automatisch aus.
+Übergebe `{ validation: true }` als zweites Argument an `createPdf`, um ungültige Definitionen vor dem Laden von Ressourcen abzulehnen. Ein ungültiges Dokument wirft einen `DocumentValidationError` mit `code: "PDFMAKE_VALIDATION_ERROR"`, `phase: "validation"` und einem `diagnostics`-Array. Bestehende Aufrufe bleiben kompatibel; die automatische Vorabprüfung ist optional. Der lokale Playground führt sie mit der verbesserten Library automatisch aus.

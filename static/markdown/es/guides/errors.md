@@ -1,4 +1,4 @@
-# Errores y diagnósticos
+# Errores y diagnÃ³sticos
 
 Version: pdfmake 0.3.x
 Language: es
@@ -6,16 +6,16 @@ Source: https://pdfmake.github.io/docs/0.3/es/guides/errors/
 
 ## Identifica primero la etapa que falla
 
-Una definición no válida debe producir un error, no omitir contenido en silencio. La pregunta útil es en qué punto falló y cómo llega el error a la aplicación.
+Una definiciÃ³n no vÃ¡lida debe producir un error, no omitir contenido en silencio. La pregunta Ãºtil es en quÃ© punto fallÃ³ y cÃ³mo llega el error a la aplicaciÃ³n.
 
-| Etapa | Fallo habitual | Dónde corregirlo |
+| Etapa | Fallo habitual | DÃ³nde corregirlo |
 | --- | --- | --- |
-| Análisis de JavaScript | Falta una coma, una comilla o una llave de cierre | Editor de código; todavía no se ha llamado a la biblioteca |
-| Ejecución de la definición | `ReferenceError` o fallo de un callback | Código de la aplicación que construye la definición |
-| Estructura del documento | Tipo de nodo mal escrito, fila de tabla o lista no válida | Ruta de definición indicada |
-| Carga de recursos | Falta una fuente, URL rechazada, imagen ilegible | Registro de fuentes/recursos y políticas de acceso |
-| Maquetación/renderizado | Contenido demasiado grande, dimensiones no válidas o fallo de un callback | Definición más pequeña que reproduzca el problema |
-| Salida | Flujo cerrado, permisos de escritura o fallo del destino | Gestión de errores de búfer/flujo/archivo |
+| AnÃ¡lisis de JavaScript | Falta una coma, una comilla o una llave de cierre | Editor de cÃ³digo; todavÃ­a no se ha llamado a la biblioteca |
+| EjecuciÃ³n de la definiciÃ³n | `ReferenceError` o fallo de un callback | CÃ³digo de la aplicaciÃ³n que construye la definiciÃ³n |
+| Estructura del documento | Tipo de nodo mal escrito, fila de tabla o lista no vÃ¡lida | Ruta de definiciÃ³n indicada |
+| Carga de recursos | Falta una fuente, URL rechazada, imagen ilegible | Registro de fuentes/recursos y polÃ­ticas de acceso |
+| MaquetaciÃ³n/renderizado | Contenido demasiado grande, dimensiones no vÃ¡lidas o fallo de un callback | DefiniciÃ³n mÃ¡s pequeÃ±a que reproduzca el problema |
+| Salida | Flujo cerrado, permisos de escritura o fallo del destino | GestiÃ³n de errores de bÃºfer/flujo/archivo |
 
 ## Espera siempre la salida
 
@@ -55,32 +55,34 @@ async function generateReport(pdfmake, definition) {
 }
 ```
 
-Devuelve un error a quien llama la API o muestra `error.message` en la interfaz. No respondas con un PDF vacío ni informes de éxito después de descartar el rechazo. Evita registrar el contenido de los documentos o credenciales privadas de recursos.
+Devuelve un error a quien llama la API o muestra `error.message` en la interfaz. No respondas con un PDF vacÃ­o ni informes de Ã©xito despuÃ©s de descartar el rechazo. Evita registrar el contenido de los documentos o credenciales privadas de recursos.
+
+Desde 0.3.13, `getStream()` rechaza el acceso a un flujo ya consumido. Los métodos basados en un búfer reutilizan los bytes almacenados; `write()` en Node también acepta una salida ya leída con `getBuffer()`, `getBase64()` o `getDataUrl()`. Crea una nueva instancia de salida para obtener otro flujo sin procesar.
 
 ## Leer una ruta del documento
 
-La rama local de mejoras de la biblioteca añade diagnósticos `PDFMAKE_INVALID_DOCUMENT` con `phase: 'preprocess'` y una propiedad `path`. Por ejemplo:
+La rama local de mejoras de la biblioteca aÃ±ade diagnÃ³sticos `PDFMAKE_INVALID_DOCUMENT` con `phase: 'preprocess'` y una propiedad `path`. Por ejemplo:
 
 ```text
 Unrecognized document structure: ...
 Document path: content[0].columns[0].ul[1]
 ```
 
-Esto apunta al segundo elemento de la lista en la primera columna del primer nodo del cuerpo. Comprueba si hay un error tipográfico, como `{ txt: 'Hello' }` en lugar de `{ text: 'Hello' }`. Las filas de tabla malformadas identifican la fila y el número de celdas esperado. Las tablas vacías explican que `table.body` necesita matrices de filas no vacías. Conserva los marcadores `{}` para las celdas combinadas. Se mantiene el texto de error existente; cuando estén disponibles, los consumidores deben usar los campos de diagnóstico en lugar de analizar las cadenas del mensaje.
+Esto apunta al segundo elemento de la lista en la primera columna del primer nodo del cuerpo. Comprueba si hay un error tipogrÃ¡fico, como `{ txt: 'Hello' }` en lugar de `{ text: 'Hello' }`. Las filas de tabla malformadas identifican la fila y el nÃºmero de celdas esperado. Las tablas vacÃ­as explican que `table.body` necesita matrices de filas no vacÃ­as. Conserva los marcadores `{}` para las celdas combinadas. Se mantiene el texto de error existente; cuando estÃ©n disponibles, los consumidores deben usar los campos de diagnÃ³stico en lugar de analizar las cadenas del mensaje.
 
-Estos diagnósticos estructurados son **nuevos en la rama local de mejoras**; el paquete publicado 0.3.12 todavía no los incluye. Los errores genéricos siguen teniendo un mensaje. La rama también rechaza los flujos de búfer cerrados antes de tiempo, en vez de dejar pendiente su Promise.
+Estos diagnÃ³sticos estructurados son **nuevos en la rama local de mejoras**; el paquete publicado 0.3.13 todavÃ­a no los incluye. Los errores genÃ©ricos siguen teniendo un mensaje. La rama tambiÃ©n rechaza los flujos de bÃºfer cerrados antes de tiempo, en vez de dejar pendiente su Promise.
 
 ## Errores de sintaxis en el entorno de pruebas
 
-El editor analiza la definición antes de ejecutarla, marca la ubicación defectuosa y muestra la línea y la columna. **Go to error in editor** lleva el cursor a esa ubicación. Las funciones Deshacer/Rehacer y el panel de errores permiten corregir el problema sin perder el trabajo. Con la vista previa en directo, el último PDF generado correctamente permanece visible durante las ediciones y los fallos, pero su descarga se desactiva cuando ya no coincide con el código actual.
+El editor analiza la definiciÃ³n antes de ejecutarla, marca la ubicaciÃ³n defectuosa y muestra la lÃ­nea y la columna. **Go to error in editor** lleva el cursor a esa ubicaciÃ³n. Las funciones Deshacer/Rehacer y el panel de errores permiten corregir el problema sin perder el trabajo. Con la vista previa en directo, el Ãºltimo PDF generado correctamente permanece visible durante las ediciones y los fallos, pero su descarga se desactiva cuando ya no coincide con el cÃ³digo actual.
 
-## Reducir los fallos difíciles
+## Reducir los fallos difÃ­ciles
 
-Mantén las mismas fuentes y el mismo entorno de ejecución. Sustituye el cuerpo por un párrafo y luego vuelve a añadir bloques hasta que reaparezca el problema. En las tablas, comprueba la longitud de las filas y las celdas combinadas antes de ajustar los anchos. Si fallan los recursos, empieza con una fuente local conocida y una imagen incrustada. Consulta [solución de problemas](/docs/0.3/es/guides/troubleshooting/) para ver más síntomas.
+MantÃ©n las mismas fuentes y el mismo entorno de ejecuciÃ³n. Sustituye el cuerpo por un pÃ¡rrafo y luego vuelve a aÃ±adir bloques hasta que reaparezca el problema. En las tablas, comprueba la longitud de las filas y las celdas combinadas antes de ajustar los anchos. Si fallan los recursos, empieza con una fuente local conocida y una imagen incrustada. Consulta [soluciÃ³n de problemas](/docs/0.3/es/guides/troubleshooting/) para ver mÃ¡s sÃ­ntomas.
 
-## Validar la definici�n completa antes del renderizado
+## Validar la definición completa antes del renderizado
 
-La API local a�n no publicada `validateDocument(input, options)` comprueba todas las propiedades declaradas del documento y re�ne varios errores con sus rutas. Tambi�n comprueba tablas, celdas combinadas, referencias, rangos num�ricos y ciclos. No modifica la entrada, ejecuta callbacks ni accede a recursos. Las propiedades desconocidas generan advertencias; `strict: true` las convierte en errores.
+La API local aún no publicada `validateDocument(input, options)` comprueba todas las propiedades declaradas del documento y reúne varios errores con sus rutas. También comprueba tablas, celdas combinadas, referencias, rangos numéricos y ciclos. No modifica la entrada, ejecuta callbacks ni accede a recursos. Las propiedades desconocidas generan advertencias; `strict: true` las convierte en errores.
 
 **JavaScript**
 
@@ -102,6 +104,6 @@ for (const issue of report.errors) {
 }
 ```
 
-El resultado contiene `valid`, `errors`, `warnings`, `deferred` y `truncated`. Cada diagn�stico incluye `path`, `code`, `severity` y `message`. L�mites predeterminados: 100 diagn�sticos, 100 niveles y 50 000 valores inspeccionados. Un l�mite agotado nunca informa de �xito. Los resultados de callbacks, la disponibilidad y decodificaci�n de recursos y el dise�o final se comprueban durante el renderizado. JavaScript debe ser sint�cticamente v�lido antes de llamar a esta API de objetos.
+El resultado contiene `valid`, `errors`, `warnings`, `deferred` y `truncated`. Cada diagnóstico incluye `path`, `code`, `severity` y `message`. Límites predeterminados: 100 diagnósticos, 100 niveles y 50 000 valores inspeccionados. Un límite agotado nunca informa de éxito. Los resultados de callbacks, la disponibilidad y decodificación de recursos y el diseño final se comprueban durante el renderizado. JavaScript debe ser sintácticamente válido antes de llamar a esta API de objetos.
 
-Pasa `{ validation: true }` como segundo argumento a `createPdf` para rechazar definiciones incorrectas antes de cargar recursos. Un documento no v�lido lanza un `DocumentValidationError` con `code: "PDFMAKE_VALIDATION_ERROR"`, `phase: "validation"` y un array `diagnostics`. Los usos existentes siguen siendo compatibles; la comprobaci�n previa es opcional. El playground local la ejecuta autom�ticamente con la biblioteca mejorada.
+Pasa `{ validation: true }` como segundo argumento a `createPdf` para rechazar definiciones incorrectas antes de cargar recursos. Un documento no válido lanza un `DocumentValidationError` con `code: "PDFMAKE_VALIDATION_ERROR"`, `phase: "validation"` y un array `diagnostics`. Los usos existentes siguen siendo compatibles; la comprobación previa es opcional. El playground local la ejecuta automáticamente con la biblioteca mejorada.

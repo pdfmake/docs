@@ -14,7 +14,7 @@ Créez un PDF en trois étapes : configurez l’environnement, décrivez le cont
 Utilisez Node.js 20 ou ultérieur. Installez la version fixe ci-dessous, enregistrez cet exemple complet dans `first-pdf.cjs`, puis lancez `node first-pdf.cjs`.
 
 ```sh
-npm install pdfmake@0.3.12
+npm install pdfmake@0.3.13
 ```
 
 **JavaScript**
@@ -2456,6 +2456,7 @@ Les bordures, le remplissage, les marges de page et les autres colonnes consomme
 | `dontBreakRows` | `table` | Empêche une ligne individuelle de se couper entre deux pages |
 | `keepWithHeaderRows` | `table` | Nombre de lignes suivantes à garder avec l’en-tête |
 | `layout` | Nœud, à côté de `table` | Nom de disposition intégrée, nom personnalisé enregistré ou objet de disposition |
+| `tableAlignment` | Nœud à côté de `table` | Alignement horizontal du tableau entier : `left`, `center`, `right` ; depuis 0.3.13 |
 | `colSpan`, `rowSpan` | Cellule | Nombre positif de colonnes ou lignes couvertes ; les cellules de remplacement restent nécessaires |
 | `verticalAlignment` | Cellule | `'top'` (par défaut), `'middle'` ou `'bottom'` |
 | `border` | Cellule | Quatre booléens : gauche, haut, droite, bas |
@@ -2465,6 +2466,44 @@ Les bordures, le remplissage, les marges de page et les autres colonnes consomme
 | `overlayPattern`, `overlayOpacity` | Cellule | Tuple de motif et opacité numérique appliqués par-dessus le contenu |
 
 Garder une ligne entière ne permet pas de faire tenir une ligne trop grande sur une page. Testez les descriptions longues et les contenus imbriqués avec le format de page et les polices réellement utilisés.
+
+## Aligner le tableau entier
+
+**Depuis 0.3.13.** Placez `tableAlignment` sur le nœud à côté de `table`. Les valeurs possibles sont `left` (par défaut), `center` et `right`. Cette propriété positionne le tableau entier dans la largeur disponible ; utilisez séparément `alignment` pour le texte des cellules.
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [{
+    tableAlignment: 'center',
+    alignment: 'left',
+    table: {
+      widths: ['auto', 'auto'],
+      body: [['Item', 'Quantity'], ['Example', '2']]
+    }
+  }]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [{
+    tableAlignment: 'center',
+    alignment: 'left',
+    table: {
+      widths: ['auto', 'auto'],
+      body: [['Item', 'Quantity'], ['Example', '2']]
+    }
+  }]
+};
+```
+
+L’exemple centre le tableau tout en gardant son texte aligné à gauche. Utilisez `tableAlignment: 'right'` pour un tableau aligné à droite. L’alignement est visible si le tableau est plus étroit que la largeur disponible, par exemple avec `auto` ou des largeurs de colonnes fixes. Les tableaux qui remplissent ou dépassent cette largeur restent à gauche. Les marges et la colonne ou cellule qui contient le tableau déterminent la largeur disponible.
 
 ## Fusionner des cellules sans modifier la longueur des lignes
 
@@ -2917,10 +2956,10 @@ var fonts = {
 
    // download default Roboto font from unpkg.com
    Roboto: {
-     normal: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-Regular.ttf',
-     bold: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-Medium.ttf',
-     italics: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-Italic.ttf',
-     bolditalics: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-MediumItalic.ttf'
+     normal: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Regular.ttf',
+     bold: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Medium.ttf',
+     italics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Italic.ttf',
+     bolditalics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-MediumItalic.ttf'
    },
 
    // example of usage fonts in collection
@@ -2949,10 +2988,10 @@ var fonts = {
 
    // download default Roboto font from unpkg.com
    Roboto: {
-     normal: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-Regular.ttf',
-     bold: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-Medium.ttf',
-     italics: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-Italic.ttf',
-     bolditalics: 'https://unpkg.com/pdfmake@0.3.12/build/fonts/Roboto/Roboto-MediumItalic.ttf'
+     normal: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Regular.ttf',
+     bold: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Medium.ttf',
+     italics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Italic.ttf',
+     bolditalics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-MediumItalic.ttf'
    },
 
    // example of usage fonts in collection
@@ -3293,8 +3332,8 @@ Les bundles des polices standard sont disponibles dans le répertoire `build/sta
 Par exemple, pour utiliser Helvetica :
 
 ```html
-<script src="https://unpkg.com/pdfmake@0.3.12/build/pdfmake.min.js"></script>
-<script src="https://unpkg.com/pdfmake@0.3.12/build/standard-fonts/Helvetica.js"></script>
+<script src="https://unpkg.com/pdfmake@0.3.13/build/pdfmake.min.js"></script>
+<script src="https://unpkg.com/pdfmake@0.3.13/build/standard-fonts/Helvetica.js"></script>
 <script>
   var docDefinition = {
     content: ['First paragraph', 'Another paragraph'],
@@ -3311,7 +3350,7 @@ Les bundles disponibles sont `Courier.js`, `Helvetica.js`, `Times.js`, `Symbol.j
 
 ---
 
-# Bien démarrer
+# Bien dÃ©marrer
 
 Version: pdfmake 0.3.x
 Language: fr
@@ -3319,25 +3358,25 @@ Source: https://pdfmake.github.io/docs/0.3/fr/getting-started/
 
 ## Choisir votre environnement
 
-- [Node.js](/docs/0.3/fr/getting-started/server-side/) : écrire un fichier, renvoyer un Buffer depuis une API ou consommer un flux.
-- [Navigateur](/docs/0.3/fr/getting-started/client-side/) : télécharger, ouvrir, imprimer ou obtenir un Blob.
+- [Node.js](/docs/0.3/fr/getting-started/server-side/) : Ã©crire un fichier, renvoyer un Buffer depuis une API ou consommer un flux.
+- [Navigateur](/docs/0.3/fr/getting-started/client-side/) : tÃ©lÃ©charger, ouvrir, imprimer ou obtenir un Blob.
 
-Les deux environnements utilisent la même [définition de document](/docs/0.3/fr/document-definition-object/). Les méthodes de sortie renvoient des Promises. Le chargement des polices diffère entre les fichiers Node et les conteneurs de polices du navigateur.
+Les deux environnements utilisent la mÃªme [dÃ©finition de document](/docs/0.3/fr/document-definition-object/). Les mÃ©thodes de sortie renvoient des Promises. Le chargement des polices diffÃ¨re entre les fichiers Node et les conteneurs de polices du navigateur.
 
 ## Avant de commencer
 
-Consultez la documentation correspondant à la version installée (`npm ls pdfmake`). Commencez par un exemple minimal avant d’ajouter des polices personnalisées, des images distantes ou des dispositions de tableau. Pour les applications 0.1/0.2, suivez le [guide de migration](/docs/0.3/fr/migration-from-0.1/).
+Consultez la documentation correspondant Ã  la version installÃ©e (`npm ls pdfmake`). Commencez par un exemple minimal avant dâ€™ajouter des polices personnalisÃ©es, des images distantes ou des dispositions de tableau. Pour les applications 0.1/0.2, suivez le [guide de migration](/docs/0.3/fr/migration-from-0.1/).
 
 ## JavaScript et TypeScript
 
-Cette branche de d�veloppement fournit ses propres d�clarations TypeScript avec la biblioth�que et s�pare les API Node et navigateur. Pour le paquet construit localement, installez TypeScript sans `@types/pdfmake`. Le paquet npm publi� 0.3.12 n�cessite encore les types communautaires correspondants ; les d�clarations natives et la validation pr�alable pr�sent�es ici ne sont pas encore publi�es. Le compilateur v�rifi� est TypeScript 5.9.3.
+Cette branche de développement fournit ses propres déclarations TypeScript avec la bibliothèque et sépare les API Node et navigateur. Pour le paquet construit localement, installez TypeScript sans `@types/pdfmake`. Le paquet npm publié 0.3.13 nécessite encore les types communautaires correspondants ; les déclarations natives et la validation préalable présentées ici ne sont pas encore publiées. Le compilateur vérifié est TypeScript 5.9.3.
 
 ```sh
-npm install pdfmake@0.3.12
+npm install pdfmake@0.3.13
 npm install --save-dev typescript@~5.9.3
 ```
 
-Node.js : enregistrez cet exemple dans `document.mts`. `NodeNext` permet au compilateur de suivre la résolution réelle de Node. Un fichier CommonJS `.cts` peut commencer par `import pdfmake = require("pdfmake")`. Évitez les imports nommés à l’exécution.
+Node.js : enregistrez cet exemple dans `document.mts`. `NodeNext` permet au compilateur de suivre la rÃ©solution rÃ©elle de Node. Un fichier CommonJS `.cts` peut commencer par `import pdfmake = require("pdfmake")`. Ã‰vitez les imports nommÃ©s Ã  lâ€™exÃ©cution.
 
 ```json
 {
@@ -3379,7 +3418,7 @@ const buffer: Buffer = await pdfmake.createPdf(definition).getBuffer();
 assert.equal(buffer.subarray(0, 5).toString(), '%PDF-');
 ```
 
-Avec un bundler pour navigateur, importez le point d’entrée précompilé et enregistrez directement le VFS. Utilisez `module: "ESNext"` et `moduleResolution: "Bundler"` ; ces options nécessitent un bundler et ne conviennent pas à une sortie exécutée directement par Node.
+Avec un bundler pour navigateur, importez le point dâ€™entrÃ©e prÃ©compilÃ© et enregistrez directement le VFS. Utilisez `module: "ESNext"` et `moduleResolution: "Bundler"` ; ces options nÃ©cessitent un bundler et ne conviennent pas Ã  une sortie exÃ©cutÃ©e directement par Node.
 
 **JavaScript**
 
@@ -3407,7 +3446,7 @@ export async function render(): Promise<Blob> {
 }
 ```
 
-Les types apportent la compl�tion et les v�rifications � la compilation. Ils ne valident pas le JSON externe et ne garantissent pas la mise en page. Les d�clarations fournies distinguent `write` dans Node de `getBlob`, `download`, `open` et `print` dans le navigateur. Utilisez les imports explicites du navigateur pour les bundlers. Le playground et les exemples int�gr�s v�rifient TypeScript localement avant le rendu. Consultez la [validation des documents](/docs/0.3/fr/guides/errors/) pour les contr�les � l�ex�cution.
+Les types apportent la complétion et les vérifications à la compilation. Ils ne valident pas le JSON externe et ne garantissent pas la mise en page. Les déclarations fournies distinguent `write` dans Node de `getBlob`, `download`, `open` et `print` dans le navigateur. Utilisez les imports explicites du navigateur pour les bundlers. Le playground et les exemples intégrés vérifient TypeScript localement avant le rendu. Consultez la [validation des documents](/docs/0.3/fr/guides/errors/) pour les contrôles à l’exécution.
 
 ---
 
@@ -3420,7 +3459,7 @@ Source: https://pdfmake.github.io/docs/0.3/fr/getting-started/client-side/
 ## Installer et copier les ressources du navigateur
 
 ```sh
-npm install pdfmake@0.3.12
+npm install pdfmake@0.3.13
 ```
 
 Copiez `node_modules/pdfmake/build/pdfmake.min.js` et `node_modules/pdfmake/build/vfs_fonts.js` à côté de ce fichier HTML. Servez le dossier avec votre serveur de développement local.
@@ -3685,7 +3724,7 @@ Utilisez Node.js **20 ou ultérieur**. Créez une application et installez pdfma
 
 ```sh
 npm init -y
-npm install pdfmake@0.3.12
+npm install pdfmake@0.3.13
 ```
 
 La version exacte rend cet exemple reproductible. Consultez les notes de version et effectuez des tests avant de choisir un correctif plus récent.
@@ -3937,7 +3976,7 @@ Source: https://pdfmake.github.io/docs/0.3/fr/getting-started/server-side/suppor
 
 ## Version minimale requise
 
-Le paquet 0.3.12 déclare **Node.js >=20** dans `package.json`. La matrice CI proposée couvre Node.js 20, 22 et 24 sous Linux, Windows et macOS. La couverture de compatibilité est distincte de la prise en charge de sécurité de Node.js en amont.
+Le paquet 0.3.13 déclare **Node.js >=20** dans `package.json`. La matrice CI proposée couvre Node.js 20, 22 et 24 sous Linux, Windows et macOS. La couverture de compatibilité est distincte de la prise en charge de sécurité de Node.js en amont.
 
 En production, utilisez une version de Node.js encore maintenue. Consultez le [calendrier officiel des versions de Node.js](https://github.com/nodejs/Release#release-schedule) avant de choisir votre environnement. Testez vos polices, vos ressources et votre charge de génération sur la version exacte que vous déployez.
 
@@ -4056,18 +4095,18 @@ Version: pdfmake 0.3.x
 Language: fr
 Source: https://pdfmake.github.io/docs/0.3/fr/guides/errors/
 
-## Identifier d’abord l’étape en échec
+## Identifier dâ€™abord lâ€™Ã©tape en Ã©chec
 
-Une définition non valide doit provoquer une erreur, plutôt que d’omettre du contenu sans avertissement. Il faut déterminer où l’échec s’est produit et comment cette erreur remonte dans votre application.
+Une dÃ©finition non valide doit provoquer une erreur, plutÃ´t que dâ€™omettre du contenu sans avertissement. Il faut dÃ©terminer oÃ¹ lâ€™Ã©chec sâ€™est produit et comment cette erreur remonte dans votre application.
 
-| Étape | Échec courant | Où le corriger |
+| Ã‰tape | Ã‰chec courant | OÃ¹ le corriger |
 | --- | --- | --- |
-| Analyse JavaScript | Virgule, guillemet ou accolade fermante manquante | Éditeur de code ; la bibliothèque n’a pas encore été appelée |
-| Exécution de la définition | `ReferenceError` ou échec d’une fonction de rappel | Code de l’application qui construit la définition |
-| Structure du document | Type de nœud mal orthographié, lignes de tableau ou liste non valides | Chemin de définition signalé |
-| Chargement des ressources | Police manquante, URL refusée, image illisible | Enregistrement des polices/ressources et règles d’accès |
-| Mise en page/rendu | Contenu trop volumineux, dimensions non valides ou fonction de rappel en échec | Plus petite définition permettant de reproduire le problème |
-| Sortie | Flux fermé, droits d’écriture ou échec de destination | Gestion des erreurs de buffer, flux ou fichier |
+| Analyse JavaScript | Virgule, guillemet ou accolade fermante manquante | Ã‰diteur de code ; la bibliothÃ¨que nâ€™a pas encore Ã©tÃ© appelÃ©e |
+| ExÃ©cution de la dÃ©finition | `ReferenceError` ou Ã©chec dâ€™une fonction de rappel | Code de lâ€™application qui construit la dÃ©finition |
+| Structure du document | Type de nÅ“ud mal orthographiÃ©, lignes de tableau ou liste non valides | Chemin de dÃ©finition signalÃ© |
+| Chargement des ressources | Police manquante, URL refusÃ©e, image illisible | Enregistrement des polices/ressources et rÃ¨gles dâ€™accÃ¨s |
+| Mise en page/rendu | Contenu trop volumineux, dimensions non valides ou fonction de rappel en Ã©chec | Plus petite dÃ©finition permettant de reproduire le problÃ¨me |
+| Sortie | Flux fermÃ©, droits dâ€™Ã©criture ou Ã©chec de destination | Gestion des erreurs de buffer, flux ou fichier |
 
 ## Toujours attendre la sortie
 
@@ -4107,32 +4146,34 @@ async function generateReport(pdfmake, definition) {
 }
 ```
 
-Renvoyez l’erreur à l’appelant de l’API ou affichez `error.message` dans l’interface. Ne répondez pas avec un PDF vide et n’annoncez pas un succès après avoir ignoré le rejet. Évitez de journaliser le contenu du document ou les identifiants privés des ressources.
+Renvoyez lâ€™erreur Ã  lâ€™appelant de lâ€™API ou affichez `error.message` dans lâ€™interface. Ne rÃ©pondez pas avec un PDF vide et nâ€™annoncez pas un succÃ¨s aprÃ¨s avoir ignorÃ© le rejet. Ã‰vitez de journaliser le contenu du document ou les identifiants privÃ©s des ressources.
+
+Depuis 0.3.13, `getStream()` rejette l’accès à un flux déjà consommé. Les méthodes basées sur un buffer réutilisent les octets mis en cache ; `write()` dans Node accepte aussi une sortie déjà lue avec `getBuffer()`, `getBase64()` ou `getDataUrl()`. Créez une nouvelle instance de sortie pour obtenir un nouveau flux brut.
 
 ## Lire le chemin dans le document
 
-La branche locale d’amélioration de la bibliothèque ajoute des diagnostics `PDFMAKE_INVALID_DOCUMENT` avec `phase: 'preprocess'` et une propriété `path`. Par exemple :
+La branche locale dâ€™amÃ©lioration de la bibliothÃ¨que ajoute des diagnostics `PDFMAKE_INVALID_DOCUMENT` avec `phase: 'preprocess'` et une propriÃ©tÃ© `path`. Par exemple :
 
 ```text
 Unrecognized document structure: ...
 Document path: content[0].columns[0].ul[1]
 ```
 
-Ce chemin désigne le deuxième élément de liste dans la première colonne du premier nœud du corps. Cherchez une faute telle que `{ txt: 'Hello' }` à la place de `{ text: 'Hello' }`. Pour des lignes de tableau mal formées, le diagnostic indique la ligne et le nombre de cellules attendu. Les tableaux vides précisent que `table.body` doit contenir des tableaux de lignes non vides. Conservez les objets `{}` de remplacement pour les cellules fusionnées. Le texte d’erreur existant est maintenu ; lorsque les champs de diagnostic sont disponibles, les appelants doivent les utiliser au lieu d’analyser les chaînes de message.
+Ce chemin dÃ©signe le deuxiÃ¨me Ã©lÃ©ment de liste dans la premiÃ¨re colonne du premier nÅ“ud du corps. Cherchez une faute telle que `{ txt: 'Hello' }` Ã  la place de `{ text: 'Hello' }`. Pour des lignes de tableau mal formÃ©es, le diagnostic indique la ligne et le nombre de cellules attendu. Les tableaux vides prÃ©cisent que `table.body` doit contenir des tableaux de lignes non vides. Conservez les objets `{}` de remplacement pour les cellules fusionnÃ©es. Le texte dâ€™erreur existant est maintenu ; lorsque les champs de diagnostic sont disponibles, les appelants doivent les utiliser au lieu dâ€™analyser les chaÃ®nes de message.
 
-Ces diagnostics structurés sont **nouveaux dans la branche locale d’amélioration** ; le paquet publié 0.3.12 ne les contient pas encore. Les erreurs génériques comportent toujours un message. La branche rejette également les flux de buffer fermés prématurément au lieu de laisser leur Promise en attente.
+Ces diagnostics structurÃ©s sont **nouveaux dans la branche locale dâ€™amÃ©lioration** ; le paquet publiÃ© 0.3.13 ne les contient pas encore. Les erreurs gÃ©nÃ©riques comportent toujours un message. La branche rejette Ã©galement les flux de buffer fermÃ©s prÃ©maturÃ©ment au lieu de laisser leur Promise en attente.
 
 ## Erreurs de syntaxe dans le playground
 
-L’éditeur analyse la définition avant son exécution, marque l’emplacement fautif et affiche la ligne et la colonne. **Aller à l’erreur dans l’éditeur** place le curseur à cet endroit. L’annulation/restauration et le panneau d’erreurs permettent de corriger le problème sans perdre le travail. Avec l’aperçu en direct, le dernier PDF généré avec succès reste visible pendant les modifications et les échecs, mais son téléchargement est désactivé s’il ne correspond plus au code actuel.
+Lâ€™Ã©diteur analyse la dÃ©finition avant son exÃ©cution, marque lâ€™emplacement fautif et affiche la ligne et la colonne. **Aller Ã  lâ€™erreur dans lâ€™Ã©diteur** place le curseur Ã  cet endroit. Lâ€™annulation/restauration et le panneau dâ€™erreurs permettent de corriger le problÃ¨me sans perdre le travail. Avec lâ€™aperÃ§u en direct, le dernier PDF gÃ©nÃ©rÃ© avec succÃ¨s reste visible pendant les modifications et les Ã©checs, mais son tÃ©lÃ©chargement est dÃ©sactivÃ© sâ€™il ne correspond plus au code actuel.
 
-## Réduire les échecs difficiles à diagnostiquer
+## RÃ©duire les Ã©checs difficiles Ã  diagnostiquer
 
-Conservez les mêmes polices et le même environnement d’exécution. Remplacez le corps par un seul paragraphe, puis réajoutez les blocs jusqu’à ce que le problème réapparaisse. Pour les tableaux, vérifiez les longueurs des lignes et les fusions avant d’ajuster les largeurs. En cas d’échec lié aux ressources, commencez par une police locale connue et une image intégrée. Consultez [Dépannage](/docs/0.3/fr/guides/troubleshooting/) pour découvrir d’autres symptômes.
+Conservez les mÃªmes polices et le mÃªme environnement dâ€™exÃ©cution. Remplacez le corps par un seul paragraphe, puis rÃ©ajoutez les blocs jusquâ€™Ã  ce que le problÃ¨me rÃ©apparaisse. Pour les tableaux, vÃ©rifiez les longueurs des lignes et les fusions avant dâ€™ajuster les largeurs. En cas dâ€™Ã©chec liÃ© aux ressources, commencez par une police locale connue et une image intÃ©grÃ©e. Consultez [DÃ©pannage](/docs/0.3/fr/guides/troubleshooting/) pour dÃ©couvrir dâ€™autres symptÃ´mes.
 
-## Valider la d�finition compl�te avant le rendu
+## Valider la définition complète avant le rendu
 
-L�API locale non publi�e `validateDocument(input, options)` v�rifie toutes les propri�t�s d�clar�es du document et rassemble plusieurs erreurs avec leurs chemins. Elle contr�le aussi les tableaux, les cellules fusionn�es, les r�f�rences, les plages num�riques et les cycles. Elle ne modifie pas l�entr�e, n�ex�cute aucun callback et n�acc�de � aucune ressource. Les propri�t�s inconnues produisent des avertissements ; `strict: true` les transforme en erreurs.
+L’API locale non publiée `validateDocument(input, options)` vérifie toutes les propriétés déclarées du document et rassemble plusieurs erreurs avec leurs chemins. Elle contrôle aussi les tableaux, les cellules fusionnées, les références, les plages numériques et les cycles. Elle ne modifie pas l’entrée, n’exécute aucun callback et n’accède à aucune ressource. Les propriétés inconnues produisent des avertissements ; `strict: true` les transforme en erreurs.
 
 **JavaScript**
 
@@ -4154,9 +4195,9 @@ for (const issue of report.errors) {
 }
 ```
 
-Le r�sultat contient `valid`, `errors`, `warnings`, `deferred` et `truncated`. Chaque diagnostic contient `path`, `code`, `severity` et `message`. Limites par d�faut : 100 diagnostics, 100 niveaux et 50 000 valeurs inspect�es. Une limite atteinte ne donne jamais un r�sultat valide. Les r�sultats des callbacks, la disponibilit� et le d�codage des ressources ainsi que la mise en page finale restent v�rifi�s pendant le rendu. Le code JavaScript doit d�j� �tre syntaxiquement valide pour appeler cette API objet.
+Le résultat contient `valid`, `errors`, `warnings`, `deferred` et `truncated`. Chaque diagnostic contient `path`, `code`, `severity` et `message`. Limites par défaut : 100 diagnostics, 100 niveaux et 50 000 valeurs inspectées. Une limite atteinte ne donne jamais un résultat valide. Les résultats des callbacks, la disponibilité et le décodage des ressources ainsi que la mise en page finale restent vérifiés pendant le rendu. Le code JavaScript doit déjà être syntaxiquement valide pour appeler cette API objet.
 
-Passez `{ validation: true }` comme deuxi�me argument � `createPdf` pour rejeter une d�finition incorrecte avant de charger les ressources. Le document invalide l�ve un `DocumentValidationError` avec `code: "PDFMAKE_VALIDATION_ERROR"`, `phase: "validation"` et un tableau `diagnostics`. Les appels existants restent compatibles ; cette v�rification pr�alable est facultative. Le playground local l�ex�cute automatiquement avec la biblioth�que am�lior�e.
+Passez `{ validation: true }` comme deuxième argument à `createPdf` pour rejeter une définition incorrecte avant de charger les ressources. Le document invalide lève un `DocumentValidationError` avec `code: "PDFMAKE_VALIDATION_ERROR"`, `phase: "validation"` et un tableau `diagnostics`. Les appels existants restent compatibles ; cette vérification préalable est facultative. Le playground local l’exécute automatiquement avec la bibliothèque améliorée.
 
 ---
 
@@ -4168,7 +4209,7 @@ Source: https://pdfmake.github.io/docs/0.3/fr/guides/invoice/
 
 ## Exécuter l’exemple
 
-Installez `pdfmake@0.3.12`, enregistrez ce fichier sous `invoice.cjs` et lancez `node invoice.cjs`. L’exemple utilise Helvetica standard et du contenu ASCII afin d’éviter les ressources externes. Pour une couverture linguistique plus large, utilisez des polices incorporées.
+Installez `pdfmake@0.3.13`, enregistrez ce fichier sous `invoice.cjs` et lancez `node invoice.cjs`. L’exemple utilise Helvetica standard et du contenu ASCII afin d’éviter les ressources externes. Pour une couverture linguistique plus large, utilisez des polices incorporées.
 
 **JavaScript**
 

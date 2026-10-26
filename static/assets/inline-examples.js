@@ -145,6 +145,7 @@ export function enhanceExamples(scope, ui) {
     if (saved?.edited) edit();
     const controller = { destroy() { if (destroyed) return; save(); destroyed = true; revision++; pageRevision++; stop(); clearTimeout(timer); observer.disconnect(); task?.cancel(); editor?.destroy(); pdfLoad?.destroy(); if (pdfUrl) URL.revokeObjectURL(pdfUrl); active.delete(controller); } };
     active.add(controller); controllers.push(controller);
+    for (const button of block.querySelectorAll('.code-meta button')) button.disabled = false;
   }
   return controllers;
 }

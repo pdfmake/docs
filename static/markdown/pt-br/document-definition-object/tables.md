@@ -73,6 +73,7 @@ Bordas, preenchimento interno, margens da página e outras colunas também conso
 | `dontBreakRows` | `table` | Impede que uma linha individual seja dividida entre páginas |
 | `keepWithHeaderRows` | `table` | Número de linhas seguintes que devem permanecer junto ao cabeçalho |
 | `layout` | Nó, ao lado de `table` | Nome de layout integrado, nome registrado ou objeto de layout |
+| `tableAlignment` | Nó ao lado de `table` | Alinhamento horizontal da tabela inteira: `left`, `center`, `right`; desde 0.3.13 |
 | `colSpan`, `rowSpan` | Célula | Número positivo de colunas/linhas ocupadas; ainda são necessários marcadores de posição |
 | `verticalAlignment` | Célula | `'top'` (padrão), `'middle'` ou `'bottom'` |
 | `border` | Célula | Quatro booleanos: esquerda, superior, direita, inferior |
@@ -82,6 +83,44 @@ Bordas, preenchimento interno, margens da página e outras colunas também conso
 | `overlayPattern`, `overlayOpacity` | Célula | Tupla de padrão e opacidade numérica desenhados sobre o conteúdo |
 
 Manter uma linha inteira junta não faz uma linha alta demais caber na página. Teste descrições longas e conteúdo aninhado com o tamanho de página e as fontes que você realmente usa.
+
+## Alinhar a tabela inteira
+
+**Desde 0.3.13.** Coloque `tableAlignment` no nó ao lado de `table`. Os valores aceitos são `left` (padrão), `center` e `right`. Essa propriedade posiciona a tabela inteira na largura disponível; use `alignment` separadamente para o texto das células.
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [{
+    tableAlignment: 'center',
+    alignment: 'left',
+    table: {
+      widths: ['auto', 'auto'],
+      body: [['Item', 'Quantity'], ['Example', '2']]
+    }
+  }]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [{
+    tableAlignment: 'center',
+    alignment: 'left',
+    table: {
+      widths: ['auto', 'auto'],
+      body: [['Item', 'Quantity'], ['Example', '2']]
+    }
+  }]
+};
+```
+
+O exemplo centraliza a tabela e mantém o texto alinhado à esquerda. Use `tableAlignment: 'right'` para alinhar a tabela à direita. O alinhamento fica visível quando a tabela é mais estreita que a largura disponível, por exemplo com `auto` ou larguras de coluna fixas. Tabelas que ocupam ou ultrapassam essa largura permanecem à esquerda. As margens e a coluna ou célula que contém a tabela determinam a largura disponível.
 
 ## Mescle células sem alterar o tamanho da linha
 

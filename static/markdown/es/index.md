@@ -14,7 +14,7 @@ Crea un PDF en tres pasos: configura el entorno, describe el contenido y solicit
 Usa Node.js 20 o posterior. Instala la versión fija indicada, guarda el ejemplo completo como `first-pdf.cjs` y ejecuta `node first-pdf.cjs`.
 
 ```sh
-npm install pdfmake@0.3.12
+npm install pdfmake@0.3.13
 ```
 
 **JavaScript**

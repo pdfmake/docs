@@ -10,7 +10,7 @@ Utilisez Node.js **20 ou ultérieur**. Créez une application et installez pdfma
 
 ```sh
 npm init -y
-npm install pdfmake@0.3.12
+npm install pdfmake@0.3.13
 ```
 
 La version exacte rend cet exemple reproductible. Consultez les notes de version et effectuez des tests avant de choisir un correctif plus récent.

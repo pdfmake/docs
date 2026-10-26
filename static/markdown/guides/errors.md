@@ -60,6 +60,8 @@ Return an error to the API caller or display `error.message` in the UI. Do not
 respond with an empty PDF or report success after swallowing the rejection.
 Avoid logging document contents or private resource credentials.
 
+In 0.3.13, `getStream()` rejects after the stream has been consumed. Buffer-based helpers reuse their cached bytes; Node `write()` also supports output already read through `getBuffer()`, `getBase64()` or `getDataUrl()`. Use a fresh output instance when you need a new raw stream.
+
 ## Read a document path
 
 The local library improvement branch adds `PDFMAKE_INVALID_DOCUMENT` diagnostics
@@ -78,7 +80,7 @@ spanned cells. Existing error text is retained; callers should use the diagnosti
 fields when present instead of parsing message strings.
 
 These structured diagnostics are **new in the local improvement branch**; the
-published 0.3.12 package does not yet contain them. Generic errors still have a
+published 0.3.13 package does not yet contain them. Generic errors still have a
 message. The branch also rejects prematurely closed buffer streams instead of
 leaving their Promise pending.
 

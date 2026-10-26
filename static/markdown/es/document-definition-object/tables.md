@@ -73,6 +73,7 @@ Los bordes, el relleno, los márgenes de página y las demás columnas también 
 | `dontBreakRows` | `table` | Evita dividir una fila individual entre páginas |
 | `keepWithHeaderRows` | `table` | Número de filas siguientes que se mantienen junto al encabezado |
 | `layout` | Nodo, junto a `table` | Nombre de una distribución integrada, nombre personalizado registrado u objeto de distribución |
+| `tableAlignment` | Nodo junto a `table` | Alineación horizontal de toda la tabla: `left`, `center`, `right`; desde 0.3.13 |
 | `colSpan`, `rowSpan` | Celda | Número positivo de columnas/filas que se abarcan; también se requieren celdas de marcador |
 | `verticalAlignment` | Celda | `'top'` (predeterminado), `'middle'` o `'bottom'` |
 | `border` | Celda | Cuatro booleanos: izquierda, arriba, derecha, abajo |
@@ -82,6 +83,44 @@ Los bordes, el relleno, los márgenes de página y las demás columnas también 
 | `overlayPattern`, `overlayOpacity` | Celda | Tupla de patrón y opacidad numérica que se pinta sobre el contenido |
 
 Mantener una fila unida no permite que una fila demasiado grande quepa en una página. Prueba las descripciones largas y el contenido anidado con el tamaño de página y las fuentes reales.
+
+## Alinear toda la tabla
+
+**Desde 0.3.13.** Coloca `tableAlignment` en el nodo junto a `table`. Los valores admitidos son `left` (predeterminado), `center` y `right`. Esta propiedad posiciona toda la tabla dentro del ancho disponible; usa `alignment` por separado para el texto de las celdas.
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [{
+    tableAlignment: 'center',
+    alignment: 'left',
+    table: {
+      widths: ['auto', 'auto'],
+      body: [['Item', 'Quantity'], ['Example', '2']]
+    }
+  }]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [{
+    tableAlignment: 'center',
+    alignment: 'left',
+    table: {
+      widths: ['auto', 'auto'],
+      body: [['Item', 'Quantity'], ['Example', '2']]
+    }
+  }]
+};
+```
+
+El ejemplo centra la tabla y mantiene su texto alineado a la izquierda. Usa `tableAlignment: 'right'` para alinear la tabla a la derecha. La alineación es visible cuando la tabla es más estrecha que el ancho disponible, por ejemplo con `auto` o anchos de columna fijos. Las tablas que llenan o superan ese ancho permanecen a la izquierda. Los márgenes y la columna o celda contenedora determinan el ancho disponible.
 
 ## Combinar celdas sin cambiar la longitud de las filas
 

@@ -10,7 +10,7 @@ Use Node.js **20 or later**. Create an application and install pdfmake:
 
 ```sh
 npm init -y
-npm install pdfmake@0.3.12
+npm install pdfmake@0.3.13
 ```
 
 The exact version makes this example reproducible. Check release notes and test before choosing a newer patch.

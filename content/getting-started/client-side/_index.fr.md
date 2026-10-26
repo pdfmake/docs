@@ -2,13 +2,13 @@
 title = "Démarrage rapide dans le navigateur"
 description = "Chargez pdfmake 0.3 et son lot de polices, puis téléchargez un PDF à la suite d’une action de l’utilisateur."
 weight = 11
-sourceDigest = "01745b0861d3d7c78def82206112d36936e7fb0d4c4486fbdd53bc321fbb1530"
+sourceDigest = "7427dae21c26c2f61d3836ce87ed99ce36fd9d5558ac2b6d0e6b7a7570fd7a83"
 +++
 
 ## Installer et copier les ressources du navigateur
 
 ```sh
-npm install pdfmake@0.3.12
+npm install pdfmake@0.3.13
 ```
 
 Copiez `node_modules/pdfmake/build/pdfmake.min.js` et `node_modules/pdfmake/build/vfs_fonts.js` à côté de ce fichier HTML. Servez le dossier avec votre serveur de développement local.

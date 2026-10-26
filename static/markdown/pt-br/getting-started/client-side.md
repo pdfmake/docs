@@ -7,7 +7,7 @@ Source: https://pdfmake.github.io/docs/0.3/pt-br/getting-started/client-side/
 ## Instale e copie os assets do navegador
 
 ```sh
-npm install pdfmake@0.3.12
+npm install pdfmake@0.3.13
 ```
 
 Copie `node_modules/pdfmake/build/pdfmake.min.js` e `node_modules/pdfmake/build/vfs_fonts.js` para junto deste arquivo HTML. Sirva o diretório usando seu servidor local de desenvolvimento.
