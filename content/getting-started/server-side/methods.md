@@ -70,6 +70,61 @@ pdfmake.createPdf(docDefinition).getStream().then((stream) => {
 });
 ```
 
+#### URL resource caching
+
+{{% alert theme="warning" %}}Minimal version: **0.3.14**{{% /alert %}}
+
+The `setUrlResourceCaching(enabled)` method controls whether new URL downloads are stored in a shared in-memory cache for reuse by subsequent documents. The `enabled` parameter is required and must be a boolean. URL resource caching is disabled by default.
+
+By default, downloaded fonts, images, attachments and embedded files are stored per document. To enable sharing between documents:
+
+```js
+pdfmake.setUrlResourceCaching(true);
+
+var docDefinition = {
+  content: [{ image: 'logo' }, { image: 'photo' }],
+  images: {
+    // Uses the global caching setting.
+    logo: 'https://example.com/logo.png',
+    photo: {
+      url: 'https://example.com/photo.png',
+      headers: { Authorization: 'Bearer token' },
+      // Store a new download only for this document.
+      cache: false
+    }
+  }
+};
+
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+Set `cache: true` or `cache: false` on an individual `{ url, headers, cache }` resource object to override the global setting. The `headers` property is optional. This applies to font definitions, entries in the `images` dictionary, and `src` objects in the `attachments` and `files` dictionaries. Plain URL strings and resource objects without `cache` use the global setting.
+
+Calling `pdfmake.setUrlResourceCaching(false)` restores the default for subsequent `createPdf()` calls. It does not change a generation already started, and an explicit `cache: true` still takes precedence.
+
+{{% alert theme="warning" %}}These settings control where newly downloaded data is stored. Existing shared entries can still be read with `cache: false`; it does not force a new download. Changing the global setting does not clear previously cached resources.{{% /alert %}}
+
+Shared entries are keyed by URL only, regardless of request headers, including `Authorization`. Reusing a cached entry does not contact the origin server or recheck authorization there. Avoid sharing resources whose content or authorization depends on request headers. The [URL Access Policy](#url-access-policy) applies to actual network downloads, not cache reads.
+
+This setting controls pdfmake's in-memory cache. It does not control the browser's HTTP cache.
+
+Before version 0.3.14, URL downloads were automatically shared between documents. Use `pdfmake.setUrlResourceCaching(true)` to restore that behavior.
+
+#### Clear URL resource cache
+
+{{% alert theme="warning" %}}Minimal version: **0.3.14**{{% /alert %}}
+
+The `clearUrlResourceCache()` method removes all shared virtual file system entries whose names start with `http://` or `https://`, regardless of case. Other VFS files, such as registered fonts stored under file names, are preserved. The method takes no parameters and runs synchronously.
+
+Call it between document generations to make subsequent documents download URL resources again:
+
+```js
+pdfmake.clearUrlResourceCache();
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+Clearing the cache does not change the `setUrlResourceCaching()` setting or remove resources stored only for an individual document. Use it after active document generations have finished; it does not cancel downloads already in progress. It does not clear the browser's HTTP cache.
+
 #### URL Access Policy
 
 {{% alert theme="warning" %}}Minimal version: **0.3.6**{{% /alert %}}

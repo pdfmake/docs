@@ -44,6 +44,33 @@ var fonts = {
 pdfMake.addFonts(fonts);
 ```
 
+### URL resource caching
+
+{{% alert theme="warning" %}}Minimal version: **0.3.14**{{% /alert %}}
+
+A font URL can also be specified as an object with `url`, optional `headers`, and `cache`. Set `cache: true` or `cache: false` to override the global `setUrlResourceCaching()` setting for that font file. For TrueType Collections, place the URL object in the first element of the array:
+
+```js
+pdfMake.addFonts({
+  yourFontName: {
+    normal: {
+      url: 'https://example.com/fonts/regular.ttf',
+      cache: true
+    }
+  },
+  PingFangSC: {
+    normal: [
+      { url: 'https://example.com/fonts/pingfang.ttc', cache: true },
+      'PingFangSC-Regular'
+    ]
+  }
+});
+```
+
+By default, new font downloads are stored per document. `cache: true` stores a new download in the shared cache for reuse by subsequent documents. `cache: false` can still reuse an existing shared entry. URL strings and objects without `cache` use the global setting.
+
+For details see [URL resource caching](/docs/0.3/getting-started/server-side/methods/#url-resource-caching).
+
 ## 2. specify the font in your doc-definition
 
 pdfMake uses 'Roboto' as default font, so in order to use your font, you should specify it in your doc-definition object.

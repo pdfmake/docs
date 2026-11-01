@@ -83,3 +83,25 @@ var docDefinition = {
   }
 };
 ```
+
+#### URL resource caching
+
+{{% alert theme="warning" %}}Minimal version: **0.3.14**{{% /alert %}}
+
+Use the `cache` property on a URL object in the `images` dictionary to override the global `setUrlResourceCaching()` setting. The `headers` property is optional and can be combined with `cache`.
+
+```js
+var docDefinition = {
+  content: [{ image: 'logo' }],
+  images: {
+    logo: {
+      url: 'https://example.com/logo.png',
+      cache: true
+    }
+  }
+};
+```
+
+By default, new downloads are stored per document. `cache: true` stores a new download in the shared cache for reuse by subsequent documents. `cache: false` stores a new download only for this document, but can still reuse an existing shared entry.
+
+For details see [URL resource caching](/docs/0.3/getting-started/server-side/methods/#url-resource-caching).

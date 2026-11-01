@@ -69,3 +69,38 @@ var dd = {
 	}
 };
 ```
+
+#### URL resource caching
+
+{{% alert theme="warning" %}}Minimal version: **0.3.14**{{% /alert %}}
+
+For URL resources in the `attachments` and `files` dictionaries, use an object as `src` to specify `url`, optional `headers`, and `cache`. The `cache` property belongs inside `src` and overrides the global `setUrlResourceCaching()` setting:
+
+```js
+var docDefinition = {
+  content: [{ attachment: 'report' }],
+  attachments: {
+    report: {
+      src: {
+        url: 'https://example.com/report.pdf',
+        headers: { Authorization: 'Bearer token' },
+        cache: false
+      },
+      name: 'report.pdf'
+    }
+  },
+  files: {
+    guide: {
+      src: {
+        url: 'https://example.com/guide.pdf',
+        cache: true
+      },
+      name: 'guide.pdf'
+    }
+  }
+};
+```
+
+By default, new downloads are stored per document. `cache: true` stores a new download in the shared cache for reuse by subsequent documents. `cache: false` stores a new download only for this document, but can still reuse an existing shared entry.
+
+For details see [URL resource caching](/docs/0.3/getting-started/server-side/methods/#url-resource-caching).

@@ -133,6 +133,34 @@ pdfMake.createPdf(docDefinition).getStream().then((stream) => {
 });
 ```
 
+#### URL resource caching
+
+{{% alert theme="warning" %}}Minimal version: **0.3.14**{{% /alert %}}
+
+The `setUrlResourceCaching(enabled)` method controls whether new URL downloads are stored in a shared in-memory cache for reuse by subsequent documents. The `enabled` parameter is required and must be a boolean. URL resource caching is disabled by default, so downloads are stored per document by default.
+
+```js
+pdfMake.setUrlResourceCaching(true);
+pdfMake.createPdf(docDefinition).download();
+```
+
+Set `cache: true` or `cache: false` on an individual URL resource object to override the global setting. Existing shared entries can still be read with `cache: false`; it does not force a new download. This setting does not control the browser's HTTP cache.
+
+For resource examples, cache behavior and the change from earlier versions, see [URL resource caching](/docs/0.3/getting-started/server-side/methods/#url-resource-caching).
+
+#### Clear URL resource cache
+
+{{% alert theme="warning" %}}Minimal version: **0.3.14**{{% /alert %}}
+
+The `clearUrlResourceCache()` method synchronously removes shared HTTP/HTTPS resources without changing the caching setting or removing other VFS files. It takes no parameters. Call it between document generations, after active generations have finished:
+
+```js
+pdfMake.clearUrlResourceCache();
+pdfMake.createPdf(docDefinition).download();
+```
+
+This method does not clear the browser's HTTP cache. For details see [Clear URL resource cache](/docs/0.3/getting-started/server-side/methods/#clear-url-resource-cache).
+
 #### URL Access Policy
 
 {{% alert theme="warning" %}}Minimal version: **0.3.6**{{% /alert %}}
