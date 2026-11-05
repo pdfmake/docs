@@ -2,7 +2,7 @@
 title = "Méthodes de sortie du navigateur"
 description = "Téléchargez, ouvrez ou imprimez des PDF et obtenez leurs octets ou Blob avec les méthodes Promise de pdfmake 0.3 pour navigateur."
 weight = 11
-sourceDigest = "9223df7c21e72e445796980b101e0e55c3724007a9f7b3f7e0888260b13476f1"
+sourceDigest = "e96427a0ff2b93e4dc0942e65cf9b0a99495dfc21d9e164aa8b08dd2434306d7"
 +++
 
 ## Créer un document
@@ -75,3 +75,29 @@ Conservez l’URL tant que le lecteur l’utilise. Appelez `URL.revokeObjectURL(
 ## Politique d’accès aux URL
 
 Depuis la version **0.3.6**, `setUrlAccessPolicy(callback)` accepte une fonction synchrone qui renvoie un booléen. Elle ne constitue pas un bac à sable réseau complet, et les redirections du navigateur peuvent avoir lieu avant la vérification de l’URL finale. Consultez la [sécurité des ressources](/docs/0.3/fr/guides/resource-security/).
+
+## Cache des ressources URL {#url-resource-caching}
+
+Disponible dans la branche de développement amont pour **0.3.14** ; absent du moteur 0.3.13 fixé pour le playground.
+
+`setUrlResourceCaching(enabled)` exige un booléen et vaut `false` par défaut. Le champ `cache` d’un objet URL remplace le réglage global. Les entrées partagées existantes restent lisibles avec `cache: false` ; cette valeur ne force pas un téléchargement.
+
+```js
+pdfMake.setUrlResourceCaching(true);
+pdfMake.createPdf(docDefinition).download();
+```
+
+Les nouveaux téléchargements sont conservés par document par défaut. `cache: true` stocke les nouvelles données dans le cache mémoire partagé pour les documents suivants ; `cache: false` permet toujours de lire une entrée partagée existante. Les URL textuelles et les objets sans `cache` utilisent le réglage global. Le cache HTTP du navigateur est indépendant.
+
+Consultez [le cache des ressources URL](/docs/0.3/fr/getting-started/server-side/methods/#url-resource-caching) pour la configuration et la sécurité du cache.
+
+## Vider le cache des ressources URL {#clear-url-resource-cache}
+
+Disponible dans la branche de développement amont pour **0.3.14** ; absent du moteur 0.3.13 fixé pour le playground.
+
+Appelez `clearUrlResourceCache()` synchroniquement entre les générations, après la fin des opérations actives. Elle supprime les entrées HTTP/HTTPS partagées, conserve les autres fichiers VFS et le réglage du cache, et ne vide pas le cache HTTP du navigateur. Voir [Vider le cache des ressources URL](/docs/0.3/fr/getting-started/server-side/methods/#clear-url-resource-cache).
+
+```js
+pdfMake.clearUrlResourceCache();
+pdfMake.createPdf(docDefinition).download();
+```

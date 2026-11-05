@@ -1,5 +1,5 @@
 +++
-sourceDigest = "7a21062929c7b5e61fa55fb47082995e80a6dab97f654ad3fa35ab0370e6ceef"
+sourceDigest = "85c02ba46019f225861ea08b049de89a318e044021508c54b2cc266714435900"
 title = "Mediante protocolo URL"
 description = "Configura fuentes personalizadas mediante el protocolo URL en pdfmake 0.3 con ejemplos, opciones y notas de uso."
 weight = 16
@@ -59,3 +59,30 @@ var docDefinition = {
   }
 }
 ```
+
+## Caché de recursos URL {#url-resource-caching}
+
+Disponible en la rama de desarrollo original para **0.3.14**; no está en el motor 0.3.13 fijado para el playground.
+
+Para las fuentes, usa un objeto de recurso con `url`, las `headers` opcionales y `cache`. En una tupla TrueType Collection, coloca ese objeto en el primer elemento.
+
+```js
+pdfMake.addFonts({
+  yourFontName: {
+    normal: {
+      url: 'https://example.com/fonts/regular.ttf',
+      cache: true
+    }
+  },
+  PingFangSC: {
+    normal: [
+      { url: 'https://example.com/fonts/pingfang.ttc', cache: true },
+      'PingFangSC-Regular'
+    ]
+  }
+});
+```
+
+Las nuevas descargas se guardan por documento de forma predeterminada. `cache: true` guarda los nuevos datos en la caché compartida en memoria para documentos posteriores; `cache: false` sigue permitiendo leer una entrada compartida existente. Las URL de texto y los objetos sin `cache` usan la configuración global. La caché HTTP del navegador es independiente.
+
+Consulta [Caché de recursos URL](/docs/0.3/es/getting-started/server-side/methods/#url-resource-caching) para conocer su configuración y seguridad.

@@ -3,7 +3,7 @@ title = "Über das URL-Protokoll"
 description = "Binde Schriftdateien über URL-Adressen in pdfmake ein und registriere sie für die Verwendung in der Browseranwendung."
 weight = 16
 alwaysopen = true
-sourceDigest = "7a21062929c7b5e61fa55fb47082995e80a6dab97f654ad3fa35ab0370e6ceef"
+sourceDigest = "85c02ba46019f225861ea08b049de89a318e044021508c54b2cc266714435900"
 +++
 
 Um eigene Schriften zu verwenden, sind zwei Schritte erforderlich:
@@ -59,3 +59,30 @@ var docDefinition = {
   }
 }
 ```
+
+## URL-Ressourcen zwischenspeichern {#url-resource-caching}
+
+Im Upstream-Entwicklungszweig für **0.3.14** verfügbar; nicht in der festgelegten Playground-Laufzeit 0.3.13.
+
+Verwende für Schriften ein Ressourcenobjekt mit `url`, optionalen `headers` und `cache`. In einem TrueType-Collection-Tupel steht dieses Objekt an erster Stelle.
+
+```js
+pdfMake.addFonts({
+  yourFontName: {
+    normal: {
+      url: 'https://example.com/fonts/regular.ttf',
+      cache: true
+    }
+  },
+  PingFangSC: {
+    normal: [
+      { url: 'https://example.com/fonts/pingfang.ttc', cache: true },
+      'PingFangSC-Regular'
+    ]
+  }
+});
+```
+
+Neue Downloads werden standardmäßig pro Dokument gespeichert. `cache: true` legt neue Daten im gemeinsamen Arbeitsspeicher-Cache für spätere Dokumente ab; `cache: false` erlaubt weiterhin das Lesen vorhandener gemeinsamer Einträge. URL-Zeichenfolgen und Objekte ohne `cache` verwenden die globale Einstellung. Der HTTP-Cache des Browsers ist davon unabhängig.
+
+Konfiguration und Sicherheit erklärt [URL-Ressourcen zwischenspeichern](/docs/0.3/de/getting-started/server-side/methods/#url-resource-caching).

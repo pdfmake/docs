@@ -2,7 +2,7 @@
 title = "Ausgabemethoden im Browser"
 description = "Lade PDFs herunter, öffne, drucke oder erhalte PDF-Bytes und Blobs mit Promise-basierten Browsermethoden in pdfmake 0.3."
 weight = 11
-sourceDigest = "9223df7c21e72e445796980b101e0e55c3724007a9f7b3f7e0888260b13476f1"
+sourceDigest = "e96427a0ff2b93e4dc0942e65cf9b0a99495dfc21d9e164aa8b08dd2434306d7"
 +++
 
 ## Dokument erstellen
@@ -75,3 +75,29 @@ Lass die URL bestehen, solange der Viewer sie verwendet. Rufe beim Aufräumen `U
 ## URL-Zugriffsrichtlinie
 
 Seit **0.3.6** akzeptiert `setUrlAccessPolicy(callback)` einen synchronen booleschen Callback. Diese Funktion ist keine vollständige Netzwerksandbox; Weiterleitungen im Browser können stattfinden, bevor die endgültige URL geprüft wird. Siehe [Ressourcensicherheit](/docs/0.3/de/guides/resource-security/).
+
+## URL-Ressourcen zwischenspeichern {#url-resource-caching}
+
+Im Upstream-Entwicklungszweig für **0.3.14** verfügbar; nicht in der festgelegten Playground-Laufzeit 0.3.13.
+
+`setUrlResourceCaching(enabled)` benötigt einen booleschen Wert und verwendet standardmäßig `false`. Das `cache` eines einzelnen URL-Objekts überschreibt die globale Einstellung. Vorhandene gemeinsame Einträge bleiben mit `cache: false` lesbar; es erzwingt keinen Download.
+
+```js
+pdfMake.setUrlResourceCaching(true);
+pdfMake.createPdf(docDefinition).download();
+```
+
+Neue Downloads werden standardmäßig pro Dokument gespeichert. `cache: true` legt neue Daten im gemeinsamen Arbeitsspeicher-Cache für spätere Dokumente ab; `cache: false` erlaubt weiterhin das Lesen vorhandener gemeinsamer Einträge. URL-Zeichenfolgen und Objekte ohne `cache` verwenden die globale Einstellung. Der HTTP-Cache des Browsers ist davon unabhängig.
+
+Konfiguration und Sicherheit erklärt [URL-Ressourcen zwischenspeichern](/docs/0.3/de/getting-started/server-side/methods/#url-resource-caching).
+
+## URL-Ressourcen-Cache leeren {#clear-url-resource-cache}
+
+Im Upstream-Entwicklungszweig für **0.3.14** verfügbar; nicht in der festgelegten Playground-Laufzeit 0.3.13.
+
+Rufe `clearUrlResourceCache()` synchron zwischen Generierungen auf, nachdem laufende Arbeiten beendet sind. Die Methode entfernt gemeinsame HTTP/HTTPS-Einträge, erhält andere VFS-Dateien sowie die Cache-Einstellung und leert nicht den HTTP-Cache des Browsers. Siehe [URL-Ressourcen-Cache leeren](/docs/0.3/de/getting-started/server-side/methods/#clear-url-resource-cache).
+
+```js
+pdfMake.clearUrlResourceCache();
+pdfMake.createPdf(docDefinition).download();
+```

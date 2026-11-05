@@ -74,3 +74,29 @@ Keep the URL alive while the viewer uses it. Call `URL.revokeObjectURL(url)` dur
 ## URL access policy
 
 Since **0.3.6**, `setUrlAccessPolicy(callback)` accepts a synchronous boolean callback. It is not a complete network sandbox, and browser redirects may happen before the final URL is checked. See [resource security](/docs/0.3/guides/resource-security/).
+
+## URL resource caching {#url-resource-caching}
+
+Available in the upstream development branch for **0.3.14**; not in the pinned 0.3.13 playground runtime.
+
+`setUrlResourceCaching(enabled)` requires a boolean and defaults to `false`. Set an individual URL object’s `cache` to override the global setting. Existing shared entries remain readable with `cache: false`; it does not force a download.
+
+```js
+pdfMake.setUrlResourceCaching(true);
+pdfMake.createPdf(docDefinition).download();
+```
+
+New downloads are stored per document by default. `cache: true` stores new data in the shared in-memory cache for later documents; `cache: false` still allows reading an existing shared entry. URL strings and objects without `cache` use the global setting. The browser HTTP cache is independent.
+
+See [URL resource caching](/docs/0.3/getting-started/server-side/methods/#url-resource-caching) for configuration and cache security.
+
+## Clear URL resource cache {#clear-url-resource-cache}
+
+Available in the upstream development branch for **0.3.14**; not in the pinned 0.3.13 playground runtime.
+
+Use `clearUrlResourceCache()` synchronously between generations after active work has finished. It removes shared HTTP/HTTPS entries, preserves other VFS files and the caching setting, and does not clear the browser HTTP cache. See [Clear URL resource cache](/docs/0.3/getting-started/server-side/methods/#clear-url-resource-cache).
+
+```js
+pdfMake.clearUrlResourceCache();
+pdfMake.createPdf(docDefinition).download();
+```

@@ -131,3 +131,69 @@ var dd: TDocumentDefinitions = {
 	}
 };
 ```
+
+## Cache de recursos URL {#url-resource-caching}
+
+Disponível na versão de desenvolvimento original para **0.3.14**; ausente do mecanismo 0.3.13 fixado no playground.
+
+Para `attachments` e `files`, coloque o objeto de recurso com `url`, os `headers` opcionais e `cache` dentro de `src`. A propriedade de cache pertence ao interior de `src`.
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [{ attachment: 'report' }],
+  attachments: {
+    report: {
+      src: {
+        url: 'https://example.com/report.pdf',
+        headers: { Authorization: 'Bearer token' },
+        cache: false
+      },
+      name: 'report.pdf'
+    }
+  },
+  files: {
+    guide: {
+      src: {
+        url: 'https://example.com/guide.pdf',
+        cache: true
+      },
+      name: 'guide.pdf'
+    }
+  }
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [{ attachment: 'report' }],
+  attachments: {
+    report: {
+      src: {
+        url: 'https://example.com/report.pdf',
+        headers: { Authorization: 'Bearer token' },
+        cache: false
+      },
+      name: 'report.pdf'
+    }
+  },
+  files: {
+    guide: {
+      src: {
+        url: 'https://example.com/guide.pdf',
+        cache: true
+      },
+      name: 'guide.pdf'
+    }
+  }
+};
+```
+
+Novos downloads são armazenados por documento por padrão. `cache: true` armazena novos dados no cache compartilhado em memória para documentos posteriores; `cache: false` ainda permite ler uma entrada compartilhada existente. URLs de texto e objetos sem `cache` usam a configuração global. O cache HTTP do navegador é independente.
+
+Consulte [Cache de recursos URL](/docs/0.3/pt-br/getting-started/server-side/methods/#url-resource-caching) para configuração e segurança do cache.

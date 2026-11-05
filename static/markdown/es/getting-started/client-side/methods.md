@@ -126,3 +126,47 @@ Mantén la URL activa mientras el visor la use. Llama a `URL.revokeObjectURL(url
 ## Política de acceso a URL
 
 Desde la versión **0.3.6**, `setUrlAccessPolicy(callback)` acepta una función de retorno síncrono booleano. No es un entorno de red completamente aislado y las redirecciones del navegador pueden producirse antes de que se compruebe la URL final. Consulta [seguridad de recursos](/docs/0.3/es/guides/resource-security/).
+
+## Caché de recursos URL {#url-resource-caching}
+
+Disponible en la rama de desarrollo original para **0.3.14**; no está en el motor 0.3.13 fijado para el playground.
+
+`setUrlResourceCaching(enabled)` requiere un booleano y usa `false` por defecto. El campo `cache` de un objeto URL reemplaza la configuración global. Las entradas compartidas existentes siguen siendo legibles con `cache: false`; no fuerza una descarga.
+
+**JavaScript**
+
+```js
+pdfMake.setUrlResourceCaching(true);
+pdfMake.createPdf(docDefinition).download();
+```
+
+**TypeScript**
+
+```ts
+pdfMake.setUrlResourceCaching(true);
+pdfMake.createPdf(docDefinition).download();
+```
+
+Las nuevas descargas se guardan por documento de forma predeterminada. `cache: true` guarda los nuevos datos en la caché compartida en memoria para documentos posteriores; `cache: false` sigue permitiendo leer una entrada compartida existente. Las URL de texto y los objetos sin `cache` usan la configuración global. La caché HTTP del navegador es independiente.
+
+Consulta [Caché de recursos URL](/docs/0.3/es/getting-started/server-side/methods/#url-resource-caching) para conocer su configuración y seguridad.
+
+## Vaciar la caché de recursos URL {#clear-url-resource-cache}
+
+Disponible en la rama de desarrollo original para **0.3.14**; no está en el motor 0.3.13 fijado para el playground.
+
+Llama a `clearUrlResourceCache()` de forma síncrona entre generaciones, cuando termine el trabajo activo. Elimina entradas HTTP/HTTPS compartidas, conserva otros archivos VFS y la configuración de caché, y no vacía la caché HTTP del navegador. Consulta [Vaciar la caché de recursos URL](/docs/0.3/es/getting-started/server-side/methods/#clear-url-resource-cache).
+
+**JavaScript**
+
+```js
+pdfMake.clearUrlResourceCache();
+pdfMake.createPdf(docDefinition).download();
+```
+
+**TypeScript**
+
+```ts
+pdfMake.clearUrlResourceCache();
+pdfMake.createPdf(docDefinition).download();
+```

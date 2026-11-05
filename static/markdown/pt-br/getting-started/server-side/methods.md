@@ -80,7 +80,7 @@ stream.end();
 
 `destination` precisa ser um stream gravável gerenciado pela aplicação. Adicione os listeners antes de chamar `end()`. Para gravar um arquivo simples, prefira `write()`. A saída por stream não torna o layout incremental: o pdfmake ainda organiza o documento antes de retornar esse stream.
 
-## Política de acesso a URLs
+## Política de acesso a URLs {#url-access-policy}
 
 Disponível desde a versão **0.3.6**. Configure-a antes de criar documentos:
 
@@ -121,3 +121,79 @@ pdfmake.setLocalAccessPolicy(() => false);
 ```
 
 Para fontes ou imagens locais, permita os caminhos resolvidos exatos em vez de um prefixo de texto. Consulte a [configuração completa de fontes locais](/docs/0.3/pt-br/fonts/). `undefined` remove uma política configurada; uma política omitida não bloqueia tudo.
+
+## Cache de recursos URL {#url-resource-caching}
+
+Disponível na versão de desenvolvimento original para **0.3.14**; ausente do mecanismo 0.3.13 fixado no playground.
+
+Use `setUrlResourceCaching(enabled)` com um booleano obrigatório para compartilhar novos downloads URL entre documentos. O padrão é `false`. Um objeto de recurso `{ url, headers, cache }` substitui essa configuração; `headers` é opcional. Isso se aplica a fontes, imagens, origens de anexos e arquivos incorporados. `false` afeta gerações posteriores, preserva entradas existentes e não substitui um `cache: true` explícito. Antes de 0.3.14, os downloads eram compartilhados automaticamente; `true` restaura esse comportamento.
+
+**JavaScript**
+
+```js
+pdfmake.setUrlResourceCaching(true);
+
+var docDefinition = {
+  content: [{ image: 'logo' }, { image: 'photo' }],
+  images: {
+    // Uses the global caching setting.
+    logo: 'https://example.com/logo.png',
+    photo: {
+      url: 'https://example.com/photo.png',
+      headers: { Authorization: 'Bearer token' },
+      // Store a new download only for this document.
+      cache: false
+    }
+  }
+};
+
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+pdfmake.setUrlResourceCaching(true);
+
+var docDefinition: TDocumentDefinitions = {
+  content: [{ image: 'logo' }, { image: 'photo' }],
+  images: {
+    // Uses the global caching setting.
+    logo: 'https://example.com/logo.png',
+    photo: {
+      url: 'https://example.com/photo.png',
+      headers: { Authorization: 'Bearer token' },
+      // Store a new download only for this document.
+      cache: false
+    }
+  }
+};
+
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+Novos downloads são armazenados por documento por padrão. `cache: true` armazena novos dados no cache compartilhado em memória para documentos posteriores; `cache: false` ainda permite ler uma entrada compartilhada existente. URLs de texto e objetos sem `cache` usam a configuração global. O cache HTTP do navegador é independente.
+
+A chave dos recursos compartilhados é apenas a URL, mesmo quando `Authorization` ou outros cabeçalhos diferem. Uma leitura do cache não contata o servidor de origem nem verifica novamente a autorização nele. Evite compartilhar recursos cujo conteúdo ou autorização dependa de cabeçalhos. A [política de acesso a URLs](#url-access-policy) se aplica a downloads de rede, não a leituras do cache.
+
+## Limpar o cache de recursos URL {#clear-url-resource-cache}
+
+Disponível na versão de desenvolvimento original para **0.3.14**; ausente do mecanismo 0.3.13 fixado no playground.
+
+`clearUrlResourceCache()` não recebe parâmetros e remove de forma síncrona entradas compartilhadas que começam com `http://` ou `https://`, sem distinguir maiúsculas. Preserva outros arquivos VFS, recursos por documento e a configuração global do cache. Chame entre gerações, após o término das operações ativas; não cancela downloads em andamento nem limpa o cache HTTP do navegador.
+
+**JavaScript**
+
+```js
+pdfmake.clearUrlResourceCache();
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+**TypeScript**
+
+```ts
+pdfmake.clearUrlResourceCache();
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```

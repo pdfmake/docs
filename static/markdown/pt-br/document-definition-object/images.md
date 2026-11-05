@@ -111,3 +111,43 @@ Este trecho descreve formatos de origem e não é um exemplo de download execut�
 ## Diagnostique imagens ausentes
 
 Um valor de imagem vazio ou inválido causa um erro. Verifique a chave do dicionário, o prefixo completo e os bytes da URL de dados, a existência do arquivo, a resposta da URL e a política de acesso. Configurar `setUrlAccessPolicy` não ignora o CORS. Uma política de arquivo local precisa permitir o caminho real resolvido. Consulte [segurança de recursos](/docs/0.3/pt-br/guides/resource-security/) e [solução de problemas](/docs/0.3/pt-br/guides/troubleshooting/).
+
+## Cache de recursos URL {#url-resource-caching}
+
+Disponível na versão de desenvolvimento original para **0.3.14**; ausente do mecanismo 0.3.13 fixado no playground.
+
+No dicionário `images`, defina `url`, os `headers` opcionais e `cache` no objeto do recurso para substituir a configuração global.
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [{ image: 'logo' }],
+  images: {
+    logo: {
+      url: 'https://example.com/logo.png',
+      cache: true
+    }
+  }
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [{ image: 'logo' }],
+  images: {
+    logo: {
+      url: 'https://example.com/logo.png',
+      cache: true
+    }
+  }
+};
+```
+
+Novos downloads são armazenados por documento por padrão. `cache: true` armazena novos dados no cache compartilhado em memória para documentos posteriores; `cache: false` ainda permite ler uma entrada compartilhada existente. URLs de texto e objetos sem `cache` usam a configuração global. O cache HTTP do navegador é independente.
+
+Consulte [Cache de recursos URL](/docs/0.3/pt-br/getting-started/server-side/methods/#url-resource-caching) para configuração e segurança do cache.

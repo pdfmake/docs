@@ -338,6 +338,72 @@ var dd: TDocumentDefinitions = {
 };
 ```
 
+## Caché de recursos URL {#url-resource-caching}
+
+Disponible en la rama de desarrollo original para **0.3.14**; no está en el motor 0.3.13 fijado para el playground.
+
+Para `attachments` y `files`, coloca el objeto de recurso con `url`, las `headers` opcionales y `cache` dentro de `src`. La propiedad de caché pertenece al interior de `src`.
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [{ attachment: 'report' }],
+  attachments: {
+    report: {
+      src: {
+        url: 'https://example.com/report.pdf',
+        headers: { Authorization: 'Bearer token' },
+        cache: false
+      },
+      name: 'report.pdf'
+    }
+  },
+  files: {
+    guide: {
+      src: {
+        url: 'https://example.com/guide.pdf',
+        cache: true
+      },
+      name: 'guide.pdf'
+    }
+  }
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [{ attachment: 'report' }],
+  attachments: {
+    report: {
+      src: {
+        url: 'https://example.com/report.pdf',
+        headers: { Authorization: 'Bearer token' },
+        cache: false
+      },
+      name: 'report.pdf'
+    }
+  },
+  files: {
+    guide: {
+      src: {
+        url: 'https://example.com/guide.pdf',
+        cache: true
+      },
+      name: 'guide.pdf'
+    }
+  }
+};
+```
+
+Las nuevas descargas se guardan por documento de forma predeterminada. `cache: true` guarda los nuevos datos en la caché compartida en memoria para documentos posteriores; `cache: false` sigue permitiendo leer una entrada compartida existente. Las URL de texto y los objetos sin `cache` usan la configuración global. La caché HTTP del navegador es independiente.
+
+Consulta [Caché de recursos URL](/docs/0.3/es/getting-started/server-side/methods/#url-resource-caching) para conocer su configuración y seguridad.
+
 ---
 
 # Capa de fondo
@@ -805,6 +871,46 @@ Este fragmento describe formatos de origen, no una descarga ejecutable completa.
 ## Diagnosticar imágenes que faltan
 
 Un valor de imagen vacío o no válido es un error. Comprueba la clave del diccionario, el prefijo y los bytes de la data URL completa, la existencia del archivo, la respuesta de la URL y la política de acceso. Configurar `setUrlAccessPolicy` no evita CORS. Una política de archivos locales debe permitir la ruta real resuelta. Consulta [seguridad de recursos](/docs/0.3/es/guides/resource-security/) y [solución de problemas](/docs/0.3/es/guides/troubleshooting/).
+
+## Caché de recursos URL {#url-resource-caching}
+
+Disponible en la rama de desarrollo original para **0.3.14**; no está en el motor 0.3.13 fijado para el playground.
+
+En el diccionario `images`, define `url`, las `headers` opcionales y `cache` en el objeto del recurso para reemplazar la configuración global.
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [{ image: 'logo' }],
+  images: {
+    logo: {
+      url: 'https://example.com/logo.png',
+      cache: true
+    }
+  }
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [{ image: 'logo' }],
+  images: {
+    logo: {
+      url: 'https://example.com/logo.png',
+      cache: true
+    }
+  }
+};
+```
+
+Las nuevas descargas se guardan por documento de forma predeterminada. `cache: true` guarda los nuevos datos en la caché compartida en memoria para documentos posteriores; `cache: false` sigue permitiendo leer una entrada compartida existente. Las URL de texto y los objetos sin `cache` usan la configuración global. La caché HTTP del navegador es independiente.
+
+Consulta [Caché de recursos URL](/docs/0.3/es/getting-started/server-side/methods/#url-resource-caching) para conocer su configuración y seguridad.
 
 ---
 
@@ -3027,6 +3133,54 @@ var docDefinition: TDocumentDefinitions = {
 }
 ```
 
+## Caché de recursos URL {#url-resource-caching}
+
+Disponible en la rama de desarrollo original para **0.3.14**; no está en el motor 0.3.13 fijado para el playground.
+
+Para las fuentes, usa un objeto de recurso con `url`, las `headers` opcionales y `cache`. En una tupla TrueType Collection, coloca ese objeto en el primer elemento.
+
+**JavaScript**
+
+```js
+pdfMake.addFonts({
+  yourFontName: {
+    normal: {
+      url: 'https://example.com/fonts/regular.ttf',
+      cache: true
+    }
+  },
+  PingFangSC: {
+    normal: [
+      { url: 'https://example.com/fonts/pingfang.ttc', cache: true },
+      'PingFangSC-Regular'
+    ]
+  }
+});
+```
+
+**TypeScript**
+
+```ts
+pdfMake.addFonts({
+  yourFontName: {
+    normal: {
+      url: 'https://example.com/fonts/regular.ttf',
+      cache: true
+    }
+  },
+  PingFangSC: {
+    normal: [
+      { url: 'https://example.com/fonts/pingfang.ttc', cache: true },
+      'PingFangSC-Regular'
+    ]
+  }
+});
+```
+
+Las nuevas descargas se guardan por documento de forma predeterminada. `cache: true` guarda los nuevos datos en la caché compartida en memoria para documentos posteriores; `cache: false` sigue permitiendo leer una entrada compartida existente. Las URL de texto y los objetos sin `cache` usan la configuración global. La caché HTTP del navegador es independiente.
+
+Consulta [Caché de recursos URL](/docs/0.3/es/getting-started/server-side/methods/#url-resource-caching) para conocer su configuración y seguridad.
+
 ---
 
 # Fuentes personalizadas con VFS
@@ -3657,6 +3811,50 @@ Mantén la URL activa mientras el visor la use. Llama a `URL.revokeObjectURL(url
 
 Desde la versión **0.3.6**, `setUrlAccessPolicy(callback)` acepta una función de retorno síncrono booleano. No es un entorno de red completamente aislado y las redirecciones del navegador pueden producirse antes de que se compruebe la URL final. Consulta [seguridad de recursos](/docs/0.3/es/guides/resource-security/).
 
+## Caché de recursos URL {#url-resource-caching}
+
+Disponible en la rama de desarrollo original para **0.3.14**; no está en el motor 0.3.13 fijado para el playground.
+
+`setUrlResourceCaching(enabled)` requiere un booleano y usa `false` por defecto. El campo `cache` de un objeto URL reemplaza la configuración global. Las entradas compartidas existentes siguen siendo legibles con `cache: false`; no fuerza una descarga.
+
+**JavaScript**
+
+```js
+pdfMake.setUrlResourceCaching(true);
+pdfMake.createPdf(docDefinition).download();
+```
+
+**TypeScript**
+
+```ts
+pdfMake.setUrlResourceCaching(true);
+pdfMake.createPdf(docDefinition).download();
+```
+
+Las nuevas descargas se guardan por documento de forma predeterminada. `cache: true` guarda los nuevos datos en la caché compartida en memoria para documentos posteriores; `cache: false` sigue permitiendo leer una entrada compartida existente. Las URL de texto y los objetos sin `cache` usan la configuración global. La caché HTTP del navegador es independiente.
+
+Consulta [Caché de recursos URL](/docs/0.3/es/getting-started/server-side/methods/#url-resource-caching) para conocer su configuración y seguridad.
+
+## Vaciar la caché de recursos URL {#clear-url-resource-cache}
+
+Disponible en la rama de desarrollo original para **0.3.14**; no está en el motor 0.3.13 fijado para el playground.
+
+Llama a `clearUrlResourceCache()` de forma síncrona entre generaciones, cuando termine el trabajo activo. Elimina entradas HTTP/HTTPS compartidas, conserva otros archivos VFS y la configuración de caché, y no vacía la caché HTTP del navegador. Consulta [Vaciar la caché de recursos URL](/docs/0.3/es/getting-started/server-side/methods/#clear-url-resource-cache).
+
+**JavaScript**
+
+```js
+pdfMake.clearUrlResourceCache();
+pdfMake.createPdf(docDefinition).download();
+```
+
+**TypeScript**
+
+```ts
+pdfMake.clearUrlResourceCache();
+pdfMake.createPdf(docDefinition).download();
+```
+
 ---
 
 # Navegadores compatibles
@@ -3916,7 +4114,7 @@ stream.end();
 
 `destination` debe ser un flujo escribible gestionado por la aplicación. Añade los listeners antes de llamar a `end()`. Para un archivo sencillo, es preferible usar `write()`. La salida en flujo no hace que la maquetación del documento sea incremental: pdfmake sigue maquetando el documento antes de devolver este flujo.
 
-## Política de acceso a URL
+## Política de acceso a URL {#url-access-policy}
 
 Disponible desde la versión **0.3.6**. Configúrala antes de crear documentos:
 
@@ -3958,6 +4156,82 @@ pdfmake.setLocalAccessPolicy(() => false);
 
 Para fuentes o imágenes locales, permite las rutas resueltas exactas en lugar de un prefijo de cadena. Consulta la [configuración completa de fuentes locales](/docs/0.3/es/fonts/). `undefined` borra una política configurada; omitir la política no equivale a denegar todo.
 
+## Caché de recursos URL {#url-resource-caching}
+
+Disponible en la rama de desarrollo original para **0.3.14**; no está en el motor 0.3.13 fijado para el playground.
+
+Usa `setUrlResourceCaching(enabled)` con un booleano obligatorio para compartir nuevas descargas URL entre documentos. El valor predeterminado es `false`. Un objeto de recurso `{ url, headers, cache }` reemplaza esa configuración; `headers` es opcional. Se aplica a fuentes, imágenes, orígenes de adjuntos y archivos incrustados. `false` afecta a generaciones posteriores, conserva las entradas existentes y no reemplaza un `cache: true` explícito. Antes de 0.3.14, las descargas se compartían automáticamente; `true` recupera ese comportamiento.
+
+**JavaScript**
+
+```js
+pdfmake.setUrlResourceCaching(true);
+
+var docDefinition = {
+  content: [{ image: 'logo' }, { image: 'photo' }],
+  images: {
+    // Uses the global caching setting.
+    logo: 'https://example.com/logo.png',
+    photo: {
+      url: 'https://example.com/photo.png',
+      headers: { Authorization: 'Bearer token' },
+      // Store a new download only for this document.
+      cache: false
+    }
+  }
+};
+
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+pdfmake.setUrlResourceCaching(true);
+
+var docDefinition: TDocumentDefinitions = {
+  content: [{ image: 'logo' }, { image: 'photo' }],
+  images: {
+    // Uses the global caching setting.
+    logo: 'https://example.com/logo.png',
+    photo: {
+      url: 'https://example.com/photo.png',
+      headers: { Authorization: 'Bearer token' },
+      // Store a new download only for this document.
+      cache: false
+    }
+  }
+};
+
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+Las nuevas descargas se guardan por documento de forma predeterminada. `cache: true` guarda los nuevos datos en la caché compartida en memoria para documentos posteriores; `cache: false` sigue permitiendo leer una entrada compartida existente. Las URL de texto y los objetos sin `cache` usan la configuración global. La caché HTTP del navegador es independiente.
+
+La clave de los recursos compartidos es solo la URL, aunque cambien `Authorization` u otras cabeceras. Leer la caché no contacta con el servidor de origen ni vuelve a comprobar allí la autorización. Evita compartir recursos cuyo contenido o autorización dependa de las cabeceras. La [política de acceso URL](#url-access-policy) se aplica a las descargas de red, no a las lecturas de caché.
+
+## Vaciar la caché de recursos URL {#clear-url-resource-cache}
+
+Disponible en la rama de desarrollo original para **0.3.14**; no está en el motor 0.3.13 fijado para el playground.
+
+`clearUrlResourceCache()` no recibe parámetros y elimina de forma síncrona las entradas compartidas que empiezan por `http://` o `https://`, sin distinguir mayúsculas. Conserva otros archivos VFS, recursos propios del documento y la configuración global de caché. Llámalo entre generaciones cuando termine el trabajo activo; no cancela descargas en curso ni vacía la caché HTTP del navegador.
+
+**JavaScript**
+
+```js
+pdfmake.clearUrlResourceCache();
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+**TypeScript**
+
+```ts
+pdfmake.clearUrlResourceCache();
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
 ---
 
 # Versiones de Node.js compatibles
@@ -3968,7 +4242,7 @@ Source: https://pdfmake.github.io/docs/0.3/es/getting-started/server-side/suppor
 
 ## Requisito de versión
 
-El paquete 0.3.13 declara **Node.js >=20** en `package.json`. La matriz de CI propuesta incluye Node.js 20, 22 y 24 en Linux, Windows y macOS. La cobertura de compatibilidad es independiente del soporte de seguridad de Node.js upstream.
+El paquete 0.3.13 declara **Node.js >=20** en `package.json`. La matriz de CI propuesta incluye Node.js 20, 22, 24 y 26 en Linux, Windows y macOS. La cobertura de compatibilidad es independiente del soporte de seguridad de Node.js upstream.
 
 Para producción, usa una versión de Node.js que siga en mantenimiento. Consulta el [calendario oficial de versiones de Node.js](https://github.com/nodejs/Release#release-schedule) antes de elegir el entorno de ejecución. Prueba tus fuentes, recursos y carga de documentos en la versión exacta que vas a desplegar.
 

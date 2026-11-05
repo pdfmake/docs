@@ -1,5 +1,5 @@
 +++
-sourceDigest = "e0419b93231e1257dc4fafa17f5b9f74c214b95807240b77511d32bfe7c0da6d"
+sourceDigest = "616036f2f41d848cce3f3a6bca2ff44eb27d9ff401cfb4071acc2ea13f9205c0"
 title = "Imágenes"
 description = "Incrusta imágenes PNG y JPEG desde data URLs, recursos con nombre, archivos o URL externas aprobadas."
 weight = 2100
@@ -55,3 +55,25 @@ Este fragmento describe formatos de origen, no una descarga ejecutable completa.
 ## Diagnosticar imágenes que faltan
 
 Un valor de imagen vacío o no válido es un error. Comprueba la clave del diccionario, el prefijo y los bytes de la data URL completa, la existencia del archivo, la respuesta de la URL y la política de acceso. Configurar `setUrlAccessPolicy` no evita CORS. Una política de archivos locales debe permitir la ruta real resuelta. Consulta [seguridad de recursos](/docs/0.3/es/guides/resource-security/) y [solución de problemas](/docs/0.3/es/guides/troubleshooting/).
+
+## Caché de recursos URL {#url-resource-caching}
+
+Disponible en la rama de desarrollo original para **0.3.14**; no está en el motor 0.3.13 fijado para el playground.
+
+En el diccionario `images`, define `url`, las `headers` opcionales y `cache` en el objeto del recurso para reemplazar la configuración global.
+
+```js
+var docDefinition = {
+  content: [{ image: 'logo' }],
+  images: {
+    logo: {
+      url: 'https://example.com/logo.png',
+      cache: true
+    }
+  }
+};
+```
+
+Las nuevas descargas se guardan por documento de forma predeterminada. `cache: true` guarda los nuevos datos en la caché compartida en memoria para documentos posteriores; `cache: false` sigue permitiendo leer una entrada compartida existente. Las URL de texto y los objetos sin `cache` usan la configuración global. La caché HTTP del navegador es independiente.
+
+Consulta [Caché de recursos URL](/docs/0.3/es/getting-started/server-side/methods/#url-resource-caching) para conocer su configuración y seguridad.

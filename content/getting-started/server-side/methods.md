@@ -46,7 +46,7 @@ stream.end();
 
 `destination` must be a writable stream managed by your application. Attach listeners before calling `end()`. Prefer `write()` for a simple file. Streaming output does not make document layout incremental: pdfmake still lays out the document before returning this stream.
 
-## URL access policy
+## URL access policy {#url-access-policy}
 
 Available since **0.3.6**. Configure it before creating documents:
 
@@ -68,3 +68,44 @@ pdfmake.setLocalAccessPolicy(() => false);
 ```
 
 For local fonts or images, allow exact resolved paths rather than a string prefix. See the [complete local font setup](/docs/0.3/fonts/). `undefined` clears a configured policy; an omitted policy is not a deny-all policy.
+
+## URL resource caching {#url-resource-caching}
+
+Available in the upstream development branch for **0.3.14**; not in the pinned 0.3.13 playground runtime.
+
+Use `setUrlResourceCaching(enabled)` with a required boolean to share new URL downloads across documents. It defaults to `false`. An individual `{ url, headers, cache }` resource overrides that setting; `headers` is optional. This applies to fonts, images, attachment sources and embedded file sources. Setting `false` affects subsequent generations, preserves existing cache entries and does not override an explicit `cache: true`. Before 0.3.14, downloads were automatically shared; `true` restores that behavior.
+
+```js
+pdfmake.setUrlResourceCaching(true);
+
+var docDefinition = {
+  content: [{ image: 'logo' }, { image: 'photo' }],
+  images: {
+    // Uses the global caching setting.
+    logo: 'https://example.com/logo.png',
+    photo: {
+      url: 'https://example.com/photo.png',
+      headers: { Authorization: 'Bearer token' },
+      // Store a new download only for this document.
+      cache: false
+    }
+  }
+};
+
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+New downloads are stored per document by default. `cache: true` stores new data in the shared in-memory cache for later documents; `cache: false` still allows reading an existing shared entry. URL strings and objects without `cache` use the global setting. The browser HTTP cache is independent.
+
+Shared resources are keyed only by URL, including when `Authorization` or other headers differ. A cache read neither contacts the origin nor rechecks authorization there. Avoid shared caching for resources whose content or authorization depends on headers. The [URL access policy](#url-access-policy) applies to network downloads, not cache reads.
+
+## Clear URL resource cache {#clear-url-resource-cache}
+
+Available in the upstream development branch for **0.3.14**; not in the pinned 0.3.13 playground runtime.
+
+`clearUrlResourceCache()` takes no parameters and synchronously removes shared entries starting with `http://` or `https://`, case-insensitively. It preserves other VFS files, per-document resources and the global caching setting. Call it between generations, after active work has finished; it does not cancel downloads in progress or clear the browser HTTP cache.
+
+```js
+pdfmake.clearUrlResourceCache();
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```

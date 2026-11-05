@@ -5,6 +5,12 @@
     "runnable": false,
     "context": "context"
   },
+  "4fb396e7df383b4c685f46291e0da3524daa0e333d4aaaba44c347839bbd2481": {
+    "javascript": "var docDefinition = {\n  content: [{ attachment: 'report' }],\n  attachments: {\n    report: {\n      src: {\n        url: 'https://example.com/report.pdf',\n        headers: { Authorization: 'Bearer token' },\n        cache: false\n      },\n      name: 'report.pdf'\n    }\n  },\n  files: {\n    guide: {\n      src: {\n        url: 'https://example.com/guide.pdf',\n        cache: true\n      },\n      name: 'guide.pdf'\n    }\n  }\n};",
+    "typescript": "import type { TDocumentDefinitions } from \"pdfmake/interfaces\";\n\nvar docDefinition: TDocumentDefinitions = {\n  content: [{ attachment: 'report' }],\n  attachments: {\n    report: {\n      src: {\n        url: 'https://example.com/report.pdf',\n        headers: { Authorization: 'Bearer token' },\n        cache: false\n      },\n      name: 'report.pdf'\n    }\n  },\n  files: {\n    guide: {\n      src: {\n        url: 'https://example.com/guide.pdf',\n        cache: true\n      },\n      name: 'guide.pdf'\n    }\n  }\n};",
+    "runnable": false,
+    "context": "context"
+  },
   "5e637829c58ab393b27b90c24beb5e0266dcfd4f2065c7522e5c38b91c985134": {
     "javascript": "var docDefinition = {\n  background: 'simple text',\n\n  content: ['Example document content']\n};",
     "typescript": "import type { TDocumentDefinitions } from \"pdfmake/interfaces\";\n\nvar docDefinition: TDocumentDefinitions = {\n  background: 'simple text',\n\n  content: ['Example document content']\n};",
@@ -56,6 +62,12 @@
   "cdf61883cb5767532311caf9c95a61760440e6a9fedbba6e9e1fb0a9b029e99b": {
     "javascript": "var dd = {\n  images: {\n    logo: '/application-owned/assets/logo.png',\n    remote: {\n      url: 'https://assets.example.com/photo.jpg',\n      headers: { 'X-Example-Header': 'value' }\n    }\n  },\n  content: [\n    { image: 'logo', width: 120 },\n    { image: 'remote', fit: [200, 150] }\n  ]\n};",
     "typescript": "import type { TDocumentDefinitions } from \"pdfmake/interfaces\";\n\nvar dd: TDocumentDefinitions = {\n  images: {\n    logo: '/application-owned/assets/logo.png',\n    remote: {\n      url: 'https://assets.example.com/photo.jpg',\n      headers: { 'X-Example-Header': 'value' }\n    }\n  },\n  content: [\n    { image: 'logo', width: 120 },\n    { image: 'remote', fit: [200, 150] }\n  ]\n};",
+    "runnable": false,
+    "context": "context"
+  },
+  "c2572e3a24a7cd8be8dd1b3fdd72582e050c237361434bd6caee6372389d9304": {
+    "javascript": "var docDefinition = {\n  content: [{ image: 'logo' }],\n  images: {\n    logo: {\n      url: 'https://example.com/logo.png',\n      cache: true\n    }\n  }\n};",
+    "typescript": "import type { TDocumentDefinitions } from \"pdfmake/interfaces\";\n\nvar docDefinition: TDocumentDefinitions = {\n  content: [{ image: 'logo' }],\n  images: {\n    logo: {\n      url: 'https://example.com/logo.png',\n      cache: true\n    }\n  }\n};",
     "runnable": false,
     "context": "context"
   },
@@ -293,6 +305,12 @@
     "runnable": false,
     "context": "context"
   },
+  "0f1370a02b30ffb647dc8cbf31f8b1fa3371ef4135668db465c5f4accb49332d": {
+    "javascript": "pdfMake.addFonts({\n  yourFontName: {\n    normal: {\n      url: 'https://example.com/fonts/regular.ttf',\n      cache: true\n    }\n  },\n  PingFangSC: {\n    normal: [\n      { url: 'https://example.com/fonts/pingfang.ttc', cache: true },\n      'PingFangSC-Regular'\n    ]\n  }\n});",
+    "typescript": "pdfMake.addFonts({\n  yourFontName: {\n    normal: {\n      url: 'https://example.com/fonts/regular.ttf',\n      cache: true\n    }\n  },\n  PingFangSC: {\n    normal: [\n      { url: 'https://example.com/fonts/pingfang.ttc', cache: true },\n      'PingFangSC-Regular'\n    ]\n  }\n});",
+    "runnable": false,
+    "context": "context"
+  },
   "f0b9b6f1b6f29d45b78c0d8ba85c3bc03887decf493e435898498376e4081747": {
     "javascript": "import pdfMake from 'pdfmake/build/pdfmake';\nimport customVfs from './vfs_fonts';\n\npdfMake.addVirtualFileSystem(customVfs);\npdfMake.addFonts({\n  MyFont: {\n    normal: 'MyFont-Regular.ttf',\n    bold: 'MyFont-Bold.ttf',\n    italics: 'MyFont-Italic.ttf',\n    bolditalics: 'MyFont-BoldItalic.ttf'\n  }\n});\n\nawait pdfMake.createPdf({\n  defaultStyle: { font: 'MyFont' },\n  content: ['A document using my font.']\n}).download('document.pdf');",
     "typescript": "import pdfMake from 'pdfmake/build/pdfmake';\nimport customVfs from './vfs_fonts';\n\npdfMake.addVirtualFileSystem(customVfs);\npdfMake.addFonts({\n  MyFont: {\n    normal: 'MyFont-Regular.ttf',\n    bold: 'MyFont-Bold.ttf',\n    italics: 'MyFont-Italic.ttf',\n    bolditalics: 'MyFont-BoldItalic.ttf'\n  }\n});\n\nawait pdfMake.createPdf({\n  defaultStyle: { font: 'MyFont' },\n  content: ['A document using my font.']\n}).download('document.pdf');",
@@ -353,6 +371,18 @@
     "runnable": false,
     "context": "context"
   },
+  "a3c1eff343921db108b4efeb96ba86f2f493403db9741b86d98d743de759d0e4": {
+    "javascript": "pdfMake.setUrlResourceCaching(true);\npdfMake.createPdf(docDefinition).download();",
+    "typescript": "pdfMake.setUrlResourceCaching(true);\npdfMake.createPdf(docDefinition).download();",
+    "runnable": false,
+    "context": "context"
+  },
+  "73f9f977170d5658887143306d4e6dfdd3f43c4ffa4971d2133cbd97adc18785": {
+    "javascript": "pdfMake.clearUrlResourceCache();\npdfMake.createPdf(docDefinition).download();",
+    "typescript": "pdfMake.clearUrlResourceCache();\npdfMake.createPdf(docDefinition).download();",
+    "runnable": false,
+    "context": "context"
+  },
   "2bce46387958f9eec6ac9203f431b9e43953241e7e08cf49762652f9cfc80ab4": {
     "javascript": "import pdfMake from 'pdfmake/build/pdfmake';\nimport pdfFonts from 'pdfmake/build/vfs_fonts';\n\npdfMake.addVirtualFileSystem(pdfFonts);\nawait pdfMake.createPdf({ content: ['Bundled application'] }).download('document.pdf');",
     "typescript": "import pdfMake from 'pdfmake/build/pdfmake';\nimport pdfFonts from 'pdfmake/build/vfs_fonts';\n\npdfMake.addVirtualFileSystem(pdfFonts);\nawait pdfMake.createPdf({ content: ['Bundled application'] }).download('document.pdf');",
@@ -388,6 +418,18 @@
     "typescript": "pdfmake.setLocalAccessPolicy(() => false);",
     "runnable": false,
     "context": "context"
+  },
+  "8b960ccf4b97b070126bf223e5e01386757fd1ecefe2684f94806528027e9dd6": {
+    "javascript": "pdfmake.setUrlResourceCaching(true);\n\nvar docDefinition = {\n  content: [{ image: 'logo' }, { image: 'photo' }],\n  images: {\n    // Uses the global caching setting.\n    logo: 'https://example.com/logo.png',\n    photo: {\n      url: 'https://example.com/photo.png',\n      headers: { Authorization: 'Bearer token' },\n      // Store a new download only for this document.\n      cache: false\n    }\n  }\n};\n\npdfmake.createPdf(docDefinition).write('document.pdf');",
+    "typescript": "import type { TDocumentDefinitions } from \"pdfmake/interfaces\";\n\npdfmake.setUrlResourceCaching(true);\n\nvar docDefinition: TDocumentDefinitions = {\n  content: [{ image: 'logo' }, { image: 'photo' }],\n  images: {\n    // Uses the global caching setting.\n    logo: 'https://example.com/logo.png',\n    photo: {\n      url: 'https://example.com/photo.png',\n      headers: { Authorization: 'Bearer token' },\n      // Store a new download only for this document.\n      cache: false\n    }\n  }\n};\n\npdfmake.createPdf(docDefinition).write('document.pdf');",
+    "runnable": false,
+    "context": "node"
+  },
+  "b40232ea66b0dea438a3ea90687cc0a0f6059e90c7826f9a9a636b37f6ab8905": {
+    "javascript": "pdfmake.clearUrlResourceCache();\npdfmake.createPdf(docDefinition).write('document.pdf');",
+    "typescript": "pdfmake.clearUrlResourceCache();\npdfmake.createPdf(docDefinition).write('document.pdf');",
+    "runnable": false,
+    "context": "node"
   },
   "2b4aafc77065baaf0f2fabf01eacc6db423e90a3470f7511abe0b13f39b2d36a": {
     "javascript": "// docs-test: node-quickstart\nconst pdfmake = require('pdfmake');\n\nconst fonts = require('pdfmake/standard-fonts/Helvetica');\npdfmake.addFonts(fonts);\npdfmake.setUrlAccessPolicy(() => false);\nconst standardNames = new Set(Object.values(fonts.Helvetica));\npdfmake.setLocalAccessPolicy(name => standardNames.has(name));\n\nasync function main() {\n  const definition = {\n    defaultStyle: { font: 'Helvetica' },\n    content: [\n      { text: 'Hello, pdfmake!', fontSize: 24, bold: true },\n      'Your first PDF, generated in Node.js.'\n    ]\n  };\n  await pdfmake.createPdf(definition).write('document.pdf');\n}\n\nmain().catch(error => { console.error(error); process.exitCode = 1; });",

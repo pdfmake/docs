@@ -66,3 +66,25 @@ URL prefix and bytes, file existence, URL response and access policy. Configurin
 `setUrlAccessPolicy` does not bypass CORS. A local file policy must allow the actual
 resolved file path. See [resource security](/docs/0.3/guides/resource-security/)
 and [troubleshooting](/docs/0.3/guides/troubleshooting/).
+
+## URL resource caching {#url-resource-caching}
+
+Available in the upstream development branch for **0.3.14**; not in the pinned 0.3.13 playground runtime.
+
+In the `images` dictionary, set `url`, optional `headers` and `cache` on the resource object to override the global setting.
+
+```js
+var docDefinition = {
+  content: [{ image: 'logo' }],
+  images: {
+    logo: {
+      url: 'https://example.com/logo.png',
+      cache: true
+    }
+  }
+};
+```
+
+New downloads are stored per document by default. `cache: true` stores new data in the shared in-memory cache for later documents; `cache: false` still allows reading an existing shared entry. URL strings and objects without `cache` use the global setting. The browser HTTP cache is independent.
+
+See [URL resource caching](/docs/0.3/getting-started/server-side/methods/#url-resource-caching) for configuration and cache security.

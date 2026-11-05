@@ -3,7 +3,7 @@ title = "Images"
 description = "Intégrez des images PNG et JPEG depuis des URL de données, des ressources nommées, des fichiers ou des URL externes autorisées."
 weight = 2100
 alwaysopen = true
-sourceDigest = "e0419b93231e1257dc4fafa17f5b9f74c214b95807240b77511d32bfe7c0da6d"
+sourceDigest = "616036f2f41d848cce3f3a6bca2ff44eb27d9ff401cfb4071acc2ea13f9205c0"
 +++
 
 ## Réutiliser des données PNG ou JPEG intégrées
@@ -55,3 +55,25 @@ Cet extrait décrit les formes des sources ; il ne constitue pas un exemple auto
 ## Diagnostiquer les images manquantes
 
 Une valeur d’image vide ou invalide provoque une erreur. Vérifiez la clé du dictionnaire, le préfixe complet de l’URL de données et ses octets, l’existence du fichier, la réponse URL et la politique d’accès. La configuration de `setUrlAccessPolicy` ne contourne pas CORS. Une politique de fichiers locaux doit autoriser le chemin de fichier effectivement résolu. Consultez la [sécurité des ressources](/docs/0.3/fr/guides/resource-security/) et le [guide de dépannage](/docs/0.3/fr/guides/troubleshooting/).
+
+## Cache des ressources URL {#url-resource-caching}
+
+Disponible dans la branche de développement amont pour **0.3.14** ; absent du moteur 0.3.13 fixé pour le playground.
+
+Dans le dictionnaire `images`, définissez `url`, les `headers` facultatifs et `cache` sur l’objet ressource pour remplacer le réglage global.
+
+```js
+var docDefinition = {
+  content: [{ image: 'logo' }],
+  images: {
+    logo: {
+      url: 'https://example.com/logo.png',
+      cache: true
+    }
+  }
+};
+```
+
+Les nouveaux téléchargements sont conservés par document par défaut. `cache: true` stocke les nouvelles données dans le cache mémoire partagé pour les documents suivants ; `cache: false` permet toujours de lire une entrée partagée existante. Les URL textuelles et les objets sans `cache` utilisent le réglage global. Le cache HTTP du navigateur est indépendant.
+
+Consultez [le cache des ressources URL](/docs/0.3/fr/getting-started/server-side/methods/#url-resource-caching) pour la configuration et la sécurité du cache.

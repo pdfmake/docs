@@ -111,3 +111,43 @@ Dieses Snippet zeigt die Formen der Quellen, ist aber kein eigenständiges Beisp
 ## Fehlende Bilder untersuchen
 
 Ein leerer oder ungültiger Bildwert führt zu einem Fehler. Prüfe den Wörterbuchschlüssel, das vollständige Data-URL-Präfix und die Datenbytes, das Vorhandensein der Datei, die URL-Antwort und die Zugriffsrichtlinie. `setUrlAccessPolicy` umgeht CORS nicht. Eine lokale Dateirichtlinie muss den tatsächlich aufgelösten Dateipfad erlauben. Siehe [Ressourcensicherheit](/docs/0.3/de/guides/resource-security/) und [Fehlerbehebung](/docs/0.3/de/guides/troubleshooting/).
+
+## URL-Ressourcen zwischenspeichern {#url-resource-caching}
+
+Im Upstream-Entwicklungszweig für **0.3.14** verfügbar; nicht in der festgelegten Playground-Laufzeit 0.3.13.
+
+Setze im `images`-Wörterbuch `url`, optionale `headers` und `cache` am Ressourcenobjekt, um die globale Einstellung zu überschreiben.
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [{ image: 'logo' }],
+  images: {
+    logo: {
+      url: 'https://example.com/logo.png',
+      cache: true
+    }
+  }
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [{ image: 'logo' }],
+  images: {
+    logo: {
+      url: 'https://example.com/logo.png',
+      cache: true
+    }
+  }
+};
+```
+
+Neue Downloads werden standardmäßig pro Dokument gespeichert. `cache: true` legt neue Daten im gemeinsamen Arbeitsspeicher-Cache für spätere Dokumente ab; `cache: false` erlaubt weiterhin das Lesen vorhandener gemeinsamer Einträge. URL-Zeichenfolgen und Objekte ohne `cache` verwenden die globale Einstellung. Der HTTP-Cache des Browsers ist davon unabhängig.
+
+Konfiguration und Sicherheit erklärt [URL-Ressourcen zwischenspeichern](/docs/0.3/de/getting-started/server-side/methods/#url-resource-caching).
