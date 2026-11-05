@@ -1,0 +1,6 @@
+{{ $page := . }}
+<details class="language-menu"><summary title="{{ i18n "language" }}: {{ .Language.Label }}">{{ .Language.Label }}</summary><ul>
+{{ range hugo.Sites }}{{ $target := .Home }}{{ $available := false }}
+{{ range $page.AllTranslations }}{{ if eq .Language.Lang $target.Language.Lang }}{{ $target = . }}{{ $available = true }}{{ end }}{{ end }}
+<li><a data-language="{{ .Language.Lang }}" href="{{ $target.RelPermalink }}" lang="{{ .Language.Locale }}" hreflang="{{ .Language.Locale }}"{{ if eq .Language.Lang $page.Language.Lang }} aria-current="true"{{ end }}>{{ .Language.Label }}{{ if not $available }}<small>{{ i18n "homeFallback" }}</small>{{ end }}</a></li>{{ end }}
+</ul></details>

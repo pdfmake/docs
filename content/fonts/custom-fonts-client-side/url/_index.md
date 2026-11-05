@@ -1,6 +1,6 @@
 +++
 title = "via URL protocol"
-description = ""
+description = "Configure via url protocol in pdfmake 0.3 with examples, options and usage notes."
 weight = 16
 alwaysopen = true
 +++
@@ -23,15 +23,15 @@ var fonts = {
      bolditalics: 'https://example.com/fonts/fontFile4.ttf'
    },
    anotherFontName: {
-     (...)
+
    },
 
    // download default Roboto font from unpkg.com
    Roboto: {
-     normal: 'https://unpkg.com/pdfmake@0.3/build/fonts/Roboto/Roboto-Regular.ttf',
-     bold: 'https://unpkg.com/pdfmake@0.3/build/fonts/Roboto/Roboto-Medium.ttf',
-     italics: 'https://unpkg.com/pdfmake@0.3/build/fonts/Roboto/Roboto-Italic.ttf',
-     bolditalics: 'https://unpkg.com/pdfmake@0.3/build/fonts/Roboto/Roboto-MediumItalic.ttf'
+     normal: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Regular.ttf',
+     bold: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Medium.ttf',
+     italics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Italic.ttf',
+     bolditalics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-MediumItalic.ttf'
    },
 
    // example of usage fonts in collection
@@ -44,11 +44,26 @@ var fonts = {
 pdfMake.addFonts(fonts);
 ```
 
-### URL resource caching
+## 2. specify the font in your doc-definition
 
-{{% alert theme="warning" %}}Minimal version: **0.3.14**{{% /alert %}}
+pdfMake uses 'Roboto' as default font, so in order to use your font, you should specify it in your doc-definition object.
 
-A font URL can also be specified as an object with `url`, optional `headers`, and `cache`. Set `cache: true` or `cache: false` to override the global `setUrlResourceCaching()` setting for that font file. For TrueType Collections, place the URL object in the first element of the array:
+The easiest way is to set it globally in the **defaultStyle**
+
+```javascript
+var docDefinition = {
+  content: ['Example document content'],
+  defaultStyle: {
+    font: 'yourFontName'
+  }
+}
+```
+
+## URL resource caching {#url-resource-caching}
+
+Available in the upstream development branch for **0.3.14**; not in the pinned 0.3.13 playground runtime.
+
+For fonts, use a resource object with `url`, optional `headers` and `cache`. In a TrueType Collection tuple, put that object in the first element.
 
 ```js
 pdfMake.addFonts({
@@ -67,21 +82,6 @@ pdfMake.addFonts({
 });
 ```
 
-By default, new font downloads are stored per document. `cache: true` stores a new download in the shared cache for reuse by subsequent documents. `cache: false` can still reuse an existing shared entry. URL strings and objects without `cache` use the global setting.
+New downloads are stored per document by default. `cache: true` stores new data in the shared in-memory cache for later documents; `cache: false` still allows reading an existing shared entry. URL strings and objects without `cache` use the global setting. The browser HTTP cache is independent.
 
-For details see [URL resource caching](/docs/0.3/getting-started/server-side/methods/#url-resource-caching).
-
-## 2. specify the font in your doc-definition
-
-pdfMake uses 'Roboto' as default font, so in order to use your font, you should specify it in your doc-definition object.
-
-The easiest way is to set it globally in the **defaultStyle**
-
-```javascript
-var docDefinition = {
-  content: (...),
-  defaultStyle: {
-    font: 'yourFontName'
-  }
-}
-```
+See [URL resource caching](/docs/0.3/getting-started/server-side/methods/#url-resource-caching) for configuration and cache security.

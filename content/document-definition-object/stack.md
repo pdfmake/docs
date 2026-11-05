@@ -1,6 +1,6 @@
 +++
 title = "Stack of paragraphs"
-description = ""
+description = "Configure stack of paragraphs in pdfmake 0.3 with examples, options and usage notes."
 weight = 2080
 alwaysopen = true
 +++

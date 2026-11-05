@@ -1,13 +1,25 @@
 +++
-title = "Options"
-description = ""
+title = "Rendering options"
+description = "Configure font layout caching and PDFKit page buffering through the second createPdf argument."
 weight = 30
-alwaysopen = true
 +++
 
-Advanced options for creating document used in [client-side methods](/docs/0.3/getting-started/client-side/methods/) or [server-side method](/docs/0.3/getting-started/server-side/).
+## Pass options to createPdf
 
-Options:
+```js
+const output = pdfmake.createPdf(docDefinition, {
+  fontLayoutCache: true,
+  bufferPages: false
+});
+```
 
-- `fontLayoutCache` - option to disable font layout cache (_default_: `true` - cache enabled)
-- `bufferPages` -  allows you to control when pages are flushed to the output file (see [pdfkit documentation](http://pdfkit.org/docs/getting_started.html)) (_default_: `false` - buffer disabled)
+The options object is separate from the [document definition](/docs/0.3/document-definition-object/).
+
+| Option | Type | Default | Meaning |
+| --- | --- | --- | --- |
+| `fontLayoutCache` | boolean | `true` | Enable PDFKit's font layout cache |
+| `bufferPages` | boolean | `false` | Keep PDFKit pages buffered rather than flushing them immediately |
+
+Keep defaults unless your use case requires a change. Page buffering can increase memory use. It does not make pdfmake's own layout lazy or incremental. See [performance](/docs/0.3/guides/performance/) and [PDFKit's page buffering documentation](https://pdfkit.org/docs/getting_started.html).
+
+Fonts, named table layouts and resource policies are configured on the [public API](/docs/0.3/guides/api-reference/). Paper size, margins and content belong in the definition.

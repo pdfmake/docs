@@ -1,43 +1,40 @@
 +++
 title = "Headers and footers"
-description = ""
+description = "Add static or dynamic page headers and footers, with page numbers, total page counts and room reserved in page margins."
 weight = 2050
-alwaysopen = true
 +++
 
-
-Page headers and footers in pdfmake can be: *static* or *dynamic*.
-
-They use the same syntax:
+## Add a static header
 
 ```js
 var docDefinition = {
-  header: 'simple text',
-
-  footer: {
-    columns: [
-      'Left part',
-      { text: 'Right part', alignment: 'right' }
-    ]
-  },
-
-  content: (...)
+  pageMargins: [40, 65, 40, 55],
+  header: { text: 'Example report', margin: [40, 20, 40, 0] },
+  footer: { text: 'Example Studio', alignment: 'center', fontSize: 9 },
+  content: ['Document content']
 };
 ```
 
-For dynamically generated content (including page numbers, page count and page size) you can pass a function to the header or footer:
+Headers and footers repeat on pages. Reserve enough top and bottom margin for their contents; they do not automatically enlarge the body margins. Returned content uses normal pdfmake nodes.
+
+## Add page numbers
 
 ```js
 var docDefinition = {
-  footer: function(currentPage, pageCount) { return currentPage.toString() + ' of ' + pageCount; },
-  header: function(currentPage, pageCount, pageSize) {
-    // you can apply any logic and return any valid pdfmake element
-
-    return [
-      { text: 'simple text', alignment: (currentPage % 2) ? 'left' : 'right' },
-      { canvas: [ { type: 'rect', x: 170, y: 32, w: pageSize.width - 170, h: 40 } ] }
-    ]
+  pageMargins: [40, 65, 40, 55],
+  header: function (currentPage, pageCount, pageSize) {
+    return {
+      text: 'Report · ' + pageSize.width + ' pt wide',
+      alignment: currentPage % 2 ? 'left' : 'right',
+      margin: [40, 20, 40, 0],
+      fontSize: 9
+    };
   },
-  (...)
+  footer: function (currentPage, pageCount) {
+    return { text: currentPage + ' of ' + pageCount, alignment: 'center', fontSize: 9 };
+  },
+  content: ['First page', { text: 'Second page', pageBreak: 'before' }]
 };
 ```
+
+Callbacks receive the current page number (starting at 1), total page count and page size. Return a fresh node for each invocation. Keep callbacks deterministic and avoid modifying shared application data.

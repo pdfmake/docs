@@ -1,6 +1,6 @@
 +++
 title = "Columns"
-description = ""
+description = "Configure columns in pdfmake 0.3 with examples, options and usage notes."
 weight = 2020
 alwaysopen = true
 +++
@@ -44,10 +44,10 @@ var docDefinition = {
 };
 ```
 
-Column content is not limited to a simple text. It can actually contain any valid pdfmake element. Make sure to look at the COLUMNS example in [playground](http://pdfmake.org/playground.html).
+Column content is not limited to a simple text. It can actually contain any valid pdfmake element. Make sure to look at the COLUMNS example in [playground](/docs/0.3/playground/).
 
 
-##### Properties
+## Properties
 
 * `columnGap: number` specify gap (space) between columns
 * `snakingColumns: boolean` snaking columns (newspaper-style columns) see this [article](/docs/0.3/document-definition-object/snaking-columns/) _(Minimal version: 0.3.5)_

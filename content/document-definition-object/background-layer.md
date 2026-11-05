@@ -1,6 +1,6 @@
 +++
 title = "Background-layer"
-description = ""
+description = "Configure background-layer in pdfmake 0.3 with examples, options and usage notes."
 weight = 2060
 alwaysopen = true
 +++
@@ -12,7 +12,7 @@ The background-layer will be added on every page.
 var docDefinition = {
   background: 'simple text',
 
-  content: (...)
+  content: ['Example document content']
 };
 ```
 
@@ -24,6 +24,6 @@ var docDefinition = {
     return `page ${currentPage} with size ${pageSize.width} x ${pageSize.height}`
   },
 
-  content: (...)
+  content: ['Example document content']
 };
 ```

@@ -1,6 +1,6 @@
 +++
 title = "Encryption and access privileges"
-description = ""
+description = "Configure PDF passwords, encryption versions and document permissions; distinct from resource access policies."
 weight = 2290
 alwaysopen = true
 +++

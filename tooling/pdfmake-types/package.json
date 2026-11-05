@@ -1,0 +1,6 @@
+{
+  "name": "pdfmake",
+  "version": "0.3.13",
+  "types": "types/index.d.ts",
+  "description": "Declaration-only snapshot of the local unreleased library branch; not a published runtime."
+}

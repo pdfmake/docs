@@ -1,100 +1,85 @@
 +++
 title = "Styling"
-description = ""
+description = "Style text with named styles, font variants, alignment, colors and inheritance in pdfmake 0.3."
 weight = 2010
 alwaysopen = true
 +++
 
-pdfmake makes it possible to style any paragraph or its part:
+## Style a block or an inline run
+
+A string is a plain paragraph. Use a text node to add properties. Use a `text`
+array for differently styled runs within the **same paragraph**; a content array
+or stack creates separate blocks.
+
+{{< example id="styles" >}}
+
+## Reuse named styles
 
 ```js
-var docDefinition = {
+var dd = {
+  defaultStyle: { fontSize: 11, lineHeight: 1.2 },
+  styles: {
+    heading: { fontSize: 24, bold: true },
+    muted: { color: '#536771' },
+    subheading: { extends: 'heading', fontSize: 16 }
+  },
   content: [
-    // if you don't need styles, you can use a simple string to define a paragraph
-    'This is a standard paragraph, using default style',
-
-    // using a { text: '...' } object lets you set styling properties
-    { text: 'This paragraph will have a bigger font', fontSize: 15 },
-
-    // if you set the value of text to an array instead of a string, you'll be able
-    // to style any part individually
-    {
-      text: [
-        'This paragraph is defined as an array of elements to make it possible to ',
-        { text: 'restyle part of it and make it bigger ', fontSize: 15 },
-        'than the rest.'
-      ]
-    }
+    { text: 'A heading', style: 'heading' },
+    { text: 'A muted heading', style: ['heading', 'muted'] },
+    { text: 'An explicit override', style: 'heading', fontSize: 18 },
+    { text: 'A subheading', style: 'subheading' }
   ]
 };
 ```
 
-#### Style dictionaries
-It's also possible to define a dictionary of reusable styles:
+`style` refers to entries in `styles`. Later styles in an array take precedence
+when they define the same property. Explicit node properties take precedence over
+its named styles. `defaultStyle` supplies document defaults. Styles on containers
+can be inherited by their children; explicit child properties override them.
+
+Named-style `extends` is available since **0.3.3**. It accepts one parent name or
+an array. A style's own properties win over its parents; later parent entries
+take precedence when several parents supply the same property. Keep inheritance
+short and acyclic so the result is easy to understand.
+
+## Common text properties
+
+| Property | Type / values | Meaning |
+| --- | --- | --- |
+| `font` | Registered family name | Must match your font map |
+| `fontSize` | Number, points | Text size |
+| `bold`, `italics` | Boolean, default false | Select the corresponding font variant |
+| `alignment` | `'left'`, `'center'`, `'right'`, `'justify'` | Paragraph alignment |
+| `lineHeight` | Number, default 1 | Line-height multiplier |
+| `color`, `background` | Color name or hex string | Text color and text background |
+| `characterSpacing` | Number, points | Additional spacing between characters |
+| `wordBreak` | `'normal'` (default), `'break-all'` | Wrapping behavior |
+| `fontFeatures` | String array | Font-specific typographic features |
+| `style` | String or string array | Named styles to apply |
+| `markerColor` | Color | Bullet marker color |
+
+Named colors and hex values such as `'#08786b'` are supported. Font features
+depend on the selected font. Selecting `bold` or `italics` requires the variant
+to be registered; setting a flag does not supply a missing font file.
+
+## Decorations
+
+| Property | Type / values |
+| --- | --- |
+| `decoration` | `'underline'`, `'lineThrough'`, `'overline'`, or an array |
+| `decorationStyle` | `'solid'`, `'dashed'`, `'dotted'`, `'double'`, `'wavy'` |
+| `decorationColor` | Color |
+| `decorationThickness` | Numeric width; since 0.3.3 |
 
 ```js
-var docDefinition = {
-  content: [
-    { text: 'This is a header', style: 'header' },
-    'No styling here, this is a standard paragraph',
-    { text: 'Another text', style: 'anotherStyle' },
-    { text: 'Multiple styles applied', style: [ 'header', 'anotherStyle' ] }
-  ],
-
-  styles: {
-    header: {
-      fontSize: 22,
-      bold: true
-    },
-    anotherStyle: {
-      italics: true,
-      alignment: 'right'
-    },
-    subheader: {
-      fontSize: 15,
-      extends: 'header' // or array of strings
-    }
-  }
+var dd = {
+  content: [{ text: 'A marked passage', decoration: 'underline', decorationStyle: 'wavy', decorationColor: '#08786b' }]
 };
 ```
 
-Property `extends` in style inherited/extends styles. _(Minimal pdfmake version: 0.3.3)_
+## Styles are not CSS
 
-To have a deeper understanding of styling in pdfmake, style inheritance and local-style-overrides check STYLES1, STYLES2 and STYLES3 examples in [playground](http://pdfmake.org/playground.html).
-
-#### Default style
-
-And it is also possible to define a default style:
-
-```js
-var docDefinition = {
-  content: [
-    'Text styled by default style'
-  ],
-
-  defaultStyle: {
-    fontSize: 15,
-    bold: true
-  }
-};
-```
-
-#### Style properties
-
-* `font: string`: name of the font
-* `fontSize: number`: size of the font in pt
-* `fontFeatures: string[]`: array of advanced typographic features supported in TTF fonts (supported features depend on font file)
-* `lineHeight: number`: the line height (default: 1)
-* `bold: boolean`: whether to use bold text (default: false)
-* `italics: boolean`: whether to use italic text (default: false)
-* `alignment: string`: ('left' or 'center' or 'right' or 'justify') the alignment of the text
-* `characterSpacing: number`: size of the letter spacing in pt
-* `wordBreak: string`: controls how text is wrapped when it exceeds the available width (supported values: `'normal'` (default), `'break-all'`)
-* `color: string`: the color of the text (color name e.g., 'blue' or hexadecimal color e.g., '#ff5500')
-* `background: string` the background color of the text
-* `style: string | array<string>`: defined style of item
-* `markerColor: string`: the color of the bullets in a buletted list
-* `decoration: string | string[]`: the text decoration to apply ('underline' or 'lineThrough' or 'overline')
-* `decorationStyle: string`: the style of the text decoration ('dashed' or 'dotted' or 'double' or 'wavy')
-* `decorationColor: string`: the color of the text decoration, see color
-* `decorationThickness: integer`: for `text` to set width of the decoration line _(Minimal pdfmake version: 0.3.3)_
+Use pdfmake's documented field names. There is no CSS cascade, DOM selector or
+browser box model. Margins use point values and `[left, top, right, bottom]` order.
+To style several blocks together, use a [stack](/docs/0.3/document-definition-object/stack/).
+See [fonts](/docs/0.3/fonts/) for variant registration and character coverage.

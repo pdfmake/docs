@@ -1,0 +1,6 @@
+{{ $current := . }}{{ $sequence := slice }}{{ $position := -1 }}
+{{ range hugo.Data.navigation }}{{ range .pages }}{{ $p := partial "resolve-page.html" (dict "site" $current.Site "id" .) }}{{ if eq $p.RelPermalink $current.RelPermalink }}{{ $position = len $sequence }}{{ end }}{{ $sequence = $sequence | append $p }}{{ end }}{{ end }}
+{{ if ge $position 0 }}<nav class="chapter-pagination" aria-label="{{ i18n "chapters" }}">
+{{ if gt $position 0 }}{{ $p := index $sequence (sub $position 1) }}<a rel="prev" href="{{ $p.RelPermalink }}"><small>← {{ i18n "previous" }}</small><strong>{{ $p.Title }}</strong></a>{{ else }}<span></span>{{ end }}
+{{ if lt (add $position 1) (len $sequence) }}{{ $p := index $sequence (add $position 1) }}<a rel="next" href="{{ $p.RelPermalink }}"><small>{{ i18n "next" }} →</small><strong>{{ $p.Title }}</strong></a>{{ end }}
+</nav>{{ end }}

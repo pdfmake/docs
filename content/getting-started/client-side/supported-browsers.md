@@ -1,6 +1,6 @@
 +++
 title = "Supported browsers"
-description = ""
+description = "Check browser compatibility and limitations of open, print and download helpers."
 weight = 11
 alwaysopen = true
 +++

@@ -1,0 +1,3 @@
+{{ $page := .site.GetPage .id }}{{ if eq .id "index" }}{{ $page = .site.Home }}{{ end }}
+{{ if not $page }}{{ $english := index hugo.Sites 0 }}{{ $page = $english.GetPage .id }}{{ end }}
+{{ return $page }}

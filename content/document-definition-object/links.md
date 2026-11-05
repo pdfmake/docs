@@ -1,6 +1,6 @@
 +++
 title = "Links"
-description = ""
+description = "Configure links in pdfmake 0.3 with examples, options and usage notes."
 weight = 2120
 alwaysopen = true
 +++
@@ -25,7 +25,7 @@ var dd = {
 };
 ```
 
-##### Properties
+## Properties
 
 - `link` (`string`) - URL to external site
 - `linkToPage` (`number`) - link to page number

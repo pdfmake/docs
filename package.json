@@ -1,0 +1,43 @@
+{
+  "name": "pdfmake-developer-docs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.11.0"
+  },
+  "scripts": {
+    "docs:generate": "node scripts/generate.mjs",
+    "docs:check": "node scripts/generate.mjs --check",
+    "build": "npm run docs:generate && npm run playground:prepare && node scripts/hugo.mjs --minify --cleanDestinationDir && node scripts/check-site.mjs",
+    "dev": "npm run docs:generate && npm run playground:prepare && node scripts/hugo.mjs server --bind 127.0.0.1",
+    "test": "npm run docs:check && node --test tests/*.test.mjs",
+    "mcp": "node mcp/server.mjs",
+    "playground:prepare": "node scripts/prepare-playground.mjs",
+    "test:browser": "node tests/browser.mjs && node tests/inline-browser.mjs",
+    "build:collection": "node scripts/assemble-versions.mjs"
+  },
+  "dependencies": {
+    "@iarna/toml": "^2.2.5",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@babel/parser": "^8.0.7",
+    "@codemirror/commands": "^6.11.1",
+    "@codemirror/lang-javascript": "^6.2.5",
+    "@codemirror/language": "^6.13.1",
+    "@codemirror/lint": "^6.9.7",
+    "@codemirror/state": "^6.7.6",
+    "@lezer/highlight": "^1.2.5",
+    "@types/pdfkit": "^0.17.6",
+    "acorn": "^8.19.0",
+    "codemirror": "^6.0.2",
+    "esbuild": "^0.28.2",
+    "parse5": "^8.0.1",
+    "pdfjs-dist": "6.4.299",
+    "pdfmake": "0.3.13",
+    "playwright": "^1.64.1",
+    "typescript": "~5.9.3"
+  }
+}
