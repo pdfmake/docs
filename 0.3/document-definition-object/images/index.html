@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2026-10-25T11:06:35 CET">
+<meta name="revised" content="2026-11-08T07:16:58 CET">
 <title>Images :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -542,7 +542,23 @@
     <span style="color:#111">}</span>
   <span style="color:#111">}</span>
 <span style="color:#111">};</span>
-</code></pre></div>
+</code></pre></div><h4 id="url-resource-caching">URL resource caching</h4>
+
+<div class="alert alert-warning" role="alert">Minimal version: <strong>0.3.14</strong></div>
+
+<p>Use the <code>cache</code> property on a URL object in the <code>images</code> dictionary to override the global <code>setUrlResourceCaching()</code> setting. The <code>headers</code> property is optional and can be combined with <code>cache</code>.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[{</span> <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;logo&#39;</span> <span style="color:#111">}],</span>
+  <span style="color:#75af00">images</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">logo</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+      <span style="color:#75af00">url</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;https://example.com/logo.png&#39;</span><span style="color:#111">,</span>
+      <span style="color:#75af00">cache</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span>
+    <span style="color:#111">}</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">};</span>
+</code></pre></div><p>By default, new downloads are stored per document. <code>cache: true</code> stores a new download in the shared cache for reuse by subsequent documents. <code>cache: false</code> stores a new download only for this document, but can still reuse an existing shared entry.</p>
+<p>For details see <a href="/docs/0.3/getting-started/server-side/methods/#url-resource-caching">URL resource caching</a>.</p>
+
 
     
     

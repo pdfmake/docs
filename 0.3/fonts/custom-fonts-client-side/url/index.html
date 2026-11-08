@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2026-10-25T11:06:35 CET">
+<meta name="revised" content="2026-11-08T07:16:58 CET">
 <title>via URL protocol :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -503,7 +503,28 @@
 <span style="color:#111">};</span>
 
 <span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">addFonts</span><span style="color:#111">(</span><span style="color:#75af00">fonts</span><span style="color:#111">);</span>
-</code></pre></div><h2 id="2-specify-the-font-in-your-doc-definition">2. specify the font in your doc-definition</h2>
+</code></pre></div><h3 id="url-resource-caching">URL resource caching</h3>
+
+<div class="alert alert-warning" role="alert">Minimal version: <strong>0.3.14</strong></div>
+
+<p>A font URL can also be specified as an object with <code>url</code>, optional <code>headers</code>, and <code>cache</code>. Set <code>cache: true</code> or <code>cache: false</code> to override the global <code>setUrlResourceCaching()</code> setting for that font file. For TrueType Collections, place the URL object in the first element of the array:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">addFonts</span><span style="color:#111">({</span>
+  <span style="color:#75af00">yourFontName</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+      <span style="color:#75af00">url</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;https://example.com/fonts/regular.ttf&#39;</span><span style="color:#111">,</span>
+      <span style="color:#75af00">cache</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span>
+    <span style="color:#111">}</span>
+  <span style="color:#111">},</span>
+  <span style="color:#75af00">PingFangSC</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">normal</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+      <span style="color:#111">{</span> <span style="color:#75af00">url</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;https://example.com/fonts/pingfang.ttc&#39;</span><span style="color:#111">,</span> <span style="color:#75af00">cache</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span> <span style="color:#111">},</span>
+      <span style="color:#d88200">&#39;PingFangSC-Regular&#39;</span>
+    <span style="color:#111">]</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">});</span>
+</code></pre></div><p>By default, new font downloads are stored per document. <code>cache: true</code> stores a new download in the shared cache for reuse by subsequent documents. <code>cache: false</code> can still reuse an existing shared entry. URL strings and objects without <code>cache</code> use the global setting.</p>
+<p>For details see <a href="/docs/0.3/getting-started/server-side/methods/#url-resource-caching">URL resource caching</a>.</p>
+<h2 id="2-specify-the-font-in-your-doc-definition">2. specify the font in your doc-definition</h2>
 <p>pdfMake uses &lsquo;Roboto&rsquo; as default font, so in order to use your font, you should specify it in your doc-definition object.</p>
 <p>The easiest way is to set it globally in the <strong>defaultStyle</strong></p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>

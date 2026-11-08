@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2026-10-25T11:06:35 CET">
+<meta name="revised" content="2026-11-08T07:16:58 CET">
 <title>Methods :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -555,7 +555,24 @@
 </span><span style="color:#75715e"></span><span style="color:#111">},</span> <span style="color:#75af00">err</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
 	<span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">error</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">);</span>
 <span style="color:#111">});</span>
-</code></pre></div><h4 id="url-access-policy">URL Access Policy</h4>
+</code></pre></div><h4 id="url-resource-caching">URL resource caching</h4>
+
+<div class="alert alert-warning" role="alert">Minimal version: <strong>0.3.14</strong></div>
+
+<p>The <code>setUrlResourceCaching(enabled)</code> method controls whether new URL downloads are stored in a shared in-memory cache for reuse by subsequent documents. The <code>enabled</code> parameter is required and must be a boolean. URL resource caching is disabled by default, so downloads are stored per document by default.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">setUrlResourceCaching</span><span style="color:#111">(</span><span style="color:#00a8c8">true</span><span style="color:#111">);</span>
+<span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">download</span><span style="color:#111">();</span>
+</code></pre></div><p>Set <code>cache: true</code> or <code>cache: false</code> on an individual URL resource object to override the global setting. Existing shared entries can still be read with <code>cache: false</code>; it does not force a new download. This setting does not control the browser&rsquo;s HTTP cache.</p>
+<p>For resource examples, cache behavior and the change from earlier versions, see <a href="/docs/0.3/getting-started/server-side/methods/#url-resource-caching">URL resource caching</a>.</p>
+<h4 id="clear-url-resource-cache">Clear URL resource cache</h4>
+
+<div class="alert alert-warning" role="alert">Minimal version: <strong>0.3.14</strong></div>
+
+<p>The <code>clearUrlResourceCache()</code> method synchronously removes shared HTTP/HTTPS resources without changing the caching setting or removing other VFS files. It takes no parameters. Call it between document generations, after active generations have finished:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">clearUrlResourceCache</span><span style="color:#111">();</span>
+<span style="color:#75af00">pdfMake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">download</span><span style="color:#111">();</span>
+</code></pre></div><p>This method does not clear the browser&rsquo;s HTTP cache. For details see <a href="/docs/0.3/getting-started/server-side/methods/#clear-url-resource-cache">Clear URL resource cache</a>.</p>
+<h4 id="url-access-policy">URL Access Policy</h4>
 
 <div class="alert alert-warning" role="alert">Minimal version: <strong>0.3.6</strong></div>
 

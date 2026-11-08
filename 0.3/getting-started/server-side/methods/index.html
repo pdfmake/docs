@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2026-10-25T11:06:35 CET">
+<meta name="revised" content="2026-11-08T07:16:58 CET">
 <title>Methods :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -512,7 +512,47 @@
 </span><span style="color:#75715e"></span><span style="color:#111">},</span> <span style="color:#75af00">err</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
 	<span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">error</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">);</span>
 <span style="color:#111">});</span>
-</code></pre></div><h4 id="url-access-policy">URL Access Policy</h4>
+</code></pre></div><h4 id="url-resource-caching">URL resource caching</h4>
+
+<div class="alert alert-warning" role="alert">Minimal version: <strong>0.3.14</strong></div>
+
+<p>The <code>setUrlResourceCaching(enabled)</code> method controls whether new URL downloads are stored in a shared in-memory cache for reuse by subsequent documents. The <code>enabled</code> parameter is required and must be a boolean. URL resource caching is disabled by default.</p>
+<p>By default, downloaded fonts, images, attachments and embedded files are stored per document. To enable sharing between documents:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfmake</span><span style="color:#111">.</span><span style="color:#75af00">setUrlResourceCaching</span><span style="color:#111">(</span><span style="color:#00a8c8">true</span><span style="color:#111">);</span>
+
+<span style="color:#00a8c8">var</span> <span style="color:#75af00">docDefinition</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">content</span><span style="color:#f92672">:</span> <span style="color:#111">[{</span> <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;logo&#39;</span> <span style="color:#111">},</span> <span style="color:#111">{</span> <span style="color:#75af00">image</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;photo&#39;</span> <span style="color:#111">}],</span>
+  <span style="color:#75af00">images</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+    <span style="color:#75715e">// Uses the global caching setting.
+</span><span style="color:#75715e"></span>    <span style="color:#75af00">logo</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;https://example.com/logo.png&#39;</span><span style="color:#111">,</span>
+    <span style="color:#75af00">photo</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+      <span style="color:#75af00">url</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;https://example.com/photo.png&#39;</span><span style="color:#111">,</span>
+      <span style="color:#75af00">headers</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">Authorization</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;Bearer token&#39;</span> <span style="color:#111">},</span>
+      <span style="color:#75715e">// Store a new download only for this document.
+</span><span style="color:#75715e"></span>      <span style="color:#75af00">cache</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">false</span>
+    <span style="color:#111">}</span>
+  <span style="color:#111">}</span>
+<span style="color:#111">};</span>
+
+<span style="color:#75af00">pdfmake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">write</span><span style="color:#111">(</span><span style="color:#d88200">&#39;document.pdf&#39;</span><span style="color:#111">);</span>
+</code></pre></div><p>Set <code>cache: true</code> or <code>cache: false</code> on an individual <code>{ url, headers, cache }</code> resource object to override the global setting. The <code>headers</code> property is optional. This applies to font definitions, entries in the <code>images</code> dictionary, and <code>src</code> objects in the <code>attachments</code> and <code>files</code> dictionaries. Plain URL strings and resource objects without <code>cache</code> use the global setting.</p>
+<p>Calling <code>pdfmake.setUrlResourceCaching(false)</code> restores the default for subsequent <code>createPdf()</code> calls. It does not change a generation already started, and an explicit <code>cache: true</code> still takes precedence.</p>
+
+<div class="alert alert-warning" role="alert">These settings control where newly downloaded data is stored. Existing shared entries can still be read with <code>cache: false</code>; it does not force a new download. Changing the global setting does not clear previously cached resources.</div>
+
+<p>Shared entries are keyed by URL only, regardless of request headers, including <code>Authorization</code>. Reusing a cached entry does not contact the origin server or recheck authorization there. Avoid sharing resources whose content or authorization depends on request headers. The <a href="#url-access-policy">URL Access Policy</a> applies to actual network downloads, not cache reads.</p>
+<p>This setting controls pdfmake&rsquo;s in-memory cache. It does not control the browser&rsquo;s HTTP cache.</p>
+<p>Before version 0.3.14, URL downloads were automatically shared between documents. Use <code>pdfmake.setUrlResourceCaching(true)</code> to restore that behavior.</p>
+<h4 id="clear-url-resource-cache">Clear URL resource cache</h4>
+
+<div class="alert alert-warning" role="alert">Minimal version: <strong>0.3.14</strong></div>
+
+<p>The <code>clearUrlResourceCache()</code> method removes all shared virtual file system entries whose names start with <code>http://</code> or <code>https://</code>, regardless of case. Other VFS files, such as registered fonts stored under file names, are preserved. The method takes no parameters and runs synchronously.</p>
+<p>Call it between document generations to make subsequent documents download URL resources again:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">pdfmake</span><span style="color:#111">.</span><span style="color:#75af00">clearUrlResourceCache</span><span style="color:#111">();</span>
+<span style="color:#75af00">pdfmake</span><span style="color:#111">.</span><span style="color:#75af00">createPdf</span><span style="color:#111">(</span><span style="color:#75af00">docDefinition</span><span style="color:#111">).</span><span style="color:#75af00">write</span><span style="color:#111">(</span><span style="color:#d88200">&#39;document.pdf&#39;</span><span style="color:#111">);</span>
+</code></pre></div><p>Clearing the cache does not change the <code>setUrlResourceCaching()</code> setting or remove resources stored only for an individual document. Use it after active document generations have finished; it does not cancel downloads already in progress. It does not clear the browser&rsquo;s HTTP cache.</p>
+<h4 id="url-access-policy">URL Access Policy</h4>
 
 <div class="alert alert-warning" role="alert">Minimal version: <strong>0.3.6</strong></div>
 
