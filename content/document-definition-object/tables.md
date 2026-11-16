@@ -32,6 +32,17 @@ var docDefinition = {
 };
 ```
 
+##### Keeping rows together
+
+Set these properties inside the `table` object:
+
+* `dontBreakRows: true` keeps each row together on one page when it fits.
+* `keepWithHeaderRows: integer` keeps the specified number of body rows together with the header rows. Use it with `headerRows`.
+
+If there is not enough space on the current page, a group that fits on a fresh page can move there intact. Repeating headers reduce the space available for body rows.
+
+For oversized rows or header groups, the [`unbreakableOverflow` option](/docs/0.3/options/#unbreakable-overflow) controls whether supported constraints can be relaxed or generation fails. Repeating header rows themselves must fit together on a page in either mode.
+
 ##### Table-cell properties
 
 * `rowSpan: integer`: 
