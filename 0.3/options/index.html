@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2026-11-08T07:16:58 CET">
+<meta name="revised" content="2026-11-20T17:58:40 CET">
 <title>Options :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -474,7 +474,32 @@
 <ul>
 <li><code>fontLayoutCache</code> - option to disable font layout cache (<em>default</em>: <code>true</code> - cache enabled)</li>
 <li><code>bufferPages</code> -  allows you to control when pages are flushed to the output file (see <a href="http://pdfkit.org/docs/getting_started.html">pdfkit documentation</a>) (<em>default</em>: <code>false</code> - buffer disabled)</li>
+<li><code>unbreakableOverflow</code> - controls what happens when an unbreakable block cannot fit within the available space on a single page (<em>default</em>: <code>'allowBreak'</code>). See <a href="#unbreakable-overflow">Unbreakable overflow</a>.</li>
 </ul>
+<h4 id="unbreakable-overflow">Unbreakable overflow</h4>
+
+<div class="alert alert-warning" role="alert">Minimal version: <strong>0.3.15</strong></div>
+
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>'allowBreak'</code> (default)</td>
+<td>Retries layout with supported unbreakability constraints relaxed, allowing oversized blocks to split across pages when possible.</td>
+</tr>
+<tr>
+<td><code>'error'</code></td>
+<td>Rejects generation when the layout detects that an unbreakable block cannot fit on a single page within the available space.</td>
+</tr>
+</tbody>
+</table>
+<p>Both modes keep a block together if it fits. If only the remaining space on the current page is insufficient, the block can move intact to the next page without causing an overflow error.</p>
+<p>The option covers nodes with <code>unbreakable: true</code> and table constraints such as <code>dontBreakRows</code>, <code>keepWithHeaderRows</code>, associated row spans and repeating table headers.</p>
 
 
 

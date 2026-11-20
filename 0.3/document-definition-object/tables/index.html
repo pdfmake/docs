@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2026-11-08T07:16:58 CET">
+<meta name="revised" content="2026-11-20T17:58:40 CET">
 <title>Tables :: pdfmake</title>
 <link rel="shortcut icon" href="/docs/0.3/images/favicon.png" type="image/x-icon" />
 <link href="/docs/0.3/css/nucleus.css" rel="stylesheet">
@@ -491,7 +491,15 @@
     <span style="color:#111">}</span>
   <span style="color:#111">]</span>
 <span style="color:#111">};</span>
-</code></pre></div><h5 id="table-cell-properties">Table-cell properties</h5>
+</code></pre></div><h5 id="keeping-rows-together">Keeping rows together</h5>
+<p>Set these properties inside the <code>table</code> object:</p>
+<ul>
+<li><code>dontBreakRows: true</code> keeps each row together on one page when it fits.</li>
+<li><code>keepWithHeaderRows: integer</code> keeps the specified number of body rows together with the header rows. Use it with <code>headerRows</code>.</li>
+</ul>
+<p>If there is not enough space on the current page, a group that fits on a fresh page can move there intact. Repeating headers reduce the space available for body rows.</p>
+<p>For oversized rows or header groups, the <a href="/docs/0.3/options/#unbreakable-overflow"><code>unbreakableOverflow</code> option</a> controls whether supported constraints can be relaxed or generation fails. Repeating header rows themselves must fit together on a page in either mode.</p>
+<h5 id="table-cell-properties">Table-cell properties</h5>
 <ul>
 <li><code>rowSpan: integer</code>:</li>
 <li><code>colSpan: integer</code>:</li>
