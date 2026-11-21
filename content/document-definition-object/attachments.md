@@ -70,6 +70,8 @@ var dd = {
 };
 ```
 
+Since version **0.3.15**, URLs in the `attachments` and `files` dictionaries can also use [registered custom protocols](/docs/0.3/getting-started/server-side/methods/#url-protocols). These downloads share the per-document limit set by [setUrlResourceConcurrency()](/docs/0.3/getting-started/server-side/methods/#url-resource-concurrency).
+
 #### URL resource caching
 
 {{% alert theme="warning" %}}Minimal version: **0.3.14**{{% /alert %}}

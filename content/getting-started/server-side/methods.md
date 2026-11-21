@@ -70,6 +70,54 @@ pdfmake.createPdf(docDefinition).getStream().then((stream) => {
 });
 ```
 
+#### URL resource concurrency
+
+{{% alert theme="warning" %}}Minimal version: **0.3.15**{{% /alert %}}
+
+The `setUrlResourceConcurrency(concurrency)` method limits concurrent URL resource downloads per document, including fonts, images, attachments and embedded files. The required value must be a positive integer; the default is `5`. Changes apply to subsequent `createPdf()` calls.
+
+```js
+pdfmake.setUrlResourceConcurrency(3);
+```
+
+#### URL protocols
+
+{{% alert theme="warning" %}}Minimal version: **0.3.15**{{% /alert %}}
+
+Use `registerUrlProtocol(protocol, handler)` to add a URL scheme or replace its handler. HTTP and HTTPS are registered by default. Scheme names are case-insensitive and may include a trailing colon. Omitting `handler` registers the default Fetch-based handler.
+
+A handler receives `(url, headers, validateUrlAccessPolicy)` and returns a promise resolving to `{ buffer, url }`. `headers` contains the resource's request headers, or an empty object if none were specified. `buffer` must be an `ArrayBuffer` or `Uint8Array` (including a Node.js `Buffer`), and `url` must be a non-empty string identifying the final resource URL, or the original URL if there were no redirects.
+
+For example, map application URLs to known local files:
+
+```js
+var fs = require('fs').promises;
+var path = require('path');
+var assets = {
+  'asset://logo': path.join(__dirname, 'images/logo.png')
+};
+
+pdfmake.setUrlAccessPolicy(url => Object.prototype.hasOwnProperty.call(assets, url));
+pdfmake.registerUrlProtocol('asset', async (url, headers, validateUrlAccessPolicy) => {
+  var buffer = await fs.readFile(assets[url]);
+  // This handler reads a local file and does not follow redirects.
+  return { buffer: buffer, url: url };
+});
+
+var docDefinition = {
+  content: [{ image: 'logo' }],
+  images: { logo: { url: 'asset://logo', cache: true } }
+};
+
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+The [URL Access Policy](#url-access-policy) checks the initial URL before the handler runs and the returned URL before data is stored. The policy must return `true` synchronously to allow access. If a custom handler follows redirects, it must call `validateUrlAccessPolicy(targetUrl)` before following each redirect. This validator throws if access is denied; it does not return a boolean. When no policy is configured, the validator allows access.
+
+Registered protocols can be used in font, image, attachment and embedded file definitions. They use the same [download limit](#url-resource-concurrency) and [caching settings](#url-resource-caching) as HTTP/HTTPS. Custom handlers are responsible for any local file access they perform.
+
+Call `pdfmake.unregisterUrlProtocol('asset')` to remove a handler and clear shared cache entries for that scheme. Removing an overridden HTTP/HTTPS handler does not restore the default; call `pdfmake.registerUrlProtocol('https')` to restore it. Protocol names must be valid URL schemes, such as `asset` or `https:`, and a supplied handler must be a function. Registration changes apply to subsequent `createPdf()` calls; documents already being generated keep their handlers.
+
 #### URL resource caching
 
 {{% alert theme="warning" %}}Minimal version: **0.3.14**{{% /alert %}}
@@ -114,7 +162,7 @@ Before version 0.3.14, URL downloads were automatically shared between documents
 
 {{% alert theme="warning" %}}Minimal version: **0.3.14**{{% /alert %}}
 
-The `clearUrlResourceCache()` method removes all shared virtual file system entries whose names start with `http://` or `https://`, regardless of case. Other VFS files, such as registered fonts stored under file names, are preserved. The method takes no parameters and runs synchronously.
+The `clearUrlResourceCache()` method synchronously removes shared resources for all currently registered URL schemes without changing the caching setting or removing other VFS files.
 
 Call it between document generations to make subsequent documents download URL resources again:
 

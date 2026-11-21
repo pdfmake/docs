@@ -133,6 +133,32 @@ pdfMake.createPdf(docDefinition).getStream().then((stream) => {
 });
 ```
 
+#### URL resource concurrency
+
+{{% alert theme="warning" %}}Minimal version: **0.3.15**{{% /alert %}}
+
+The `setUrlResourceConcurrency(concurrency)` method limits concurrent URL resource downloads per document, including fonts, images, attachments and embedded files. The required value must be a positive integer; the default is `5`. Changes apply to subsequent `createPdf()` calls.
+
+```js
+pdfMake.setUrlResourceConcurrency(3);
+```
+
+#### URL protocols
+
+{{% alert theme="warning" %}}Minimal version: **0.3.15**{{% /alert %}}
+
+Use `pdfMake.registerUrlProtocol(protocol, handler)` to add a URL scheme or replace its handler, and `pdfMake.unregisterUrlProtocol(protocol)` to remove it and clear its shared resource cache. HTTP and HTTPS are registered by default. Scheme names are case-insensitive and may include a trailing colon. Omitting `handler` registers the default Fetch-based handler, which can be used for schemes supported by the browser's Fetch API, such as `blob`:
+
+```js
+pdfMake.registerUrlProtocol('blob');
+```
+
+You can then use a blob URL created with `URL.createObjectURL(imageBlob)` in the `images` dictionary. Keep the URL valid until PDF generation finishes and allow it in your [URL Access Policy](#url-access-policy).
+
+A custom handler receives `(url, headers, validateUrlAccessPolicy)` and returns a promise resolving to `{ buffer, url }`, where `buffer` is an `ArrayBuffer` or `Uint8Array` and `url` is a non-empty string identifying the final resource URL. pdfmake checks the initial and returned URLs against the configured policy. Before following each redirect, a custom handler must call `validateUrlAccessPolicy(targetUrl)`, which throws if access is denied. It allows access when no policy is configured.
+
+Registered protocols use the same download limit and caching settings as HTTP/HTTPS. Registration changes apply to subsequent `createPdf()` calls. For a custom handler example and details, see [URL protocols](/docs/0.3/getting-started/server-side/methods/#url-protocols).
+
 #### URL resource caching
 
 {{% alert theme="warning" %}}Minimal version: **0.3.14**{{% /alert %}}
@@ -152,7 +178,9 @@ For resource examples, cache behavior and the change from earlier versions, see 
 
 {{% alert theme="warning" %}}Minimal version: **0.3.14**{{% /alert %}}
 
-The `clearUrlResourceCache()` method synchronously removes shared HTTP/HTTPS resources without changing the caching setting or removing other VFS files. It takes no parameters. Call it between document generations, after active generations have finished:
+The `clearUrlResourceCache()` method synchronously removes shared resources for all currently registered URL schemes without changing the caching setting or removing other VFS files.
+
+Call it between document generations to make subsequent documents download URL resources again:
 
 ```js
 pdfMake.clearUrlResourceCache();
