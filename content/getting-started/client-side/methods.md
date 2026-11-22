@@ -135,7 +135,7 @@ pdfMake.createPdf(docDefinition).getStream().then((stream) => {
 
 #### URL resource concurrency
 
-{{% alert theme="warning" %}}Minimal version: **0.3.15**{{% /alert %}}
+{{% alert theme="warning" %}}Minimal version: **0.3.16**{{% /alert %}}
 
 The `setUrlResourceConcurrency(concurrency)` method limits concurrent URL resource downloads per document, including fonts, images, attachments and embedded files. The required value must be a positive integer; the default is `5`. Changes apply to subsequent `createPdf()` calls.
 
@@ -145,7 +145,7 @@ pdfMake.setUrlResourceConcurrency(3);
 
 #### URL protocols
 
-{{% alert theme="warning" %}}Minimal version: **0.3.15**{{% /alert %}}
+{{% alert theme="warning" %}}Minimal version: **0.3.16**{{% /alert %}}
 
 Use `pdfMake.registerUrlProtocol(protocol, handler)` to add a URL scheme or replace its handler, and `pdfMake.unregisterUrlProtocol(protocol)` to remove it and clear its shared resource cache. HTTP and HTTPS are registered by default. Scheme names are case-insensitive and may include a trailing colon. Omitting `handler` registers the default Fetch-based handler, which can be used for schemes supported by the browser's Fetch API, such as `blob`:
 

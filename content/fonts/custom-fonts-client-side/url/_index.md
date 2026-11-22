@@ -44,7 +44,7 @@ var fonts = {
 pdfMake.addFonts(fonts);
 ```
 
-Since version **0.3.15**, font URLs can also use [registered custom protocols](/docs/0.3/getting-started/client-side/methods/#url-protocols). Font downloads share the per-document limit set by [setUrlResourceConcurrency()](/docs/0.3/getting-started/client-side/methods/#url-resource-concurrency).
+Since version **0.3.16**, font URLs can also use [registered custom protocols](/docs/0.3/getting-started/client-side/methods/#url-protocols). Font downloads share the per-document limit set by [setUrlResourceConcurrency()](/docs/0.3/getting-started/client-side/methods/#url-resource-concurrency).
 
 ### URL resource caching
 

@@ -84,7 +84,7 @@ var docDefinition = {
 };
 ```
 
-Since version **0.3.15**, image URLs can also use [registered custom protocols](/docs/0.3/getting-started/client-side/methods/#url-protocols). Use [setUrlResourceConcurrency()](/docs/0.3/getting-started/client-side/methods/#url-resource-concurrency) to limit concurrent URL resource downloads per document.
+Since version **0.3.16**, image URLs can also use [registered custom protocols](/docs/0.3/getting-started/client-side/methods/#url-protocols). Use [setUrlResourceConcurrency()](/docs/0.3/getting-started/client-side/methods/#url-resource-concurrency) to limit concurrent URL resource downloads per document.
 
 #### URL resource caching
 
