@@ -184,4 +184,4 @@ var dd = {
 }
 ```
 
-All concepts related to tables are covered by TABLES example in [playground](http://pdfmake.org/playground.html).
+All concepts related to tables are covered by TABLES example in [playground](https://pdfmake.github.io/playground.html).

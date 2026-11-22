@@ -44,7 +44,7 @@ var docDefinition = {
 };
 ```
 
-Column content is not limited to a simple text. It can actually contain any valid pdfmake element. Make sure to look at the COLUMNS example in [playground](http://pdfmake.org/playground.html).
+Column content is not limited to a simple text. It can actually contain any valid pdfmake element. Make sure to look at the COLUMNS example in [playground](https://pdfmake.github.io/playground.html).
 
 
 ##### Properties
