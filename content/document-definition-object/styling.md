@@ -54,7 +54,7 @@ var docDefinition = {
 };
 ```
 
-To have a deeper understanding of styling in pdfmake, style inheritance and local-style-overrides check STYLES1, STYLES2 and STYLES3 examples in [playground](http://pdfmake.org/playground.html).
+To have a deeper understanding of styling in pdfmake, style inheritance and local-style-overrides check STYLES1, STYLES2 and STYLES3 examples in [playground](https://pdfmake.github.io/playground.html).
 
 #### Default style
 
