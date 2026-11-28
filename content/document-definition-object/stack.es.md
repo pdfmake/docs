@@ -1,5 +1,5 @@
 +++
-sourceDigest = "04c569677571b5807400b3610efeeabd2981f70fae31c778b9a5337c0abe6c26"
+sourceDigest = "9fe0fd923768dfa5981b12db404c9abfe438f65b26f6f0bafe27d8c8bb784a5f"
 title = "Pila de párrafos"
 description = "Configura una pila de párrafos en pdfmake 0.3 con ejemplos, opciones y notas de uso."
 weight = 2080
@@ -49,6 +49,24 @@ var docDefinition = {
           ],
           fontSize: 15
         }
+      ]
+    }
+  ]
+};
+```
+
+## Mantener una pila junta
+
+Usa `unbreakable: true` para mantener una pila en una página si cabe. Si solo falta espacio en la página actual, la pila completa pasa a la siguiente. Para pilas demasiado grandes, consulta [Desbordamiento de bloques indivisibles](/docs/0.3/es/options/#unbreakable-overflow).
+
+```js
+var docDefinition = {
+  content: [
+    {
+      unbreakable: true,
+      stack: [
+        { text: 'Heading', bold: true },
+        'Paragraph kept with the heading.'
       ]
     }
   ]

@@ -3,7 +3,7 @@ title = "Tableaux"
 description = "Créez des tableaux avec des lignes cohérentes, des en-têtes répétés, des bordures personnalisées, des largeurs et des cellules fusionnées."
 weight = 2030
 alwaysopen = true
-sourceDigest = "c80db33fd2025ca3fdc93880f47e52e7b8169c0b5a2901a4156cd2d208073487"
+sourceDigest = "d6d44c5f7171c788c3abf760326cb58beca47509793b83379def46105f9e26ab"
 +++
 
 ## Commencer par des lignes et un en-tête répété
@@ -122,3 +122,7 @@ Cet extrait suppose que le moteur du navigateur et les polices sont chargés. D�
 ## Diagnostiquer les tableaux mal formés
 
 Vérifiez `body` avant de modifier les bordures ou les largeurs : il doit contenir des tableaux de lignes dont les longueurs concordent. Vérifiez ensuite les cellules de remplacement des fusions. Dans la branche locale d’amélioration, les diagnostics indiquent le chemin de définition fautif et le nombre de cellules attendu. Consultez [Erreurs et diagnostics](/docs/0.3/fr/guides/errors/).
+
+## Garder les lignes ensemble
+
+Dans `table`, `dontBreakRows: true` conserve une ligne entière si elle tient et `keepWithHeaderRows` garde ce nombre de lignes de contenu avec `headerRows`. Un groupe tenant sur une nouvelle page y passe intégralement. Les en-têtes répétés réduisent l’espace disponible. Pour les lignes ou groupes trop grands, [Débordement des blocs insécables](/docs/0.3/fr/options/#unbreakable-overflow) contrôle l’assouplissement possible ou le rejet ; les en-têtes répétés doivent toujours tenir ensemble sur une page.

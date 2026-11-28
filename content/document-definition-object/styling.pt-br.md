@@ -3,7 +3,7 @@ title = "Estilos"
 description = "Formate texto com estilos nomeados, variantes de fonte, alinhamento, cores e herança no pdfmake 0.3."
 weight = 2010
 alwaysopen = true
-sourceDigest = "9369a9e17f5173482ecd79123f5aee3a2489a7678b916cec9f9003263fe860ae"
+sourceDigest = "0d498d86013ab5ed586be239a14a0fa3e6727c6d8188189cbc163f7c30551498"
 +++
 
 ## Aplique estilo a um bloco ou segmento em linha
@@ -71,3 +71,7 @@ var dd = {
 ## Estilos não são CSS
 
 Use os nomes de campos documentados pelo pdfmake. Não há cascata CSS, seletor DOM ou modelo de caixas do navegador. As margens usam valores em pontos e a ordem `[esquerda, superior, direita, inferior]`. Para estilizar vários blocos em conjunto, use uma [pilha](/docs/0.3/pt-br/document-definition-object/stack/). Consulte [fontes](/docs/0.3/pt-br/fonts/) para registrar variantes e verificar a cobertura de caracteres.
+
+## lineHeightMode
+
+Base da altura de linha: `fontHeight` (padrão) ou `css` (desenvolvimento original); o modo CSS usa `fontSize × lineHeight` quando a altura é explícita.

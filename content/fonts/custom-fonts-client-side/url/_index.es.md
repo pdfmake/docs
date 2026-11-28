@@ -1,5 +1,5 @@
 +++
-sourceDigest = "85c02ba46019f225861ea08b049de89a318e044021508c54b2cc266714435900"
+sourceDigest = "1dbe9af52b23e43b415837ffc2820f67ba5348b891bccb76b63927f0690343c3"
 title = "Mediante protocolo URL"
 description = "Configura fuentes personalizadas mediante el protocolo URL en pdfmake 0.3 con ejemplos, opciones y notas de uso."
 weight = 16
@@ -29,10 +29,10 @@ var fonts = {
 
    // download default Roboto font from unpkg.com
    Roboto: {
-     normal: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Regular.ttf',
-     bold: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Medium.ttf',
-     italics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Italic.ttf',
-     bolditalics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-MediumItalic.ttf'
+     normal: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Regular.ttf',
+     bold: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Medium.ttf',
+     italics: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Italic.ttf',
+     bolditalics: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-MediumItalic.ttf'
    },
 
    // example of usage fonts in collection
@@ -62,7 +62,7 @@ var docDefinition = {
 
 ## Caché de recursos URL {#url-resource-caching}
 
-Disponible en la rama de desarrollo original para **0.3.14**; no está en el motor 0.3.13 fijado para el playground.
+Disponible desde **0.3.14**.
 
 Para las fuentes, usa un objeto de recurso con `url`, las `headers` opcionales y `cache`. En una tupla TrueType Collection, coloca ese objeto en el primer elemento.
 
@@ -86,3 +86,5 @@ pdfMake.addFonts({
 Las nuevas descargas se guardan por documento de forma predeterminada. `cache: true` guarda los nuevos datos en la caché compartida en memoria para documentos posteriores; `cache: false` sigue permitiendo leer una entrada compartida existente. Las URL de texto y los objetos sin `cache` usan la configuración global. La caché HTTP del navegador es independiente.
 
 Consulta [Caché de recursos URL](/docs/0.3/es/getting-started/server-side/methods/#url-resource-caching) para conocer su configuración y seguridad.
+
+A partir de **0.3.16**, fuentes, imágenes, adjuntos y archivos incrustados pueden usar [protocolos URL registrados](/docs/0.3/es/getting-started/server-side/methods/#url-protocols) y comparten el [límite de descarga por documento](/docs/0.3/es/getting-started/server-side/methods/#url-resource-concurrency).

@@ -1,5 +1,5 @@
 +++
-sourceDigest = "07215ee9c2cfa04df91eb2226c07a45d85d1f1c0b5e5a4c5d37577e766747ae7"
+sourceDigest = "f00a94a71958832914205353728b447becb312d0dbda883af3e76ff03dd2ecb6"
 title = "Incrustación de archivos adjuntos"
 description = "Configura la incrustación de archivos adjuntos en pdfmake 0.3 con ejemplos, opciones y notas de uso."
 weight = 2300
@@ -69,7 +69,7 @@ var dd = {
 
 ## Caché de recursos URL {#url-resource-caching}
 
-Disponible en la rama de desarrollo original para **0.3.14**; no está en el motor 0.3.13 fijado para el playground.
+Disponible desde **0.3.14**.
 
 Para `attachments` y `files`, coloca el objeto de recurso con `url`, las `headers` opcionales y `cache` dentro de `src`. La propiedad de caché pertenece al interior de `src`.
 
@@ -101,3 +101,5 @@ var docDefinition = {
 Las nuevas descargas se guardan por documento de forma predeterminada. `cache: true` guarda los nuevos datos en la caché compartida en memoria para documentos posteriores; `cache: false` sigue permitiendo leer una entrada compartida existente. Las URL de texto y los objetos sin `cache` usan la configuración global. La caché HTTP del navegador es independiente.
 
 Consulta [Caché de recursos URL](/docs/0.3/es/getting-started/server-side/methods/#url-resource-caching) para conocer su configuración y seguridad.
+
+A partir de **0.3.16**, fuentes, imágenes, adjuntos y archivos incrustados pueden usar [protocolos URL registrados](/docs/0.3/es/getting-started/server-side/methods/#url-protocols) y comparten el [límite de descarga por documento](/docs/0.3/es/getting-started/server-side/methods/#url-resource-concurrency).

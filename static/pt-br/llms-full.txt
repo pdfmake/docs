@@ -14,7 +14,7 @@ Crie um PDF em três passos: configure o ambiente, descreva o conteúdo e solici
 Use Node.js 20 ou superior. Instale a versão fixa abaixo, salve o exemplo completo como `first-pdf.cjs` e execute `node first-pdf.cjs`.
 
 ```sh
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 ```
 
 **JavaScript**
@@ -342,7 +342,7 @@ var dd: TDocumentDefinitions = {
 
 ## Cache de recursos URL {#url-resource-caching}
 
-Disponível na versão de desenvolvimento original para **0.3.14**; ausente do mecanismo 0.3.13 fixado no playground.
+Disponível desde **0.3.14**.
 
 Para `attachments` e `files`, coloque o objeto de recurso com `url`, os `headers` opcionais e `cache` dentro de `src`. A propriedade de cache pertence ao interior de `src`.
 
@@ -405,6 +405,8 @@ var docDefinition: TDocumentDefinitions = {
 Novos downloads são armazenados por documento por padrão. `cache: true` armazena novos dados no cache compartilhado em memória para documentos posteriores; `cache: false` ainda permite ler uma entrada compartilhada existente. URLs de texto e objetos sem `cache` usam a configuração global. O cache HTTP do navegador é independente.
 
 Consulte [Cache de recursos URL](/docs/0.3/pt-br/getting-started/server-side/methods/#url-resource-caching) para configuração e segurança do cache.
+
+A partir de **0.3.16**, fontes, imagens, anexos e arquivos incorporados podem usar [protocolos URL registrados](/docs/0.3/pt-br/getting-started/server-side/methods/#url-protocols) e compartilham o [limite de downloads por documento](/docs/0.3/pt-br/getting-started/server-side/methods/#url-resource-concurrency).
 
 ---
 
@@ -876,7 +878,7 @@ Um valor de imagem vazio ou inválido causa um erro. Verifique a chave do dicion
 
 ## Cache de recursos URL {#url-resource-caching}
 
-Disponível na versão de desenvolvimento original para **0.3.14**; ausente do mecanismo 0.3.13 fixado no playground.
+Disponível desde **0.3.14**.
 
 No dicionário `images`, defina `url`, os `headers` opcionais e `cache` no objeto do recurso para substituir a configuração global.
 
@@ -913,6 +915,8 @@ var docDefinition: TDocumentDefinitions = {
 Novos downloads são armazenados por documento por padrão. `cache: true` armazena novos dados no cache compartilhado em memória para documentos posteriores; `cache: false` ainda permite ler uma entrada compartilhada existente. URLs de texto e objetos sem `cache` usam a configuração global. O cache HTTP do navegador é independente.
 
 Consulte [Cache de recursos URL](/docs/0.3/pt-br/getting-started/server-side/methods/#url-resource-caching) para configuração e segurança do cache.
+
+A partir de **0.3.16**, fontes, imagens, anexos e arquivos incorporados podem usar [protocolos URL registrados](/docs/0.3/pt-br/getting-started/server-side/methods/#url-protocols) e compartilham o [limite de downloads por documento](/docs/0.3/pt-br/getting-started/server-side/methods/#url-resource-concurrency).
 
 ---
 
@@ -2227,6 +2231,44 @@ var docDefinition: TDocumentDefinitions = {
 };
 ```
 
+## Manter uma pilha junta
+
+Use `unbreakable: true` para manter uma pilha em uma página quando couber. Se faltar apenas espaço na página atual, a pilha inteira vai para a próxima. Para pilhas grandes demais, consulte [Excesso de blocos indivisíveis](/docs/0.3/pt-br/options/#unbreakable-overflow).
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [
+    {
+      unbreakable: true,
+      stack: [
+        { text: 'Heading', bold: true },
+        'Paragraph kept with the heading.'
+      ]
+    }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [
+    {
+      unbreakable: true,
+      stack: [
+        { text: 'Heading', bold: true },
+        'Paragraph kept with the heading.'
+      ]
+    }
+  ]
+};
+```
+
 ---
 
 # Estilos
@@ -2379,6 +2421,10 @@ var dd: TDocumentDefinitions = {
 ## Estilos não são CSS
 
 Use os nomes de campos documentados pelo pdfmake. Não há cascata CSS, seletor DOM ou modelo de caixas do navegador. As margens usam valores em pontos e a ordem `[esquerda, superior, direita, inferior]`. Para estilizar vários blocos em conjunto, use uma [pilha](/docs/0.3/pt-br/document-definition-object/stack/). Consulte [fontes](/docs/0.3/pt-br/fonts/) para registrar variantes e verificar a cobertura de caracteres.
+
+## lineHeightMode
+
+Base da altura de linha: `fontHeight` (padrão) ou `css` (desenvolvimento original); o modo CSS usa `fontSize × lineHeight` quando a altura é explícita.
 
 ---
 
@@ -2733,6 +2779,10 @@ O trecho pressupõe que o mecanismo do navegador e as fontes foram carregados. A
 
 Verifique `body` antes de alterar bordas ou larguras: ele deve conter arrays de linhas com comprimentos consistentes. Em seguida, confira os marcadores de posição dos intervalos mesclados. No branch local de melhorias, os diagnósticos identificam o caminho da definição com problema e o número esperado de células. Consulte [erros e diagnósticos](/docs/0.3/pt-br/guides/errors/).
 
+## Manter as linhas juntas
+
+Dentro de `table`, `dontBreakRows: true` mantém cada linha junta quando couber e `keepWithHeaderRows` mantém esse número de linhas de conteúdo com `headerRows`. Um grupo que cabe em uma página nova passa inteiro para ela. Cabeçalhos repetidos reduzem o espaço disponível. Para linhas ou grupos grandes demais, [Excesso de blocos indivisíveis](/docs/0.3/pt-br/options/#unbreakable-overflow) controla o relaxamento permitido ou a rejeição; cabeçalhos repetidos sempre devem caber juntos em uma página.
+
 ---
 
 # Sumário
@@ -3063,10 +3113,10 @@ var fonts = {
 
    // download default Roboto font from unpkg.com
    Roboto: {
-     normal: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Regular.ttf',
-     bold: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Medium.ttf',
-     italics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Italic.ttf',
-     bolditalics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-MediumItalic.ttf'
+     normal: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Regular.ttf',
+     bold: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Medium.ttf',
+     italics: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Italic.ttf',
+     bolditalics: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-MediumItalic.ttf'
    },
 
    // example of usage fonts in collection
@@ -3095,10 +3145,10 @@ var fonts = {
 
    // download default Roboto font from unpkg.com
    Roboto: {
-     normal: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Regular.ttf',
-     bold: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Medium.ttf',
-     italics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Italic.ttf',
-     bolditalics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-MediumItalic.ttf'
+     normal: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Regular.ttf',
+     bold: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Medium.ttf',
+     italics: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Italic.ttf',
+     bolditalics: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-MediumItalic.ttf'
    },
 
    // example of usage fonts in collection
@@ -3143,7 +3193,7 @@ var docDefinition: TDocumentDefinitions = {
 
 ## Cache de recursos URL {#url-resource-caching}
 
-Disponível na versão de desenvolvimento original para **0.3.14**; ausente do mecanismo 0.3.13 fixado no playground.
+Disponível desde **0.3.14**.
 
 Para fontes, use um objeto de recurso com `url`, os `headers` opcionais e `cache`. Em uma tupla TrueType Collection, coloque esse objeto no primeiro elemento.
 
@@ -3188,6 +3238,8 @@ pdfMake.addFonts({
 Novos downloads são armazenados por documento por padrão. `cache: true` armazena novos dados no cache compartilhado em memória para documentos posteriores; `cache: false` ainda permite ler uma entrada compartilhada existente. URLs de texto e objetos sem `cache` usam a configuração global. O cache HTTP do navegador é independente.
 
 Consulte [Cache de recursos URL](/docs/0.3/pt-br/getting-started/server-side/methods/#url-resource-caching) para configuração e segurança do cache.
+
+A partir de **0.3.16**, fontes, imagens, anexos e arquivos incorporados podem usar [protocolos URL registrados](/docs/0.3/pt-br/getting-started/server-side/methods/#url-protocols) e compartilham o [limite de downloads por documento](/docs/0.3/pt-br/getting-started/server-side/methods/#url-resource-concurrency).
 
 ---
 
@@ -3487,8 +3539,8 @@ Os bundles de fontes padrão estão disponíveis no diretório `build/standard-f
 Por exemplo, para usar Helvetica:
 
 ```html
-<script src="https://unpkg.com/pdfmake@0.3.13/build/pdfmake.min.js"></script>
-<script src="https://unpkg.com/pdfmake@0.3.13/build/standard-fonts/Helvetica.js"></script>
+<script src="https://unpkg.com/pdfmake@0.3.15/build/pdfmake.min.js"></script>
+<script src="https://unpkg.com/pdfmake@0.3.15/build/standard-fonts/Helvetica.js"></script>
 <script>
   var docDefinition = {
     content: ['First paragraph', 'Another paragraph'],
@@ -3524,10 +3576,10 @@ Consulte a documentaÃ§Ã£o da versÃ£o instalada (`npm ls pdfmake`). Comece 
 
 ## JavaScript e TypeScript
 
-Esta branch de desenvolvimento inclui declarações TypeScript próprias na biblioteca e separa as APIs do Node e do navegador. Para o pacote gerado localmente, instale TypeScript sem `@types/pdfmake`. O pacote npm publicado 0.3.13 ainda exige os tipos comunitários correspondentes; as declarações nativas e a validação prévia descritas aqui ainda não foram publicadas. O compilador verificado é TypeScript 5.9.3.
+Esta branch de desenvolvimento inclui declarações TypeScript próprias na biblioteca e separa as APIs do Node e do navegador. Para o pacote gerado localmente, instale TypeScript sem `@types/pdfmake`. O pacote npm publicado 0.3.15 ainda exige os tipos comunitários correspondentes; as declarações nativas e a validação prévia descritas aqui ainda não foram publicadas. O compilador verificado é TypeScript 5.9.3.
 
 ```sh
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 npm install --save-dev typescript@~5.9.3
 ```
 
@@ -3614,7 +3666,7 @@ Source: https://pdfmake.github.io/docs/0.3/pt-br/getting-started/client-side/
 ## Instale e copie os assets do navegador
 
 ```sh
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 ```
 
 Copie `node_modules/pdfmake/build/pdfmake.min.js` e `node_modules/pdfmake/build/vfs_fonts.js` para junto deste arquivo HTML. Sirva o diretório usando seu servidor local de desenvolvimento.
@@ -3816,13 +3868,13 @@ document.querySelector('#preview').src = url;
 
 Mantenha a URL ativa enquanto o visualizador a estiver usando. Chame `URL.revokeObjectURL(url)` durante a limpeza. Use um novo wrapper de saída para cada renderização. Evite misturar o consumo manual de streams com os métodos de buffer ou Blob na mesma saída.
 
-## Política de acesso a URLs
+## Política de acesso a URLs {#url-access-policy}
 
 Desde a versão **0.3.6**, `setUrlAccessPolicy(callback)` aceita uma função síncrona que retorna um booleano. Ela não é um sandbox de rede completo, e redirecionamentos no navegador podem ocorrer antes da verificação da URL final. Consulte [segurança de recursos](/docs/0.3/pt-br/guides/resource-security/).
 
 ## Cache de recursos URL {#url-resource-caching}
 
-Disponível na versão de desenvolvimento original para **0.3.14**; ausente do mecanismo 0.3.13 fixado no playground.
+Disponível desde **0.3.14**.
 
 `setUrlResourceCaching(enabled)` exige um booleano e usa `false` por padrão. O campo `cache` de um objeto URL substitui a configuração global. Entradas compartilhadas existentes continuam legíveis com `cache: false`; isso não força um download.
 
@@ -3846,7 +3898,7 @@ Consulte [Cache de recursos URL](/docs/0.3/pt-br/getting-started/server-side/met
 
 ## Limpar o cache de recursos URL {#clear-url-resource-cache}
 
-Disponível na versão de desenvolvimento original para **0.3.14**; ausente do mecanismo 0.3.13 fixado no playground.
+Disponível desde **0.3.14**.
 
 Chame `clearUrlResourceCache()` de forma síncrona entre gerações, após o término das operações ativas. Remove entradas HTTP/HTTPS compartilhadas, preserva outros arquivos VFS e a configuração do cache, e não limpa o cache HTTP do navegador. Consulte [Limpar o cache de recursos URL](/docs/0.3/pt-br/getting-started/server-side/methods/#clear-url-resource-cache).
 
@@ -3863,6 +3915,50 @@ pdfMake.createPdf(docDefinition).download();
 pdfMake.clearUrlResourceCache();
 pdfMake.createPdf(docDefinition).download();
 ```
+
+## Downloads URL simultâneos {#url-resource-concurrency}
+
+API de desenvolvimento original para **0.3.16**; indisponível no mecanismo 0.3.15 fixado no playground.
+
+`setUrlResourceConcurrency(concurrency)` limita downloads simultâneos por documento para fontes, imagens, anexos e arquivos incorporados. O argumento obrigatório deve ser um inteiro positivo; o padrão é `5`. As alterações afetam chamadas posteriores de `createPdf()`.
+
+**JavaScript**
+
+```js
+pdfMake.setUrlResourceConcurrency(3);
+```
+
+**TypeScript**
+
+```ts
+pdfMake.setUrlResourceConcurrency(3);
+```
+
+## Protocolos URL {#url-protocols}
+
+API de desenvolvimento original para **0.3.16**; indisponível no mecanismo 0.3.15 fixado no playground.
+
+`registerUrlProtocol(protocol, handler)` registra ou substitui um esquema URL; `unregisterUrlProtocol(protocol)` o remove e limpa seu cache compartilhado. HTTP e HTTPS são registrados inicialmente. Os nomes não diferenciam maiúsculas e aceitam dois-pontos finais. Sem um manipulador, usa Fetch; no navegador isso também permite esquemas como `blob`.
+
+**JavaScript**
+
+```js
+pdfMake.registerUrlProtocol('blob');
+```
+
+**TypeScript**
+
+```ts
+pdfMake.registerUrlProtocol('blob');
+```
+
+Um manipulador recebe `(url, headers, validateUrlAccessPolicy)` e retorna uma promessa de `{ buffer, url }`. Cabeçalhos ausentes são passados como um objeto vazio. Retorne um `ArrayBuffer` ou `Uint8Array` (incluindo `Buffer` do Node) e uma URL final não vazia, usando a original se não houve redirecionamentos.
+
+A [política de acesso a URLs](#url-access-policy) deve retornar `true` de forma síncrona. pdfmake verifica a URL inicial e a retornada. Antes de cada redirecionamento, o manipulador deve chamar `validateUrlAccessPolicy(targetUrl)`: a função lança uma exceção quando o acesso é negado e permite acesso sem política configurada. Manipuladores personalizados devem impor suas próprias restrições de arquivos locais.
+
+Esses protocolos servem para fontes, imagens, anexos e arquivos incorporados e compartilham o [limite de downloads](#url-resource-concurrency) e as [configurações de cache](#url-resource-caching). Alterações no registro afetam gerações posteriores; as ativas mantêm seus manipuladores. Remover um manipulador HTTP/HTTPS substituído não restaura Fetch: chame `registerUrlProtocol("https")`. Os nomes devem ser esquemas URL válidos e os manipuladores fornecidos devem ser funções.
+
+Um navegador pode registrar `blob` com o manipulador padrão. Mantenha `URL.createObjectURL(imageBlob)` válida até concluir a geração e permita a URL na política de acesso. Consulte [Protocolos URL](/docs/0.3/pt-br/getting-started/server-side/methods/#url-protocols) para um exemplo personalizado.
 
 ---
 
@@ -3919,11 +4015,11 @@ Source: https://pdfmake.github.io/docs/0.3/pt-br/getting-started/server-side/
 
 ## Instale
 
-Use Node.js **20 ou posterior**. Crie uma aplicação e instale o pdfmake:
+Use Node.js **20.19 ou posterior**. Crie uma aplicação e instale o pdfmake:
 
 ```sh
 npm init -y
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 ```
 
 A versão exata torna o exemplo reproduzível. Consulte as notas de versão e teste antes de escolher uma atualização.
@@ -4167,7 +4263,7 @@ Para fontes ou imagens locais, permita os caminhos resolvidos exatos em vez de u
 
 ## Cache de recursos URL {#url-resource-caching}
 
-Disponível na versão de desenvolvimento original para **0.3.14**; ausente do mecanismo 0.3.13 fixado no playground.
+Disponível desde **0.3.14**.
 
 Use `setUrlResourceCaching(enabled)` com um booleano obrigatório para compartilhar novos downloads URL entre documentos. O padrão é `false`. Um objeto de recurso `{ url, headers, cache }` substitui essa configuração; `headers` é opcional. Isso se aplica a fontes, imagens, origens de anexos e arquivos incorporados. `false` afeta gerações posteriores, preserva entradas existentes e não substitui um `cache: true` explícito. Antes de 0.3.14, os downloads eram compartilhados automaticamente; `true` restaura esse comportamento.
 
@@ -4223,9 +4319,9 @@ A chave dos recursos compartilhados é apenas a URL, mesmo quando `Authorization
 
 ## Limpar o cache de recursos URL {#clear-url-resource-cache}
 
-Disponível na versão de desenvolvimento original para **0.3.14**; ausente do mecanismo 0.3.13 fixado no playground.
+Disponível desde **0.3.14**.
 
-`clearUrlResourceCache()` não recebe parâmetros e remove de forma síncrona entradas compartilhadas que começam com `http://` ou `https://`, sem distinguir maiúsculas. Preserva outros arquivos VFS, recursos por documento e a configuração global do cache. Chame entre gerações, após o término das operações ativas; não cancela downloads em andamento nem limpa o cache HTTP do navegador.
+Em 0.3.14/0.3.15, a limpeza remove recursos HTTP/HTTPS compartilhados. A partir de **0.3.16**, abrange todos os esquemas URL registrados atualmente. Preserva outros arquivos VFS, recursos por documento e a configuração do cache. Chame entre gerações, após o término das operações ativas; não cancela downloads nem limpa o cache HTTP do navegador.
 
 **JavaScript**
 
@@ -4241,6 +4337,86 @@ pdfmake.clearUrlResourceCache();
 pdfmake.createPdf(docDefinition).write('document.pdf');
 ```
 
+## Downloads URL simultâneos {#url-resource-concurrency}
+
+API de desenvolvimento original para **0.3.16**; indisponível no mecanismo 0.3.15 fixado no playground.
+
+`setUrlResourceConcurrency(concurrency)` limita downloads simultâneos por documento para fontes, imagens, anexos e arquivos incorporados. O argumento obrigatório deve ser um inteiro positivo; o padrão é `5`. As alterações afetam chamadas posteriores de `createPdf()`.
+
+**JavaScript**
+
+```js
+pdfmake.setUrlResourceConcurrency(3);
+```
+
+**TypeScript**
+
+```ts
+pdfmake.setUrlResourceConcurrency(3);
+```
+
+## Protocolos URL {#url-protocols}
+
+API de desenvolvimento original para **0.3.16**; indisponível no mecanismo 0.3.15 fixado no playground.
+
+`registerUrlProtocol(protocol, handler)` registra ou substitui um esquema URL; `unregisterUrlProtocol(protocol)` o remove e limpa seu cache compartilhado. HTTP e HTTPS são registrados inicialmente. Os nomes não diferenciam maiúsculas e aceitam dois-pontos finais. Sem um manipulador, usa Fetch; no navegador isso também permite esquemas como `blob`.
+
+**JavaScript**
+
+```js
+var fs = require('fs').promises;
+var path = require('path');
+var assets = {
+  'asset://logo': path.join(__dirname, 'images/logo.png')
+};
+
+pdfmake.setUrlAccessPolicy(url => Object.prototype.hasOwnProperty.call(assets, url));
+pdfmake.registerUrlProtocol('asset', async (url, headers, validateUrlAccessPolicy) => {
+  var buffer = await fs.readFile(assets[url]);
+  // This handler reads a local file and does not follow redirects.
+  return { buffer: buffer, url: url };
+});
+
+var docDefinition = {
+  content: [{ image: 'logo' }],
+  images: { logo: { url: 'asset://logo', cache: true } }
+};
+
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var fs = require('fs').promises;
+var path = require('path');
+var assets = {
+  'asset://logo': path.join(__dirname, 'images/logo.png')
+};
+
+pdfmake.setUrlAccessPolicy(url => Object.prototype.hasOwnProperty.call(assets, url));
+pdfmake.registerUrlProtocol('asset', async (url, headers, validateUrlAccessPolicy) => {
+  var buffer = await fs.readFile(assets[url]);
+  // This handler reads a local file and does not follow redirects.
+  return { buffer: buffer, url: url };
+});
+
+var docDefinition: TDocumentDefinitions = {
+  content: [{ image: 'logo' }],
+  images: { logo: { url: 'asset://logo', cache: true } }
+};
+
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+Um manipulador recebe `(url, headers, validateUrlAccessPolicy)` e retorna uma promessa de `{ buffer, url }`. Cabeçalhos ausentes são passados como um objeto vazio. Retorne um `ArrayBuffer` ou `Uint8Array` (incluindo `Buffer` do Node) e uma URL final não vazia, usando a original se não houve redirecionamentos.
+
+A [política de acesso a URLs](#url-access-policy) deve retornar `true` de forma síncrona. pdfmake verifica a URL inicial e a retornada. Antes de cada redirecionamento, o manipulador deve chamar `validateUrlAccessPolicy(targetUrl)`: a função lança uma exceção quando o acesso é negado e permite acesso sem política configurada. Manipuladores personalizados devem impor suas próprias restrições de arquivos locais.
+
+Esses protocolos servem para fontes, imagens, anexos e arquivos incorporados e compartilham o [limite de downloads](#url-resource-concurrency) e as [configurações de cache](#url-resource-caching). Alterações no registro afetam gerações posteriores; as ativas mantêm seus manipuladores. Remover um manipulador HTTP/HTTPS substituído não restaura Fetch: chame `registerUrlProtocol("https")`. Os nomes devem ser esquemas URL válidos e os manipuladores fornecidos devem ser funções.
+
 ---
 
 # Versões compatíveis do Node.js
@@ -4251,7 +4427,7 @@ Source: https://pdfmake.github.io/docs/0.3/pt-br/getting-started/server-side/sup
 
 ## Requisito do mecanismo
 
-O pacote 0.3.13 declara **Node.js >=20** em `package.json`. A matriz de CI proposta abrange Node.js 20, 22, 24 e 26 em Linux, Windows e macOS. A cobertura de compatibilidade é diferente do suporte de segurança oferecido pelo projeto Node.js.
+O pacote 0.3.15 declara **Node.js >=20.19.0** em `package.json`. A matriz de CI proposta abrange Node.js 20, 22, 24 e 26 em Linux, Windows e macOS. A cobertura de compatibilidade é diferente do suporte de segurança oferecido pelo projeto Node.js.
 
 Em produção, use uma versão do Node.js que ainda receba manutenção. Consulte o [cronograma oficial de versões do Node.js](https://github.com/nodejs/Release#release-schedule) antes de escolher o ambiente de execução. Teste suas fontes, recursos e carga de documentos na versão exata que será implantada.
 
@@ -4487,7 +4663,7 @@ Source: https://pdfmake.github.io/docs/0.3/pt-br/guides/invoice/
 
 ## Execute o exemplo
 
-Instale `pdfmake@0.3.13`, salve este código como `invoice.cjs` e execute `node invoice.cjs`. Ele usa Helvetica padrão com conteúdo ASCII para evitar recursos externos. Para maior cobertura de idiomas, use fontes incorporadas.
+Instale `pdfmake@0.3.15`, salve este código como `invoice.cjs` e execute `node invoice.cjs`. Ele usa Helvetica padrão com conteúdo ASCII para evitar recursos externos. Para maior cobertura de idiomas, use fontes incorporadas.
 
 **JavaScript**
 
@@ -5202,7 +5378,8 @@ Source: https://pdfmake.github.io/docs/0.3/pt-br/options/
 ```js
 const output = pdfmake.createPdf(docDefinition, {
   fontLayoutCache: true,
-  bufferPages: false
+  bufferPages: false,
+  unbreakableOverflow: 'allowBreak'
 });
 ```
 
@@ -5211,7 +5388,8 @@ const output = pdfmake.createPdf(docDefinition, {
 ```ts
 const output = pdfmake.createPdf(docDefinition, {
   fontLayoutCache: true,
-  bufferPages: false
+  bufferPages: false,
+  unbreakableOverflow: 'allowBreak'
 });
 ```
 
@@ -5221,10 +5399,20 @@ O objeto de opções é separado da [definição do documento](/docs/0.3/pt-br/d
 | --- | --- | --- | --- |
 | `fontLayoutCache` | boolean | `true` | Ativa o cache de layout de fontes do PDFKit |
 | `bufferPages` | boolean | `false` | Mantém as páginas do PDFKit em buffer em vez de descarregá-las imediatamente |
+| `unbreakableOverflow` | 'allowBreak' / 'error' | `'allowBreak'` | Controlar blocos indivisíveis grandes demais; veja a seção abaixo. |
 
 Mantenha os padrões, a menos que seu caso de uso exija uma alteração. O armazenamento de páginas em buffer pode aumentar o uso de memória. Ele não torna o layout do próprio pdfmake preguiçoso ou incremental. Consulte [desempenho](/docs/0.3/pt-br/guides/performance/) e a [documentação de armazenamento de páginas em buffer do PDFKit](https://pdfkit.org/docs/getting_started.html).
 
 Fontes, layouts de tabela nomeados e políticas de recursos são configurados na [API pública](/docs/0.3/pt-br/guides/api-reference/). Tamanho do papel, margens e conteúdo pertencem à definição.
+
+## Excesso de blocos indivisíveis {#unbreakable-overflow}
+
+Desde **0.3.15**, `unbreakableOverflow` controla blocos indivisíveis grandes demais. Ambos os modos preservam um bloco que cabe em uma página; se faltar apenas espaço restante, ele vai para a próxima. Isso abrange `unbreakable`, `dontBreakRows`, `keepWithHeaderRows`, extensões de linhas associadas e cabeçalhos repetidos.
+
+| Valor | Comportamento |
+| --- | --- |
+| `'allowBreak'` | Tentar novamente com as restrições de indivisibilidade compatíveis relaxadas, dividindo blocos grandes demais quando possível. |
+| `'error'` | Rejeitar a geração se um bloco indivisível não couber em uma página. |
 
 ---
 

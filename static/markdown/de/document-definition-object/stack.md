@@ -107,3 +107,41 @@ var docDefinition: TDocumentDefinitions = {
   ]
 };
 ```
+
+## Einen Stack zusammenhalten
+
+Setze `unbreakable: true`, um einen Stack auf einer Seite zusammenzuhalten, sofern er hineinpasst. Fehlt nur auf der aktuellen Seite Platz, wechselt der ganze Stack zur nächsten Seite. Für übergroße Stacks siehe [Überlauf unteilbarer Blöcke](/docs/0.3/de/options/#unbreakable-overflow).
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [
+    {
+      unbreakable: true,
+      stack: [
+        { text: 'Heading', bold: true },
+        'Paragraph kept with the heading.'
+      ]
+    }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [
+    {
+      unbreakable: true,
+      stack: [
+        { text: 'Heading', bold: true },
+        'Paragraph kept with the heading.'
+      ]
+    }
+  ]
+};
+```

@@ -3,7 +3,7 @@ title = "Stile und Formatierung"
 description = "Formatiere Text mit benannten Stilen, Schriftvarianten, Ausrichtung, Farben und Vererbung in pdfmake 0.3."
 weight = 2010
 alwaysopen = true
-sourceDigest = "9369a9e17f5173482ecd79123f5aee3a2489a7678b916cec9f9003263fe860ae"
+sourceDigest = "0d498d86013ab5ed586be239a14a0fa3e6727c6d8188189cbc163f7c30551498"
 +++
 
 ## Blöcke oder Inline-Text formatieren
@@ -71,3 +71,7 @@ var dd = {
 ## Stile sind kein CSS
 
 Verwende die dokumentierten Feldnamen von pdfmake. Es gibt weder CSS-Kaskade noch DOM-Selektor oder Browser-Boxmodell. Ränder werden in Punkten angegeben und folgen der Reihenfolge `[links, oben, rechts, unten]`. Um mehrere Blöcke gemeinsam zu formatieren, verwende einen [Stapel](/docs/0.3/de/document-definition-object/stack/). Informationen zur Registrierung von Schriftvarianten und Zeichenabdeckung findest du unter [Schriften](/docs/0.3/de/fonts/).
+
+## lineHeightMode
+
+Basis der Zeilenhöhe: `fontHeight` (Standard) oder `css` (Upstream-Entwicklung); der CSS-Modus verwendet bei expliziter Zeilenhöhe `fontSize × lineHeight`.

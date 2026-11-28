@@ -36,7 +36,7 @@
     "esbuild": "^0.28.2",
     "parse5": "^8.0.1",
     "pdfjs-dist": "6.4.299",
-    "pdfmake": "0.3.13",
+    "pdfmake": "0.3.15",
     "playwright": "^1.64.1",
     "typescript": "~5.9.3"
   }

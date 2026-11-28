@@ -2,13 +2,13 @@
 title = "Browser-Schnellstart"
 description = "Lade pdfmake 0.3 und das Schrift-Bundle und lade dann ein PDF als Reaktion auf eine Benutzeraktion herunter."
 weight = 11
-sourceDigest = "7427dae21c26c2f61d3836ce87ed99ce36fd9d5558ac2b6d0e6b7a7570fd7a83"
+sourceDigest = "041547beeedee545fe176e181931da57d0eb4256044c1e6f9b6ee774c4f7e7cf"
 +++
 
 ## Browserressourcen installieren und kopieren
 
 ```sh
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 ```
 
 Kopiere `node_modules/pdfmake/build/pdfmake.min.js` und `node_modules/pdfmake/build/vfs_fonts.js` neben diese HTML-Datei. Stelle das Verzeichnis über deinen lokalen Entwicklungsserver bereit.

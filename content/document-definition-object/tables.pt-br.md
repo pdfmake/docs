@@ -3,7 +3,7 @@ title = "Tabelas"
 description = "Crie tabelas com linhas consistentes, cabeçalhos repetidos, bordas personalizadas, larguras e células mescladas."
 weight = 2030
 alwaysopen = true
-sourceDigest = "c80db33fd2025ca3fdc93880f47e52e7b8169c0b5a2901a4156cd2d208073487"
+sourceDigest = "d6d44c5f7171c788c3abf760326cb58beca47509793b83379def46105f9e26ab"
 +++
 
 ## Comece com linhas e um cabeçalho repetido
@@ -122,3 +122,7 @@ O trecho pressupõe que o mecanismo do navegador e as fontes foram carregados. A
 ## Diagnostique tabelas malformadas
 
 Verifique `body` antes de alterar bordas ou larguras: ele deve conter arrays de linhas com comprimentos consistentes. Em seguida, confira os marcadores de posição dos intervalos mesclados. No branch local de melhorias, os diagnósticos identificam o caminho da definição com problema e o número esperado de células. Consulte [erros e diagnósticos](/docs/0.3/pt-br/guides/errors/).
+
+## Manter as linhas juntas
+
+Dentro de `table`, `dontBreakRows: true` mantém cada linha junta quando couber e `keepWithHeaderRows` mantém esse número de linhas de conteúdo com `headerRows`. Um grupo que cabe em uma página nova passa inteiro para ela. Cabeçalhos repetidos reduzem o espaço disponível. Para linhas ou grupos grandes demais, [Excesso de blocos indivisíveis](/docs/0.3/pt-br/options/#unbreakable-overflow) controla o relaxamento permitido ou a rejeição; cabeçalhos repetidos sempre devem caber juntos em uma página.

@@ -3,7 +3,7 @@ title = "Bilder"
 description = "Bette PNG- und JPEG-Bilder über Data-URLs, benannte Ressourcen, Dateien oder freigegebene externe URLs ein."
 weight = 2100
 alwaysopen = true
-sourceDigest = "616036f2f41d848cce3f3a6bca2ff44eb27d9ff401cfb4071acc2ea13f9205c0"
+sourceDigest = "d64a5d7d52e1a936b1f840f74fc7cf079f6c6bb43f3ed8d89595c9f9e9773a0c"
 +++
 
 ## Eingebettete PNG- oder JPEG-Daten wiederverwenden
@@ -58,7 +58,7 @@ Ein leerer oder ungültiger Bildwert führt zu einem Fehler. Prüfe den Wörterb
 
 ## URL-Ressourcen zwischenspeichern {#url-resource-caching}
 
-Im Upstream-Entwicklungszweig für **0.3.14** verfügbar; nicht in der festgelegten Playground-Laufzeit 0.3.13.
+Verfügbar seit **0.3.14**.
 
 Setze im `images`-Wörterbuch `url`, optionale `headers` und `cache` am Ressourcenobjekt, um die globale Einstellung zu überschreiben.
 
@@ -77,3 +77,5 @@ var docDefinition = {
 Neue Downloads werden standardmäßig pro Dokument gespeichert. `cache: true` legt neue Daten im gemeinsamen Arbeitsspeicher-Cache für spätere Dokumente ab; `cache: false` erlaubt weiterhin das Lesen vorhandener gemeinsamer Einträge. URL-Zeichenfolgen und Objekte ohne `cache` verwenden die globale Einstellung. Der HTTP-Cache des Browsers ist davon unabhängig.
 
 Konfiguration und Sicherheit erklärt [URL-Ressourcen zwischenspeichern](/docs/0.3/de/getting-started/server-side/methods/#url-resource-caching).
+
+Ab **0.3.16** können Schriften, Bilder, Anhänge und eingebettete Dateien [registrierte URL-Protokolle](/docs/0.3/de/getting-started/server-side/methods/#url-protocols) verwenden und teilen das [Downloadlimit pro Dokument](/docs/0.3/de/getting-started/server-side/methods/#url-resource-concurrency).

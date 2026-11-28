@@ -67,6 +67,7 @@ declare namespace pdfmake {
     type UnorderedListElementProperties = Types.UnorderedListElementProperties;
     type UnorderedListElement = Types.UnorderedListElement;
     type CanvasElement = Types.CanvasElement;
+    type CanvasPath = Types.CanvasPath;
     type CanvasLineCap = Types.CanvasLineCap;
     type CanvasLineJoin = Types.CanvasLineJoin;
     type CanvasRect = Types.CanvasRect;

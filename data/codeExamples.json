@@ -209,6 +209,12 @@
     "runnable": true,
     "context": "definition"
   },
+  "8096fe0fac705b5e4800f310166145869fda7de01bf57c6a29840f484c2b3c6d": {
+    "javascript": "var docDefinition = {\n  content: [\n    {\n      unbreakable: true,\n      stack: [\n        { text: 'Heading', bold: true },\n        'Paragraph kept with the heading.'\n      ]\n    }\n  ]\n};",
+    "typescript": "import type { TDocumentDefinitions } from \"pdfmake/interfaces\";\n\nvar docDefinition: TDocumentDefinitions = {\n  content: [\n    {\n      unbreakable: true,\n      stack: [\n        { text: 'Heading', bold: true },\n        'Paragraph kept with the heading.'\n      ]\n    }\n  ]\n};",
+    "runnable": true,
+    "context": "definition"
+  },
   "d467b3046db2fa1fb923efcb0717af600b5da602d62974421f576b1752bf0a11": {
     "javascript": "var dd = {\n  defaultStyle: { fontSize: 11, lineHeight: 1.2 },\n  styles: {\n    heading: { fontSize: 24, bold: true },\n    muted: { color: '#536771' },\n    subheading: { extends: 'heading', fontSize: 16 }\n  },\n  content: [\n    { text: 'A heading', style: 'heading' },\n    { text: 'A muted heading', style: ['heading', 'muted'] },\n    { text: 'An explicit override', style: 'heading', fontSize: 18 },\n    { text: 'A subheading', style: 'subheading' }\n  ]\n};",
     "typescript": "import type { TDocumentDefinitions } from \"pdfmake/interfaces\";\n\nvar dd: TDocumentDefinitions = {\n  defaultStyle: { fontSize: 11, lineHeight: 1.2 },\n  styles: {\n    heading: { fontSize: 24, bold: true },\n    muted: { color: '#536771' },\n    subheading: { extends: 'heading', fontSize: 16 }\n  },\n  content: [\n    { text: 'A heading', style: 'heading' },\n    { text: 'A muted heading', style: ['heading', 'muted'] },\n    { text: 'An explicit override', style: 'heading', fontSize: 18 },\n    { text: 'A subheading', style: 'subheading' }\n  ]\n};",
@@ -293,9 +299,9 @@
     "runnable": true,
     "context": "definition"
   },
-  "94275db6713afb0b6a52ad2e88d39ce14f822561b2cd0151fea7785aa1e1d9ca": {
-    "javascript": "var fonts = {\n   yourFontName: {\n     normal: 'https://example.com/fonts/fontFile.ttf',\n     bold: 'https://example.com/fonts/fontFile2.ttf',\n     italics: 'https://example.com/fonts/fontFile3.ttf',\n     bolditalics: 'https://example.com/fonts/fontFile4.ttf'\n   },\n   anotherFontName: {\n\n   },\n\n   // download default Roboto font from unpkg.com\n   Roboto: {\n     normal: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Regular.ttf',\n     bold: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Medium.ttf',\n     italics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Italic.ttf',\n     bolditalics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-MediumItalic.ttf'\n   },\n\n   // example of usage fonts in collection\n   PingFangSC: {\n     normal: ['https://example.com/fonts/pingfang.ttc', 'PingFangSC-Regular'],\n     bold: ['https://example.com/fonts/pingfang.ttc', 'PingFangSC-Semibold'],\n   }\n};\n\npdfMake.addFonts(fonts);",
-    "typescript": "var fonts = {\n   yourFontName: {\n     normal: 'https://example.com/fonts/fontFile.ttf',\n     bold: 'https://example.com/fonts/fontFile2.ttf',\n     italics: 'https://example.com/fonts/fontFile3.ttf',\n     bolditalics: 'https://example.com/fonts/fontFile4.ttf'\n   },\n   anotherFontName: {\n\n   },\n\n   // download default Roboto font from unpkg.com\n   Roboto: {\n     normal: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Regular.ttf',\n     bold: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Medium.ttf',\n     italics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Italic.ttf',\n     bolditalics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-MediumItalic.ttf'\n   },\n\n   // example of usage fonts in collection\n   PingFangSC: {\n     normal: ['https://example.com/fonts/pingfang.ttc', 'PingFangSC-Regular'],\n     bold: ['https://example.com/fonts/pingfang.ttc', 'PingFangSC-Semibold'],\n   }\n};\n\npdfMake.addFonts(fonts);",
+  "0dad1e27bef00b16f4315ec3bbf4ed71b975e41a620acb7cfaa14792c86c21a8": {
+    "javascript": "var fonts = {\n   yourFontName: {\n     normal: 'https://example.com/fonts/fontFile.ttf',\n     bold: 'https://example.com/fonts/fontFile2.ttf',\n     italics: 'https://example.com/fonts/fontFile3.ttf',\n     bolditalics: 'https://example.com/fonts/fontFile4.ttf'\n   },\n   anotherFontName: {\n\n   },\n\n   // download default Roboto font from unpkg.com\n   Roboto: {\n     normal: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Regular.ttf',\n     bold: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Medium.ttf',\n     italics: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Italic.ttf',\n     bolditalics: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-MediumItalic.ttf'\n   },\n\n   // example of usage fonts in collection\n   PingFangSC: {\n     normal: ['https://example.com/fonts/pingfang.ttc', 'PingFangSC-Regular'],\n     bold: ['https://example.com/fonts/pingfang.ttc', 'PingFangSC-Semibold'],\n   }\n};\n\npdfMake.addFonts(fonts);",
+    "typescript": "var fonts = {\n   yourFontName: {\n     normal: 'https://example.com/fonts/fontFile.ttf',\n     bold: 'https://example.com/fonts/fontFile2.ttf',\n     italics: 'https://example.com/fonts/fontFile3.ttf',\n     bolditalics: 'https://example.com/fonts/fontFile4.ttf'\n   },\n   anotherFontName: {\n\n   },\n\n   // download default Roboto font from unpkg.com\n   Roboto: {\n     normal: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Regular.ttf',\n     bold: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Medium.ttf',\n     italics: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Italic.ttf',\n     bolditalics: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-MediumItalic.ttf'\n   },\n\n   // example of usage fonts in collection\n   PingFangSC: {\n     normal: ['https://example.com/fonts/pingfang.ttc', 'PingFangSC-Regular'],\n     bold: ['https://example.com/fonts/pingfang.ttc', 'PingFangSC-Semibold'],\n   }\n};\n\npdfMake.addFonts(fonts);",
     "runnable": false,
     "context": "context"
   },
@@ -383,6 +389,18 @@
     "runnable": false,
     "context": "context"
   },
+  "cd8dd58caecdaff847df36e086b6ca4cfbf87360fec68d5781a2659c30010e8b": {
+    "javascript": "pdfMake.setUrlResourceConcurrency(3);",
+    "typescript": "pdfMake.setUrlResourceConcurrency(3);",
+    "runnable": false,
+    "context": "context"
+  },
+  "60443f838da7324ea26fbccaf4dd1fa046807d41cac199f76de3f42e5168815a": {
+    "javascript": "pdfMake.registerUrlProtocol('blob');",
+    "typescript": "pdfMake.registerUrlProtocol('blob');",
+    "runnable": false,
+    "context": "context"
+  },
   "2bce46387958f9eec6ac9203f431b9e43953241e7e08cf49762652f9cfc80ab4": {
     "javascript": "import pdfMake from 'pdfmake/build/pdfmake';\nimport pdfFonts from 'pdfmake/build/vfs_fonts';\n\npdfMake.addVirtualFileSystem(pdfFonts);\nawait pdfMake.createPdf({ content: ['Bundled application'] }).download('document.pdf');",
     "typescript": "import pdfMake from 'pdfmake/build/pdfmake';\nimport pdfFonts from 'pdfmake/build/vfs_fonts';\n\npdfMake.addVirtualFileSystem(pdfFonts);\nawait pdfMake.createPdf({ content: ['Bundled application'] }).download('document.pdf');",
@@ -428,6 +446,18 @@
   "b40232ea66b0dea438a3ea90687cc0a0f6059e90c7826f9a9a636b37f6ab8905": {
     "javascript": "pdfmake.clearUrlResourceCache();\npdfmake.createPdf(docDefinition).write('document.pdf');",
     "typescript": "pdfmake.clearUrlResourceCache();\npdfmake.createPdf(docDefinition).write('document.pdf');",
+    "runnable": false,
+    "context": "node"
+  },
+  "d061e36c343ecb107f45417edd2b65f6884421fc5759d7eae5a4c974cf2acd22": {
+    "javascript": "pdfmake.setUrlResourceConcurrency(3);",
+    "typescript": "pdfmake.setUrlResourceConcurrency(3);",
+    "runnable": false,
+    "context": "context"
+  },
+  "5997ea99804a5aaa4f5e2e8c002fa3d0de7bff84afcfa32d97dae6867e2b19f3": {
+    "javascript": "var fs = require('fs').promises;\nvar path = require('path');\nvar assets = {\n  'asset://logo': path.join(__dirname, 'images/logo.png')\n};\n\npdfmake.setUrlAccessPolicy(url => Object.prototype.hasOwnProperty.call(assets, url));\npdfmake.registerUrlProtocol('asset', async (url, headers, validateUrlAccessPolicy) => {\n  var buffer = await fs.readFile(assets[url]);\n  // This handler reads a local file and does not follow redirects.\n  return { buffer: buffer, url: url };\n});\n\nvar docDefinition = {\n  content: [{ image: 'logo' }],\n  images: { logo: { url: 'asset://logo', cache: true } }\n};\n\npdfmake.createPdf(docDefinition).write('document.pdf');",
+    "typescript": "import type { TDocumentDefinitions } from \"pdfmake/interfaces\";\n\nvar fs = require('fs').promises;\nvar path = require('path');\nvar assets = {\n  'asset://logo': path.join(__dirname, 'images/logo.png')\n};\n\npdfmake.setUrlAccessPolicy(url => Object.prototype.hasOwnProperty.call(assets, url));\npdfmake.registerUrlProtocol('asset', async (url, headers, validateUrlAccessPolicy) => {\n  var buffer = await fs.readFile(assets[url]);\n  // This handler reads a local file and does not follow redirects.\n  return { buffer: buffer, url: url };\n});\n\nvar docDefinition: TDocumentDefinitions = {\n  content: [{ image: 'logo' }],\n  images: { logo: { url: 'asset://logo', cache: true } }\n};\n\npdfmake.createPdf(docDefinition).write('document.pdf');",
     "runnable": false,
     "context": "node"
   },
@@ -521,9 +551,9 @@
     "runnable": true,
     "context": "definition"
   },
-  "2821edb52bd40ffb269c340fb9e53894677ebf4b5d4b3d423d1bf0092ad16ad0": {
-    "javascript": "const output = pdfmake.createPdf(docDefinition, {\n  fontLayoutCache: true,\n  bufferPages: false\n});",
-    "typescript": "const output = pdfmake.createPdf(docDefinition, {\n  fontLayoutCache: true,\n  bufferPages: false\n});",
+  "f5a04efae6f76a20bd8e09d9998f178fd69b9db7179ddf29b190edd0c9fa56fb": {
+    "javascript": "const output = pdfmake.createPdf(docDefinition, {\n  fontLayoutCache: true,\n  bufferPages: false,\n  unbreakableOverflow: 'allowBreak'\n});",
+    "typescript": "const output = pdfmake.createPdf(docDefinition, {\n  fontLayoutCache: true,\n  bufferPages: false,\n  unbreakableOverflow: 'allowBreak'\n});",
     "runnable": false,
     "context": "context"
   },

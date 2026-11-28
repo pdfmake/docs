@@ -2,7 +2,7 @@
 title = "Options de rendu"
 description = "Configurez le cache de mise en page des polices et la mise en mémoire tampon des pages PDFKit via le second argument de createPdf."
 weight = 30
-sourceDigest = "fa3eacf7dfb3dc985a1eb6cf541fdccb9dae9648d423d3d758d78b70eabb4882"
+sourceDigest = "c32b0c6709d2d0a715a0e2f2b837333ea0201c7aacac1cbbd12d9ee1240e0423"
 +++
 
 ## Transmettre des options à createPdf
@@ -10,7 +10,8 @@ sourceDigest = "fa3eacf7dfb3dc985a1eb6cf541fdccb9dae9648d423d3d758d78b70eabb4882
 ```js
 const output = pdfmake.createPdf(docDefinition, {
   fontLayoutCache: true,
-  bufferPages: false
+  bufferPages: false,
+  unbreakableOverflow: 'allowBreak'
 });
 ```
 
@@ -20,7 +21,17 @@ L’objet d’options est distinct de la [définition du document](/docs/0.3/fr/
 | --- | --- | --- | --- |
 | `fontLayoutCache` | boolean | `true` | Active le cache de mise en page des polices de PDFKit |
 | `bufferPages` | boolean | `false` | Conserve les pages de PDFKit en mémoire tampon au lieu de les vider immédiatement |
+| `unbreakableOverflow` | 'allowBreak' / 'error' | `'allowBreak'` | Contrôler les blocs insécables trop grands ; voir la section ci-dessous. |
 
 Conservez les valeurs par défaut sauf si votre cas d’usage exige un changement. La mise en mémoire tampon des pages peut augmenter l’utilisation de la mémoire. Elle ne rend pas la mise en page propre à pdfmake différée ou incrémentale. Consultez [les performances](/docs/0.3/fr/guides/performance/) et [la documentation de PDFKit sur la mise en mémoire tampon des pages](https://pdfkit.org/docs/getting_started.html).
 
 Les polices, les mises en page de tableaux nommées et les règles d’accès aux ressources se configurent via l’[API publique](/docs/0.3/fr/guides/api-reference/). Le format du papier, les marges et le contenu appartiennent à la définition.
+
+## Débordement des blocs insécables {#unbreakable-overflow}
+
+Depuis **0.3.15**, `unbreakableOverflow` contrôle les blocs insécables trop grands. Les deux modes gardent ensemble un bloc tenant sur une page ; un espace restant insuffisant le déplace simplement à la page suivante. Cela couvre `unbreakable`, `dontBreakRows`, `keepWithHeaderRows`, les fusions de lignes associées et les en-têtes répétés.
+
+| Valeur | Comportement |
+| --- | --- |
+| `'allowBreak'` | Réessayer avec les contraintes d’insécabilité prises en charge assouplies, en scindant les blocs trop grands si possible. |
+| `'error'` | Rejeter la génération si un bloc insécable ne tient pas sur une page. |

@@ -17,10 +17,10 @@ Consultez la documentation correspondant Ã  la version installÃ©e (`npm ls p
 
 ## JavaScript et TypeScript
 
-Cette branche de développement fournit ses propres déclarations TypeScript avec la bibliothèque et sépare les API Node et navigateur. Pour le paquet construit localement, installez TypeScript sans `@types/pdfmake`. Le paquet npm publié 0.3.13 nécessite encore les types communautaires correspondants ; les déclarations natives et la validation préalable présentées ici ne sont pas encore publiées. Le compilateur vérifié est TypeScript 5.9.3.
+Cette branche de développement fournit ses propres déclarations TypeScript avec la bibliothèque et sépare les API Node et navigateur. Pour le paquet construit localement, installez TypeScript sans `@types/pdfmake`. Le paquet npm publié 0.3.15 nécessite encore les types communautaires correspondants ; les déclarations natives et la validation préalable présentées ici ne sont pas encore publiées. Le compilateur vérifié est TypeScript 5.9.3.
 
 ```sh
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 npm install --save-dev typescript@~5.9.3
 ```
 

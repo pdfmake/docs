@@ -161,3 +161,7 @@ Use pdfmake's documented field names. There is no CSS cascade, DOM selector or
 browser box model. Margins use point values and `[left, top, right, bottom]` order.
 To style several blocks together, use a [stack](/docs/0.3/document-definition-object/stack/).
 See [fonts](/docs/0.3/fonts/) for variant registration and character coverage.
+
+## lineHeightMode
+
+Line-height basis: `fontHeight` (default) or `css` (upstream development); CSS mode uses `fontSize × lineHeight` when lineHeight is explicit.

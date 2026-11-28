@@ -123,13 +123,13 @@ document.querySelector('#preview').src = url;
 
 Conservez l’URL tant que le lecteur l’utilise. Appelez `URL.revokeObjectURL(url)` lors du nettoyage. Utilisez un nouvel objet de sortie pour chaque rendu. Évitez de mélanger la lecture manuelle d’un flux avec les méthodes buffer ou Blob sur la même sortie.
 
-## Politique d’accès aux URL
+## Politique d’accès aux URL {#url-access-policy}
 
 Depuis la version **0.3.6**, `setUrlAccessPolicy(callback)` accepte une fonction synchrone qui renvoie un booléen. Elle ne constitue pas un bac à sable réseau complet, et les redirections du navigateur peuvent avoir lieu avant la vérification de l’URL finale. Consultez la [sécurité des ressources](/docs/0.3/fr/guides/resource-security/).
 
 ## Cache des ressources URL {#url-resource-caching}
 
-Disponible dans la branche de développement amont pour **0.3.14** ; absent du moteur 0.3.13 fixé pour le playground.
+Disponible depuis **0.3.14**.
 
 `setUrlResourceCaching(enabled)` exige un booléen et vaut `false` par défaut. Le champ `cache` d’un objet URL remplace le réglage global. Les entrées partagées existantes restent lisibles avec `cache: false` ; cette valeur ne force pas un téléchargement.
 
@@ -153,7 +153,7 @@ Consultez [le cache des ressources URL](/docs/0.3/fr/getting-started/server-side
 
 ## Vider le cache des ressources URL {#clear-url-resource-cache}
 
-Disponible dans la branche de développement amont pour **0.3.14** ; absent du moteur 0.3.13 fixé pour le playground.
+Disponible depuis **0.3.14**.
 
 Appelez `clearUrlResourceCache()` synchroniquement entre les générations, après la fin des opérations actives. Elle supprime les entrées HTTP/HTTPS partagées, conserve les autres fichiers VFS et le réglage du cache, et ne vide pas le cache HTTP du navigateur. Voir [Vider le cache des ressources URL](/docs/0.3/fr/getting-started/server-side/methods/#clear-url-resource-cache).
 
@@ -170,3 +170,47 @@ pdfMake.createPdf(docDefinition).download();
 pdfMake.clearUrlResourceCache();
 pdfMake.createPdf(docDefinition).download();
 ```
+
+## Téléchargements URL simultanés {#url-resource-concurrency}
+
+API de développement amont pour **0.3.16** ; indisponible dans le moteur 0.3.15 fixé pour le playground.
+
+`setUrlResourceConcurrency(concurrency)` limite les téléchargements simultanés par document pour les polices, images, pièces jointes et fichiers intégrés. L’argument obligatoire est un entier positif ; la valeur par défaut est `5`. Les modifications concernent les appels `createPdf()` suivants.
+
+**JavaScript**
+
+```js
+pdfMake.setUrlResourceConcurrency(3);
+```
+
+**TypeScript**
+
+```ts
+pdfMake.setUrlResourceConcurrency(3);
+```
+
+## Protocoles URL {#url-protocols}
+
+API de développement amont pour **0.3.16** ; indisponible dans le moteur 0.3.15 fixé pour le playground.
+
+`registerUrlProtocol(protocol, handler)` enregistre ou remplace un schéma URL ; `unregisterUrlProtocol(protocol)` le supprime et vide son cache partagé. HTTP et HTTPS sont enregistrés initialement. Les noms sont insensibles à la casse et acceptent un deux-points final. Sans gestionnaire, Fetch est utilisé ; dans le navigateur, cela permet aussi des schémas comme `blob`.
+
+**JavaScript**
+
+```js
+pdfMake.registerUrlProtocol('blob');
+```
+
+**TypeScript**
+
+```ts
+pdfMake.registerUrlProtocol('blob');
+```
+
+Un gestionnaire reçoit `(url, headers, validateUrlAccessPolicy)` et renvoie une promesse de `{ buffer, url }`. Les en-têtes absents deviennent un objet vide. Renvoyez un `ArrayBuffer` ou `Uint8Array` (y compris un `Buffer` Node) et une URL finale non vide, ou l’URL initiale en l’absence de redirection.
+
+La [règle d’accès URL](#url-access-policy) doit renvoyer `true` synchroniquement. pdfmake vérifie les URL initiale et renvoyée. Avant chaque redirection, le gestionnaire doit appeler `validateUrlAccessPolicy(targetUrl)` : cette fonction lève une exception en cas de refus et autorise l’accès sans règle configurée. Les gestionnaires personnalisés doivent imposer eux-mêmes les restrictions sur les fichiers locaux.
+
+Ces protocoles concernent polices, images, pièces jointes et fichiers intégrés et partagent la [limite de téléchargement](#url-resource-concurrency) et les [réglages du cache](#url-resource-caching). Les modifications d’enregistrement concernent les générations suivantes ; celles en cours conservent leurs gestionnaires. Supprimer un gestionnaire HTTP/HTTPS remplacé ne rétablit pas Fetch : appelez `registerUrlProtocol("https")`. Les noms doivent être des schémas URL valides et les gestionnaires fournis des fonctions.
+
+Un navigateur peut enregistrer `blob` avec le gestionnaire par défaut. Gardez `URL.createObjectURL(imageBlob)` valide jusqu’à la fin de la génération et autorisez l’URL dans la règle d’accès. Consultez [Protocoles URL](/docs/0.3/fr/getting-started/server-side/methods/#url-protocols) pour un exemple personnalisé.

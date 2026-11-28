@@ -148,3 +148,7 @@ var dd: TDocumentDefinitions = {
 ## Les styles ne sont pas du CSS
 
 Utilisez les noms de champs documentés par pdfmake. Il n’existe ni cascade CSS, ni sélecteur DOM, ni modèle de boîte du navigateur. Les marges sont exprimées en points et suivent l’ordre `[gauche, haut, droite, bas]`. Pour mettre en forme plusieurs blocs ensemble, utilisez une [pile](/docs/0.3/fr/document-definition-object/stack/). Consultez [Polices](/docs/0.3/fr/fonts/) pour l’enregistrement des variantes et la couverture des caractères.
+
+## lineHeightMode
+
+Base de hauteur de ligne : `fontHeight` (par défaut) ou `css` (développement amont) ; le mode CSS utilise `fontSize × lineHeight` si la hauteur est explicite.

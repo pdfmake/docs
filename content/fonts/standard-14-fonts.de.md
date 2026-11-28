@@ -3,7 +3,7 @@ title = "Die 14 Standardschriften"
 description = "Verwende Standardschriftfamilien von PDF in Node.js und Browser-Bundles; beachte die begrenzte Zeichenkodierung."
 weight = 15
 alwaysopen = true
-sourceDigest = "201689392ed36c1d4a7a653265576461a8802566860caae2b86967ad9d9e0367"
+sourceDigest = "97e121c450627f6a28bd0c6afdd0e427620885461a4142d16c9e79748617fb9c"
 +++
 
 PDF enthält [14 Standardschriften](http://www.enfocus.com/manuals/ReferenceGuide/PS/18/enUS/en-us/common/pse/concept/c_aa1044513.html).
@@ -66,8 +66,8 @@ Bundles mit Standardschriften sind im Verzeichnis `build/standard-fonts/` des pd
 Beispiel für Helvetica:
 
 ```html
-<script src="https://unpkg.com/pdfmake@0.3.13/build/pdfmake.min.js"></script>
-<script src="https://unpkg.com/pdfmake@0.3.13/build/standard-fonts/Helvetica.js"></script>
+<script src="https://unpkg.com/pdfmake@0.3.15/build/pdfmake.min.js"></script>
+<script src="https://unpkg.com/pdfmake@0.3.15/build/standard-fonts/Helvetica.js"></script>
 <script>
   var docDefinition = {
     content: ['First paragraph', 'Another paragraph'],

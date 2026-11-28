@@ -2,12 +2,12 @@
 title = "Recette de facture"
 description = "Générez un PDF de facture complet avec styles réutilisables, en-tête de tableau répété, totaux et numéros de page."
 weight = 1
-sourceDigest = "b5cda8b991f77dbe11893d23edc93a699f221ce0a046d02d8964c10f0290b842"
+sourceDigest = "5b32ba2dd0abb9304b4927b0b44f3b125d7d20a97ab603f0584ab0ae2d63831c"
 +++
 
 ## Exécuter l’exemple
 
-Installez `pdfmake@0.3.13`, enregistrez ce fichier sous `invoice.cjs` et lancez `node invoice.cjs`. L’exemple utilise Helvetica standard et du contenu ASCII afin d’éviter les ressources externes. Pour une couverture linguistique plus large, utilisez des polices incorporées.
+Installez `pdfmake@0.3.15`, enregistrez ce fichier sous `invoice.cjs` et lancez `node invoice.cjs`. L’exemple utilise Helvetica standard et du contenu ASCII afin d’éviter les ressources externes. Pour une couverture linguistique plus large, utilisez des polices incorporées.
 
 ```js
 // docs-test: invoice

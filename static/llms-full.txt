@@ -14,7 +14,7 @@ Build a PDF in three steps: configure the runtime, describe the content, then re
 Use Node.js 20 or later. Install the pinned version below, save the complete example as `first-pdf.cjs`, then run `node first-pdf.cjs`.
 
 ```sh
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 ```
 
 **JavaScript**
@@ -344,7 +344,7 @@ var dd: TDocumentDefinitions = {
 
 ## URL resource caching {#url-resource-caching}
 
-Available in the upstream development branch for **0.3.14**; not in the pinned 0.3.13 playground runtime.
+Available since **0.3.14**.
 
 For `attachments` and `files`, put the resource object with `url`, optional `headers` and `cache` inside `src`. The cache property belongs inside `src`.
 
@@ -407,6 +407,8 @@ var docDefinition: TDocumentDefinitions = {
 New downloads are stored per document by default. `cache: true` stores new data in the shared in-memory cache for later documents; `cache: false` still allows reading an existing shared entry. URL strings and objects without `cache` use the global setting. The browser HTTP cache is independent.
 
 See [URL resource caching](/docs/0.3/getting-started/server-side/methods/#url-resource-caching) for configuration and cache security.
+
+Starting in **0.3.16**, fonts, images, attachments and embedded files may use [registered URL protocols](/docs/0.3/getting-started/server-side/methods/#url-protocols) and share the per-document [download limit](/docs/0.3/getting-started/server-side/methods/#url-resource-concurrency).
 
 ---
 
@@ -892,7 +894,7 @@ and [troubleshooting](/docs/0.3/guides/troubleshooting/).
 
 ## URL resource caching {#url-resource-caching}
 
-Available in the upstream development branch for **0.3.14**; not in the pinned 0.3.13 playground runtime.
+Available since **0.3.14**.
 
 In the `images` dictionary, set `url`, optional `headers` and `cache` on the resource object to override the global setting.
 
@@ -929,6 +931,8 @@ var docDefinition: TDocumentDefinitions = {
 New downloads are stored per document by default. `cache: true` stores new data in the shared in-memory cache for later documents; `cache: false` still allows reading an existing shared entry. URL strings and objects without `cache` use the global setting. The browser HTTP cache is independent.
 
 See [URL resource caching](/docs/0.3/getting-started/server-side/methods/#url-resource-caching) for configuration and cache security.
+
+Starting in **0.3.16**, fonts, images, attachments and embedded files may use [registered URL protocols](/docs/0.3/getting-started/server-side/methods/#url-protocols) and share the per-document [download limit](/docs/0.3/getting-started/server-side/methods/#url-resource-concurrency).
 
 ---
 
@@ -2256,6 +2260,44 @@ var docDefinition: TDocumentDefinitions = {
 };
 ```
 
+## Keep a stack together
+
+Set `unbreakable: true` to keep a stack on one page when it fits. If only the current page lacks space, the stack moves intact to the next page. For oversized stacks, see [unbreakable overflow](/docs/0.3/options/#unbreakable-overflow).
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [
+    {
+      unbreakable: true,
+      stack: [
+        { text: 'Heading', bold: true },
+        'Paragraph kept with the heading.'
+      ]
+    }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [
+    {
+      unbreakable: true,
+      stack: [
+        { text: 'Heading', bold: true },
+        'Paragraph kept with the heading.'
+      ]
+    }
+  ]
+};
+```
+
 ---
 
 # Styling
@@ -2421,6 +2463,10 @@ Use pdfmake's documented field names. There is no CSS cascade, DOM selector or
 browser box model. Margins use point values and `[left, top, right, bottom]` order.
 To style several blocks together, use a [stack](/docs/0.3/document-definition-object/stack/).
 See [fonts](/docs/0.3/fonts/) for variant registration and character coverage.
+
+## lineHeightMode
+
+Line-height basis: `fontHeight` (default) or `css` (upstream development); CSS mode uses `fontSize × lineHeight` when lineHeight is explicit.
 
 ---
 
@@ -2790,6 +2836,10 @@ consistent lengths. Check span placeholders next. In the local improvement branc
 diagnostics identify the offending definition path and expected number of cells.
 See [errors and diagnostics](/docs/0.3/guides/errors/).
 
+## Keep table rows together
+
+Inside `table`, `dontBreakRows: true` keeps a row together when it fits, and `keepWithHeaderRows` keeps that many body rows with `headerRows`. A group that fits a fresh page moves there intact. Repeated headers reduce available body space. For oversized rows or groups, [unbreakable overflow](/docs/0.3/options/#unbreakable-overflow) controls supported relaxation or rejection; repeated headers must always fit together on one page.
+
 ---
 
 # Table of contents
@@ -3119,10 +3169,10 @@ var fonts = {
 
    // download default Roboto font from unpkg.com
    Roboto: {
-     normal: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Regular.ttf',
-     bold: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Medium.ttf',
-     italics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Italic.ttf',
-     bolditalics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-MediumItalic.ttf'
+     normal: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Regular.ttf',
+     bold: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Medium.ttf',
+     italics: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Italic.ttf',
+     bolditalics: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-MediumItalic.ttf'
    },
 
    // example of usage fonts in collection
@@ -3151,10 +3201,10 @@ var fonts = {
 
    // download default Roboto font from unpkg.com
    Roboto: {
-     normal: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Regular.ttf',
-     bold: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Medium.ttf',
-     italics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Italic.ttf',
-     bolditalics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-MediumItalic.ttf'
+     normal: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Regular.ttf',
+     bold: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Medium.ttf',
+     italics: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Italic.ttf',
+     bolditalics: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-MediumItalic.ttf'
    },
 
    // example of usage fonts in collection
@@ -3199,7 +3249,7 @@ var docDefinition: TDocumentDefinitions = {
 
 ## URL resource caching {#url-resource-caching}
 
-Available in the upstream development branch for **0.3.14**; not in the pinned 0.3.13 playground runtime.
+Available since **0.3.14**.
 
 For fonts, use a resource object with `url`, optional `headers` and `cache`. In a TrueType Collection tuple, put that object in the first element.
 
@@ -3244,6 +3294,8 @@ pdfMake.addFonts({
 New downloads are stored per document by default. `cache: true` stores new data in the shared in-memory cache for later documents; `cache: false` still allows reading an existing shared entry. URL strings and objects without `cache` use the global setting. The browser HTTP cache is independent.
 
 See [URL resource caching](/docs/0.3/getting-started/server-side/methods/#url-resource-caching) for configuration and cache security.
+
+Starting in **0.3.16**, fonts, images, attachments and embedded files may use [registered URL protocols](/docs/0.3/getting-started/server-side/methods/#url-protocols) and share the per-document [download limit](/docs/0.3/getting-started/server-side/methods/#url-resource-concurrency).
 
 ---
 
@@ -3543,8 +3595,8 @@ Standard font bundles are available in the pdfmake package's `build/standard-fon
 For example, to use Helvetica:
 
 ```html
-<script src="https://unpkg.com/pdfmake@0.3.13/build/pdfmake.min.js"></script>
-<script src="https://unpkg.com/pdfmake@0.3.13/build/standard-fonts/Helvetica.js"></script>
+<script src="https://unpkg.com/pdfmake@0.3.15/build/pdfmake.min.js"></script>
+<script src="https://unpkg.com/pdfmake@0.3.15/build/standard-fonts/Helvetica.js"></script>
 <script>
   var docDefinition = {
     content: ['First paragraph', 'Another paragraph'],
@@ -3580,10 +3632,10 @@ Use the docs for your installed version (`npm ls pdfmake`). Start with a minimal
 
 ## JavaScript and TypeScript
 
-This development branch bundles native TypeScript declarations with the library, with separate Node and browser APIs. Install TypeScript without `@types/pdfmake` when using the locally packed branch. The published npm package 0.3.13 still needs its matching community types; the native declarations and preflight API described here are unreleased. The tested compiler is TypeScript 5.9.3.
+This development branch bundles native TypeScript declarations with the library, with separate Node and browser APIs. Install TypeScript without `@types/pdfmake` when using the locally packed branch. The published npm package 0.3.15 still needs its matching community types; the native declarations and preflight API described here are unreleased. The tested compiler is TypeScript 5.9.3.
 
 ```sh
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 npm install --save-dev typescript@~5.9.3
 ```
 
@@ -3670,7 +3722,7 @@ Source: https://pdfmake.github.io/docs/0.3/getting-started/client-side/
 ## Install and copy the browser assets
 
 ```sh
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 ```
 
 Copy `node_modules/pdfmake/build/pdfmake.min.js` and `node_modules/pdfmake/build/vfs_fonts.js` next to this HTML file. Serve the directory with your local development server.
@@ -3872,13 +3924,13 @@ document.querySelector('#preview').src = url;
 
 Keep the URL alive while the viewer uses it. Call `URL.revokeObjectURL(url)` during cleanup. Use a fresh output wrapper for each render. Avoid mixing manual stream consumption with buffer or Blob helpers on the same output.
 
-## URL access policy
+## URL access policy {#url-access-policy}
 
 Since **0.3.6**, `setUrlAccessPolicy(callback)` accepts a synchronous boolean callback. It is not a complete network sandbox, and browser redirects may happen before the final URL is checked. See [resource security](/docs/0.3/guides/resource-security/).
 
 ## URL resource caching {#url-resource-caching}
 
-Available in the upstream development branch for **0.3.14**; not in the pinned 0.3.13 playground runtime.
+Available since **0.3.14**.
 
 `setUrlResourceCaching(enabled)` requires a boolean and defaults to `false`. Set an individual URL object’s `cache` to override the global setting. Existing shared entries remain readable with `cache: false`; it does not force a download.
 
@@ -3902,9 +3954,9 @@ See [URL resource caching](/docs/0.3/getting-started/server-side/methods/#url-re
 
 ## Clear URL resource cache {#clear-url-resource-cache}
 
-Available in the upstream development branch for **0.3.14**; not in the pinned 0.3.13 playground runtime.
+Available since **0.3.14**.
 
-Use `clearUrlResourceCache()` synchronously between generations after active work has finished. It removes shared HTTP/HTTPS entries, preserves other VFS files and the caching setting, and does not clear the browser HTTP cache. See [Clear URL resource cache](/docs/0.3/getting-started/server-side/methods/#clear-url-resource-cache).
+In 0.3.14/0.3.15, clearing removes shared HTTP/HTTPS resources. In **0.3.16**, it removes resources for all currently registered URL schemes. Other VFS files, per-document resources and the caching setting are preserved. Call between generations after active work finishes; this neither cancels downloads nor clears the browser HTTP cache.
 
 **JavaScript**
 
@@ -3919,6 +3971,50 @@ pdfMake.createPdf(docDefinition).download();
 pdfMake.clearUrlResourceCache();
 pdfMake.createPdf(docDefinition).download();
 ```
+
+## URL resource concurrency {#url-resource-concurrency}
+
+Upstream development API for **0.3.16**; unavailable in the pinned 0.3.15 playground runtime.
+
+`setUrlResourceConcurrency(concurrency)` limits concurrent downloads per document for fonts, images, attachments and embedded files. The required argument must be a positive integer; the default is `5`. Changes affect subsequent `createPdf()` calls.
+
+**JavaScript**
+
+```js
+pdfMake.setUrlResourceConcurrency(3);
+```
+
+**TypeScript**
+
+```ts
+pdfMake.setUrlResourceConcurrency(3);
+```
+
+## URL protocols {#url-protocols}
+
+Upstream development API for **0.3.16**; unavailable in the pinned 0.3.15 playground runtime.
+
+`registerUrlProtocol(protocol, handler)` registers or replaces a URL scheme; `unregisterUrlProtocol(protocol)` removes it and clears its shared cache. HTTP and HTTPS are registered initially. Scheme names are case-insensitive and accept a trailing colon. Omitting the handler uses Fetch; in browsers this also supports schemes such as `blob`.
+
+**JavaScript**
+
+```js
+pdfMake.registerUrlProtocol('blob');
+```
+
+**TypeScript**
+
+```ts
+pdfMake.registerUrlProtocol('blob');
+```
+
+A handler receives `(url, headers, validateUrlAccessPolicy)` and returns a Promise of `{ buffer, url }`. Request headers default to an empty object. Return an `ArrayBuffer` or `Uint8Array` (including Node `Buffer`) and a non-empty final URL, using the original URL when there were no redirects.
+
+The [URL access policy](#url-access-policy) must synchronously return `true`. pdfmake checks the initial and returned URLs. Before following each redirect, the handler must call `validateUrlAccessPolicy(targetUrl)`: it throws on denial and allows access when no policy is configured. Custom handlers must enforce any local file restrictions themselves.
+
+These protocols work for fonts, images, attachments and embedded files and share the [download limit](#url-resource-concurrency) and [cache settings](#url-resource-caching). Registration changes affect subsequent generations; active generations retain their handlers. Unregistering an overridden HTTP/HTTPS handler does not restore Fetch: call `registerUrlProtocol("https")` to restore it. Protocol names must be valid URL schemes, and supplied handlers must be functions.
+
+A browser can register `blob` with the default handler. Keep `URL.createObjectURL(imageBlob)` valid until generation finishes and permit it in the URL access policy. See [URL protocols](/docs/0.3/getting-started/server-side/methods/#url-protocols) for a custom handler example.
 
 ---
 
@@ -3975,11 +4071,11 @@ Source: https://pdfmake.github.io/docs/0.3/getting-started/server-side/
 
 ## Install
 
-Use Node.js **20 or later**. Create an application and install pdfmake:
+Use Node.js **20.19 or later**. Create an application and install pdfmake:
 
 ```sh
 npm init -y
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 ```
 
 The exact version makes this example reproducible. Check release notes and test before choosing a newer patch.
@@ -4223,7 +4319,7 @@ For local fonts or images, allow exact resolved paths rather than a string prefi
 
 ## URL resource caching {#url-resource-caching}
 
-Available in the upstream development branch for **0.3.14**; not in the pinned 0.3.13 playground runtime.
+Available since **0.3.14**.
 
 Use `setUrlResourceCaching(enabled)` with a required boolean to share new URL downloads across documents. It defaults to `false`. An individual `{ url, headers, cache }` resource overrides that setting; `headers` is optional. This applies to fonts, images, attachment sources and embedded file sources. Setting `false` affects subsequent generations, preserves existing cache entries and does not override an explicit `cache: true`. Before 0.3.14, downloads were automatically shared; `true` restores that behavior.
 
@@ -4279,9 +4375,9 @@ Shared resources are keyed only by URL, including when `Authorization` or other 
 
 ## Clear URL resource cache {#clear-url-resource-cache}
 
-Available in the upstream development branch for **0.3.14**; not in the pinned 0.3.13 playground runtime.
+Available since **0.3.14**.
 
-`clearUrlResourceCache()` takes no parameters and synchronously removes shared entries starting with `http://` or `https://`, case-insensitively. It preserves other VFS files, per-document resources and the global caching setting. Call it between generations, after active work has finished; it does not cancel downloads in progress or clear the browser HTTP cache.
+In 0.3.14/0.3.15, clearing removes shared HTTP/HTTPS resources. In **0.3.16**, it removes resources for all currently registered URL schemes. Other VFS files, per-document resources and the caching setting are preserved. Call between generations after active work finishes; this neither cancels downloads nor clears the browser HTTP cache.
 
 **JavaScript**
 
@@ -4297,6 +4393,86 @@ pdfmake.clearUrlResourceCache();
 pdfmake.createPdf(docDefinition).write('document.pdf');
 ```
 
+## URL resource concurrency {#url-resource-concurrency}
+
+Upstream development API for **0.3.16**; unavailable in the pinned 0.3.15 playground runtime.
+
+`setUrlResourceConcurrency(concurrency)` limits concurrent downloads per document for fonts, images, attachments and embedded files. The required argument must be a positive integer; the default is `5`. Changes affect subsequent `createPdf()` calls.
+
+**JavaScript**
+
+```js
+pdfmake.setUrlResourceConcurrency(3);
+```
+
+**TypeScript**
+
+```ts
+pdfmake.setUrlResourceConcurrency(3);
+```
+
+## URL protocols {#url-protocols}
+
+Upstream development API for **0.3.16**; unavailable in the pinned 0.3.15 playground runtime.
+
+`registerUrlProtocol(protocol, handler)` registers or replaces a URL scheme; `unregisterUrlProtocol(protocol)` removes it and clears its shared cache. HTTP and HTTPS are registered initially. Scheme names are case-insensitive and accept a trailing colon. Omitting the handler uses Fetch; in browsers this also supports schemes such as `blob`.
+
+**JavaScript**
+
+```js
+var fs = require('fs').promises;
+var path = require('path');
+var assets = {
+  'asset://logo': path.join(__dirname, 'images/logo.png')
+};
+
+pdfmake.setUrlAccessPolicy(url => Object.prototype.hasOwnProperty.call(assets, url));
+pdfmake.registerUrlProtocol('asset', async (url, headers, validateUrlAccessPolicy) => {
+  var buffer = await fs.readFile(assets[url]);
+  // This handler reads a local file and does not follow redirects.
+  return { buffer: buffer, url: url };
+});
+
+var docDefinition = {
+  content: [{ image: 'logo' }],
+  images: { logo: { url: 'asset://logo', cache: true } }
+};
+
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var fs = require('fs').promises;
+var path = require('path');
+var assets = {
+  'asset://logo': path.join(__dirname, 'images/logo.png')
+};
+
+pdfmake.setUrlAccessPolicy(url => Object.prototype.hasOwnProperty.call(assets, url));
+pdfmake.registerUrlProtocol('asset', async (url, headers, validateUrlAccessPolicy) => {
+  var buffer = await fs.readFile(assets[url]);
+  // This handler reads a local file and does not follow redirects.
+  return { buffer: buffer, url: url };
+});
+
+var docDefinition: TDocumentDefinitions = {
+  content: [{ image: 'logo' }],
+  images: { logo: { url: 'asset://logo', cache: true } }
+};
+
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+A handler receives `(url, headers, validateUrlAccessPolicy)` and returns a Promise of `{ buffer, url }`. Request headers default to an empty object. Return an `ArrayBuffer` or `Uint8Array` (including Node `Buffer`) and a non-empty final URL, using the original URL when there were no redirects.
+
+The [URL access policy](#url-access-policy) must synchronously return `true`. pdfmake checks the initial and returned URLs. Before following each redirect, the handler must call `validateUrlAccessPolicy(targetUrl)`: it throws on denial and allows access when no policy is configured. Custom handlers must enforce any local file restrictions themselves.
+
+These protocols work for fonts, images, attachments and embedded files and share the [download limit](#url-resource-concurrency) and [cache settings](#url-resource-caching). Registration changes affect subsequent generations; active generations retain their handlers. Unregistering an overridden HTTP/HTTPS handler does not restore Fetch: call `registerUrlProtocol("https")` to restore it. Protocol names must be valid URL schemes, and supplied handlers must be functions.
+
 ---
 
 # Supported Node.js versions
@@ -4307,7 +4483,7 @@ Source: https://pdfmake.github.io/docs/0.3/getting-started/server-side/supported
 
 ## Engine requirement
 
-The 0.3.13 package declares **Node.js >=20** in `package.json`. The proposed CI matrix covers Node.js 20, 22, 24 and 26 on Linux, Windows and macOS. Compatibility coverage is separate from upstream Node.js security support.
+The 0.3.15 package declares **Node.js >=20.19.0** in `package.json`. The proposed CI matrix covers Node.js 20, 22, 24 and 26 on Linux, Windows and macOS. Compatibility coverage is separate from upstream Node.js security support.
 
 Use a Node.js release that is still maintained for production. Consult the [official Node.js release schedule](https://github.com/nodejs/Release#release-schedule) before choosing a runtime. Test your own fonts, resources and document workload on the exact version you deploy.
 
@@ -4560,7 +4736,7 @@ Source: https://pdfmake.github.io/docs/0.3/guides/invoice/
 
 ## Run the example
 
-Install `pdfmake@0.3.13`, save this as `invoice.cjs`, and run `node invoice.cjs`. It uses standard Helvetica with ASCII content to avoid external resources. Use embedded fonts for wider language coverage.
+Install `pdfmake@0.3.15`, save this as `invoice.cjs`, and run `node invoice.cjs`. It uses standard Helvetica with ASCII content to avoid external resources. Use embedded fonts for wider language coverage.
 
 **JavaScript**
 
@@ -5329,7 +5505,8 @@ Source: https://pdfmake.github.io/docs/0.3/options/
 ```js
 const output = pdfmake.createPdf(docDefinition, {
   fontLayoutCache: true,
-  bufferPages: false
+  bufferPages: false,
+  unbreakableOverflow: 'allowBreak'
 });
 ```
 
@@ -5338,7 +5515,8 @@ const output = pdfmake.createPdf(docDefinition, {
 ```ts
 const output = pdfmake.createPdf(docDefinition, {
   fontLayoutCache: true,
-  bufferPages: false
+  bufferPages: false,
+  unbreakableOverflow: 'allowBreak'
 });
 ```
 
@@ -5348,10 +5526,20 @@ The options object is separate from the [document definition](/docs/0.3/document
 | --- | --- | --- | --- |
 | `fontLayoutCache` | boolean | `true` | Enable PDFKit's font layout cache |
 | `bufferPages` | boolean | `false` | Keep PDFKit pages buffered rather than flushing them immediately |
+| `unbreakableOverflow` | 'allowBreak' / 'error' | `'allowBreak'` | Control oversized unbreakable blocks; see the section below. |
 
 Keep defaults unless your use case requires a change. Page buffering can increase memory use. It does not make pdfmake's own layout lazy or incremental. See [performance](/docs/0.3/guides/performance/) and [PDFKit's page buffering documentation](https://pdfkit.org/docs/getting_started.html).
 
 Fonts, named table layouts and resource policies are configured on the [public API](/docs/0.3/guides/api-reference/). Paper size, margins and content belong in the definition.
+
+## Unbreakable overflow {#unbreakable-overflow}
+
+Since **0.3.15**, `unbreakableOverflow` controls oversized unbreakable blocks. Both modes preserve a block that fits on a page; insufficient remaining space simply moves it to the next page. It applies to `unbreakable`, `dontBreakRows`, `keepWithHeaderRows`, associated row spans and repeating headers.
+
+| Value | Behavior |
+| --- | --- |
+| `'allowBreak'` | Retry with supported unbreakability constraints relaxed, splitting oversized blocks when possible. |
+| `'error'` | Reject generation when an unbreakable block cannot fit within one page. |
 
 ---
 

@@ -17,10 +17,10 @@ Usa la documentaciÃ³n correspondiente a la versiÃ³n instalada (`npm ls pdfma
 
 ## JavaScript y TypeScript
 
-Esta rama de desarrollo incluye declaraciones TypeScript propias con la biblioteca y separa las API de Node y navegador. Para el paquete construido localmente, instala TypeScript sin `@types/pdfmake`. El paquete npm publicado 0.3.13 aún necesita sus tipos comunitarios correspondientes; las declaraciones nativas y la validación previa descritas aquí todavía no están publicadas. El compilador comprobado es TypeScript 5.9.3.
+Esta rama de desarrollo incluye declaraciones TypeScript propias con la biblioteca y separa las API de Node y navegador. Para el paquete construido localmente, instala TypeScript sin `@types/pdfmake`. El paquete npm publicado 0.3.15 aún necesita sus tipos comunitarios correspondientes; las declaraciones nativas y la validación previa descritas aquí todavía no están publicadas. El compilador comprobado es TypeScript 5.9.3.
 
 ```sh
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 npm install --save-dev typescript@~5.9.3
 ```
 

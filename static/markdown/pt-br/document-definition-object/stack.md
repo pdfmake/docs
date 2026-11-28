@@ -109,3 +109,41 @@ var docDefinition: TDocumentDefinitions = {
   ]
 };
 ```
+
+## Manter uma pilha junta
+
+Use `unbreakable: true` para manter uma pilha em uma página quando couber. Se faltar apenas espaço na página atual, a pilha inteira vai para a próxima. Para pilhas grandes demais, consulte [Excesso de blocos indivisíveis](/docs/0.3/pt-br/options/#unbreakable-overflow).
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [
+    {
+      unbreakable: true,
+      stack: [
+        { text: 'Heading', bold: true },
+        'Paragraph kept with the heading.'
+      ]
+    }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [
+    {
+      unbreakable: true,
+      stack: [
+        { text: 'Heading', bold: true },
+        'Paragraph kept with the heading.'
+      ]
+    }
+  ]
+};
+```

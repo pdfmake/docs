@@ -1,5 +1,5 @@
 +++
-sourceDigest = "c80db33fd2025ca3fdc93880f47e52e7b8169c0b5a2901a4156cd2d208073487"
+sourceDigest = "d6d44c5f7171c788c3abf760326cb58beca47509793b83379def46105f9e26ab"
 title = "Tablas"
 description = "Crea tablas coherentes con filas, encabezados repetidos, bordes personalizados, anchos y celdas combinadas."
 weight = 2030
@@ -122,3 +122,7 @@ El fragmento supone que el motor del navegador y las fuentes ya están cargados.
 ## Diagnosticar tablas malformadas
 
 Comprueba `body` antes de cambiar los bordes o los anchos: debe contener matrices de filas con longitudes coherentes. Luego comprueba los marcadores de posición de las celdas combinadas. En la rama de mejoras local, los diagnósticos identifican la ruta de la definición problemática y el número de celdas esperado. Consulta [errores y diagnósticos](/docs/0.3/es/guides/errors/).
+
+## Mantener las filas juntas
+
+Dentro de `table`, `dontBreakRows: true` mantiene cada fila junta si cabe y `keepWithHeaderRows` conserva ese número de filas de contenido con `headerRows`. Un grupo que cabe en una página nueva pasa íntegro a ella. Las cabeceras repetidas reducen el espacio disponible. Para filas o grupos demasiado grandes, [Desbordamiento de bloques indivisibles](/docs/0.3/es/options/#unbreakable-overflow) controla la relajación admitida o el rechazo; las cabeceras repetidas siempre deben caber juntas en una página.

@@ -3,7 +3,7 @@ title = "Über das URL-Protokoll"
 description = "Binde Schriftdateien über URL-Adressen in pdfmake ein und registriere sie für die Verwendung in der Browseranwendung."
 weight = 16
 alwaysopen = true
-sourceDigest = "85c02ba46019f225861ea08b049de89a318e044021508c54b2cc266714435900"
+sourceDigest = "1dbe9af52b23e43b415837ffc2820f67ba5348b891bccb76b63927f0690343c3"
 +++
 
 Um eigene Schriften zu verwenden, sind zwei Schritte erforderlich:
@@ -29,10 +29,10 @@ var fonts = {
 
    // download default Roboto font from unpkg.com
    Roboto: {
-     normal: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Regular.ttf',
-     bold: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Medium.ttf',
-     italics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Italic.ttf',
-     bolditalics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-MediumItalic.ttf'
+     normal: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Regular.ttf',
+     bold: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Medium.ttf',
+     italics: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Italic.ttf',
+     bolditalics: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-MediumItalic.ttf'
    },
 
    // example of usage fonts in collection
@@ -62,7 +62,7 @@ var docDefinition = {
 
 ## URL-Ressourcen zwischenspeichern {#url-resource-caching}
 
-Im Upstream-Entwicklungszweig für **0.3.14** verfügbar; nicht in der festgelegten Playground-Laufzeit 0.3.13.
+Verfügbar seit **0.3.14**.
 
 Verwende für Schriften ein Ressourcenobjekt mit `url`, optionalen `headers` und `cache`. In einem TrueType-Collection-Tupel steht dieses Objekt an erster Stelle.
 
@@ -86,3 +86,5 @@ pdfMake.addFonts({
 Neue Downloads werden standardmäßig pro Dokument gespeichert. `cache: true` legt neue Daten im gemeinsamen Arbeitsspeicher-Cache für spätere Dokumente ab; `cache: false` erlaubt weiterhin das Lesen vorhandener gemeinsamer Einträge. URL-Zeichenfolgen und Objekte ohne `cache` verwenden die globale Einstellung. Der HTTP-Cache des Browsers ist davon unabhängig.
 
 Konfiguration und Sicherheit erklärt [URL-Ressourcen zwischenspeichern](/docs/0.3/de/getting-started/server-side/methods/#url-resource-caching).
+
+Ab **0.3.16** können Schriften, Bilder, Anhänge und eingebettete Dateien [registrierte URL-Protokolle](/docs/0.3/de/getting-started/server-side/methods/#url-protocols) verwenden und teilen das [Downloadlimit pro Dokument](/docs/0.3/de/getting-started/server-side/methods/#url-resource-concurrency).

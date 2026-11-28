@@ -6,11 +6,11 @@ Source: https://pdfmake.github.io/docs/0.3/es/getting-started/server-side/
 
 ## Instalar
 
-Usa Node.js **20 o posterior**. Crea una aplicación e instala pdfmake:
+Usa Node.js **20.19 o posterior**. Crea una aplicación e instala pdfmake:
 
 ```sh
 npm init -y
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 ```
 
 La versión exacta hace que el ejemplo sea reproducible. Revisa las notas de la versión y prueba antes de elegir un parche más reciente.

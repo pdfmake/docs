@@ -148,3 +148,7 @@ var dd: TDocumentDefinitions = {
 ## Los estilos no son CSS
 
 Usa los nombres de campo documentados por pdfmake. No hay cascada CSS, selector DOM ni modelo de caja del navegador. Los márgenes usan valores en puntos y el orden `[izquierda, arriba, derecha, abajo]`. Para aplicar estilo a varios bloques juntos, usa una [pila](/docs/0.3/es/document-definition-object/stack/). Consulta [fuentes](/docs/0.3/es/fonts/) para el registro de variantes y la cobertura de caracteres.
+
+## lineHeightMode
+
+Base de altura de línea: `fontHeight` (predeterminada) o `css` (desarrollo original); el modo CSS usa `fontSize × lineHeight` si la altura es explícita.

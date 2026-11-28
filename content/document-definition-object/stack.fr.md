@@ -3,7 +3,7 @@ title = "Pile de paragraphes"
 description = "Utilisez des tableaux ou la propriété `stack` pour empiler des paragraphes et appliquer un style à l’ensemble."
 weight = 2080
 alwaysopen = true
-sourceDigest = "04c569677571b5807400b3610efeeabd2981f70fae31c778b9a5337c0abe6c26"
+sourceDigest = "9fe0fd923768dfa5981b12db404c9abfe438f65b26f6f0bafe27d8c8bb784a5f"
 +++
 
 Vous avez pu constater dans les exemples que si vous définissez la clé `content` comme un tableau, le document devient une pile de paragraphes.
@@ -49,6 +49,24 @@ var docDefinition = {
           ],
           fontSize: 15
         }
+      ]
+    }
+  ]
+};
+```
+
+## Garder une pile ensemble
+
+Définissez `unbreakable: true` pour conserver une pile sur une page si elle tient. Si seule la place restante est insuffisante, la pile entière passe à la page suivante. Pour les piles trop grandes, voir [Débordement des blocs insécables](/docs/0.3/fr/options/#unbreakable-overflow).
+
+```js
+var docDefinition = {
+  content: [
+    {
+      unbreakable: true,
+      stack: [
+        { text: 'Heading', bold: true },
+        'Paragraph kept with the heading.'
       ]
     }
   ]

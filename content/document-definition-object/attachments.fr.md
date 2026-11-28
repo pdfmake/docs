@@ -3,7 +3,7 @@ title = "Intégration des pièces jointes"
 description = "Configurez les pièces jointes dans pdfmake 0.3 à l’aide d’exemples, d’options et de notes d’utilisation."
 weight = 2300
 alwaysopen = true
-sourceDigest = "07215ee9c2cfa04df91eb2226c07a45d85d1f1c0b5e5a4c5d37577e766747ae7"
+sourceDigest = "f00a94a71958832914205353728b447becb312d0dbda883af3e76ff03dd2ecb6"
 +++
 
 pdfmake permet de joindre des fichiers sous forme d’annotations ou de fichiers incorporés.
@@ -71,11 +71,11 @@ var dd = {
 };
 ```
 
-sourceDigest = "07215ee9c2cfa04df91eb2226c07a45d85d1f1c0b5e5a4c5d37577e766747ae7"
+sourceDigest = "f00a94a71958832914205353728b447becb312d0dbda883af3e76ff03dd2ecb6"
 
 ## Cache des ressources URL {#url-resource-caching}
 
-Disponible dans la branche de développement amont pour **0.3.14** ; absent du moteur 0.3.13 fixé pour le playground.
+Disponible depuis **0.3.14**.
 
 Pour `attachments` et `files`, placez l’objet ressource contenant `url`, les `headers` facultatifs et `cache` dans `src`. La propriété de cache doit être à l’intérieur de `src`.
 
@@ -107,3 +107,5 @@ var docDefinition = {
 Les nouveaux téléchargements sont conservés par document par défaut. `cache: true` stocke les nouvelles données dans le cache mémoire partagé pour les documents suivants ; `cache: false` permet toujours de lire une entrée partagée existante. Les URL textuelles et les objets sans `cache` utilisent le réglage global. Le cache HTTP du navigateur est indépendant.
 
 Consultez [le cache des ressources URL](/docs/0.3/fr/getting-started/server-side/methods/#url-resource-caching) pour la configuration et la sécurité du cache.
+
+À partir de **0.3.16**, les polices, images, pièces jointes et fichiers intégrés peuvent utiliser des [protocoles URL enregistrés](/docs/0.3/fr/getting-started/server-side/methods/#url-protocols) et partagent la [limite de téléchargement par document](/docs/0.3/fr/getting-started/server-side/methods/#url-resource-concurrency).

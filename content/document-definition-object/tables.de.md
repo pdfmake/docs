@@ -3,7 +3,7 @@ title = "Tabellen"
 description = "Erstelle Tabellen mit einheitlichen Zeilen, wiederholten Kopfzeilen, benutzerdefinierten Rahmen, Breiten und verbundenen Zellen."
 weight = 2030
 alwaysopen = true
-sourceDigest = "c80db33fd2025ca3fdc93880f47e52e7b8169c0b5a2901a4156cd2d208073487"
+sourceDigest = "d6d44c5f7171c788c3abf760326cb58beca47509793b83379def46105f9e26ab"
 +++
 
 ## Mit Zeilen und wiederholter Kopfzeile beginnen
@@ -122,3 +122,7 @@ Das Snippet setzt voraus, dass Browser-Engine und Schriften geladen sind. Eine L
 ## Fehlerhafte Tabellen diagnostizieren
 
 Prüfe `body`, bevor du Rahmen oder Breiten änderst: Es muss Zeilen-Arrays mit einheitlicher Länge enthalten. Prüfe anschließend die Platzhalter für überspannte Zellen. Im lokalen Verbesserungszweig nennen Diagnosen den fehlerhaften Definitionspfad und die erwartete Zellanzahl. Siehe [Fehler und Diagnose](/docs/0.3/de/guides/errors/).
+
+## Tabellenzeilen zusammenhalten
+
+Innerhalb von `table` hält `dontBreakRows: true` eine Zeile zusammen, sofern sie hineinpasst. `keepWithHeaderRows` hält die angegebene Zahl von Inhaltszeilen bei `headerRows`. Eine Gruppe, die auf eine neue Seite passt, wechselt vollständig dorthin. Wiederholte Kopfzeilen verringern den Platz für den Inhalt. Bei übergroßen Zeilen oder Gruppen steuert [Überlauf unteilbarer Blöcke](/docs/0.3/de/options/#unbreakable-overflow) die mögliche Lockerung oder einen Fehler; wiederholte Kopfzeilen müssen immer gemeinsam auf eine Seite passen.

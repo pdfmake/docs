@@ -107,3 +107,41 @@ var docDefinition: TDocumentDefinitions = {
   ]
 };
 ```
+
+## Garder une pile ensemble
+
+Définissez `unbreakable: true` pour conserver une pile sur une page si elle tient. Si seule la place restante est insuffisante, la pile entière passe à la page suivante. Pour les piles trop grandes, voir [Débordement des blocs insécables](/docs/0.3/fr/options/#unbreakable-overflow).
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [
+    {
+      unbreakable: true,
+      stack: [
+        { text: 'Heading', bold: true },
+        'Paragraph kept with the heading.'
+      ]
+    }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [
+    {
+      unbreakable: true,
+      stack: [
+        { text: 'Heading', bold: true },
+        'Paragraph kept with the heading.'
+      ]
+    }
+  ]
+};
+```

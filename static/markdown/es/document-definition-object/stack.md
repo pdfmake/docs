@@ -107,3 +107,41 @@ var docDefinition: TDocumentDefinitions = {
   ]
 };
 ```
+
+## Mantener una pila junta
+
+Usa `unbreakable: true` para mantener una pila en una página si cabe. Si solo falta espacio en la página actual, la pila completa pasa a la siguiente. Para pilas demasiado grandes, consulta [Desbordamiento de bloques indivisibles](/docs/0.3/es/options/#unbreakable-overflow).
+
+**JavaScript**
+
+```js
+var docDefinition = {
+  content: [
+    {
+      unbreakable: true,
+      stack: [
+        { text: 'Heading', bold: true },
+        'Paragraph kept with the heading.'
+      ]
+    }
+  ]
+};
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var docDefinition: TDocumentDefinitions = {
+  content: [
+    {
+      unbreakable: true,
+      stack: [
+        { text: 'Heading', bold: true },
+        'Paragraph kept with the heading.'
+      ]
+    }
+  ]
+};
+```

@@ -3,7 +3,7 @@ title = "Pilha de parágrafos"
 description = "Agrupe parágrafos e elementos em uma pilha vertical no pdfmake 0.3."
 weight = 2080
 alwaysopen = true
-sourceDigest = "04c569677571b5807400b3610efeeabd2981f70fae31c778b9a5337c0abe6c26"
+sourceDigest = "9fe0fd923768dfa5981b12db404c9abfe438f65b26f6f0bafe27d8c8bb784a5f"
 +++
 
 Como você já deve ter percebido pelos exemplos, quando a chave `content` recebe um array, o documento se torna uma pilha de parágrafos.
@@ -51,6 +51,24 @@ var docDefinition = {
           ],
           fontSize: 15
         }
+      ]
+    }
+  ]
+};
+```
+
+## Manter uma pilha junta
+
+Use `unbreakable: true` para manter uma pilha em uma página quando couber. Se faltar apenas espaço na página atual, a pilha inteira vai para a próxima. Para pilhas grandes demais, consulte [Excesso de blocos indivisíveis](/docs/0.3/pt-br/options/#unbreakable-overflow).
+
+```js
+var docDefinition = {
+  content: [
+    {
+      unbreakable: true,
+      stack: [
+        { text: 'Heading', bold: true },
+        'Paragraph kept with the heading.'
       ]
     }
   ]

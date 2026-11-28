@@ -3,7 +3,7 @@ title = "Absatzstapel"
 description = "Ordne Absätze mit der Stack-Struktur in pdfmake 0.3 untereinander an und formatiere verschachtelte Inhalte."
 weight = 2080
 alwaysopen = true
-sourceDigest = "04c569677571b5807400b3610efeeabd2981f70fae31c778b9a5337c0abe6c26"
+sourceDigest = "9fe0fd923768dfa5981b12db404c9abfe438f65b26f6f0bafe27d8c8bb784a5f"
 +++
 
 An den Beispielen hast du wahrscheinlich schon erkannt: Wenn du `content` auf ein Array setzt, wird das Dokument als Stapel von Absätzen dargestellt.
@@ -49,6 +49,24 @@ var docDefinition = {
           ],
           fontSize: 15
         }
+      ]
+    }
+  ]
+};
+```
+
+## Einen Stack zusammenhalten
+
+Setze `unbreakable: true`, um einen Stack auf einer Seite zusammenzuhalten, sofern er hineinpasst. Fehlt nur auf der aktuellen Seite Platz, wechselt der ganze Stack zur nächsten Seite. Für übergroße Stacks siehe [Überlauf unteilbarer Blöcke](/docs/0.3/de/options/#unbreakable-overflow).
+
+```js
+var docDefinition = {
+  content: [
+    {
+      unbreakable: true,
+      stack: [
+        { text: 'Heading', bold: true },
+        'Paragraph kept with the heading.'
       ]
     }
   ]

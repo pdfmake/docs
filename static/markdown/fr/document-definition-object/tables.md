@@ -242,3 +242,7 @@ Cet extrait suppose que le moteur du navigateur et les polices sont chargés. D�
 ## Diagnostiquer les tableaux mal formés
 
 Vérifiez `body` avant de modifier les bordures ou les largeurs : il doit contenir des tableaux de lignes dont les longueurs concordent. Vérifiez ensuite les cellules de remplacement des fusions. Dans la branche locale d’amélioration, les diagnostics indiquent le chemin de définition fautif et le nombre de cellules attendu. Consultez [Erreurs et diagnostics](/docs/0.3/fr/guides/errors/).
+
+## Garder les lignes ensemble
+
+Dans `table`, `dontBreakRows: true` conserve une ligne entière si elle tient et `keepWithHeaderRows` garde ce nombre de lignes de contenu avec `headerRows`. Un groupe tenant sur une nouvelle page y passe intégralement. Les en-têtes répétés réduisent l’espace disponible. Pour les lignes ou groupes trop grands, [Débordement des blocs insécables](/docs/0.3/fr/options/#unbreakable-overflow) contrôle l’assouplissement possible ou le rejet ; les en-têtes répétés doivent toujours tenir ensemble sur une page.

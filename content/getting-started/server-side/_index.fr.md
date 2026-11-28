@@ -2,16 +2,16 @@
 title = "Démarrage rapide avec Node.js"
 description = "Créez un fichier PDF complet avec pdfmake 0.3 dans Node.js, les polices standard et des sorties fondées sur des Promises."
 weight = 12
-sourceDigest = "a943d71f035716932810834880e3bf5c02cde041ecc0cf438373b27e0c62157d"
+sourceDigest = "d2d4ad138e12a2185cac565e19ab53f194dbba872449069692c7fbea3f8fff22"
 +++
 
 ## Installer
 
-Utilisez Node.js **20 ou ultérieur**. Créez une application et installez pdfmake :
+Utilisez Node.js **20.19 ou ultérieur**. Créez une application et installez pdfmake :
 
 ```sh
 npm init -y
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 ```
 
 La version exacte rend cet exemple reproductible. Consultez les notes de version et effectuez des tests avant de choisir un correctif plus récent.

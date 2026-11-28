@@ -114,7 +114,7 @@ Ein leerer oder ungültiger Bildwert führt zu einem Fehler. Prüfe den Wörterb
 
 ## URL-Ressourcen zwischenspeichern {#url-resource-caching}
 
-Im Upstream-Entwicklungszweig für **0.3.14** verfügbar; nicht in der festgelegten Playground-Laufzeit 0.3.13.
+Verfügbar seit **0.3.14**.
 
 Setze im `images`-Wörterbuch `url`, optionale `headers` und `cache` am Ressourcenobjekt, um die globale Einstellung zu überschreiben.
 
@@ -151,3 +151,5 @@ var docDefinition: TDocumentDefinitions = {
 Neue Downloads werden standardmäßig pro Dokument gespeichert. `cache: true` legt neue Daten im gemeinsamen Arbeitsspeicher-Cache für spätere Dokumente ab; `cache: false` erlaubt weiterhin das Lesen vorhandener gemeinsamer Einträge. URL-Zeichenfolgen und Objekte ohne `cache` verwenden die globale Einstellung. Der HTTP-Cache des Browsers ist davon unabhängig.
 
 Konfiguration und Sicherheit erklärt [URL-Ressourcen zwischenspeichern](/docs/0.3/de/getting-started/server-side/methods/#url-resource-caching).
+
+Ab **0.3.16** können Schriften, Bilder, Anhänge und eingebettete Dateien [registrierte URL-Protokolle](/docs/0.3/de/getting-started/server-side/methods/#url-protocols) verwenden und teilen das [Downloadlimit pro Dokument](/docs/0.3/de/getting-started/server-side/methods/#url-resource-concurrency).

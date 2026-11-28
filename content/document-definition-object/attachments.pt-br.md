@@ -3,7 +3,7 @@ title = "Anexos incorporados"
 description = "Adicione arquivos como anotações ou arquivos incorporados em documentos PDF do pdfmake 0.3."
 weight = 2300
 alwaysopen = true
-sourceDigest = "07215ee9c2cfa04df91eb2226c07a45d85d1f1c0b5e5a4c5d37577e766747ae7"
+sourceDigest = "f00a94a71958832914205353728b447becb312d0dbda883af3e76ff03dd2ecb6"
 +++
 
 O pdfmake oferece suporte a anexar arquivos como anotações e como arquivos incorporados. Arquivos incorporados são adicionados ao dicionário `files` e aparecem nos painéis de anexos dos visualizadores de PDF compatíveis. Anexos de arquivo são anotações que apontam para um arquivo.
@@ -71,7 +71,7 @@ var dd = {
 
 ## Cache de recursos URL {#url-resource-caching}
 
-Disponível na versão de desenvolvimento original para **0.3.14**; ausente do mecanismo 0.3.13 fixado no playground.
+Disponível desde **0.3.14**.
 
 Para `attachments` e `files`, coloque o objeto de recurso com `url`, os `headers` opcionais e `cache` dentro de `src`. A propriedade de cache pertence ao interior de `src`.
 
@@ -103,3 +103,5 @@ var docDefinition = {
 Novos downloads são armazenados por documento por padrão. `cache: true` armazena novos dados no cache compartilhado em memória para documentos posteriores; `cache: false` ainda permite ler uma entrada compartilhada existente. URLs de texto e objetos sem `cache` usam a configuração global. O cache HTTP do navegador é independente.
 
 Consulte [Cache de recursos URL](/docs/0.3/pt-br/getting-started/server-side/methods/#url-resource-caching) para configuração e segurança do cache.
+
+A partir de **0.3.16**, fontes, imagens, anexos e arquivos incorporados podem usar [protocolos URL registrados](/docs/0.3/pt-br/getting-started/server-side/methods/#url-protocols) e compartilham o [limite de downloads por documento](/docs/0.3/pt-br/getting-started/server-side/methods/#url-resource-concurrency).

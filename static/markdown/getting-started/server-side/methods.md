@@ -124,7 +124,7 @@ For local fonts or images, allow exact resolved paths rather than a string prefi
 
 ## URL resource caching {#url-resource-caching}
 
-Available in the upstream development branch for **0.3.14**; not in the pinned 0.3.13 playground runtime.
+Available since **0.3.14**.
 
 Use `setUrlResourceCaching(enabled)` with a required boolean to share new URL downloads across documents. It defaults to `false`. An individual `{ url, headers, cache }` resource overrides that setting; `headers` is optional. This applies to fonts, images, attachment sources and embedded file sources. Setting `false` affects subsequent generations, preserves existing cache entries and does not override an explicit `cache: true`. Before 0.3.14, downloads were automatically shared; `true` restores that behavior.
 
@@ -180,9 +180,9 @@ Shared resources are keyed only by URL, including when `Authorization` or other 
 
 ## Clear URL resource cache {#clear-url-resource-cache}
 
-Available in the upstream development branch for **0.3.14**; not in the pinned 0.3.13 playground runtime.
+Available since **0.3.14**.
 
-`clearUrlResourceCache()` takes no parameters and synchronously removes shared entries starting with `http://` or `https://`, case-insensitively. It preserves other VFS files, per-document resources and the global caching setting. Call it between generations, after active work has finished; it does not cancel downloads in progress or clear the browser HTTP cache.
+In 0.3.14/0.3.15, clearing removes shared HTTP/HTTPS resources. In **0.3.16**, it removes resources for all currently registered URL schemes. Other VFS files, per-document resources and the caching setting are preserved. Call between generations after active work finishes; this neither cancels downloads nor clears the browser HTTP cache.
 
 **JavaScript**
 
@@ -197,3 +197,83 @@ pdfmake.createPdf(docDefinition).write('document.pdf');
 pdfmake.clearUrlResourceCache();
 pdfmake.createPdf(docDefinition).write('document.pdf');
 ```
+
+## URL resource concurrency {#url-resource-concurrency}
+
+Upstream development API for **0.3.16**; unavailable in the pinned 0.3.15 playground runtime.
+
+`setUrlResourceConcurrency(concurrency)` limits concurrent downloads per document for fonts, images, attachments and embedded files. The required argument must be a positive integer; the default is `5`. Changes affect subsequent `createPdf()` calls.
+
+**JavaScript**
+
+```js
+pdfmake.setUrlResourceConcurrency(3);
+```
+
+**TypeScript**
+
+```ts
+pdfmake.setUrlResourceConcurrency(3);
+```
+
+## URL protocols {#url-protocols}
+
+Upstream development API for **0.3.16**; unavailable in the pinned 0.3.15 playground runtime.
+
+`registerUrlProtocol(protocol, handler)` registers or replaces a URL scheme; `unregisterUrlProtocol(protocol)` removes it and clears its shared cache. HTTP and HTTPS are registered initially. Scheme names are case-insensitive and accept a trailing colon. Omitting the handler uses Fetch; in browsers this also supports schemes such as `blob`.
+
+**JavaScript**
+
+```js
+var fs = require('fs').promises;
+var path = require('path');
+var assets = {
+  'asset://logo': path.join(__dirname, 'images/logo.png')
+};
+
+pdfmake.setUrlAccessPolicy(url => Object.prototype.hasOwnProperty.call(assets, url));
+pdfmake.registerUrlProtocol('asset', async (url, headers, validateUrlAccessPolicy) => {
+  var buffer = await fs.readFile(assets[url]);
+  // This handler reads a local file and does not follow redirects.
+  return { buffer: buffer, url: url };
+});
+
+var docDefinition = {
+  content: [{ image: 'logo' }],
+  images: { logo: { url: 'asset://logo', cache: true } }
+};
+
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var fs = require('fs').promises;
+var path = require('path');
+var assets = {
+  'asset://logo': path.join(__dirname, 'images/logo.png')
+};
+
+pdfmake.setUrlAccessPolicy(url => Object.prototype.hasOwnProperty.call(assets, url));
+pdfmake.registerUrlProtocol('asset', async (url, headers, validateUrlAccessPolicy) => {
+  var buffer = await fs.readFile(assets[url]);
+  // This handler reads a local file and does not follow redirects.
+  return { buffer: buffer, url: url };
+});
+
+var docDefinition: TDocumentDefinitions = {
+  content: [{ image: 'logo' }],
+  images: { logo: { url: 'asset://logo', cache: true } }
+};
+
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+A handler receives `(url, headers, validateUrlAccessPolicy)` and returns a Promise of `{ buffer, url }`. Request headers default to an empty object. Return an `ArrayBuffer` or `Uint8Array` (including Node `Buffer`) and a non-empty final URL, using the original URL when there were no redirects.
+
+The [URL access policy](#url-access-policy) must synchronously return `true`. pdfmake checks the initial and returned URLs. Before following each redirect, the handler must call `validateUrlAccessPolicy(targetUrl)`: it throws on denial and allows access when no policy is configured. Custom handlers must enforce any local file restrictions themselves.
+
+These protocols work for fonts, images, attachments and embedded files and share the [download limit](#url-resource-concurrency) and [cache settings](#url-resource-caching). Registration changes affect subsequent generations; active generations retain their handlers. Unregistering an overridden HTTP/HTTPS handler does not restore Fetch: call `registerUrlProtocol("https")` to restore it. Protocol names must be valid URL schemes, and supplied handlers must be functions.

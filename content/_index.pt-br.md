@@ -2,7 +2,7 @@
 title = "Visão geral"
 description = "Crie PDFs com pdfmake 0.3: guias passo a passo, exemplos executáveis e referência para aplicações JavaScript."
 weight = 0
-sourceDigest = "3be141146a4c948512e50597ef37f878749e249c98a65a0af17c20b1e7cc62b3"
+sourceDigest = "a30b0c62e5e1f5363d9cc5500b99f3386129e79b789fc7589d79ec432964c268"
 +++
 
 Crie um PDF em três passos: configure o ambiente, descreva o conteúdo e solicite uma saída.
@@ -15,7 +15,7 @@ Crie um PDF em três passos: configure o ambiente, descreva o conteúdo e solici
 Use Node.js 20 ou superior. Instale a versão fixa abaixo, salve o exemplo completo como `first-pdf.cjs` e execute `node first-pdf.cjs`.
 
 ```sh
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 ```
 
 ```js

@@ -3,7 +3,7 @@ title = "Par protocole URL"
 description = "Configurez l’utilisation des polices par protocole URL dans pdfmake 0.3 avec des exemples, des options et des notes d’utilisation."
 weight = 16
 alwaysopen = true
-sourceDigest = "85c02ba46019f225861ea08b049de89a318e044021508c54b2cc266714435900"
+sourceDigest = "1dbe9af52b23e43b415837ffc2820f67ba5348b891bccb76b63927f0690343c3"
 +++
 
 L’utilisation de polices personnalisées nécessite deux étapes :
@@ -29,10 +29,10 @@ var fonts = {
 
    // download default Roboto font from unpkg.com
    Roboto: {
-     normal: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Regular.ttf',
-     bold: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Medium.ttf',
-     italics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-Italic.ttf',
-     bolditalics: 'https://unpkg.com/pdfmake@0.3.13/build/fonts/Roboto/Roboto-MediumItalic.ttf'
+     normal: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Regular.ttf',
+     bold: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Medium.ttf',
+     italics: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-Italic.ttf',
+     bolditalics: 'https://unpkg.com/pdfmake@0.3.15/build/fonts/Roboto/Roboto-MediumItalic.ttf'
    },
 
    // example of usage fonts in collection
@@ -62,7 +62,7 @@ var docDefinition = {
 
 ## Cache des ressources URL {#url-resource-caching}
 
-Disponible dans la branche de développement amont pour **0.3.14** ; absent du moteur 0.3.13 fixé pour le playground.
+Disponible depuis **0.3.14**.
 
 Pour les polices, utilisez un objet ressource avec `url`, les `headers` facultatifs et `cache`. Dans un tuple TrueType Collection, placez cet objet en premier.
 
@@ -86,3 +86,5 @@ pdfMake.addFonts({
 Les nouveaux téléchargements sont conservés par document par défaut. `cache: true` stocke les nouvelles données dans le cache mémoire partagé pour les documents suivants ; `cache: false` permet toujours de lire une entrée partagée existante. Les URL textuelles et les objets sans `cache` utilisent le réglage global. Le cache HTTP du navigateur est indépendant.
 
 Consultez [le cache des ressources URL](/docs/0.3/fr/getting-started/server-side/methods/#url-resource-caching) pour la configuration et la sécurité du cache.
+
+À partir de **0.3.16**, les polices, images, pièces jointes et fichiers intégrés peuvent utiliser des [protocoles URL enregistrés](/docs/0.3/fr/getting-started/server-side/methods/#url-protocols) et partagent la [limite de téléchargement par document](/docs/0.3/fr/getting-started/server-side/methods/#url-resource-concurrency).

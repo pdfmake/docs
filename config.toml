@@ -15,14 +15,14 @@ disableSearch = false
 pre = "<h3>More</h3>"
 name = "<i class='fa fa-play'></i> <label>Playground</label>"
 identifier = "playground"
-url = "http://pdfmake.org/playground.html"
+url = "/docs/0.3/playground/"
 weight = 1
 
 [[menu.shortcuts]]
 pre = "<h3>More</h3>"
 name = "<i class='fa fa-home'></i> <label>pdfmake.org</label>"
 identifier = "pdfmakeorg"
-url = "http://pdfmake.org"
+url = "https://pdfmake.github.io/"
 weight = 2
 
 [[menu.shortcuts]]

@@ -54,3 +54,21 @@ var docDefinition = {
   ]
 };
 ```
+
+## Keep a stack together
+
+Set `unbreakable: true` to keep a stack on one page when it fits. If only the current page lacks space, the stack moves intact to the next page. For oversized stacks, see [unbreakable overflow](/docs/0.3/options/#unbreakable-overflow).
+
+```js
+var docDefinition = {
+  content: [
+    {
+      unbreakable: true,
+      stack: [
+        { text: 'Heading', bold: true },
+        'Paragraph kept with the heading.'
+      ]
+    }
+  ]
+};
+```

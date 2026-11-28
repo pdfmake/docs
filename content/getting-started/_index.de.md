@@ -1,5 +1,5 @@
 +++
-sourceDigest = "99fb4e43045381e3fb65fdf81576ac12ed30e6cf3ca5e79f4130207b775a67d0"
+sourceDigest = "9be7ead7b05b849e4f458b7362103f1ab83ebfbd26a18f846aab3caf91c47c08"
 title = "Einrichtung"
 description = "Installiere pdfmake 0.3 fÃ¼r Node.js oder den Browser und wÃ¤hle die passende Promise-basierte Ausgabe."
 weight = 10
@@ -20,10 +20,10 @@ Verwende die Dokumentation passend zur installierten Version (`npm ls pdfmake`).
 
 ## JavaScript und TypeScript
 
-Dieser Entwicklungszweig liefert eigene TypeScript-Deklarationen mit der Library aus und trennt Node- und Browser-APIs. Installiere für den lokal gepackten Zweig TypeScript ohne `@types/pdfmake`. Das veröffentlichte npm-Paket 0.3.13 benötigt weiterhin passende Community-Typen; die hier beschriebenen nativen Deklarationen und die Vorabvalidierung sind noch unveröffentlicht. Geprüft wird mit TypeScript 5.9.3.
+Dieser Entwicklungszweig liefert eigene TypeScript-Deklarationen mit der Library aus und trennt Node- und Browser-APIs. Installiere für den lokal gepackten Zweig TypeScript ohne `@types/pdfmake`. Das veröffentlichte npm-Paket 0.3.15 benötigt weiterhin passende Community-Typen; die hier beschriebenen nativen Deklarationen und die Vorabvalidierung sind noch unveröffentlicht. Geprüft wird mit TypeScript 5.9.3.
 
 ```sh
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 npm install --save-dev typescript@~5.9.3
 ```
 

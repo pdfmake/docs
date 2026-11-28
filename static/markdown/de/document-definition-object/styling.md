@@ -148,3 +148,7 @@ var dd: TDocumentDefinitions = {
 ## Stile sind kein CSS
 
 Verwende die dokumentierten Feldnamen von pdfmake. Es gibt weder CSS-Kaskade noch DOM-Selektor oder Browser-Boxmodell. Ränder werden in Punkten angegeben und folgen der Reihenfolge `[links, oben, rechts, unten]`. Um mehrere Blöcke gemeinsam zu formatieren, verwende einen [Stapel](/docs/0.3/de/document-definition-object/stack/). Informationen zur Registrierung von Schriftvarianten und Zeichenabdeckung findest du unter [Schriften](/docs/0.3/de/fonts/).
+
+## lineHeightMode
+
+Basis der Zeilenhöhe: `fontHeight` (Standard) oder `css` (Upstream-Entwicklung); der CSS-Modus verwendet bei expliziter Zeilenhöhe `fontSize × lineHeight`.

@@ -667,6 +667,9 @@ export interface Style {
      */
     lineHeight?: number | undefined;
 
+    /** Line-height basis; CSS mode multiplies an explicit lineHeight by fontSize. */
+    lineHeightMode?: "fontHeight" | "css" | undefined;
+
     /**
      * Controls whether the text is bold.
      *
@@ -1830,7 +1833,15 @@ export type UnorderedListElement = Content & UnorderedListElementProperties;
 /**
  * Child elements of a {@link ContentCanvas}.
  */
-export type CanvasElement = CanvasRect | CanvasPolyline | CanvasLine | CanvasEllipse;
+export type CanvasElement = CanvasRect | CanvasPolyline | CanvasLine | CanvasEllipse | CanvasPath;
+
+/** SVG path commands rendered as a canvas vector. */
+export interface CanvasPath extends CanvasLineElement, CanvasFilledElement {
+    type: "path";
+    d: string;
+    x?: number;
+    y?: number;
+}
 
 /**
  * Type to render the ends of lines in a canvas:
@@ -2633,6 +2644,8 @@ export interface DocumentValidationError extends Error {
     diagnostics: ValidationDiagnostic[];
 }
 export interface CreatePdfOptions extends BufferOptions {
+    /** Retry oversized unbreakable content with relaxed constraints, or reject (since 0.3.15). */
+    unbreakableOverflow?: "allowBreak" | "error";
     /** Opt-in preflight; rendering still validates dynamic values and resources. */
     validation?: boolean | ValidationOptions;
 }
@@ -2651,7 +2664,13 @@ export interface PdfMakeBase<Output extends TCreatedPdf> {
     setUrlAccessPolicy(callback?: (url: string) => boolean): void;
     /** Store new URL downloads across documents; disabled by default (since 0.3.14). */
     setUrlResourceCaching(enabled: boolean): void;
-    /** Synchronously clear shared HTTP/HTTPS entries between generations (since 0.3.14). */
+    /** Maximum simultaneous downloads per document; positive integer, default 5 (since 0.3.16). */
+    setUrlResourceConcurrency(concurrency: number): void;
+    /** Register or replace a URL scheme. Omitting the handler uses Fetch (since 0.3.16). */
+    registerUrlProtocol(protocol: string, handler?: (url: string, headers: Record<string, string>, validateUrlAccessPolicy: (url: string) => void) => Promise<{ buffer: ArrayBuffer | Uint8Array; url: string }>): void;
+    /** Remove a handler and its shared cached resources (since 0.3.16). */
+    unregisterUrlProtocol(protocol: string): void;
+    /** Synchronously clear shared entries for registered URL schemes between generations. */
     clearUrlResourceCache(): void;
 }
 export interface NodePdfMake extends PdfMakeBase<NodeOutputDocument> {

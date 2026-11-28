@@ -2,13 +2,13 @@
 title = "Início rápido no navegador"
 description = "Carregue o pdfmake 0.3 e seu bundle de fontes e, em seguida, baixe um PDF em resposta a uma ação do usuário."
 weight = 11
-sourceDigest = "7427dae21c26c2f61d3836ce87ed99ce36fd9d5558ac2b6d0e6b7a7570fd7a83"
+sourceDigest = "041547beeedee545fe176e181931da57d0eb4256044c1e6f9b6ee774c4f7e7cf"
 +++
 
 ## Instale e copie os assets do navegador
 
 ```sh
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 ```
 
 Copie `node_modules/pdfmake/build/pdfmake.min.js` e `node_modules/pdfmake/build/vfs_fonts.js` para junto deste arquivo HTML. Sirva o diretório usando seu servidor local de desenvolvimento.

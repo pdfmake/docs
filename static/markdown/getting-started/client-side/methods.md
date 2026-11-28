@@ -123,13 +123,13 @@ document.querySelector('#preview').src = url;
 
 Keep the URL alive while the viewer uses it. Call `URL.revokeObjectURL(url)` during cleanup. Use a fresh output wrapper for each render. Avoid mixing manual stream consumption with buffer or Blob helpers on the same output.
 
-## URL access policy
+## URL access policy {#url-access-policy}
 
 Since **0.3.6**, `setUrlAccessPolicy(callback)` accepts a synchronous boolean callback. It is not a complete network sandbox, and browser redirects may happen before the final URL is checked. See [resource security](/docs/0.3/guides/resource-security/).
 
 ## URL resource caching {#url-resource-caching}
 
-Available in the upstream development branch for **0.3.14**; not in the pinned 0.3.13 playground runtime.
+Available since **0.3.14**.
 
 `setUrlResourceCaching(enabled)` requires a boolean and defaults to `false`. Set an individual URL object’s `cache` to override the global setting. Existing shared entries remain readable with `cache: false`; it does not force a download.
 
@@ -153,9 +153,9 @@ See [URL resource caching](/docs/0.3/getting-started/server-side/methods/#url-re
 
 ## Clear URL resource cache {#clear-url-resource-cache}
 
-Available in the upstream development branch for **0.3.14**; not in the pinned 0.3.13 playground runtime.
+Available since **0.3.14**.
 
-Use `clearUrlResourceCache()` synchronously between generations after active work has finished. It removes shared HTTP/HTTPS entries, preserves other VFS files and the caching setting, and does not clear the browser HTTP cache. See [Clear URL resource cache](/docs/0.3/getting-started/server-side/methods/#clear-url-resource-cache).
+In 0.3.14/0.3.15, clearing removes shared HTTP/HTTPS resources. In **0.3.16**, it removes resources for all currently registered URL schemes. Other VFS files, per-document resources and the caching setting are preserved. Call between generations after active work finishes; this neither cancels downloads nor clears the browser HTTP cache.
 
 **JavaScript**
 
@@ -170,3 +170,47 @@ pdfMake.createPdf(docDefinition).download();
 pdfMake.clearUrlResourceCache();
 pdfMake.createPdf(docDefinition).download();
 ```
+
+## URL resource concurrency {#url-resource-concurrency}
+
+Upstream development API for **0.3.16**; unavailable in the pinned 0.3.15 playground runtime.
+
+`setUrlResourceConcurrency(concurrency)` limits concurrent downloads per document for fonts, images, attachments and embedded files. The required argument must be a positive integer; the default is `5`. Changes affect subsequent `createPdf()` calls.
+
+**JavaScript**
+
+```js
+pdfMake.setUrlResourceConcurrency(3);
+```
+
+**TypeScript**
+
+```ts
+pdfMake.setUrlResourceConcurrency(3);
+```
+
+## URL protocols {#url-protocols}
+
+Upstream development API for **0.3.16**; unavailable in the pinned 0.3.15 playground runtime.
+
+`registerUrlProtocol(protocol, handler)` registers or replaces a URL scheme; `unregisterUrlProtocol(protocol)` removes it and clears its shared cache. HTTP and HTTPS are registered initially. Scheme names are case-insensitive and accept a trailing colon. Omitting the handler uses Fetch; in browsers this also supports schemes such as `blob`.
+
+**JavaScript**
+
+```js
+pdfMake.registerUrlProtocol('blob');
+```
+
+**TypeScript**
+
+```ts
+pdfMake.registerUrlProtocol('blob');
+```
+
+A handler receives `(url, headers, validateUrlAccessPolicy)` and returns a Promise of `{ buffer, url }`. Request headers default to an empty object. Return an `ArrayBuffer` or `Uint8Array` (including Node `Buffer`) and a non-empty final URL, using the original URL when there were no redirects.
+
+The [URL access policy](#url-access-policy) must synchronously return `true`. pdfmake checks the initial and returned URLs. Before following each redirect, the handler must call `validateUrlAccessPolicy(targetUrl)`: it throws on denial and allows access when no policy is configured. Custom handlers must enforce any local file restrictions themselves.
+
+These protocols work for fonts, images, attachments and embedded files and share the [download limit](#url-resource-concurrency) and [cache settings](#url-resource-caching). Registration changes affect subsequent generations; active generations retain their handlers. Unregistering an overridden HTTP/HTTPS handler does not restore Fetch: call `registerUrlProtocol("https")` to restore it. Protocol names must be valid URL schemes, and supplied handlers must be functions.
+
+A browser can register `blob` with the default handler. Keep `URL.createObjectURL(imageBlob)` valid until generation finishes and permit it in the URL access policy. See [URL protocols](/docs/0.3/getting-started/server-side/methods/#url-protocols) for a custom handler example.

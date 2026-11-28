@@ -242,3 +242,7 @@ Das Snippet setzt voraus, dass Browser-Engine und Schriften geladen sind. Eine L
 ## Fehlerhafte Tabellen diagnostizieren
 
 Prüfe `body`, bevor du Rahmen oder Breiten änderst: Es muss Zeilen-Arrays mit einheitlicher Länge enthalten. Prüfe anschließend die Platzhalter für überspannte Zellen. Im lokalen Verbesserungszweig nennen Diagnosen den fehlerhaften Definitionspfad und die erwartete Zellanzahl. Siehe [Fehler und Diagnose](/docs/0.3/de/guides/errors/).
+
+## Tabellenzeilen zusammenhalten
+
+Innerhalb von `table` hält `dontBreakRows: true` eine Zeile zusammen, sofern sie hineinpasst. `keepWithHeaderRows` hält die angegebene Zahl von Inhaltszeilen bei `headerRows`. Eine Gruppe, die auf eine neue Seite passt, wechselt vollständig dorthin. Wiederholte Kopfzeilen verringern den Platz für den Inhalt. Bei übergroßen Zeilen oder Gruppen steuert [Überlauf unteilbarer Blöcke](/docs/0.3/de/options/#unbreakable-overflow) die mögliche Lockerung oder einen Fehler; wiederholte Kopfzeilen müssen immer gemeinsam auf eine Seite passen.

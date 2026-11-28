@@ -3,7 +3,7 @@ title = "Styles et mise en forme"
 description = "Mettez en forme le texte avec des styles nommés, des variantes de police, l’alignement, les couleurs et l’héritage dans pdfmake 0.3."
 weight = 2010
 alwaysopen = true
-sourceDigest = "9369a9e17f5173482ecd79123f5aee3a2489a7678b916cec9f9003263fe860ae"
+sourceDigest = "0d498d86013ab5ed586be239a14a0fa3e6727c6d8188189cbc163f7c30551498"
 +++
 
 ## Mettre en forme un bloc ou un segment en ligne
@@ -71,3 +71,7 @@ var dd = {
 ## Les styles ne sont pas du CSS
 
 Utilisez les noms de champs documentés par pdfmake. Il n’existe ni cascade CSS, ni sélecteur DOM, ni modèle de boîte du navigateur. Les marges sont exprimées en points et suivent l’ordre `[gauche, haut, droite, bas]`. Pour mettre en forme plusieurs blocs ensemble, utilisez une [pile](/docs/0.3/fr/document-definition-object/stack/). Consultez [Polices](/docs/0.3/fr/fonts/) pour l’enregistrement des variantes et la couverture des caractères.
+
+## lineHeightMode
+
+Base de hauteur de ligne : `fontHeight` (par défaut) ou `css` (développement amont) ; le mode CSS utilise `fontSize × lineHeight` si la hauteur est explicite.

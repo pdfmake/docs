@@ -257,3 +257,7 @@ Check `body` before changing borders or widths: it must contain row arrays with
 consistent lengths. Check span placeholders next. In the local improvement branch,
 diagnostics identify the offending definition path and expected number of cells.
 See [errors and diagnostics](/docs/0.3/guides/errors/).
+
+## Keep table rows together
+
+Inside `table`, `dontBreakRows: true` keeps a row together when it fits, and `keepWithHeaderRows` keeps that many body rows with `headerRows`. A group that fits a fresh page moves there intact. Repeated headers reduce available body space. For oversized rows or groups, [unbreakable overflow](/docs/0.3/options/#unbreakable-overflow) controls supported relaxation or rejection; repeated headers must always fit together on one page.

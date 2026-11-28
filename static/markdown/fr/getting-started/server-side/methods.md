@@ -124,7 +124,7 @@ Pour les polices ou images locales, autorisez des chemins résolus exacts plutô
 
 ## Cache des ressources URL {#url-resource-caching}
 
-Disponible dans la branche de développement amont pour **0.3.14** ; absent du moteur 0.3.13 fixé pour le playground.
+Disponible depuis **0.3.14**.
 
 Appelez `setUrlResourceCaching(enabled)` avec un booléen obligatoire pour partager les nouveaux téléchargements URL entre documents. La valeur par défaut est `false`. Un objet ressource `{ url, headers, cache }` remplace ce réglage ; `headers` est facultatif. Cela concerne les polices, images, sources de pièces jointes et fichiers intégrés. La valeur `false` affecte les générations suivantes, conserve les entrées existantes et ne remplace pas un `cache: true` explicite. Avant 0.3.14, les téléchargements étaient automatiquement partagés ; `true` rétablit ce comportement.
 
@@ -180,9 +180,9 @@ La clé des ressources partagées est uniquement leur URL, même si `Authorizati
 
 ## Vider le cache des ressources URL {#clear-url-resource-cache}
 
-Disponible dans la branche de développement amont pour **0.3.14** ; absent du moteur 0.3.13 fixé pour le playground.
+Disponible depuis **0.3.14**.
 
-`clearUrlResourceCache()` ne prend aucun paramètre et supprime synchroniquement les entrées partagées commençant par `http://` ou `https://`, sans distinction de casse. Les autres fichiers VFS, ressources propres au document et réglages globaux sont conservés. Appelez-la entre les générations, après la fin des opérations actives ; elle n’annule pas les téléchargements en cours et ne vide pas le cache HTTP du navigateur.
+Dans 0.3.14/0.3.15, le nettoyage supprime les ressources HTTP/HTTPS partagées. À partir de **0.3.16**, il concerne tous les schémas URL actuellement enregistrés. Les autres fichiers VFS, ressources propres au document et réglages du cache sont conservés. Appelez la méthode entre générations après la fin des opérations actives ; elle n’annule pas les téléchargements et ne vide pas le cache HTTP du navigateur.
 
 **JavaScript**
 
@@ -197,3 +197,83 @@ pdfmake.createPdf(docDefinition).write('document.pdf');
 pdfmake.clearUrlResourceCache();
 pdfmake.createPdf(docDefinition).write('document.pdf');
 ```
+
+## Téléchargements URL simultanés {#url-resource-concurrency}
+
+API de développement amont pour **0.3.16** ; indisponible dans le moteur 0.3.15 fixé pour le playground.
+
+`setUrlResourceConcurrency(concurrency)` limite les téléchargements simultanés par document pour les polices, images, pièces jointes et fichiers intégrés. L’argument obligatoire est un entier positif ; la valeur par défaut est `5`. Les modifications concernent les appels `createPdf()` suivants.
+
+**JavaScript**
+
+```js
+pdfmake.setUrlResourceConcurrency(3);
+```
+
+**TypeScript**
+
+```ts
+pdfmake.setUrlResourceConcurrency(3);
+```
+
+## Protocoles URL {#url-protocols}
+
+API de développement amont pour **0.3.16** ; indisponible dans le moteur 0.3.15 fixé pour le playground.
+
+`registerUrlProtocol(protocol, handler)` enregistre ou remplace un schéma URL ; `unregisterUrlProtocol(protocol)` le supprime et vide son cache partagé. HTTP et HTTPS sont enregistrés initialement. Les noms sont insensibles à la casse et acceptent un deux-points final. Sans gestionnaire, Fetch est utilisé ; dans le navigateur, cela permet aussi des schémas comme `blob`.
+
+**JavaScript**
+
+```js
+var fs = require('fs').promises;
+var path = require('path');
+var assets = {
+  'asset://logo': path.join(__dirname, 'images/logo.png')
+};
+
+pdfmake.setUrlAccessPolicy(url => Object.prototype.hasOwnProperty.call(assets, url));
+pdfmake.registerUrlProtocol('asset', async (url, headers, validateUrlAccessPolicy) => {
+  var buffer = await fs.readFile(assets[url]);
+  // This handler reads a local file and does not follow redirects.
+  return { buffer: buffer, url: url };
+});
+
+var docDefinition = {
+  content: [{ image: 'logo' }],
+  images: { logo: { url: 'asset://logo', cache: true } }
+};
+
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+**TypeScript**
+
+```ts
+import type { TDocumentDefinitions } from "pdfmake/interfaces";
+
+var fs = require('fs').promises;
+var path = require('path');
+var assets = {
+  'asset://logo': path.join(__dirname, 'images/logo.png')
+};
+
+pdfmake.setUrlAccessPolicy(url => Object.prototype.hasOwnProperty.call(assets, url));
+pdfmake.registerUrlProtocol('asset', async (url, headers, validateUrlAccessPolicy) => {
+  var buffer = await fs.readFile(assets[url]);
+  // This handler reads a local file and does not follow redirects.
+  return { buffer: buffer, url: url };
+});
+
+var docDefinition: TDocumentDefinitions = {
+  content: [{ image: 'logo' }],
+  images: { logo: { url: 'asset://logo', cache: true } }
+};
+
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+Un gestionnaire reçoit `(url, headers, validateUrlAccessPolicy)` et renvoie une promesse de `{ buffer, url }`. Les en-têtes absents deviennent un objet vide. Renvoyez un `ArrayBuffer` ou `Uint8Array` (y compris un `Buffer` Node) et une URL finale non vide, ou l’URL initiale en l’absence de redirection.
+
+La [règle d’accès URL](#url-access-policy) doit renvoyer `true` synchroniquement. pdfmake vérifie les URL initiale et renvoyée. Avant chaque redirection, le gestionnaire doit appeler `validateUrlAccessPolicy(targetUrl)` : cette fonction lève une exception en cas de refus et autorise l’accès sans règle configurée. Les gestionnaires personnalisés doivent imposer eux-mêmes les restrictions sur les fichiers locaux.
+
+Ces protocoles concernent polices, images, pièces jointes et fichiers intégrés et partagent la [limite de téléchargement](#url-resource-concurrency) et les [réglages du cache](#url-resource-caching). Les modifications d’enregistrement concernent les générations suivantes ; celles en cours conservent leurs gestionnaires. Supprimer un gestionnaire HTTP/HTTPS remplacé ne rétablit pas Fetch : appelez `registerUrlProtocol("https")`. Les noms doivent être des schémas URL valides et les gestionnaires fournis des fonctions.

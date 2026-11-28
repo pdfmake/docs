@@ -2,7 +2,7 @@
 title = "InstalaciÃ³n"
 description = "Instala pdfmake 0.3 en Node.js o el navegador y elige una salida basada en Promises para tu aplicaciÃ³n."
 weight = 10
-sourceDigest = "99fb4e43045381e3fb65fdf81576ac12ed30e6cf3ca5e79f4130207b775a67d0"
+sourceDigest = "9be7ead7b05b849e4f458b7362103f1ab83ebfbd26a18f846aab3caf91c47c08"
 +++
 
 ## Elige el entorno de ejecuciÃ³n
@@ -18,10 +18,10 @@ Usa la documentaciÃ³n correspondiente a la versiÃ³n instalada (`npm ls pdfma
 
 ## JavaScript y TypeScript
 
-Esta rama de desarrollo incluye declaraciones TypeScript propias con la biblioteca y separa las API de Node y navegador. Para el paquete construido localmente, instala TypeScript sin `@types/pdfmake`. El paquete npm publicado 0.3.13 aún necesita sus tipos comunitarios correspondientes; las declaraciones nativas y la validación previa descritas aquí todavía no están publicadas. El compilador comprobado es TypeScript 5.9.3.
+Esta rama de desarrollo incluye declaraciones TypeScript propias con la biblioteca y separa las API de Node y navegador. Para el paquete construido localmente, instala TypeScript sin `@types/pdfmake`. El paquete npm publicado 0.3.15 aún necesita sus tipos comunitarios correspondientes; las declaraciones nativas y la validación previa descritas aquí todavía no están publicadas. El compilador comprobado es TypeScript 5.9.3.
 
 ```sh
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 npm install --save-dev typescript@~5.9.3
 ```
 

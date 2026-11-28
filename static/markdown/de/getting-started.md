@@ -19,10 +19,10 @@ Verwende die Dokumentation passend zur installierten Version (`npm ls pdfmake`).
 
 ## JavaScript und TypeScript
 
-Dieser Entwicklungszweig liefert eigene TypeScript-Deklarationen mit der Library aus und trennt Node- und Browser-APIs. Installiere für den lokal gepackten Zweig TypeScript ohne `@types/pdfmake`. Das veröffentlichte npm-Paket 0.3.13 benötigt weiterhin passende Community-Typen; die hier beschriebenen nativen Deklarationen und die Vorabvalidierung sind noch unveröffentlicht. Geprüft wird mit TypeScript 5.9.3.
+Dieser Entwicklungszweig liefert eigene TypeScript-Deklarationen mit der Library aus und trennt Node- und Browser-APIs. Installiere für den lokal gepackten Zweig TypeScript ohne `@types/pdfmake`. Das veröffentlichte npm-Paket 0.3.15 benötigt weiterhin passende Community-Typen; die hier beschriebenen nativen Deklarationen und die Vorabvalidierung sind noch unveröffentlicht. Geprüft wird mit TypeScript 5.9.3.
 
 ```sh
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 npm install --save-dev typescript@~5.9.3
 ```
 

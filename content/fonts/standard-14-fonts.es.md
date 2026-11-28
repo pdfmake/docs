@@ -1,5 +1,5 @@
 +++
-sourceDigest = "201689392ed36c1d4a7a653265576461a8802566860caae2b86967ad9d9e0367"
+sourceDigest = "97e121c450627f6a28bd0c6afdd0e427620885461a4142d16c9e79748617fb9c"
 title = "Las 14 fuentes estándar"
 description = "Usa familias de fuentes PDF estándar en Node.js y en los paquetes para navegador, con codificaciones de caracteres limitadas."
 weight = 15
@@ -66,8 +66,8 @@ Los paquetes de fuentes estándar están disponibles en el directorio `build/sta
 Por ejemplo, para usar Helvetica:
 
 ```html
-<script src="https://unpkg.com/pdfmake@0.3.13/build/pdfmake.min.js"></script>
-<script src="https://unpkg.com/pdfmake@0.3.13/build/standard-fonts/Helvetica.js"></script>
+<script src="https://unpkg.com/pdfmake@0.3.15/build/pdfmake.min.js"></script>
+<script src="https://unpkg.com/pdfmake@0.3.15/build/standard-fonts/Helvetica.js"></script>
 <script>
   var docDefinition = {
     content: ['First paragraph', 'Another paragraph'],

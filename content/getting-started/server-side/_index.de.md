@@ -2,16 +2,16 @@
 title = "Node.js-Schnellstart"
 description = "Erzeuge mit Node.js, pdfmake 0.3, Standardschriften und Promise-basierter Ausgabe eine vollständige PDF-Datei."
 weight = 12
-sourceDigest = "a943d71f035716932810834880e3bf5c02cde041ecc0cf438373b27e0c62157d"
+sourceDigest = "d2d4ad138e12a2185cac565e19ab53f194dbba872449069692c7fbea3f8fff22"
 +++
 
 ## Installieren
 
-Verwende **Node.js 20 oder neuer**. Erstelle eine Anwendung und installiere pdfmake:
+Verwende **Node.js 20.19 oder neuer**. Erstelle eine Anwendung und installiere pdfmake:
 
 ```sh
 npm init -y
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 ```
 
 Die genaue Version macht das Beispiel reproduzierbar. Prüfe die Versionshinweise und teste, bevor du ein neueres Patch-Release auswählst.

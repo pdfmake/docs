@@ -2,7 +2,7 @@
 title = "Bien dÃ©marrer"
 description = "Choisissez Node.js ou le navigateur, enregistrez les polices et gÃ©nÃ©rez votre premier PDF avec pdfmake 0.3."
 weight = 10
-sourceDigest = "99fb4e43045381e3fb65fdf81576ac12ed30e6cf3ca5e79f4130207b775a67d0"
+sourceDigest = "9be7ead7b05b849e4f458b7362103f1ab83ebfbd26a18f846aab3caf91c47c08"
 +++
 
 ## Choisir votre environnement
@@ -18,10 +18,10 @@ Consultez la documentation correspondant Ã  la version installÃ©e (`npm ls p
 
 ## JavaScript et TypeScript
 
-Cette branche de développement fournit ses propres déclarations TypeScript avec la bibliothèque et sépare les API Node et navigateur. Pour le paquet construit localement, installez TypeScript sans `@types/pdfmake`. Le paquet npm publié 0.3.13 nécessite encore les types communautaires correspondants ; les déclarations natives et la validation préalable présentées ici ne sont pas encore publiées. Le compilateur vérifié est TypeScript 5.9.3.
+Cette branche de développement fournit ses propres déclarations TypeScript avec la bibliothèque et sépare les API Node et navigateur. Pour le paquet construit localement, installez TypeScript sans `@types/pdfmake`. Le paquet npm publié 0.3.15 nécessite encore les types communautaires correspondants ; les déclarations natives et la validation préalable présentées ici ne sont pas encore publiées. Le compilateur vérifié est TypeScript 5.9.3.
 
 ```sh
-npm install pdfmake@0.3.13
+npm install pdfmake@0.3.15
 npm install --save-dev typescript@~5.9.3
 ```
 
