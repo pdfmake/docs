@@ -1,6 +1,6 @@
 +++
 title = "Page dimensions, orientation and margins"
-description = ""
+description = "Set page size, orientation and margins, and control automatic or explicit page breaks."
 weight = 2250
 alwaysopen = true
 +++
@@ -16,6 +16,7 @@ var docDefinition = {
 
   // [left, top, right, bottom] or [horizontal, vertical] or just a number for equal margins
   pageMargins: [ 40, 60, 40, 60 ],
+  content: ['Page size, orientation and margins.']
 };
 ```
 
@@ -57,7 +58,7 @@ var dd = {
 ```
 
 
-#### Dynamically control page breaks, for instance to avoid orphan children
+## Dynamically control page breaks, for instance to avoid orphan children
 
 A `pageBreakBefore` function can be specified, which can determine if a page break should be inserted before a node. To implement a 'no orphan child' rule, use a definition like this:
 
@@ -96,7 +97,7 @@ If `pageBreakBefore` returns true, a page break will be added before the `curren
    canvas: '<as specified in doc definition>',
    columns: '<as specified in doc definition>',
    style: '<as specified in doc definition>',
-   pageOrientation '<as specified in doc definition>',
+   pageOrientation: '<as specified in doc definition>',
    pageNumbers: [2, 3], // The pages this element is visible on (e.g. multi-line text could be on more than one page)
    pages: 6, // the total number of pages of this document
    stack: false, // if this is an element which encapsulates multiple sub-objects

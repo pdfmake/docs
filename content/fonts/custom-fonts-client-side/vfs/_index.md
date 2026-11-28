@@ -1,100 +1,60 @@
 +++
-title = "via Virtual file system (VFS)"
-description = ""
+title = "Custom fonts with VFS"
+description = "Build a virtual font filesystem outside node_modules, register font variants, and use a custom family in browser PDFs."
 weight = 15
-alwaysopen = true
 +++
 
-{{% alert theme="info" %}}This article is only for **client-side usage** (in browser)! For server-side use **real font files**.{{% /alert %}}
+## Build the font container
 
-## TL;DR
+Use licensed font files that cover your target languages. Place them in your application's `fonts/` directory and generate a VFS file from your project root:
 
-pdfmake uses a 2nd file: `vfs_fonts.js` for fonts (and other files) you wish to embed into your generated PDFs.
-
-When you run command `node build-vfs.js "./examples/fonts"` in the pdfmake package directory a new `build/vfs_fonts.js` file is created containing an **embedded copy** of all files from the local `examples/fonts` subdirectory.
-
-# Detailed Instructions
-
-To use custom fonts, 3 steps are required:
-
-1. create a new `vfs_fonts.js` file containing your font files
-1. assign `pdfMake.addFonts(...)` in your javascript
-1. specify the font in your doc-definition
-
-
-## 1. create a new `vfs_fonts.js` containing your font files
-
-* Install pdfmake `npm install pdfmake`
-* Go to package directory `./node_modules/pdfmake/`
-* Create the `examples/fonts` subdirectory in your pdfmake code directory, if it doesn't already exist.
-* Copy your fonts (and other files you wish to embed) into the `examples/fonts` subdirectory.
-* Run command `node build-vfs.js "./examples/fonts"`. Or run `node build-vfs.js` to show help.
-* Include your new **build/vfs_fonts.js** file in your code (in the same way you include `pdfmake.js` or `pdfmake.min.js`).
-
-{{% alert theme="info" %}}It is recommended to **move** `vfs_fonts.js` file into your own folder structure (should not be in `node_modules` folder).
-
-The next time you run `npm install` it might get replaced in `node_modules` with the original content.
-
-If your framework caches `node_modules` folder the changes may not take effect. Clear the cache or move `vfs_fonts.js` file outside of `node_modules` folder.{{% /alert %}}
-
-The above steps embeds **all** files from `examples/fonts` (into a local key/value variable `pdfMake.vfs`) - not only fonts. Which means you could put images in there, run `node build-vfs.js "./examples/fonts`, and reference them by filename in your doc-definition object.
-
-You don't need to reference the files in ```examples/fonts``` anymore because all files have been copied to the `vfs_fonts.js`.
-
-For building script in other languages see [https://github.com/pdfmake/vfs-builders](https://github.com/pdfmake/vfs-builders).
-
-## 2. assign `pdfMake.addFonts(...)` in your javascript
-
-In your code, before calling `pdfMake.createPdf(docDefinition)` set `pdfMake.addFonts(...)` as in the example below (notice we don't specify paths, just filenames):
-
-```javascript
-pdfMake.fonts = {
-  yourFontName: {
-    normal: 'fontFile.ttf',
-    bold: 'fontFile2.ttf',
-    italics: 'fontFile3.ttf',
-    bolditalics: 'fontFile4.ttf'
-  },
-  anotherFontName: {
-    (...)
-  },
-
-  // example of usage fonts in collection
-  PingFangSC: {
-    normal: ['pingfang.ttc', 'PingFangSC-Regular'],
-    bold: ['pingfang.ttc', 'PingFangSC-Semibold'],
-  }
-}
+```sh
+node node_modules/pdfmake/build-vfs.js ./fonts ./vfs_fonts.js
 ```
 
-The keys defined here will be used as font names in your doc-definition styles.
+This embeds **all files** in the supplied directory as base64 entries. Keep generated application assets outside `node_modules` so an install cannot overwrite your custom fonts. Rebuild the VFS whenever the font files change. Browser VFS is unnecessary for normal [Node font paths](/docs/0.3/fonts/).
 
-Each font-family defines 4 properties: normal, bold, italics and bolditalics referring to appropriate files (the ones you embedded from `examples/fonts/`). You should define all 4 components (even if they all point to the same font file).
+## Load and register
 
-By default pdfmake uses the following font structure:
+Load the engine before your generated VFS script. The generated script registers its files when `pdfMake` is already available. In a bundler, import the VFS object and call `addVirtualFileSystem` explicitly:
 
-```javascript
+```js
+import pdfMake from 'pdfmake/build/pdfmake';
+import customVfs from './vfs_fonts';
+
+pdfMake.addVirtualFileSystem(customVfs);
 pdfMake.addFonts({
-  Roboto: {
-    normal: 'Roboto-Regular.ttf',
-    bold: 'Roboto-Medium.ttf',
-    italics: 'Roboto-Italic.ttf',
-    bolditalics: 'Roboto-MediumItalic.ttf'
+  MyFont: {
+    normal: 'MyFont-Regular.ttf',
+    bold: 'MyFont-Bold.ttf',
+    italics: 'MyFont-Italic.ttf',
+    bolditalics: 'MyFont-BoldItalic.ttf'
+  }
+});
+
+await pdfMake.createPdf({
+  defaultStyle: { font: 'MyFont' },
+  content: ['A document using my font.']
+}).download('document.pdf');
+```
+
+Replace these names with the exact keys in your generated VFS. Font family names such as `MyFont` are the names you use in styles; file keys identify embedded files. Define every variant you use. You can map multiple variants to one file when that is intentional, but this does not create a real bold or italic face.
+
+## Font collections
+
+For a supported TrueType collection, a descriptor can be `[filename, faceName]`:
+
+```js
+pdfMake.addFonts({
+  PingFangSC: {
+    normal: ['pingfang.ttc', 'PingFangSC-Regular'],
+    bold: ['pingfang.ttc', 'PingFangSC-Semibold']
   }
 });
 ```
 
-## 3. specify the font in your doc-definition
+Embed the collection and use valid face names. This example registers normal and bold only; add italic variants before using them.
 
-pdfMake uses 'Roboto' as default font, so in order to use your font, you should specify it in your doc-definition object.
+## Common failures
 
-The easiest way is to set it globally in the **defaultStyle**
-
-```javascript
-var docDefinition = {
-  content: (...),
-  defaultStyle: {
-    font: 'yourFontName'
-  }
-}
-```
+If a file cannot be found, compare the descriptor filename to the generated VFS keys. If a font is undefined, compare `defaultStyle.font` to the family map. If characters are missing, test the font's glyph coverage. If the browser bundle is large, remove unused families and files from the VFS input directory.

@@ -1,6 +1,6 @@
 +++
 title = "Examples from the community"
-description = ""
+description = "Configure examples from the community in pdfmake 0.3 with examples, options and usage notes."
 weight = 13
 alwaysopen = false
 +++

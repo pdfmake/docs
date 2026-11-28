@@ -1,11 +1,11 @@
 +++
 title = "Watermark"
-description = ""
+description = "Configure watermark in pdfmake 0.3 with examples, options and usage notes."
 weight = 2240
 alwaysopen = true
 +++
 
-#### Properties
+## Properties
 
 * `text` - watermark text
 * `color` - color of text
@@ -15,7 +15,7 @@ alwaysopen = true
 * `fontSize` - own font size of text (ideal size is calculated automatically)
 * `angle` - angle of text rotation
 
-#### Examples
+## Examples
 
 Example of simple basic usage:
 ```js

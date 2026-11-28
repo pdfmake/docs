@@ -1,2 +1,11 @@
 public/
 /.idea
+node_modules/
+.hugo_build.lock
+resources/
+static/playground/vendor/
+static/playground/editor.js
+test-results/
+
+.generated/
+collection/

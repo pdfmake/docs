@@ -1,6 +1,6 @@
 +++
 title = "Patterns"
-description = ""
+description = "Configure patterns in pdfmake 0.3 with examples, options and usage notes."
 weight = 2270
 alwaysopen = true
 +++
@@ -9,7 +9,7 @@ Patterns can be defined as a dictionary of predefined patterns in the document d
 
 Only tiling patterns are supported.
 
-#### Pattern definition
+## Pattern definition
 
 Each pattern is defined using:
 
@@ -20,7 +20,7 @@ Each pattern is defined using:
 
 For more information on each property and patterns in general see the [PDF reference](https://www.adobe.com/content/dam/acom/en/devnet/pdf/pdfs/pdf_reference_archives/PDFReference.pdf), section 4.6 and 4.6.2 specifically on tiling patterns.
 
-#### Pattern definition example
+## Pattern definition example
 
 Basic pattern that produces a 45° stripe pattern:
 
@@ -40,7 +40,7 @@ var docDefinition = {
 
 The output can be seen in the vector example.
 
-#### Usage in vectors, tables and text
+## Usage in vectors, tables and text
 
 The following properties are available.
 
@@ -60,7 +60,7 @@ For table cells:
 
 Each of the above properties is defined as a tuple `[string, string]`. The first element is the key in the patterns dictionary and the second is the color to use to paint the pattern.
 
-#### Examples
+## Examples
 
 Text:
 

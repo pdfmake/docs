@@ -1,0 +1,156 @@
++++
+title = "Ausgabemethoden in Node.js"
+description = "Referenz für createPdf, Buffer, Base64, Datei- und Streamausgabe sowie Ressourcenrichtlinien in pdfmake 0.3."
+weight = 12
+sourceDigest = "14fe2c5c6678f215704170d8fb9d4c48cc2b4e79f68e0c221b0f901e5c7b3dfa"
++++
+
+## Dokument erstellen
+
+```js
+const output = pdfmake.createPdf(docDefinition, options);
+```
+
+`docDefinition` ist eine [Dokumentdefinition](/docs/0.3/de/document-definition-object/). `options` ist ein optionales [Optionsobjekt](/docs/0.3/de/options/). `createPdf` gibt sofort einen Ausgabe-Wrapper zurück; Fehler bei der Generierung lehnen das Promise der Ausgabemethode ab. Ungültige Argumenttypen können synchron einen Fehler auslösen.
+
+## Ausgabemethoden
+
+| Methode | Ergebnis | Verwendung |
+| --- | --- | --- |
+| `write(filename)` | `undefined` | Datei schreiben und auf das Schließen warten |
+| `getBuffer()` | `Buffer` | PDF-Bytes für eine API zurückgeben |
+| `getBase64()` | `string` | Bytes als Base64 kodieren |
+| `getDataUrl()` | `string` | Base64 das Präfix `data:application/pdf;base64,` voranstellen |
+| `getStream()` | PDFKit-Dokumentstream | Stream direkt verwalten |
+
+```js
+try {
+  const output = pdfmake.createPdf(docDefinition);
+  const bytes = await output.getBuffer();
+  // Send or store bytes here.
+} catch (error) {
+  // Report generation failure to your caller.
+}
+```
+
+`getBuffer()` speichert sein Promise zwischen; `getBase64()` und `getDataUrl()` verwenden dieselben Bytes wieder. Erzeuge für einen unabhängigen Renderdurchlauf einen neuen Ausgabe-Wrapper. Kombiniere die manuelle Streamverarbeitung nicht mit Buffer- oder Dateihilfsmethoden auf demselben Wrapper.
+
+## Stream verarbeiten
+
+```js
+const stream = await pdfmake.createPdf(docDefinition).getStream();
+stream.on('error', error => { /* Handle generation errors. */ });
+destination.on('error', error => { /* Handle destination errors. */ });
+stream.pipe(destination);
+stream.end();
+```
+
+`destination` muss ein von deiner Anwendung verwalteter beschreibbarer Stream sein. Registriere Ereignis-Listener, bevor du `end()` aufrufst. Für eine einfache Datei ist `write()` vorzuziehen. Streaming macht das Dokumentlayout nicht inkrementell: pdfmake legt das Dokumentlayout fertig, bevor der Stream zurückgegeben wird.
+
+## URL-Zugriffsrichtlinie {#url-access-policy}
+
+Verfügbar seit **0.3.6**. Konfiguriere sie vor dem Erstellen von Dokumenten:
+
+```js
+pdfmake.setUrlAccessPolicy(url => {
+  const parsed = new URL(url);
+  return parsed.protocol === 'https:' && parsed.hostname === 'assets.example.com';
+});
+```
+
+Der Callback muss synchron den booleschen Wert `true` zurückgeben, damit eine URL erlaubt wird. Eine `async`-Funktion gibt ein Promise zurück und wird in der aktuellen Implementierung abgelehnt. Eine Zulassungsliste ist nur eine Schutzmaßnahme gegen SSRF; setze Netzwerkregeln ein oder verwende geprüfte Bytes, wenn du nicht vertrauenswürdige Eingaben verarbeitest. Siehe [Ressourcensicherheit](/docs/0.3/de/guides/resource-security/).
+
+## Zugriff auf lokale Dateien
+
+Verfügbar seit **0.3.8**. Wenn alle Ressourcen eingebettet sind, kannst du lokale Dateien sperren:
+
+```js
+pdfmake.setLocalAccessPolicy(() => false);
+```
+
+Erlaube für lokale Schriften oder Bilder exakt aufgelöste Pfade statt eines Zeichenfolgenpräfixes. Siehe die [vollständige Einrichtung lokaler Schriften](/docs/0.3/de/fonts/). `undefined` löscht eine konfigurierte Richtlinie; eine nicht gesetzte Richtlinie sperrt nicht automatisch alle Zugriffe.
+
+## URL-Ressourcen zwischenspeichern {#url-resource-caching}
+
+Verfügbar seit **0.3.14**.
+
+Verwende `setUrlResourceCaching(enabled)` mit einem erforderlichen booleschen Wert, um neue URL-Downloads zwischen Dokumenten zu teilen. Der Standard ist `false`. Ein einzelnes Ressourcenobjekt `{ url, headers, cache }` überschreibt diese Einstellung; `headers` ist optional. Das gilt für Schriften, Bilder, Anhangsquellen und eingebettete Dateien. `false` betrifft spätere Generierungen, erhält vorhandene Cache-Einträge und überschreibt kein ausdrückliches `cache: true`. Vor 0.3.14 wurden Downloads automatisch geteilt; `true` stellt dieses Verhalten wieder her.
+
+```js
+pdfmake.setUrlResourceCaching(true);
+
+var docDefinition = {
+  content: [{ image: 'logo' }, { image: 'photo' }],
+  images: {
+    // Uses the global caching setting.
+    logo: 'https://example.com/logo.png',
+    photo: {
+      url: 'https://example.com/photo.png',
+      headers: { Authorization: 'Bearer token' },
+      // Store a new download only for this document.
+      cache: false
+    }
+  }
+};
+
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+Neue Downloads werden standardmäßig pro Dokument gespeichert. `cache: true` legt neue Daten im gemeinsamen Arbeitsspeicher-Cache für spätere Dokumente ab; `cache: false` erlaubt weiterhin das Lesen vorhandener gemeinsamer Einträge. URL-Zeichenfolgen und Objekte ohne `cache` verwenden die globale Einstellung. Der HTTP-Cache des Browsers ist davon unabhängig.
+
+Gemeinsame Ressourcen werden nur anhand der URL gespeichert, auch bei abweichendem `Authorization`-Header oder anderen Headern. Ein Cache-Zugriff kontaktiert weder den Ursprungsserver noch prüft er dort die Berechtigung erneut. Teile keine Ressourcen, deren Inhalt oder Berechtigung von Headern abhängt. Die [URL-Zugriffsrichtlinie](#url-access-policy) gilt für Netzwerkdownloads, nicht für Cache-Zugriffe.
+
+## URL-Ressourcen-Cache leeren {#clear-url-resource-cache}
+
+Verfügbar seit **0.3.14**.
+
+In 0.3.14/0.3.15 entfernt das Leeren gemeinsame HTTP/HTTPS-Ressourcen. Ab **0.3.16** betrifft es Ressourcen aller aktuell registrierten URL-Schemas. Andere VFS-Dateien, dokumentbezogene Ressourcen und die Cache-Einstellung bleiben erhalten. Rufe die Methode zwischen Generierungen nach Abschluss aktiver Arbeiten auf; sie bricht weder Downloads ab noch leert sie den HTTP-Cache des Browsers.
+
+```js
+pdfmake.clearUrlResourceCache();
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+## Gleichzeitige URL-Downloads {#url-resource-concurrency}
+
+Upstream-Entwicklungs-API für **0.3.16**; in der festgelegten Playground-Laufzeit 0.3.15 nicht verfügbar.
+
+`setUrlResourceConcurrency(concurrency)` begrenzt gleichzeitige Downloads pro Dokument für Schriften, Bilder, Anhänge und eingebettete Dateien. Das erforderliche Argument muss eine positive ganze Zahl sein; der Standard ist `5`. Änderungen gelten für spätere `createPdf()`-Aufrufe.
+
+```js
+pdfmake.setUrlResourceConcurrency(3);
+```
+
+## URL-Protokolle {#url-protocols}
+
+Upstream-Entwicklungs-API für **0.3.16**; in der festgelegten Playground-Laufzeit 0.3.15 nicht verfügbar.
+
+`registerUrlProtocol(protocol, handler)` registriert oder ersetzt ein URL-Schema; `unregisterUrlProtocol(protocol)` entfernt es und leert dessen gemeinsamen Cache. HTTP und HTTPS sind anfangs registriert. Schemanamen sind unabhängig von Groß- und Kleinschreibung und erlauben einen abschließenden Doppelpunkt. Ohne Handler wird Fetch verwendet; im Browser unterstützt das auch Schemas wie `blob`.
+
+```js
+var fs = require('fs').promises;
+var path = require('path');
+var assets = {
+  'asset://logo': path.join(__dirname, 'images/logo.png')
+};
+
+pdfmake.setUrlAccessPolicy(url => Object.prototype.hasOwnProperty.call(assets, url));
+pdfmake.registerUrlProtocol('asset', async (url, headers, validateUrlAccessPolicy) => {
+  var buffer = await fs.readFile(assets[url]);
+  // This handler reads a local file and does not follow redirects.
+  return { buffer: buffer, url: url };
+});
+
+var docDefinition = {
+  content: [{ image: 'logo' }],
+  images: { logo: { url: 'asset://logo', cache: true } }
+};
+
+pdfmake.createPdf(docDefinition).write('document.pdf');
+```
+
+Ein Handler erhält `(url, headers, validateUrlAccessPolicy)` und liefert ein Promise mit `{ buffer, url }`. Ohne Request-Header wird ein leeres Objekt übergeben. Gib einen `ArrayBuffer` oder `Uint8Array` (einschließlich Node-`Buffer`) und eine nicht leere endgültige URL zurück; ohne Weiterleitung gilt die ursprüngliche URL.
+
+Die [URL-Zugriffsrichtlinie](#url-access-policy) muss synchron `true` zurückgeben. pdfmake prüft die anfängliche und die zurückgegebene URL. Vor jeder Weiterleitung muss der Handler `validateUrlAccessPolicy(targetUrl)` aufrufen: Die Funktion wirft bei Verweigerung einen Fehler und erlaubt den Zugriff ohne konfigurierte Richtlinie. Eigene Handler müssen lokale Dateibeschränkungen selbst durchsetzen.
+
+Diese Protokolle gelten für Schriften, Bilder, Anhänge und eingebettete Dateien und teilen das [Downloadlimit](#url-resource-concurrency) sowie die [Cache-Einstellungen](#url-resource-caching). Registrierungsänderungen gelten für spätere Generierungen; aktive behalten ihre Handler. Das Entfernen eines überschriebenen HTTP/HTTPS-Handlers stellt Fetch nicht wieder her: Rufe dafür `registerUrlProtocol("https")` auf. Protokollnamen müssen gültige URL-Schemas und übergebene Handler Funktionen sein.

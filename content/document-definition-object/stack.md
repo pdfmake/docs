@@ -1,6 +1,6 @@
 +++
 title = "Stack of paragraphs"
-description = ""
+description = "Configure stack of paragraphs in pdfmake 0.3 with examples, options and usage notes."
 weight = 2080
 alwaysopen = true
 +++
@@ -55,9 +55,9 @@ var docDefinition = {
 };
 ```
 
-#### Keeping a stack together
+## Keep a stack together
 
-Set `unbreakable: true` on a stack to keep its contents together on one page. If the stack fits on a page but not in the remaining space, it moves to the next page.
+Set `unbreakable: true` to keep a stack on one page when it fits. If only the current page lacks space, the stack moves intact to the next page. For oversized stacks, see [unbreakable overflow](/docs/0.3/options/#unbreakable-overflow).
 
 ```js
 var docDefinition = {
@@ -72,5 +72,3 @@ var docDefinition = {
   ]
 };
 ```
-
-For stacks too tall to fit on one page, see the [`unbreakableOverflow` option](/docs/0.3/options/#unbreakable-overflow) to allow splitting when possible or reject generation.

@@ -1,0 +1,53 @@
+{{ $localePrefix := "" }}{{ if ne .Language.Lang "en" }}{{ $localePrefix = printf "%s/" .Language.Lang }}{{ end }}{{ $markdown := "" }}{{ with .File }}{{ $source := replace .Path "\\" "/" }}{{ if ne $source "_footer.md" }}{{ $id := replaceRE "(^|/)_index(?:\\.[a-z-]+)?\\.md$|(?:\\.[a-z-]+)?\\.md$" "" $source }}{{ if not $id }}{{ $id = "index" }}{{ end }}{{ $markdown = printf "markdown/%s%s.md" $localePrefix $id | relURL }}{{ end }}{{ end }}
+<!doctype html>
+<html lang="{{ .Language.Locale }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ if not .IsHome }}{{ .Title }} · {{ end }}pdfmake {{ .Site.Params.docsVersion }} · {{ i18n "docs" }}</title>
+  <meta name="description" content="{{ .Description | default "Build PDFs in JavaScript with pdfmake: runnable guides, document reference and developer tools." }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  {{ range .AllTranslations }}<link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">{{ if eq .Language.Lang "en" }}<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">{{ end }}{{ end }}
+  <link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | relURL }}">
+  <meta property="og:title" content="{{ .Title }} · pdfmake">
+  <meta property="og:description" content="{{ .Description }}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "playground/brand/icon-32.png" | relURL }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ "playground/brand/icon-16.png" | relURL }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "playground/brand/icon-180.png" | relURL }}">
+  <meta name="color-scheme" content="light dark">
+  <script src="{{ "playground/theme.js" | relURL }}"></script>
+  <link rel="stylesheet" href="{{ "assets/docs.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "assets/workspace.css" | relURL }}">
+  <link rel="alternate" type="text/plain" title="LLM documentation index" href="{{ printf "%sllms.txt" $localePrefix | relURL }}">
+  {{ with $markdown }}<link rel="alternate" type="text/markdown" title="This page as Markdown" href="{{ . }}">{{ end }}
+  {{ $codeUI := dict }}{{ range (slice "codeLanguage" "editCode" "codeUndo" "codeRedo" "codeReset" "codeRun" "codeLive" "codePrevious" "codeNext" "codeDownload" "codePdfText" "codeNoJs" "codeFailed" "codeWaiting" "codeNodeContext" "codeContext" "codePdf" "codeReady" "codeTooLarge" "codeRendering" "codeChecked" "codeTimeout" "copy" "copied" "copyFailed") }}{{ $codeUI = merge $codeUI (dict . (i18n .)) }}{{ end }}
+  <script defer src="{{ "assets/docs.js" | relURL }}" data-index="{{ printf "%sdocs-index.json" $localePrefix | relURL }}" data-language="{{ .Language.Lang }}" data-version="{{ .Site.Params.docsVersion }}" data-code-ui="{{ $codeUI | jsonify }}" data-playground="{{ "playground/app.js" | relURL }}" data-ui="{{ dict "copy" (i18n "copy") "copied" (i18n "copied") "copyFailed" (i18n "copyFailed") "searchFailed" (i18n "searchFailed") "noResults" (i18n "noResults") "results" (i18n "results") | jsonify }}"></script>
+  {{ $data := dict "@context" "https://schema.org" "@type" "TechArticle" "headline" .Title "description" .Description "url" .Permalink "inLanguage" .Language.Locale }}
+  <script type="application/ld+json">{{ $data | jsonify | safeJS }}</script>
+</head>
+<body>
+  <a class="skip" href="#main">{{ i18n "skip" }}</a>
+  <header class="topbar">
+    <button class="nav-toggle" type="button" aria-controls="docs-sidebar" aria-expanded="false" hidden>{{ i18n "menu" }}</button>
+    <a class="brand" href="{{ .Site.Home.RelPermalink }}"><img class="brand-logo" src="{{ "playground/brand/pdfmake-logo.png" | relURL }}" alt="pdfMake" width="900" height="202"></a>
+    <nav class="primary-nav" aria-label="pdfmake"><a href="{{ .Site.Home.RelPermalink }}" data-section="docs">{{ i18n "documentation" }}</a><a href="{{ printf "%splayground/" $localePrefix | relURL }}" data-section="playground">{{ i18n "openPlayground" }}</a></nav>
+    <div class="search-area"><label class="sr-only" for="search">{{ i18n "search" }}</label><input id="search" type="search" placeholder="{{ i18n "search" }}" maxlength="300" aria-controls="search-results" autocomplete="off"><kbd>/</kbd><div class="search-popover" hidden><p id="search-status" role="status" aria-live="polite"></p><ol id="search-results" hidden></ol></div></div>
+    <div class="header-links">{{ partial "versions.html" . }}{{ partial "languages.html" . }}<label class="theme-control" for="theme" hidden><span class="sr-only">{{ i18n "appearance" }}</span><select id="theme" aria-label="{{ i18n "appearance" }}"><option value="system">{{ i18n "system" }}</option><option value="light">{{ i18n "light" }}</option><option value="dark">{{ i18n "dark" }}</option></select></label><a class="github-link" href="https://github.com/bpampuch/pdfmake">GitHub ↗</a></div>
+  </header>
+  <button class="nav-backdrop" type="button" aria-label="{{ i18n "closeMenu" }}" hidden></button>
+  <div class="shell">
+    <aside class="sidebar" id="docs-sidebar" aria-label="{{ i18n "chapters" }}">{{ partial "navigation.html" . }}<div class="sidebar-bottom"><a href="{{ printf "%sllms.txt" $localePrefix | relURL }}">llms.txt</a><a href="{{ "guides/llm-and-mcp/" | relURL }}">{{ i18n "tools" }}</a><a href="https://pdfmake.github.io/docs/0.1/">0.1 / 0.2 ↗</a></div></aside>
+    <main id="main" tabindex="-1" data-page-kind="{{ if eq .Layout "workspace" }}workspace{{ else }}doc{{ end }}"{{ if eq .Layout "workspace" }} class="workspace-page"{{ end }}>
+      <nav class="breadcrumbs" aria-label="{{ i18n "chapters" }}"><a href="{{ .Site.Home.RelPermalink }}">{{ i18n "documentation" }}</a><span>/</span><span>{{ if .IsHome }}{{ i18n "navStart" }}{{ else }}{{ .Title }}{{ end }}</span></nav>
+      <div class="article-grid"><div class="article-body">
+        <h1>{{ if .IsHome }}{{ i18n "navStart" }}{{ else }}{{ .Title }}{{ end }}</h1><p class="lead">{{ .Description }}</p>
+        {{ if ne .Layout "workspace" }}<p class="version-note">{{ replace (i18n "versionNote") "0.3.x" .Site.Params.docsVersionLabel | safeHTML }}</p>{{ end }}
+        <article>{{ block "main" . }}{{ .Content }}{{ end }}</article>
+        {{ if ne .Layout "workspace" }}{{ partial "chapter-footer.html" . }}<footer>{{ with .File }}<a href="{{ $.Site.Params.editURL }}{{ replace .Path "\\" "/" }}">{{ i18n "edit" }} ↗</a>{{ end }}{{ with $markdown }}<a href="{{ . }}">{{ i18n "markdown" }}</a>{{ end }}<a href="{{ printf "%sllms-full.txt" $localePrefix | relURL }}">{{ i18n "corpus" }}</a></footer>{{ end }}
+      </div>{{ if ne .Layout "workspace" }}<aside class="toc" aria-label="{{ i18n "onPage" }}"><strong>{{ i18n "onPage" }}</strong>{{ .TableOfContents }}</aside>{{ end }}</div>
+    </main>
+  </div>
+</body>
+</html>

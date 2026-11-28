@@ -1,0 +1,22 @@
+import { prepareTypeScript } from './prepare-typescript.mjs';
+import { activeVersion } from './versions.mjs';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { createRequire } from 'node:module';
+import { build, transform } from 'esbuild';
+import { root } from './corpus.mjs';
+
+const require = createRequire(import.meta.url);
+const library = process.env.PDFMAKE_SOURCE || path.dirname(require.resolve('pdfmake/package.json'));
+const { version } = JSON.parse(await fs.readFile(path.join(library, 'package.json'), 'utf8'));
+if (version !== activeVersion.libraryVersion) throw new Error(`Playground library ${version} does not match configured ${activeVersion.libraryVersion}`);
+const output = path.join(root, 'static/playground/vendor');
+await fs.mkdir(output, { recursive: true });
+await prepareTypeScript(output, { transform });
+for (const name of ['pdfmake.min.js', 'vfs_fonts.js']) await fs.copyFile(path.join(library, 'build', name), path.join(output, name));
+const pdfjs = path.dirname(require.resolve('pdfjs-dist/package.json'));
+for (const name of ['pdf.mjs', 'pdf.worker.mjs']) await fs.copyFile(path.join(pdfjs, 'build', name), path.join(output, name));
+await fs.copyFile(path.join(pdfjs, 'LICENSE'), path.join(output, 'PDFJS-LICENSE.txt'));
+await fs.writeFile(path.join(output, 'version.json'), JSON.stringify({ version }) + '\n');
+await build({ entryPoints: [path.join(root, 'playground/editor.mjs')], outfile: path.join(root, 'static/playground/editor.js'), bundle: true, minify: true, format: 'esm', target: 'es2020', legalComments: 'eof' });
+console.log(`Prepared playground with pdfmake ${version} from ${library}`);

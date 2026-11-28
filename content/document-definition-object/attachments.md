@@ -1,6 +1,6 @@
 +++
 title = "Attachments embedding"
-description = ""
+description = "Configure attachments embedding in pdfmake 0.3 with examples, options and usage notes."
 weight = 2300
 alwaysopen = true
 +++
@@ -70,13 +70,11 @@ var dd = {
 };
 ```
 
-Since version **0.3.16**, URLs in the `attachments` and `files` dictionaries can also use [registered custom protocols](/docs/0.3/getting-started/server-side/methods/#url-protocols). These downloads share the per-document limit set by [setUrlResourceConcurrency()](/docs/0.3/getting-started/server-side/methods/#url-resource-concurrency).
+## URL resource caching {#url-resource-caching}
 
-#### URL resource caching
+Available since **0.3.14**.
 
-{{% alert theme="warning" %}}Minimal version: **0.3.14**{{% /alert %}}
-
-For URL resources in the `attachments` and `files` dictionaries, use an object as `src` to specify `url`, optional `headers`, and `cache`. The `cache` property belongs inside `src` and overrides the global `setUrlResourceCaching()` setting:
+For `attachments` and `files`, put the resource object with `url`, optional `headers` and `cache` inside `src`. The cache property belongs inside `src`.
 
 ```js
 var docDefinition = {
@@ -103,6 +101,8 @@ var docDefinition = {
 };
 ```
 
-By default, new downloads are stored per document. `cache: true` stores a new download in the shared cache for reuse by subsequent documents. `cache: false` stores a new download only for this document, but can still reuse an existing shared entry.
+New downloads are stored per document by default. `cache: true` stores new data in the shared in-memory cache for later documents; `cache: false` still allows reading an existing shared entry. URL strings and objects without `cache` use the global setting. The browser HTTP cache is independent.
 
-For details see [URL resource caching](/docs/0.3/getting-started/server-side/methods/#url-resource-caching).
+See [URL resource caching](/docs/0.3/getting-started/server-side/methods/#url-resource-caching) for configuration and cache security.
+
+Starting in **0.3.16**, fonts, images, attachments and embedded files may use [registered URL protocols](/docs/0.3/getting-started/server-side/methods/#url-protocols) and share the per-document [download limit](/docs/0.3/getting-started/server-side/methods/#url-resource-concurrency).

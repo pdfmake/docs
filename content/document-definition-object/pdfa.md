@@ -1,6 +1,6 @@
 +++
 title = "PDF/A"
-description = ""
+description = "Configure pdf/a in pdfmake 0.3 with examples, options and usage notes."
 weight = 2310
 alwaysopen = true
 +++
@@ -33,7 +33,7 @@ Supported PDF versions (property `version`):
 - `1.7ext3` - PDF version 1.7 ExtensionLevel 3
 
 Subset of document (property `subset`):
-- `PDF/A-1` (shortcut for PDF/A-1b)  
+- `PDF/A-1` (shortcut for PDF/A-1b)
 - `PDF/A-1a`
 - `PDF/A-1b`
 - `PDF/A-2` (shortcut for PDF/A-2b)

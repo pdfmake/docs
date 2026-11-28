@@ -1,0 +1,257 @@
+{
+  "docs": {
+    "other": "DEVELOPER DOCS"
+  },
+  "skip": {
+    "other": "Skip to content"
+  },
+  "appearance": {
+    "other": "Appearance"
+  },
+  "system": {
+    "other": "System"
+  },
+  "light": {
+    "other": "Light"
+  },
+  "dark": {
+    "other": "Dark"
+  },
+  "language": {
+    "other": "Language"
+  },
+  "homeLink": {
+    "other": "Start page"
+  },
+  "search": {
+    "other": "Search documentation"
+  },
+  "placeholder": {
+    "other": "Tables, fonts, Node.js…"
+  },
+  "nojs": {
+    "other": "Search needs JavaScript. All chapters remain available below."
+  },
+  "chapters": {
+    "other": "Chapters"
+  },
+  "overview": {
+    "other": "Overview"
+  },
+  "tools": {
+    "other": "MCP & AI tools"
+  },
+  "versionNote": {
+    "other": "You are reading the <strong>0.3.x API</strong>. Examples for 0.1/0.2 may use different imports and callbacks."
+  },
+  "onPage": {
+    "other": "On this page"
+  },
+  "edit": {
+    "other": "Edit this page"
+  },
+  "markdown": {
+    "other": "Read this page as Markdown"
+  },
+  "corpus": {
+    "other": "Full Markdown corpus"
+  },
+  "hero1": {
+    "other": "Your first PDF."
+  },
+  "hero2": {
+    "other": "One step at a time."
+  },
+  "heroLead": {
+    "other": "Start with a working example. See the result, understand the building blocks, and grow it into the document your application needs."
+  },
+  "copy": {
+    "other": "Copy"
+  },
+  "copied": {
+    "other": "Copied"
+  },
+  "copyFailed": {
+    "other": "Select code to copy"
+  },
+  "searchFailed": {
+    "other": "Search is unavailable. Browse the chapters below."
+  },
+  "noResults": {
+    "other": "No results. Try a different keyword."
+  },
+  "results": {
+    "other": "{count} results"
+  },
+  "exampleEdit": {
+    "other": "Edit in playground"
+  },
+  "exampleCode": {
+    "other": "JavaScript · document definition"
+  },
+  "examplePdf": {
+    "other": "Generated PDF · this exact definition"
+  },
+  "reference": {
+    "other": "Complete reference (English)"
+  },
+  "coverage": {
+    "other": "All documentation chapters are available in this language."
+  },
+  "homeFallback": {
+    "other": "Start page; this chapter is not translated"
+  },
+  "navStart": {
+    "other": "Getting started"
+  },
+  "navContent": {
+    "other": "Document content"
+  },
+  "navLayout": {
+    "other": "Page layout"
+  },
+  "navAssets": {
+    "other": "Images & fonts"
+  },
+  "navOutput": {
+    "other": "Output & API"
+  },
+  "navRecipes": {
+    "other": "Guides & examples"
+  },
+  "navAdvanced": {
+    "other": "Advanced"
+  },
+  "navTools": {
+    "other": "Developer tools"
+  },
+  "previous": {
+    "other": "Previous"
+  },
+  "next": {
+    "other": "Next"
+  },
+  "menu": {
+    "other": "Navigation"
+  },
+  "closeMenu": {
+    "other": "Close navigation"
+  },
+  "documentation": {
+    "other": "Documentation"
+  },
+  "playgroundTitle": {
+    "other": "Playground"
+  },
+  "playgroundLead": {
+    "other": "Edit your definition and see the result. Your workspace stays with you as you browse."
+  },
+  "openPlayground": {
+    "other": "Playground"
+  },
+  "workspaceBack": {
+    "other": "Back to documentation"
+  },
+  "runtimeNode": {
+    "other": "Node.js / API"
+  },
+  "runtimeBrowser": {
+    "other": "Browser"
+  },
+  "steps": {
+    "other": "Your path to a PDF"
+  },
+  "editHint": {
+    "other": "Try the example, then continue reading."
+  },
+  "navSetup": {
+    "other": "Runtime setup"
+  },
+  "navLearning": {
+    "other": "Learning path"
+  },
+  "navReference": {
+    "other": "Reference overview"
+  },
+  "navPageSettings": {
+    "other": "Page size & margins"
+  },
+  "navParagraphs": {
+    "other": "Paragraphs & stacks"
+  },
+  "versionLabel": {
+    "other": "Documentation version"
+  },
+  "versionHomeFallback": {
+    "other": "Version home (chapter unavailable)"
+  },
+  "codeLanguage": {
+    "other": "Example language"
+  },
+  "editCode": {
+    "other": "Edit example"
+  },
+  "codeUndo": {
+    "other": "Undo"
+  },
+  "codeRedo": {
+    "other": "Redo"
+  },
+  "codeReset": {
+    "other": "Reset"
+  },
+  "codeRun": {
+    "other": "Run"
+  },
+  "codeLive": {
+    "other": "Live preview"
+  },
+  "codePrevious": {
+    "other": "Previous PDF page"
+  },
+  "codeNext": {
+    "other": "Next PDF page"
+  },
+  "codeDownload": {
+    "other": "Download PDF"
+  },
+  "codePdfText": {
+    "other": "PDF text"
+  },
+  "codeNoJs": {
+    "other": "Both language variants are readable without JavaScript. Enable JavaScript to edit and preview."
+  },
+  "codeFailed": {
+    "other": "Current code has errors. The last successful preview is kept."
+  },
+  "codeWaiting": {
+    "other": "Waiting for typing to pause…"
+  },
+  "codeNodeContext": {
+    "other": "Node.js example: edit and copy the code here; execute it in your Node.js project."
+  },
+  "codeContext": {
+    "other": "Context snippet: edit and copy it here; surrounding application code or resources are required."
+  },
+  "codePdf": {
+    "other": "PDF preview page"
+  },
+  "codeReady": {
+    "other": "PDF updated."
+  },
+  "codeTooLarge": {
+    "other": "Code is limited to 500 KB."
+  },
+  "codeRendering": {
+    "other": "Checking code and rendering…"
+  },
+  "codeChecked": {
+    "other": "Syntax checked. Run this snippet in its documented environment."
+  },
+  "codeTimeout": {
+    "other": "Stopped after 15 seconds. Check loops or reduce the document."
+  },
+  "codeCheck": {
+    "other": "Check syntax"
+  }
+}

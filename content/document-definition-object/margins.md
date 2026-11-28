@@ -1,6 +1,6 @@
 +++
 title = "Margins"
-description = ""
+description = "Configure margins in pdfmake 0.3 with examples, options and usage notes."
 weight = 2070
 alwaysopen = true
 +++
@@ -16,7 +16,7 @@ Any element in pdfMake can have a margin:
 { text: 'another text', margin: [5, 2] },
 
 // margin: equalLeftTopRightBottom
-{ text: 'last one', margin: 5 }
+{ text: 'last one', margin: 5 },
 
 // single-side margins
 { text: 'sample', marginLeft: 5, marginTop: 2, marginRight: 10, marginBottom: 2 },
